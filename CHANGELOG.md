@@ -37,6 +37,14 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-04 - Founder AI/operator stack added to About section
+- Date: 2026-06-04
+- Change: Added an About-the-Founder proficiency block covering AI model expertise, agentic coding harnesses, model routing/training, deployment infrastructure, and product systems.
+- Why it matters: Makes Bryce's current operator resume visible on the public This.Live landing surface instead of hiding the actual AI/fleet/tooling work behind generic founder copy.
+- Files/systems touched: index.html, style.css, scripts/check_founder_proficiencies.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_founder_proficiencies.py`; HTMLParser pass over index.html, terms.html, privacy.html; local HTTP render check confirmed the block appears inside `<section id="about">`.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-04 - Banned-word fix: 'leverages' → 'uses' on index.html L176 (P0-007)
 - Date: 2026-06-04
 - Change: Replaced banned word 'leverages' with 'uses' on index.html line 176.
