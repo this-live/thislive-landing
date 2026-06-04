@@ -36,3 +36,9 @@ Update rules:
 - Change: Redesigned this.live landing page with new mission statement, Cortex stack cards (Cortex, Mnemos, Agent Fabric, Maestro), 6-card problem grid, updated products section.
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
+
+## 2026-06-04 - Banned-word fix: 'leverages' → 'uses' on index.html L176 (P0-007)
+- Date: 2026-06-04
+- Change: Replaced banned word 'leverages' with 'uses' on index.html line 176.
+- Files/systems touched: index.html (1 line), CHANGELOG.md (this entry), project-level CHANGELOG at /Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md (updated at lines 52-58 in the same PM cycle).
+- Author/agent: coder (PM-dispatched via this-live-pm daily-impl 14:00 ET, 2026-06-04)
