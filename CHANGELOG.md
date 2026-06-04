@@ -40,7 +40,7 @@ Update rules:
 ## 2026-06-04 - FTAG Studio added and MiniMax team-backed project language reflected
 - Date: 2026-06-04
 - Change: Added FTAG Studio / Future Throwback Arcade Games to the Products section and updated Fieldhouse copy to reflect MiniMax team-backed project execution.
-- Why it matters: Captures the new project/team layer Bryce created through MiniMax Code and separates FTAG's non-sports arcade-game studio from Fieldhouse's sports-game studio.
+- Why it matters: Captures the MiniMax Code /team migration layer Bryce added around existing projects, while separating FTAG as the new non-sports arcade-game studio from Fieldhouse's sports-game studio.
 - Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
 - Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser pass over index.html, terms.html, privacy.html; local HTTP render check confirmed 8 product cards and FTAG/Ages and Arrows copy.
 - Author/agent: Jarvis/Hermes
