@@ -16,6 +16,9 @@ required = [
     "Active Build",
     "Fieldhouse Games",
     "In Build",
+    "FTAG Studio",
+    "Future Throwback Arcade Games",
+    "MiniMax team-backed",
     "DRAAN",
     "R&amp;D Track",
 ]
@@ -37,7 +40,7 @@ products_start = HTML.index('<section id="products"')
 products_end = HTML.index('<!-- ABOUT -->')
 products = HTML[products_start:products_end]
 card_count = products.count('<div class="card ')
-if card_count != 7:
-    raise SystemExit(f"Expected 7 product cards, found {card_count}")
+if card_count != 8:
+    raise SystemExit(f"Expected 8 product cards, found {card_count}")
 
-print("Product-card content check passed: 7 cards, current statuses, no stale overclaims")
+print("Product-card content check passed: 8 cards, current statuses, no stale overclaims")
