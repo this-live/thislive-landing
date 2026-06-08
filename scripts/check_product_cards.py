@@ -50,6 +50,20 @@ products_start = HTML.index('<section id="products"')
 products_end = HTML.index('<!-- ABOUT -->')
 products = HTML[products_start:products_end]
 
+cortex_start = products.index('<h3 class="card-name">Cortex Suite</h3>')
+cortex_end = products.index('</div>', cortex_start)
+cortex_card = products[cortex_start:cortex_end]
+for required_in_cortex in [
+    "Hermes runtime",
+    "Mnemos memory",
+    "Agent Fabric orchestration",
+    "Maestro routing",
+    "Forge adapter factory",
+    "Surfaces for Pocket Agent, Personal Life OS, and Fleet Terminal",
+]:
+    if required_in_cortex not in cortex_card:
+        raise SystemExit("Cortex Suite card missing pillar: " + required_in_cortex)
+
 ftag_start = products.index('<h3 class="card-name">FTAG Studio</h3>')
 ftag_end = products.index('</div>', ftag_start)
 ftag_card = products[ftag_start:ftag_end]

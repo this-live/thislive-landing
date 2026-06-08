@@ -37,6 +37,14 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Cortex Suite card names Forge and Surfaces pillars
+- Date: 2026-06-08
+- Change: Updated the Cortex Suite product card to explicitly name the six Cortex pillars: Hermes runtime, Mnemos memory, Agent Fabric orchestration, Maestro routing, Forge adapter factory, and Surfaces for Pocket Agent, Personal Life OS, and Fleet Terminal.
+- Why it matters: Forge and Surfaces were present as separate cards but under-specified inside the Cortex Suite card, which made the suite map incomplete.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Prior professional experience restored to resume
 - Date: 2026-06-08
 - Change: Restored the actual professional-experience material recovered from the stale `bryce.this.live` artifact into canonical `/resume.html`.
