@@ -37,6 +37,14 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Canonical founder resume page added to deploy repo
+- Date: 2026-06-08
+- Change: Added `/resume.html` as the canonical in-repo founder/resume surface and repointed landing About/Footer links from stale `bryce.this.live` to `/resume.html`.
+- Why it matters: Gives This.Live a deployable, up-to-date resume page covering active projects, MiniMax Code /team migrations, FTAG, AI coding harnesses, models, training/inference, and deployment stack without depending on the separate old `bryce.this.live` Railway artifact.
+- Files/systems touched: resume.html, index.html, blog.css, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; blog/product/founder checks; HTMLParser pass over landing/legal/blog/resume files; local HTTP probes for `/resume.html` and `/` returned 200 with expected resume/tooling/project sentinels.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Blog surface merged into canonical deploy repo
 - Date: 2026-06-08
 - Change: Copied the blog HTML surface into the canonical Railway deploy repo, added `/blog/` and 38 post pages, created `blog.css`, added a Blog section/link on the landing page, and normalized blog index links to `/blog/*.html`.
