@@ -123,5 +123,13 @@ Update rules:
 ## 2026-06-04 - Banned-word fix: 'leverages' → 'uses' on index.html L176 (P0-007)
 - Date: 2026-06-04
 - Change: Replaced banned word 'leverages' with 'uses' on index.html line 176.
-- Files/systems touched: index.html (1 line), CHANGELOG.md (this entry), project-level CHANGELOG at /Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md (updated at lines 52-58 in the same PM cycle).
-- Author/agent: coder (PM-dispatched via this-live-pm daily-impl 14:00 ET, 2026-06-04)
+|- Files/systems touched: index.html (1 line), CHANGELOG.md (this entry), project-level CHANGELOG at /Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md (updated at lines 52-58 in the same PM cycle).
+|- Author/agent: coder (PM-dispatched via this-live-pm daily-impl 14:00 ET, 2026-06-04)
+
+## 2026-06-15 - Blog post: Forge source-grounded engineering agents
+- Date: 2026-06-15
+- Change: Published blog post at blog/2026-06-15-forge.html about Forge, a source-grounded engineering agent for production codebases. Also updated blog/index.html and index.html blog preview section.
+- Why it matters: Covers the new Forge product card added 2026-06-08 with technical deep dive on source tree parsing, import graphs, test-aware generation, and structured diff review.
+- Files/systems touched: blog/2026-06-15-forge.html, blog/index.html, index.html, CHANGELOG.md.
+- Verification: verify_content_package.py passed; check_blog_surface.py, check_product_cards.py, check_resume_surface.py, check_founder_proficiencies.py all passed; HTMLParser over index.html, resume.html, blog/index.html, and blog/2026-06-15-forge.html clean.
+- Author/agent: Jarvis/Hermes (DPL weekly cron)

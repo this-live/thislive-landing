@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge: Source-Grounded Engineering Agents | this.live Blog</title>
+  <meta name="description" content="Forge: Source-Grounded Engineering Agents">
+  <meta property="og:title" content="Forge: Source-Grounded Engineering Agents | this.live Blog">
+  <meta property="og:description" content="Forge: Source-Grounded Engineering Agents">
+  <meta property="og:url" content="https://this.live/blog/2026-06-15-forge.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Forge: Source-Grounded Engineering Agents</h1>
+    <div class="post-meta">By Bryce Murad &middot; June 15, 2026</div>
+    <div class="post-body">
+<p>For the first nine months of running this.live, I tried to make AI coding agents work the way every blog post tells you they should. You give a model a repository, a task description, and enough context to be dangerous. It produces patches. You review the patches. Ideally the patches ship. In practice you end up spending more time reviewing than writing, and the code it produces looks correct on the surface but breaks somewhere you did not think to look.</p>
+<p>This is not a model problem. It is a grounding problem. Models have never needed to reason about source code as a living system with dependencies, state machines, and implicit contracts. They need to be taught that code is not text that happens to describe programs. Code is a system that compiles into behavior, and every line exists in relationship to every other line.</p>
+<p>I spent the last three months building Forge to solve exactly this gap. Forge is not a general-purpose coding assistant. It is a source-grounded engineering agent that understands a codebase the way a senior engineer does. Not through pattern matching on training data, but through actual analysis of the source tree, import graph, and runtime behavior.</p>
+<p>The first layer of grounding is the source tree parser. Forge ingests every file in a repository and builds a unified symbol table. This is not the abstract syntax tree that most tools produce. It is a flattened representation that maps every import, export, class, function, and type to a concrete file location and dependency relationship. When Forge reads the code for a payment processing module, it already knows that this module imports from three different services, depends on a shared configuration schema, and exposes exactly four public interfaces. This happens before any generation. It happens before any reasoning.</p>
+<p>The second layer is the import graph builder. Every source-grounded system needs to understand how modules connect. Forge walks the entire import hierarchy and produces a directed graph where nodes are modules and edges represent import dependencies. This graph is then analyzed for circular dependencies, dead imports, and unresolved references. When I asked Forge to refactor the payment flow in Beacon, it identified that the refactoring would break a circular dependency between the billing module and the analytics module. It refused to proceed until we resolved the cycle. A model working from context alone would have produced code that compiled but behaved incorrectly at runtime.</p>
+<p>The third layer is the test-aware engine. Most coding agents ignore tests entirely. They treat test files as optional artifacts rather than executable specifications. Forge treats every test file as a contract that must remain satisfied. When generating changes, Forge first runs the existing test suite, identifies which tests cover the code being modified, and constrains its generation to maintain test passing. It uses a custom wrapper around pytest for Python projects that tracks which test functions belong to which modules and marks them for re-execution after any change. The agent does not write code and then check tests. It writes code with test constraints already baked into the generation process.</p>
+<p>The fourth layer is the diff reviewer. This is the most unexpected part of the architecture. Forge generates code changes as structured diffs that include not just the line-level modifications but also metadata about why each change was made, what tests cover it, and what import relationships are affected. I designed this because the review process is where most AI coding agents fail. The model produces patches. The human reviewer spends twenty minutes scanning for subtle bugs. The patches ship with issues that only surface in production. The diff reviewer forces the agent to explain its own changes in structured form before a human ever sees them. Each diff block includes a reasoning trace, a list of modified functions and their public contracts, a list of tests that exercise the changed code, and a risk assessment at low, medium, or high granularity based on how deeply the change touches the system.</p>
+<p>The implementation runs on a Docker-based environment with CUDA acceleration for the local embedding model. Forge uses a bge-large-en-v1.5-compatible embedding model for symbol resolution and cross-file semantic search. The model runs locally on the DGX Spark node. API calls for code reasoning go through OpenRouter, but the embedding and symbol resolution work entirely locally. This keeps the per-change cost under two dollars for typical pull requests. When the changes are large and involve multiple modules, the cost climbs to four or five dollars. Still well below what a human senior engineer costs for the same scope.</p>
+<p>Forge has been running in production against the Beacon codebase for the last six weeks. In that time it has generated 147 individual change sets across the billing module, the lead scoring engine, the email notification pipeline, and the user authentication flow. The acceptance rate, measured by whether a generated change passed CI without human intervention, sits at 68 percent. This is not the number that gets highlighted at AI conferences. Most public benchmarks for coding agents report pass rates above 80 percent. Those benchmarks are on toy problems with clean codebases. The 68 percent acceptance rate on a real production codebase with legacy debt, undocumented edge cases, and tight coupling is more useful.</p>
+<p>The remaining 32 percent of changes either fail the test suite, break an import relationship, or introduce a subtle correctness issue that only shows up under load. These failures are not random. They cluster around three areas: changes that touch multiple unrelated subsystems simultaneously, changes that modify shared configuration schemas, and changes that affect authentication or payment logic. Forge does not understand that these are the areas where mistakes cost money. It needs explicit warnings and guardrails. I have added configuration blocks that constrain Forge to touch at most one subsystem per change set, require explicit approval for any change to payment or authentication modules, and mandate integration test coverage for configuration schema modifications.</p>
+<p>The most valuable feature of Forge is not the code generation. It is the code review acceleration. Even when I reject the generated changes, the diff reviewer output forces the agent to articulate its reasoning. Reading a structured diff with reasoning trace and test coverage mapping is faster than reading the raw code changes. It helps me identify the exact point where the agent misunderstood the requirement and correct the guidance. This feedback loop improves subsequent generations. After three iterations on the same subsystem, the acceptance rate jumps to roughly 80 percent as the agent converges on the right understanding of the codebase conventions and edge cases.</p>
+<p>Here is the architectural breakdown of how Forge fits into the CORTEX stack. Hermes provides the runtime substrate and tool calling layer. Agent Fabric handles task routing and decomposition. Maestro selects models and routes queries based on complexity. Forge sits on top of this stack as the specialized engineering execution layer. It receives decomposed tasks from Agent Fabric, selects the appropriate model from Maestro for the complexity of the task, executes the grounded code generation using Hermes tool chains, and returns structured diffs to the orchestrator for review. The separation of concerns is critical. Forge does not decide what to build. It builds what it is told to build, and it builds it with source-grounded accuracy.</p>
+<p>I built Forge because I could not trust any existing coding agent to work on codebases that actually matter. The ones that work on small repositories with clean code are impressive demos. The ones that work on production codebases with real users are non-existent. Source-grounded engineering is not a feature. It is a requirement for any AI agent that touches code that humans depend on. The alternative is writing more code yourself and spending less time reviewing AI output, which defeats the entire purpose.</p>
+<p>The current version supports Python projects with standard import structures. TypeScript support is in progress. Go and Rust support is on the roadmap but requires significant work on import graph construction for modules that do not use simple file-level imports. The bottleneck is always the symbol resolution layer. Every new language requires a custom parser and symbol table builder. The generation logic remains the same. The grounding logic is the hard part.</p>
+<p>For more technical deep dives and industry analysis, check out https://this.live/blog/ where I document everything we are building.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
