@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connectors, Plugins, and MCP | this.live Blog</title>
+  <meta name="description" content="One of the most common misconceptions about AI agents is that they are brains floating in a vacuum. People imagine an LLM sitting in isolation, generating text, maybe answering questions. That is not ...">
+  <meta property="og:title" content="Connectors, Plugins, and MCP | this.live Blog">
+  <meta property="og:description" content="One of the most common misconceptions about AI agents is that they are brains floating in a vacuum. People imagine an LLM sitting in isolation, generating text, maybe answering questions. That is not ...">
+  <meta property="og:url" content="https://this.live/blog/connectors-plugins-and-mcp.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Connectors, Plugins, and MCP</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>One of the most common misconceptions about AI agents is that they are brains floating in a vacuum. People imagine an LLM sitting in isolation, generating text, maybe answering questions. That is not an agent. That is a chatbot.</p>
+<p>An agent is a brain with hands. Lots of hands. And those hands need to reach every system you care about.</p>
+<p>The way this works in my setup is through three distinct layers of connectivity, and understanding the layers matters because it determines how extensible your agent system is and how fast you can add new capabilities.</p>
+<p>The first layer is MCP, which stands for Model Context Protocol. Think of MCP like USB for AI. Any service that exposes an MCP server can be plugged into any agent that speaks the protocol. The agent discovers the available tools automatically, understands their schemas, and uses them as needed. It is a standardized interface that eliminates the need for custom integration code every time you want to connect a new service.</p>
+<p>MCP is still early, but it is gaining momentum fast. The ecosystem includes connectors for databases, file systems, version control, search engines, and more. When I add an MCP server to my agent's configuration, it immediately knows how to use it. No retraining. No prompt engineering. Just new capabilities.</p>
+<p>The second layer is native tools. These are built into the agent platform itself. My agents can run shell commands, read and write files, search codebases, manage processes, send messages, create cron jobs, generate images, analyze documents, and more. These do not require external services. They are part of the core platform.</p>
+<p>This layer is where the raw power lives. Terminal access means an agent can build software, run tests, deploy services, and manage infrastructure. File access means it can read your codebase, edit configurations, and write documentation. Process management means it can start servers, monitor health, and restart failed services.</p>
+<p>The third layer is custom API integrations. Telegram, Discord, Notion, GitHub, Linear, Google Workspace, Feishu. If a service has an API, the agent can use it. I have built custom connectors for the services I use daily, and the agent uses them seamlessly alongside native tools and MCP connectors.</p>
+<p>The real magic is composition. An agent might search the web, extract content, write it to a file, commit it to git, and send me a Telegram summary. All in one continuous execution flow. The tools chain together naturally because the LLM is reasoning about which tool to use when, not following a predefined script.</p>
+<p>This is why calling AI a chatbot misses the point entirely. It is a general-purpose computer operator. The LLM is the reasoning engine. The tools are the actuators. The more actuators you provide, and the better they are designed, the more the agent can do.</p>
+<p>I think of it like hiring a brilliant generalist and giving them access to every department in your company. They can talk to sales, check inventory, write marketing copy, and fix a server. The only limit is what doors you give them keys to.</p>
+<p>Build good tools. That is where the leverage is.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

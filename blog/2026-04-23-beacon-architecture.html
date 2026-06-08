@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon Architecture: What I Am Building | this.live Blog</title>
+  <meta name="description" content="Beacon Architecture: What I Am Building">
+  <meta property="og:title" content="Beacon Architecture: What I Am Building | this.live Blog">
+  <meta property="og:description" content="Beacon Architecture: What I Am Building">
+  <meta property="og:url" content="https://this.live/blog/2026-04-23-beacon-architecture.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Beacon Architecture: What I Am Building</h1>
+    <div class="post-meta">By Bryce Murad &middot; April 23, 2026</div>
+    <div class="post-body">
+<p>I built Beacon to solve a specific problem. Ten million local service businesses in the United States have no website. They are invisible to customers searching online. The barrier is not money. It is friction. So I set out to build a platform that finds these businesses, generates everything they need to get online, and manages the entire sales pipeline from first contact to closed deal. The architecture had to serve that goal directly. Every decision traces back to one question: does this make it easier to connect a service provider with a business that needs them?</p>
+<p>Beacon is a full-stack TypeScript application. React on the frontend, Express on the backend, PostgreSQL for persistence. I chose this stack because I wanted type safety end to end. When a lead moves from discovery to outreach to the pipeline, the same types flow through the entire system. There are no translation layers between frontend and backend. Shared types mean fewer bugs and faster development. I use Vite for the build, Tailwind for styling, and shadcn/ui for components. Nothing exotic. Boring technology that I can debug at two in the morning.</p>
+<p>The backend is organized around services, not monolithic controllers. Lead Discovery handles Google Places integration. AI Outreach handles content generation through OpenAI. Pipeline manages the five-stage CRM. Payments handles Stripe billing and the credit system. Each service has one job. Routes handle HTTP. Services handle logic. Models handle data. No file exceeds a few hundred lines. When something breaks, I know exactly where to look. That matters when you are the only engineer and a customer is waiting.</p>
+<p>The discovery engine is the heart of the product. It takes a niche and a location, searches Google Places, enriches each result with details and reviews, and filters for businesses with no website. A single search returns twenty to fifty qualified leads in under thirty seconds. Bulk discovery scans entire states at once using an interactive map and AI-generated niche expansion. Every query is scoped to the authenticated user. No one sees another person's leads. Tenant isolation is enforced at the database layer, not the UI layer. A middleware injects the user ID into every request context. There is no code path that queries lead data without a user scope.</p>
+<p>Security was not an afterthought. I ran a full AI penetration test with thirteen autonomous agents mapping all one hundred thirteen endpoints. We found twenty-three issues and fixed them all in one day. Ownership checks on every lead endpoint. Input validation via Zod on every request. HTML sanitization on all exports. Session regeneration after login. URL validation on the web scraper. Twilio webhook signature verification. Rate limiting on sensitive flows. No secrets in code. Production errors never leak stack traces. I do not trust security to a checklist. I verify it with agents that try to break in.</p>
+<p>The AI layer generates personalized outreach for every lead. Emails, phone scripts, SMS templates, review responses, statements of work, and pricing proposals. Each output is built from real data about that specific business. Not templates. Not mail merge. Real prompts based on actual reviews and categories. Currently this runs through OpenAI. Soon it will route through Maestro, which will send simple tasks to efficient models and complex tasks to strong ones. That cuts AI costs by forty to sixty percent without touching quality. At scale, with local GPU nodes online, routine inference will run at zero marginal cost.</p>
+<p>Twilio powers the communications layer. Click-to-call from any lead page. AI-generated talk tracks displayed while you dial. SMS campaigns with opt-out compliance and landline detection. Call recordings with consent tracking. Everything is logged and tenant-scoped. If a lead marks do not contact, that flag is enforced at the service layer. No email, no call, no SMS can reach them. Not by accident. Not by workaround.</p>
+<p>The credit system aligns cost with value. One credit per lead saved, not per search. A user can search a hundred times and pay nothing until they find leads worth keeping. Credits deduct atomically via database transaction. No lead is saved without a credit deduction, and no credit is deducted without a saved lead. Plans start at seventy-nine dollars per month for seventy-five credits. Three Starter subscribers cover the entire infrastructure cost. Everything beyond that is margin.</p>
+<p>The five-stage pipeline tracks deals from identified to closed. Filtering, sorting, bulk actions, activity timelines, and do-not-contact enforcement. Admin users have a separate query path with explicit audit logging. The pipeline is not a generic CRM retrofitted for this use case. It was built for the specific workflow of selling digital services to local businesses. That specificity is why it works.</p>
+<p>Beacon runs on Railway with Docker. PostgreSQL is managed. SSL is automatic. The domain is beacon.this.live. Total infrastructure cost is under a hundred dollars per month at current scale. Break-even is three paying customers. I did not build this to burn venture capital. I built it to be profitable from the first sale.</p>
+<p>The architecture is designed to evolve into an agentic system. Auto-discovery agents that scan markets continuously. Outreach agents that send personalized emails on schedule. Follow-up agents that track stale leads and escalate. Proposal agents that generate statements of work when a lead hits solutioning. Each agent will operate within guardrails. Maximum outreach per day. Human approval for payments above a threshold. Opt-out compliance built in. The human moves from operator to approver. Time per deal drops from hours to minutes.</p>
+<p>I built Beacon because I needed it to exist. The tools to do this are available right now. The models are good enough. The infrastructure is accessible. The only missing piece was the will to connect them into something that solves a real problem for real people. A plumber in Tampa should not be invisible because building a website was too complicated. A freelance developer should not starve for leads because prospecting was too tedious.</p>
+<p>If you are building something similar, my advice is to keep the architecture simple, keep the security tight, and keep every feature connected to revenue. Discovery generates leads. AI generates outreach. The pipeline tracks deals. Stripe collects payment. Nothing exists in isolation. That is how you build something that lasts.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

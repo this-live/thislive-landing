@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Built: What I Am Building | this.live Blog</title>
+  <meta name="description" content="Why I Built: What I Am Building">
+  <meta property="og:title" content="Why I Built: What I Am Building | this.live Blog">
+  <meta property="og:description" content="Why I Built: What I Am Building">
+  <meta property="og:url" content="https://this.live/blog/2026-05-02-why-i-built.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Why I Built: What I Am Building</h1>
+    <div class="post-meta">By Bryce Murad &middot; May 02, 2026</div>
+    <div class="post-body">
+<p>I spent three months building a centralized real-time streaming platform before realizing I was solving the wrong problem. The wake-up call came when I calculated our infrastructure costs would hit $40,000 monthly at modest scale, all because I was routing every pixel through our servers. That's when I killed the entire architecture and started over with a local-first approach.</p>
+<p>The original this.live was a WebRTC streaming service that promised ultra-low latency for creators and their audiences. Think Twitch but with sub-100ms delays instead of 3-6 seconds. I built it on Google Cloud Platform using Kubernetes clusters, deployed Janus WebRTC gateways across multiple regions, and created a React frontend that could handle thousands of concurrent viewers per stream. The technology worked beautifully in demos. The economics were catastrophic in reality.</p>
+<p>WebRTC is designed for peer-to-peer connections, but streaming platforms need selective forwarding units to handle one-to-many broadcasting. Every viewer connection requires server-side processing power and bandwidth. At $0.08 per GB egress on GCP, a single 1080p stream with 1000 viewers would cost us $200 per hour just in bandwidth. Add the compute costs for transcoding, the database overhead for chat and analytics, plus the operational complexity of managing WebRTC state across distributed nodes, and we were looking at negative unit economics from day one.</p>
+<p>I kept thinking I could optimize my way out of the hole. I spent weeks tuning the Selective Forwarding Unit configurations, implementing adaptive bitrate algorithms, and even exploring custom RTMP ingest pipelines to reduce processing overhead. I researched Cloudflare Stream, Amazon IVS, and Agora's APIs as potential cost-saving alternatives. Every path led to the same conclusion: centralized real-time streaming is fundamentally expensive because physics doesn't care about your business model.</p>
+<p>The breakthrough came when I stopped thinking about this.live as a streaming platform and started thinking about it as developer infrastructure. Instead of building another Twitch competitor, what if I built the tools that let developers add real-time features to their own applications without the infrastructure nightmare I'd just lived through?</p>
+<p>This realization coincided with my deeper dive into local-first software principles. I'd been following the work coming out of Ink & Switch, particularly their research on conflict-free replicated data types and operational transformation. The core insight is that modern applications can synchronize state between devices without depending on centralized servers for every interaction. SQLite running in WebAssembly, combined with sync protocols like those used in Linear or Figma, can deliver real-time collaboration while keeping user data local by default.</p>
+<p>I redesigned this.live around four core primitives: local SQLite databases for each application instance, operational transform algorithms for conflict resolution, WebRTC data channels for direct peer-to-peer sync, and optional relay servers only when NAT traversal fails. Instead of streaming video through our infrastructure, developers can build applications where users collaborate directly with each other, using our SDK to handle the complex networking and synchronization logic.</p>
+<p>The technical architecture centers on a TypeScript SDK that embeds wa-sqlite and provides hooks for React, Vue, and vanilla JavaScript applications. When a user makes a change, it gets written to their local SQLite database immediately, then broadcast to connected peers through WebRTC data channels. Other clients apply the changes using operational transform, ensuring consistency even when users edit the same data simultaneously while offline.</p>
+<p>For developers who want to ship quickly, we provide hosted relay servers that facilitate peer discovery and handle WebRTC signaling. But the critical difference is that these servers never see application data. They're pure networking infrastructure, similar to STUN and TURN servers. This means our costs scale with connection establishment, not with ongoing data transfer or storage. A successful application built on this.live costs us pennies per month to support, not hundreds of dollars.</p>
+<p>The business model flips from impossible to obvious. We open source the core SDK under MIT license, letting developers integrate real-time features into their applications for free. Premium features include managed relay infrastructure with global edge locations, monitoring dashboards for connection quality and sync performance, and enterprise-grade security features like end-to-end encryption key management. Developers bring their own backend services for authentication, billing, and any server-side logic their applications require.</p>
+<p>I'm launching this.live as an open source project first, with a four-phase rollout over the next six months. Phase one focuses on developer experience: comprehensive documentation, example applications, and a smooth onboarding flow for JavaScript developers. Phase two adds framework-specific integrations, starting with Next.js and expanding to SvelteKit, Nuxt, and other popular stacks. Phase three introduces the premium managed services, and phase four expands beyond JavaScript to native mobile and desktop platforms.</p>
+<p>The competitive landscape validates this approach. Yjs and Automerge provide excellent conflict-free data structures but require significant networking expertise to implement real-time sync. Socket.io and Pusher offer simple real-time APIs but force developers into centralized architectures with ongoing per-message costs. PartyKit and Liveblocks provide managed real-time infrastructure but keep all data on their servers. This.live combines the performance benefits of local-first architecture with the developer experience of managed infrastructure.</p>
+<p>Building this.live taught me that sometimes the best solution isn't optimizing your original approach but questioning whether you're solving the right problem. Centralized real-time streaming works for companies with massive scale and venture capital. Local-first real-time collaboration works for everyone else. The future belongs to applications that respect user data ownership while delivering the seamless collaborative experiences users expect.</p>
+<p>For more technical deep dives and updates on the open source launch, check out https://this.live/blog/ where I'll be documenting the entire build process.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

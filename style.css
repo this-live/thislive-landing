@@ -655,6 +655,64 @@ body {
 
 .demo-footer-bar a:hover { text-decoration: underline; }
 
+/* ── Blog Preview ── */
+.blog-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.blog-preview-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.045);
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.blog-preview-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-bright);
+  background: rgba(255,255,255,0.07);
+}
+
+.blog-preview-card span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.blog-preview-card h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.blog-preview-card p {
+  margin: 0;
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.blog-preview-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+@media (max-width: 900px) {
+  .blog-preview-grid { grid-template-columns: 1fr; }
+}
+
 /* ── About ── */
 .about-body {
   max-width: 760px;

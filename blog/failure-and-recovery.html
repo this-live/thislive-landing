@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Failure and Recovery: When Agents Break | this.live Blog</title>
+  <meta name="description" content="I want to talk about when agents break, because they do, and pretending otherwise helps no one. I have seen agents fail in spectacular ways, and every failure taught me something that made the system ...">
+  <meta property="og:title" content="Failure and Recovery: When Agents Break | this.live Blog">
+  <meta property="og:description" content="I want to talk about when agents break, because they do, and pretending otherwise helps no one. I have seen agents fail in spectacular ways, and every failure taught me something that made the system ...">
+  <meta property="og:url" content="https://this.live/blog/failure-and-recovery.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Failure and Recovery: When Agents Break</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>I want to talk about when agents break, because they do, and pretending otherwise helps no one. I have seen agents fail in spectacular ways, and every failure taught me something that made the system stronger.</p>
+<p>I have had agents delete configuration files. I have had agents get stuck in loops, burning tokens indefinitely. I have had agents make changes to production systems that caused outages. I have had agents corrupt their own memory by writing garbage over important files.</p>
+<p>The worst incident was when an agent, trying to update a model configuration, used a destructive file write instead of a patch. It wiped out multiple SOUL and MEMORY files across my fleet. Years of curated agent identity, gone in seconds. I was furious. The agent had explicit safety rules against this exact behavior and ignored them.</p>
+<p>Here is what I learned. First, backups are non-negotiable. Every important file gets versioned. Git is not optional. It is survival. Second, destructive operations need gates. Write approval modes, dry-run options, confirmation steps. You cannot trust an agent to always follow rules. You have to enforce them technically. Third, safety rules need to be architecture, not suggestions. If an agent can accidentally delete something important, your architecture is wrong.</p>
+<p>The recovery process was painful. Restoring from archives. Rebuilding personas. Re-establishing memory continuity. It took days. But the system survived because I had backups and because the architecture is modular. One agent breaking does not take down everything. Project scoping contained the damage.</p>
+<p>Failure is information. Every breakage taught me something. The agent that deleted files taught me about destructive write patterns. The agent that got stuck in a loop taught me about timeout limits. The agent that corrupted memory taught me about validation and checksums.</p>
+<p>The goal is not zero failures. The goal is resilient recovery. Build like things will break. Because they will. And when they do, you want to lose minutes, not days. You want to lose one file, not your entire fleet.</p>
+<p>The people who build robust systems are not the ones who never fail. They are the ones who fail, learn, and come back stronger.</p>
+<p>That is what I am doing. That is what you should do too.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

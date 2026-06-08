@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Failure Recovery: What I Am Building | this.live Blog</title>
+  <meta name="description" content="Failure Recovery: What I Am Building">
+  <meta property="og:title" content="Failure Recovery: What I Am Building | this.live Blog">
+  <meta property="og:description" content="Failure Recovery: What I Am Building">
+  <meta property="og:url" content="https://this.live/blog/2026-04-26-failure-recovery.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Failure Recovery: What I Am Building</h1>
+    <div class="post-meta">By Bryce Murad &middot; April 26, 2026</div>
+    <div class="post-body">
+<p>I just spent the last two weeks debugging what felt like a nightmare. Our Hermes agent was hemorrhaging money through malformed Azure OpenAI API calls, and every fix I implemented seemed to break something else downstream. The SDK was generating URLs like `/anthropic?api-version=.../v1/messages` because I was jamming query parameters into the base URL instead of treating them as proper default queries. Each malformed request cost us around $0.03 in wasted compute, but when you're processing thousands of agent interactions daily, that adds up fast.</p>
+<p>The real kicker was the OAuth token refresh mechanism. I had built this elegant priority chain where the system would automatically refresh Claude credentials stored in `~/.claude/.credentials.json`, except it was also trying to refresh tokens for Azure Anthropic endpoints where we were already using direct API keys. Mid-session, the system would overwrite our working Azure keys with expired OAuth tokens, causing cascading failures across our entire agent infrastructure.</p>
+<p>This is the reality of building AI infrastructure at scale. You spend months architecting what feels like a bulletproof system, then watch it crumble when you add support for one more provider. I learned something crucial during this debugging marathon: failure recovery isn't about preventing failures. It's about designing systems that fail gracefully and recover quickly.</p>
+<p>The first thing I changed was our provider resolution logic. Previously, we had this monolithic function that tried to be smart about detecting which AI provider to use based on URL patterns and configuration hints. It worked great until we started supporting Azure-hosted Anthropic models alongside regular Anthropic endpoints. The system couldn't distinguish between `anthropic.azure.com` and `api.anthropic.com`, so it would apply the wrong authentication flow to the wrong provider.</p>
+<p>I implemented a short-circuit mechanism that bypasses our custom runtime detection when it encounters specific provider and URL combinations. Now when the system sees `provider=anthropic` combined with an `azure.com` URL, it immediately routes to Azure-specific handling instead of trying to be clever. This sounds obvious in hindsight, but it took watching hundreds of failed requests to realize the pattern.</p>
+<p>The URL construction bug was even more insidious. Our SDK wrapper was treating API version parameters as part of the base URL instead of query parameters. So instead of generating clean requests like `https://api.openai.azure.com/v1/chat/completions?api-version=2024-02-15`, we were producing malformed garbage that would fail 100% of the time. The fix was simple once I found it: move `api-version` to `default_query` parameters instead of concatenating it with `base_url`. But identifying this required tracing through three layers of abstraction in our networking stack.</p>
+<p>What really saved us was implementing proper failure telemetry early. Every failed API call gets logged with the exact request structure, response code, and provider context. Without this, I would have been debugging blind. I can see exactly when our error rate spiked, which endpoints were failing, and what the malformed requests looked like. This observability infrastructure cost us about $200 monthly in additional logging and storage, but it paid for itself in the first hour of this debugging session.</p>
+<p>The authentication priority chain redesign taught me something important about system boundaries. I had built this universal authentication system that would try OAuth first, then fall back to API keys, then try environment variables. It felt elegant and robust, but it created hidden dependencies between completely separate providers. When Azure Anthropic authentication failed, it would poison the credentials cache for regular Anthropic requests too.</p>
+<p>Now each provider has isolated authentication flows. Azure endpoints use Azure keys directly without touching the OAuth token system. Regular Anthropic endpoints use their own credential chain. There's some code duplication, but the failure modes are isolated. When one provider's auth breaks, it doesn't cascade to others.</p>
+<p>The skills search RPC failure was a different category of problem entirely. Our terminal user interface depends on a real-time search system that lets users find and invoke AI agent skills through natural language queries. The RPC endpoint had been working perfectly for months until I refactored some networking code and accidentally broke the connection pooling. Users would type search queries and get no results, but the backend was processing everything correctly.</p>
+<p>This one was particularly frustrating because the failure was silent. No error messages, no timeouts, just empty result sets. I ended up adding heartbeat monitoring for all RPC connections and request/response correlation IDs so we can trace exactly where queries get lost. The fix was a one-line change restoring the connection pool configuration, but finding it required building entirely new debugging infrastructure.</p>
+<p>Azure Foundry support highlighted another failure pattern I hadn't considered: model compatibility detection. We were hardcoding context lengths and model capabilities instead of querying them dynamically from provider APIs. When Azure started offering GPT-5 models through their Foundry service, our system would reject requests because it didn't recognize the model names.</p>
+<p>I implemented auto-detection for transport protocols, model listings, and context lengths. Now when we encounter an unknown model, the system queries the provider's capabilities endpoint and caches the results. This adds maybe 50ms to the first request for each new model, but it eliminates an entire class of compatibility failures.</p>
+<p>The most important lesson from this debugging marathon is that failure recovery needs to be designed into your system from day one. You can't retrofit it after things start breaking. Every API client needs proper error handling, retry logic, and fallback mechanisms. Every configuration change needs to be isolated so it can't break unrelated functionality. Every failure needs to be observable so you can debug it quickly.</p>
+<p>Building AI infrastructure means accepting that you're integrating with rapidly evolving external services that will break your assumptions regularly. The providers will change their APIs, deprecate models, and introduce new authentication flows without much notice. Your job isn't to prevent these disruptions, but to build systems that adapt quickly when they happen.</p>
+<p>For more insights on building resilient AI infrastructure, check out https://this.live/blog/</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

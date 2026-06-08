@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Consensus Works: Beyond the Single Model | this.live Blog</title>
+  <meta name="description" content="I want to explain why running multiple AI models and making them agree is not overkill. It is the only way I trust high-stakes outputs, and it is probably the most important architectural decision in ...">
+  <meta property="og:title" content="Why Consensus Works: Beyond the Single Model | this.live Blog">
+  <meta property="og:description" content="I want to explain why running multiple AI models and making them agree is not overkill. It is the only way I trust high-stakes outputs, and it is probably the most important architectural decision in ...">
+  <meta property="og:url" content="https://this.live/blog/why-consensus-works.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Why Consensus Works: Beyond the Single Model</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>I want to explain why running multiple AI models and making them agree is not overkill. It is the only way I trust high-stakes outputs, and it is probably the most important architectural decision in Maestro that most people have never heard of.</p>
+<p>A single LLM is a pattern matcher with no ground truth. It predicts what words should come next based on training data. Most of the time it is right. Sometimes it confidently hallucinates. The problem is you cannot tell the difference just by looking at the output. It looks equally confident when it is right and when it is wrong.</p>
+<p>Consensus fixes this. When I send the same code review request to Claude, GPT-4o, and Kimi, and all three flag the same security issue, I know it is real. If one flags it and the other two do not, I investigate. The disagreement itself is information. It tells me there is ambiguity, or nuance, or a difference in how the models are interpreting the code.</p>
+<p>This works because different models have different biases and blind spots. Claude tends to be cautious and thorough. It will flag things you did not ask about. GPT-4o is more generalist. It catches broad issues but might miss subtle ones. Kimi handles enormous context without losing details. DeepSeek reasons differently because of its training architecture and data mix. When they agree, you have overcome each model's individual limitations.</p>
+<p>There is a cost, obviously. Running three models is more expensive than running one. But for code, security, architecture, and anything where a mistake has real consequences, the cost of consensus is far lower than the cost of being wrong. I would rather pay for three opinions than pay for one outage.</p>
+<p>I built Quorum into Maestro because I believe the future of reliable AI is not bigger models. It is smarter orchestration of diverse models. The ensemble approach has been standard in machine learning for decades. Random forests. Gradient boosting. Model stacking. We have known for years that multiple weak models often outperform a single strong one. It is time we applied that wisdom to LLMs.</p>
+<p>One brain can fool itself. Three brains agreeing is a much stronger signal. And in a world where AI is making more decisions that matter, signal is everything.</p>
+<p>Stop looking for the perfect model. Start building systems that do not depend on perfection.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

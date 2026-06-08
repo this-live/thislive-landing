@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security and Isolation: The Foundation of Trust | this.live Blog</title>
+  <meta name="description" content="Running an autonomous AI agent is inherently dangerous. I do not say that for dramatic effect. I say it because it is true, and pretending otherwise gets people in trouble.  An agent with terminal acc...">
+  <meta property="og:title" content="Security and Isolation: The Foundation of Trust | this.live Blog">
+  <meta property="og:description" content="Running an autonomous AI agent is inherently dangerous. I do not say that for dramatic effect. I say it because it is true, and pretending otherwise gets people in trouble.  An agent with terminal acc...">
+  <meta property="og:url" content="https://this.live/blog/security-and-isolation.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Security and Isolation: The Foundation of Trust</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>Running an autonomous AI agent is inherently dangerous. I do not say that for dramatic effect. I say it because it is true, and pretending otherwise gets people in trouble.</p>
+<p>An agent with terminal access can delete files. An agent with browser access can visit malicious sites. An agent with API keys can spend your money. An agent with network access can probe your infrastructure. This is not hypothetical. I have seen all of these things happen.</p>
+<p>So security is not an afterthought in my setup. It is foundational. It is the first thing I design, not the last.</p>
+<p>First, secret redaction. API keys, passwords, tokens, credentials. Anything sensitive gets detected and scrubbed before it ever reaches a model or gets stored in memory. The agent should never see your raw credentials. It might see that you have a database connection, but it should not see the connection string. It might know you use an API, but it should not know the key. This happens at the platform level, automatically, before any text reaches the LLM.</p>
+<p>Second, network isolation. My agents run on dedicated devices or isolated VLANs. They can reach the internet, but they cannot reach my personal devices, my NAS, or anything else on my network unless explicitly allowed. Firewall rules enforce this. My most sensitive infrastructure lives on completely separate networks. If an agent gets compromised, the blast radius is contained.</p>
+<p>Third, approval modes. Not every action requires permission. Routine file reads and web searches are fine. But destructive operations, network changes, credential access, and production deployments can be gated behind explicit approval. The agent proposes the action. I review it. Then it executes. This is not bureaucracy. This is sanity.</p>
+<p>Fourth, separate infrastructure. My most sensitive projects run on completely separate hardware or cloud accounts. Beacon's production environment is not on the same machine as my experimental agents. My SAQ bot is isolated from the rest of the fleet. Separation is enforced physically and logically.</p>
+<p>This is manageable if you are technical. It takes thought and effort. It is also why I built Maestro's managed tier. One click, you get all of this without having to configure it yourself. Network provisioning. Secret redaction. Approval gating. Isolation. It is all there.</p>
+<p>Power and danger are two sides of the same coin. The more capable your agent is, the more damage it can do if something goes wrong. Respect that. Design for it. Do not pretend it cannot happen, because it can and it will.</p>
+<p>The people who get hurt are the ones who treated security as a feature they would add later.</p>
+<p>Do not be one of them.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

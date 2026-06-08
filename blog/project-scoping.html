@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Scoping: The Boundary That Makes Agents Useful | this.live Blog</title>
+  <meta name="description" content="One of the most damaging mistakes I see in agent systems is the absence of boundaries. People build one agent, feed it everything, and expect it to sort it all out. The agent has access to every file,...">
+  <meta property="og:title" content="Project Scoping: The Boundary That Makes Agents Useful | this.live Blog">
+  <meta property="og:description" content="One of the most damaging mistakes I see in agent systems is the absence of boundaries. People build one agent, feed it everything, and expect it to sort it all out. The agent has access to every file,...">
+  <meta property="og:url" content="https://this.live/blog/project-scoping.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Project Scoping: The Boundary That Makes Agents Useful</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>One of the most damaging mistakes I see in agent systems is the absence of boundaries. People build one agent, feed it everything, and expect it to sort it all out. The agent has access to every file, every conversation, every project, every personal note. It is supposed to be omniscient.</p>
+<p>It ends up being confused.</p>
+<p>My agents do not know everything about everything. They know what they need to know for the job at hand. That is project scoping, and it is not a limitation. It is the feature that makes the entire system work.</p>
+<p>Every project in my setup has its own context. Beacon has its own memory, its own codebase, its own goals, its own agent configuration. Maestro has a completely separate scope. SeatMobile, SAQ, Signal & Noise, Agent Fabric. Each is isolated from the others by default.</p>
+<p>This means when I am working on Beacon, the agent is not distracted by code from SAQ. It does not suggest swim team features for my lead generation product. It does not reference Maestro routing algorithms when I am asking about Beacon's scraping pipeline. The memory search only returns results from the relevant project scope. The tools only touch the relevant files.</p>
+<p>Project scoping extends to agents themselves. My SAQ bot is a Hermes agent with a Telegram connection, but its memory, skills, and tools are scoped exclusively to swim team operations. It knows about practice schedules and parent communication. It knows Jaime is the head coach. It does not know about Maestro's Vega routing engine or Beacon's sales pipeline.</p>
+<p>This is how you prevent context pollution. Without scoping, every agent eventually becomes a bloated generalist that knows a little about everything and a lot about nothing. It starts making connections that are not there. It confuses projects. It wastes tokens reasoning about irrelevant context.</p>
+<p>With scoping, you get specialists that stay focused and deliver better results. A Beacon agent is an expert in lead generation and web scraping. An SAQ agent is an expert in swim team logistics. A Maestro agent is an expert in routing and infrastructure. They do not leak into each other's domains.</p>
+<p>The architecture enforces this at multiple levels. Memory is scoped. Tool access is scoped. File system access is scoped. Even the agent's persona and system prompt are scoped. It is impossible for the SAQ bot to accidentally reference Beacon code because it literally cannot see it.</p>
+<p>Boundaries are not limitations. They are what make complex systems manageable. They are what let you run ten projects on the same infrastructure without chaos. They are what let you trust an agent to operate autonomously without constantly worrying it is going to do something in the wrong context.</p>
+<p>If you are building with agents and you do not have project scoping, stop everything and add it. Everything else depends on it.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
