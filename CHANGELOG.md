@@ -37,6 +37,15 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Founder background and principles restored
+- Date: 2026-06-08
+- Change: Expanded `/resume.html` from a thin tool/project inventory into a fuller living resume with Bryce's swim coach background, nationally ranked swimming background, network solution architect experience, Singapore/US and travel perspective, active project portfolio, AI/tooling stack, infrastructure stack, and operating principles.
+- Change: Added a short personal About the Founder section to the landing page covering swim coaching, hard work, treating people right, truth/accountability, teaching, experiences, practice, composure, and competitive standards.
+- Why it matters: Restores the human/resume context that had been flattened during earlier production shoring and keeps This.Live from reading like only a technical tool inventory.
+- Files/systems touched: index.html, resume.html, style.css, scripts/check_founder_proficiencies.py, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; HTMLParser over index/resume/blog; local HTTP probes for `/` and `/resume.html`.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - FTAG public copy corrected away from MiniMax-backed framing
 - Date: 2026-06-08
 - Change: Updated the FTAG product card to frame FTAG as Future Throwback Arcade Games, not as a MiniMax-backed game studio.
