@@ -28,7 +28,7 @@ required = [
     "In Build",
     "FTAG Studio",
     "Future Throwback Arcade Games",
-    "MiniMax team-backed",
+    "Ages and Arrows",
     "DRAAN",
     "R&amp;D Track",
 ]
@@ -49,6 +49,13 @@ for forbidden in [
 products_start = HTML.index('<section id="products"')
 products_end = HTML.index('<!-- ABOUT -->')
 products = HTML[products_start:products_end]
+
+ftag_start = products.index('<h3 class="card-name">FTAG Studio</h3>')
+ftag_end = products.index('</div>', ftag_start)
+ftag_card = products[ftag_start:ftag_end]
+if "MiniMax" in ftag_card:
+    raise SystemExit("FTAG card must not be framed as MiniMax-backed")
+
 card_count = products.count('<div class="card ')
 if card_count != 10:
     raise SystemExit(f"Expected 10 product cards, found {card_count}")

@@ -37,6 +37,14 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - FTAG public copy corrected away from MiniMax-backed framing
+- Date: 2026-06-08
+- Change: Updated the FTAG product card to frame FTAG as Future Throwback Arcade Games, not as a MiniMax-backed game studio.
+- Why it matters: FTAG is the public studio/brand concept; MiniMax is an execution workspace detail and should not be the public descriptor for FTAG.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Forge and Surfaces cards added
 - Date: 2026-06-08
 - Change: Added explicit Forge and Surfaces cards to the Products section and added Forge/Surfaces details to the canonical founder resume page.
