@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fleet Topology: How My Agent Network Is Actually Laid Out | this.live Blog</title>
+  <meta name="description" content="People hear that I run multiple AI agents and they imagine a single server in a data center somewhere. That is not what I have built. My agent network spans six nodes across two states and multiple cl...">
+  <meta property="og:title" content="Fleet Topology: How My Agent Network Is Actually Laid Out | this.live Blog">
+  <meta property="og:description" content="People hear that I run multiple AI agents and they imagine a single server in a data center somewhere. That is not what I have built. My agent network spans six nodes across two states and multiple cl...">
+  <meta property="og:url" content="https://this.live/blog/fleet-topology.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Fleet Topology: How My Agent Network Is Actually Laid Out</h1>
+    <div class="post-meta">By Bryce Murad &middot; this.live</div>
+    <div class="post-body">
+<p>People hear that I run multiple AI agents and they imagine a single server in a data center somewhere. That is not what I have built. My agent network spans six nodes across two states and multiple cloud providers. It is a distributed system by design, and understanding the topology matters because it explains why the system is resilient, fast, and secure.</p>
+<p>Jarvis is my primary execution node. A headless Mac Mini running in my office. It handles everything from Docker containers to builds to deploys. It hosts Maestro, the Telegram bots, and most of the active agent workloads. If I need code written, tests run, or a service deployed, Jarvis does it.</p>
+<p>Fred is a MacBook Pro. Product strategy, planning, and high-level thinking live here. It is the node I use when I need to reason through something complex without the noise of execution. Fred does not run crons that depend on heavy infrastructure. It thinks. It plans. It writes specs.</p>
+<p>Atlas is another Mac Mini. Infrastructure management, monitoring, and network operations. It keeps the fleet healthy. It watches for issues, manages Tailscale, monitors services, and handles the operational side of running a distributed system.</p>
+<p>Sparky is the DGX Spark. The GPU machine. It runs local inference with vLLM, hosts the larger models, and handles anything that needs serious compute. It also runs the Signal & Noise podcast pipeline. This is where the heavy lifting happens.</p>
+<p>Bob is a Windows machine with a 5080. Creative work, gaming, and experimental tasks. It has its own WSL2 setup and runs Hermes independently. Bob is my creative lab. It is not production-critical, but it is part of the mesh.</p>
+<p>NAS is a Linux storage node. Shared documents, memory archives, and the central repository for things that need to persist across the whole fleet. If every other node went down, the NAS would still have the data.</p>
+<p>All of them are on Tailscale. They can all reach each other securely without exposing ports to the public internet. Maestro routes requests across the fleet based on which node has the right model, the right project scope, and the right availability. If Jarvis is overloaded, a request might route to Sparky. If Sparky's GPU is warm, a local inference job goes there.</p>
+<p>This is not overkill. This is what a production agent network looks like when you are serious about it. Resilience through distribution. Speed through locality. Security through network isolation.</p>
+<p>One machine is a point of failure. Six machines in a mesh is an organization.</p>
+<p>That is the topology. That is the foundation.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

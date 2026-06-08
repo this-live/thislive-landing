@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routing is where AI gets expensive or useful | this.live Blog</title>
+  <meta name="description" content="Maestro, Vega, and choosing the right model">
+  <meta property="og:title" content="Routing is where AI gets expensive or useful | this.live Blog">
+  <meta property="og:description" content="Maestro, Vega, and choosing the right model">
+  <meta property="og:url" content="https://this.live/blog/2026-02-02-maestro-routing-vega.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+  <article class="post-container">
+    <h1>Routing is where AI gets expensive or useful</h1>
+    <div class="post-meta">By Bryce Murad &middot; February 02, 2026</div>
+    <div class="post-body">
+<p class="post-dek">Maestro, Vega, and choosing the right model</p>
+<h2>The default model is usually wrong</h2>
+<p>Most AI products send too much work to the same model. It is easy. Pick a frontier model, wire the API, call it a day. It also wastes money and hides performance problems until the bill shows up.</p>
+<p>Maestro exists because model choice is a systems problem. Some tasks need reasoning. Some need speed. Some need a local model because the data should not leave the machine. Some need a cheap model because the answer is low stakes.</p>
+<h2>Routing is judgment turned into infrastructure</h2>
+<p>Vega is the routing idea inside Maestro: look at the task, constraints, cost, latency, privacy, and quality history, then send the work to the right model. That sounds obvious. It is not obvious in practice because every provider has different quirks, failures, rate limits, and pricing.</p>
+<p>The point is not to worship any one model. The point is to make the system less fragile. If one provider is down, route around it. If a local model can handle the job, keep the work local. If a frontier model is worth the cost, use it deliberately.</p>
+<h2>The operator still matters</h2>
+<p>Routing does not remove judgment. It captures judgment so you do not repeat yourself every time. That is the balance I keep coming back to with This.Live: automate the repeatable decision, but keep the human accountable for the system.</p>
+    </div>
+    <div class="post-nav"><a href="/blog/">&larr; All posts</a></div>
+  </article>
+  <footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body>
+</html>

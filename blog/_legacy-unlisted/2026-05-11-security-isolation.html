@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Isolation: What I Am Building | this.live Blog</title>
+  <meta name="description" content="Security Isolation: What I Am Building">
+  <meta property="og:title" content="Security Isolation: What I Am Building | this.live Blog">
+  <meta property="og:description" content="Security Isolation: What I Am Building">
+  <meta property="og:url" content="https://this.live/blog/2026-05-11-security-isolation.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </div>
+    </div>
+  </nav>
+  <article class="post-container">
+    <h1>Security Isolation: What I Am Building</h1>
+    <div class="post-meta">By Bryce Murad &middot; May 11, 2026</div>
+    <div class="post-body">
+<p>I've been thinking about security isolation a lot lately, especially as I watch the recent git activity on our hermes-agent repo pile up. Between fixing goal state management, routing kanban notifications, and patching authorization headers in plugin API calls, every commit reminds me how quickly attack surfaces multiply when you're building distributed AI systems. The thing that keeps me up at night isn't the obvious security holes. It's the subtle ones that emerge from the intersection of multiple isolation boundaries.</p>
+<p>When I started building Maestro, our AI routing platform at This.Live, I made the classic mistake of thinking security isolation was just about sandboxing untrusted code. Spin up a Docker container, maybe throw in some seccomp profiles, call it a day. But real isolation in AI systems goes deeper than process boundaries. It's about data isolation, model isolation, session isolation, and the gnarly problem of ensuring that when an AI agent makes decisions on behalf of one user, those decisions can never leak context from another user's session.</p>
+<p>The hermes-agent codebase teaches you this lesson fast. Look at that recent fix where we had to forward standing goal state on auto-compression session rotation. Session rotation sounds innocuous until you realize that every rotation event is a potential context leak. When an AI agent compresses its conversation history to stay within token limits, it has to make decisions about what to remember and what to forget. Without proper isolation, Agent A's compressed memories can accidentally inherit fragments from Agent B's context if they're sharing any part of the inference pipeline.</p>
+<p>This is where most developers reach for the obvious solution: complete process isolation. Every AI agent gets its own container, its own memory space, its own everything. Amazon's Firecracker microVMs make this tempting. You can spin up a microVM in under 125 milliseconds with only 5MB of memory overhead. The isolation story is bulletproof because you're literally running separate kernels. But the economics fall apart quickly when you're routing hundreds of concurrent AI sessions. At $0.10 per GB-hour for EC2 memory, even lightweight isolation starts costing real money when you're keeping separate model instances loaded for every session.</p>
+<p>The better approach, and the one we've evolved toward with Maestro, is layered isolation with shared infrastructure. We run our language models on shared GPU instances using NVIDIA's Multi-Instance GPU technology to partition A100s into isolated slices. Each slice gets its own memory controller and compute units, so one tenant can't observe another's activations even at the hardware level. On top of that, we use process-level isolation for the agent logic itself. Every hermes-agent instance runs in its own namespace with strict cgroup limits and no shared filesystem mounts except for read-only model weights.</p>
+<p>The tricky part is session state management. That recent commit about forcing judges to use tool calls instead of JSON-text replies points to a deeper isolation problem. When AI agents can generate arbitrary text, you need to be paranoid about injection attacks where one agent's output becomes another agent's input. Tool calls provide structured isolation because the agent can only invoke predefined functions with typed parameters. No more worrying about whether an agent might generate text that looks like a system prompt and confuses downstream components.</p>
+<p>Database isolation is another layer most people get wrong. You can't just put everything in PostgreSQL with row-level security and hope for the best. We learned this the hard way when building Beacon, our lead generation platform that actually generates revenue unlike our other pre-revenue products. Row-level security policies sound great until you realize that query optimization can leak information across isolation boundaries through timing attacks. A query that takes 50ms instead of 5ms tells you something about the data you're not supposed to see.</p>
+<p>Instead, we use database-per-tenant for sensitive operations and connection pooling through PgBouncer to keep overhead manageable. Each tenant gets a dedicated PostgreSQL schema with its own connection pool limits. The pooler runs on dedicated hardware that costs about $200 per month for a 32-core instance that can handle connection routing for thousands of tenants. Much cheaper than the alternative of spinning up separate database instances.</p>
+<p>The hardest isolation boundary to get right is the one between human users and AI agents. Traditional access control assumes humans make explicit requests that you can audit and control. But AI agents make hundreds of micro-decisions per conversation, and each decision needs to respect the user's permissions without requiring explicit authorization. We solve this by embedding permission tokens directly into the agent's context and training the models to check permissions before taking actions.</p>
+<p>This shows up in that commit about injecting Authorization headers in plugin API calls. Every time a hermes-agent wants to call an external API, it needs proof that it's acting on behalf of an authorized user. But you can't just pass user credentials directly to the agent because that violates the principle of least privilege. Instead, we mint short-lived JWT tokens with scoped permissions and embed them in the agent's execution context. The agent never sees the actual credentials, but every API call carries cryptographic proof of authorization.</p>
+<p>Monitoring isolation boundaries requires different tooling than traditional security monitoring. We use eBPF programs to track cross-boundary data flows at the kernel level and custom OpenTelemetry collectors to trace how data moves between isolation domains. When an agent processes sensitive information, we can verify that none of that information leaked into shared caches or logs. The observability stack costs about $500 per month for our current scale, but it's essential for proving isolation works in practice, not just in theory.</p>
+<p>The future of security isolation in AI systems will likely involve hardware-based attestation using technologies like Intel SGX or AWS Nitro Enclaves. These provide cryptographic proof that code is running in a trusted execution environment with verified isolation properties. But for now, careful application-layer isolation combined with process and container boundaries gets you most of the way there at a fraction of the cost.</p>
+<p>Building secure AI systems means thinking about isolation at every layer, from hardware to application logic to user experience. Every boundary is an opportunity for both protection and failure. The key is designing systems where isolation failures fail safe, not fail open.</p>
+<p>For more technical deep dives on building AI infrastructure, check out https://this.live/blog/ where I share what we're learning as we build the next generation of AI publishing tools.</p>
+    </div>
+    <div class="post-nav">
+      <a href="/blog/">&larr; All posts</a>
+    </div>
+  </article>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

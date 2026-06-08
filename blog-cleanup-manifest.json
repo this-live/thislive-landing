@@ -1,0 +1,160 @@
+{
+  "canonical_count": 22,
+  "canonical_posts": [
+    {
+      "date": "2026-01-12",
+      "slug": "why-i-built-this",
+      "file": "2026-01-12-why-i-built-this.html",
+      "title": "Why I built This.Live",
+      "subtitle": "The first week after January"
+    },
+    {
+      "date": "2026-01-19",
+      "slug": "how-supermemory-works",
+      "file": "2026-01-19-how-supermemory-works.html",
+      "title": "Memory is the first serious agent problem",
+      "subtitle": "What I learned before Mnemos became the center"
+    },
+    {
+      "date": "2026-01-26",
+      "slug": "agent-fabric-and-subagents",
+      "file": "2026-01-26-agent-fabric-and-subagents.html",
+      "title": "Why one agent is never enough",
+      "subtitle": "The case for parallel work without chaos"
+    },
+    {
+      "date": "2026-02-02",
+      "slug": "maestro-routing-vega",
+      "file": "2026-02-02-maestro-routing-vega.html",
+      "title": "Routing is where AI gets expensive or useful",
+      "subtitle": "Maestro, Vega, and choosing the right model"
+    },
+    {
+      "date": "2026-02-09",
+      "slug": "maestro-consensus-quorum",
+      "file": "2026-02-09-maestro-consensus-quorum.html",
+      "title": "Consensus is not overkill when the answer matters",
+      "subtitle": "Why I ask more than one model"
+    },
+    {
+      "date": "2026-02-16",
+      "slug": "beacon-architecture",
+      "file": "2026-02-16-beacon-architecture.html",
+      "title": "Beacon is a practical lead engine, not magic",
+      "subtitle": "What the architecture is supposed to do"
+    },
+    {
+      "date": "2026-02-23",
+      "slug": "security-and-isolation",
+      "file": "2026-02-23-security-and-isolation.html",
+      "title": "Security starts before the demo",
+      "subtitle": "The boring rules that keep agents useful"
+    },
+    {
+      "date": "2026-03-02",
+      "slug": "building-with-ai",
+      "file": "2026-03-02-building-with-ai.html",
+      "title": "Building with AI feels like coaching a strange team",
+      "subtitle": "What the collaboration model actually looks like"
+    },
+    {
+      "date": "2026-03-09",
+      "slug": "fleet-topology",
+      "file": "2026-03-09-fleet-topology.html",
+      "title": "The fleet is part of the product",
+      "subtitle": "Why the machines matter"
+    },
+    {
+      "date": "2026-03-16",
+      "slug": "forge-source-grounded-engineering-agents",
+      "file": "2026-03-16-forge-source-grounded-engineering-agents.html",
+      "title": "Forge is about grounding, not magic coding",
+      "subtitle": "Why coding agents need the source tree"
+    },
+    {
+      "date": "2026-03-23",
+      "slug": "surfaces-pocket-agent-life-os-fleet-terminal",
+      "file": "2026-03-23-surfaces-pocket-agent-life-os-fleet-terminal.html",
+      "title": "Surfaces are where the agent stack meets real life",
+      "subtitle": "Pocket Agent, Life OS, and Fleet Terminal"
+    },
+    {
+      "date": "2026-03-30",
+      "slug": "digital-products-lab-content-operating-system",
+      "file": "2026-03-30-digital-products-lab-content-operating-system.html",
+      "title": "Digital Products Lab is the content operating system",
+      "subtitle": "Why DPL owns the public loop"
+    },
+    {
+      "date": "2026-04-06",
+      "slug": "beacon-lessons-from-public-beta",
+      "file": "2026-04-06-beacon-lessons-from-public-beta.html",
+      "title": "Beacon taught me to respect the messy middle",
+      "subtitle": "What public beta actually means"
+    },
+    {
+      "date": "2026-04-13",
+      "slug": "fieldhouse-and-ftag",
+      "file": "2026-04-13-fieldhouse-and-ftag.html",
+      "title": "Fieldhouse and FTAG are two different game lanes",
+      "subtitle": "Sports games and Future Throwback Arcade Games"
+    },
+    {
+      "date": "2026-04-20",
+      "slug": "signal-and-noise-production-pipeline",
+      "file": "2026-04-20-signal-and-noise-production-pipeline.html",
+      "title": "Signal & Noise is a production pipeline first",
+      "subtitle": "The podcast as a system"
+    },
+    {
+      "date": "2026-04-27",
+      "slug": "personal-life-os",
+      "file": "2026-04-27-personal-life-os.html",
+      "title": "Personal Life OS is where ambition meets the calendar",
+      "subtitle": "Why life systems matter"
+    },
+    {
+      "date": "2026-05-04",
+      "slug": "brokernomex-iqlume-revival",
+      "file": "2026-05-04-brokernomex-iqlume-revival.html",
+      "title": "Brokernomex and IQlume need gates, not hype",
+      "subtitle": "How I think about financial agents"
+    },
+    {
+      "date": "2026-05-11",
+      "slug": "saq-and-community-software",
+      "file": "2026-05-11-saq-and-community-software.html",
+      "title": "SAQ reminds me software can be service",
+      "subtitle": "Community tools without the startup cosplay"
+    },
+    {
+      "date": "2026-05-18",
+      "slug": "local-ai-economics",
+      "file": "2026-05-18-local-ai-economics.html",
+      "title": "Local AI economics are not obvious",
+      "subtitle": "Where the money actually goes"
+    },
+    {
+      "date": "2026-05-25",
+      "slug": "tool-calling-and-receipts",
+      "file": "2026-05-25-tool-calling-and-receipts.html",
+      "title": "Tool calling is only useful when it leaves receipts",
+      "subtitle": "Agents need evidence trails"
+    },
+    {
+      "date": "2026-06-01",
+      "slug": "thislive-operating-model",
+      "file": "2026-06-01-thislive-operating-model.html",
+      "title": "The operating model is the product",
+      "subtitle": "What This.Live is becoming"
+    },
+    {
+      "date": "2026-06-08",
+      "slug": "blog-archive-cleanup",
+      "file": "2026-06-08-blog-archive-cleanup.html",
+      "title": "The blog archive needed a truth pass",
+      "subtitle": "Cleaning up the public record is part of building in public"
+    }
+  ],
+  "legacy_count": 39
+}

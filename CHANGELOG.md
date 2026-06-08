@@ -37,6 +37,18 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Blog archive truth cleanup and weekly backdating
+- Date: 2026-06-08
+- Change: Rebuilt the public blog archive into 22 canonical weekly posts dated every Monday from 2026-01-12 through 2026-06-08.
+- Change: Rewrote canonical posts in a more human, professional, readable style with section headers, body paragraphs, storytelling, and explicit truth guards.
+- Change: Removed/redirected duplicate or unsafe old posts from the public index; preserved old URLs as noindex redirects where applicable.
+- Change: Removed false or unsupported claims including fake multi-year This.Live tenure, fake large-scale streaming infrastructure claims, unsupported MRR/revenue claims, unsupported acceptance-rate claims, and overclaims like perfect accuracy/never hallucinate.
+- Change: Updated landing blog previews to cleaned canonical posts and added `scripts/check_blog_archive_cleanup.py` to enforce cadence and claim guards.
+- Why it matters: The blog should read like Bryce's public builder notes, not a generated content archive that invents maturity, dates, revenue, or scale.
+- Files/systems touched: blog/*.html, blog/_legacy-unlisted/*, blog/index.html, index.html, scripts/check_blog_surface.py, scripts/check_blog_archive_cleanup.py, blog-cleanup-manifest.json, CHANGELOG.md.
+- Verification: `python3 scripts/check_blog_archive_cleanup.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over landing/resume/blog index/canonical posts.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Cortex Suite card names Forge and Surfaces pillars
 - Date: 2026-06-08
 - Change: Updated the Cortex Suite product card to explicitly name the six Cortex pillars: Hermes runtime, Mnemos memory, Agent Fabric orchestration, Maestro routing, Forge adapter factory, and Surfaces for Pocket Agent, Personal Life OS, and Fleet Terminal.

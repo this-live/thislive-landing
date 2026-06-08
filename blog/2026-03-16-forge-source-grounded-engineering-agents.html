@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge is about grounding, not magic coding | this.live Blog</title>
+  <meta name="description" content="Why coding agents need the source tree">
+  <meta property="og:title" content="Forge is about grounding, not magic coding | this.live Blog">
+  <meta property="og:description" content="Why coding agents need the source tree">
+  <meta property="og:url" content="https://this.live/blog/2026-03-16-forge-source-grounded-engineering-agents.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+  <article class="post-container">
+    <h1>Forge is about grounding, not magic coding</h1>
+    <div class="post-meta">By Bryce Murad &middot; March 16, 2026</div>
+    <div class="post-body">
+<p class="post-dek">Why coding agents need the source tree</p>
+<h2>The problem is not that models cannot code</h2>
+<p>Models can write code. That argument is over. The problem is that writing code is not the same thing as understanding a codebase. A patch can look reasonable, compile in isolation, and still break the contract the rest of the system depends on.</p>
+<p>Forge exists because I got tired of that gap. I do not want an agent that guesses from vibes. I want one that reads the source tree, understands imports, respects tests, and knows when it does not have enough context.</p>
+<h2>Source grounded means receipts</h2>
+<p>The useful version of Forge is boring in the right ways. It should know which files it inspected. It should identify the symbols involved. It should explain the dependency it is about to touch. It should run the tests that matter. It should leave a trail a human can review.</p>
+<p>That is slower than blindly generating a diff. Good. Speed without grounding just creates review debt.</p>
+<h2>The adapter path</h2>
+<p>Forge also points toward a longer-term loop: collect source-grounded examples, evaluate them, train adapters where it makes sense, and serve specialist behavior locally. I have scaffolding and readiness work here. I am not going to pretend a full cloud training flywheel has already run end to end. It has not.</p>
+<p>The honest claim is still strong enough: better engineering agents start with better grounding.</p>
+    </div>
+    <div class="post-nav"><a href="/blog/">&larr; All posts</a></div>
+  </article>
+  <footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body>
+</html>

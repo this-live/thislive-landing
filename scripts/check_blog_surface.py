@@ -11,21 +11,31 @@ blog_index = (root / 'blog' / 'index.html').read_text(encoding='utf-8')
 required_landing = [
     'id="blog"',
     'What I am building, in public.',
-    '/blog/2026-06-08-building-with-ai.html',
-    '/blog/2026-06-01-supermemory.html',
-    '/blog/from-openclaw-to-hermes.html',
+    '/blog/2026-06-08-blog-archive-cleanup.html',
+    '/blog/2026-06-01-thislive-operating-model.html',
+    '/blog/2026-05-25-tool-calling-and-receipts.html',
+    '/blog/2026-03-16-forge-source-grounded-engineering-agents.html',
     'Read the Blog',
 ]
 missing = [x for x in required_landing if x not in index]
 if missing:
     raise SystemExit('Missing landing blog content: ' + ', '.join(missing))
 
+for stale in [
+    '/blog/2026-06-15-forge.html',
+    '/blog/2026-06-08-building-with-ai.html',
+    '/blog/2026-06-01-supermemory.html',
+    '/blog/from-openclaw-to-hermes.html',
+]:
+    if stale in index:
+        raise SystemExit('Landing page still links stale/unsafe blog preview: ' + stale)
+
 required_files = [
     'blog/index.html',
-    'blog/2026-06-08-building-with-ai.html',
-    'blog/2026-06-01-supermemory.html',
-    'blog/from-openclaw-to-hermes.html',
-    'blog/building-with-ai.html',
+    'blog/2026-06-08-blog-archive-cleanup.html',
+    'blog/2026-06-01-thislive-operating-model.html',
+    'blog/2026-05-25-tool-calling-and-receipts.html',
+    'blog/2026-03-16-forge-source-grounded-engineering-agents.html',
     'blog.css',
 ]
 missing_files = [x for x in required_files if not (root / x).exists()]
