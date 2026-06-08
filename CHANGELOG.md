@@ -37,6 +37,15 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Prior professional experience restored to resume
+- Date: 2026-06-08
+- Change: Restored the actual professional-experience material recovered from the stale `bryce.this.live` artifact into canonical `/resume.html`.
+- Details: Added Network Solutions Architect role, 02/2022-2025 Chicago, HLD network architecture for 60+ Fortune 1000 clients and State/Local governments, >50% close rate on complex enterprise deals across Fortune 1000 and 10+ government agencies, enterprise cost modeling, RFP/RFQ, Microsoft mainframe-as-a-service public cloud product, custom CPQ/platform standardization, Pre-Sales/Network Intern role, data center scripting, Blockchain CMDB presentation, CCNA/Azure Fundamentals, SCSU education, NexGenT, athletics, and global perspective.
+- Why it matters: The previous canonical resume had flattened Bryce's actual work history into generic founder/tooling copy.
+- Files/systems touched: resume.html, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Founder background and principles restored
 - Date: 2026-06-08
 - Change: Expanded `/resume.html` from a thin tool/project inventory into a fuller living resume with Bryce's swim coach background, nationally ranked swimming background, network solution architect experience, Singapore/US and travel perspective, active project portfolio, AI/tooling stack, infrastructure stack, and operating principles.
