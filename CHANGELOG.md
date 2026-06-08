@@ -37,6 +37,15 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Forge and Surfaces cards added
+- Date: 2026-06-08
+- Change: Added explicit Forge and Surfaces cards to the Products section and added Forge/Surfaces details to the canonical founder resume page.
+- Why it matters: Corrects the public suite map so Forge and the Surfaces pillar are not hidden under Cortex Suite. Surfaces now names Pocket Agent for live voice sessions into punched-up intent and Agent Fabric parallelization, Personal Life OS for dynamic calendar/todo, and Fleet Terminal for the Even Realities interface.
+- Files/systems touched: index.html, resume.html, scripts/check_product_cards.py, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Note: global hook's project changelog target `/Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md` is protected by macOS permissions from this process; repo-local changelog and project receipt were updated instead.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Canonical founder resume page added to deploy repo
 - Date: 2026-06-08
 - Change: Added `/resume.html` as the canonical in-repo founder/resume surface and repointed landing About/Footer links from stale `bryce.this.live` to `/resume.html`.

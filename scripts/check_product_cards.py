@@ -7,7 +7,17 @@ HTML = Path("index.html").read_text(encoding="utf-8")
 
 required = [
     "Cortex Suite",
+    "Beacon",
     "Public Beta",
+    "Forge",
+    "Source-grounded engineering agents",
+    "Surfaces",
+    "Pocket Agent",
+    "Personal Life OS",
+    "Fleet Terminal",
+    "Even Realities",
+    "punched-up intent",
+    "Agent Fabric",
     "Maestro",
     "Live Surface",
     "Signal &amp; Noise",
@@ -40,7 +50,7 @@ products_start = HTML.index('<section id="products"')
 products_end = HTML.index('<!-- ABOUT -->')
 products = HTML[products_start:products_end]
 card_count = products.count('<div class="card ')
-if card_count != 8:
-    raise SystemExit(f"Expected 8 product cards, found {card_count}")
+if card_count != 10:
+    raise SystemExit(f"Expected 10 product cards, found {card_count}")
 
-print("Product-card content check passed: 8 cards, current statuses, no stale overclaims")
+print("Product-card content check passed: 10 cards, current statuses, no stale overclaims")
