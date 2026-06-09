@@ -37,6 +37,16 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Cortex stack cards expanded to six first-class pillars
+- Date: 2026-06-08
+- Change: Updated the top `#stack` Cortex card grid from four cards to six: Cortex, Mnemos, Agent Fabric, Maestro, Forge, and Surfaces.
+- Change: Removed stale/overclaiming stack copy and replaced it with pillar-specific descriptions for runtime, memory, orchestration, routing/consensus, source-grounded engineering, and Pocket Agent / Personal Life OS / Fleet Terminal surfaces.
+- Change: Added `scripts/check_stack_cards.py` to require all six Cortex pillars in the stack section and guard against prior stale copy.
+- Why it matters: Forge and Surfaces were only fixed in product cards; the actual Cortex suite card grid still omitted them.
+- Files/systems touched: index.html, scripts/check_stack_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_stack_cards.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_archive_cleanup.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Blog archive truth cleanup and weekly backdating
 - Date: 2026-06-08
 - Change: Rebuilt the public blog archive into 22 canonical weekly posts dated every Monday from 2026-01-12 through 2026-06-08.

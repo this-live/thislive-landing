@@ -70,48 +70,68 @@
       <div class="section-header fade-in-up">
         <p class="section-label">The Stack</p>
         <h2 class="section-title">Built once. Runs everywhere.</h2>
-        <p class="section-desc">Cortex is the local AI stack — from intelligence to memory to orchestration. Everything is open source. Everything runs on your hardware.</p>
+        <p class="section-desc">Cortex is the local AI stack: runtime, memory, orchestration, routing, source-grounded engineering, and human/operator surfaces. Each pillar stands alone and plugs into the others.</p>
       </div>
-      <div class="cards">
+      <div class="cards cards--stack">
 
         <div class="card card--beacon fade-in-up">
           <div class="card-top">
-            <img src="img/thislive-logo.jpg" alt="Cortex" class="card-logo">
+            <img src="img/thislive-logo.jpg" alt="Cortex runtime" class="card-logo">
             <span class="badge badge--live">Core</span>
           </div>
           <h3 class="card-name">Cortex</h3>
-          <p class="card-tagline card-tagline--cyan">The local AI stack</p>
-          <p class="card-desc">Intelligence. No guardrails. Your training pipeline. Built from open-weight models that run on your hardware with full capability, no provider restrictions.</p>
+          <p class="card-tagline card-tagline--cyan">Local-first AI runtime</p>
+          <p class="card-desc">The umbrella runtime and contract layer for the suite. Cortex keeps the pillars modular: run locally where possible, route intentionally when needed, and avoid locking the whole stack to one provider.</p>
         </div>
 
         <div class="card card--lite fade-in-up">
           <div class="card-top">
-            <img src="img/thislive-logo.jpg" alt="Mnemos" class="card-logo">
+            <img src="img/thislive-logo.jpg" alt="Mnemos memory" class="card-logo">
             <span class="badge badge--live">Live</span>
           </div>
           <h3 class="card-name">Mnemos</h3>
           <p class="card-tagline card-tagline--indigo">Project-scoped memory</p>
-          <p class="card-desc">Not a context window. A real memory substrate. Persistent across sessions, providers, and projects. 1,046 memories, 20 containers, 6/6 fleet nodes.</p>
+          <p class="card-desc">The memory pillar: scoped containers, durable context, recall discipline, and project boundaries so agents remember what matters without leaking one project into another.</p>
         </div>
 
         <div class="card card--maestro fade-in-up">
           <div class="card-top">
-            <img src="img/maestro-logo.jpg" alt="Agent Fabric" class="card-logo">
+            <img src="img/maestro-logo.jpg" alt="Agent Fabric orchestration" class="card-logo">
             <span class="badge badge--live">Live</span>
           </div>
           <h3 class="card-name">Agent Fabric</h3>
           <p class="card-tagline card-tagline--violet">Fleet orchestration</p>
-          <p class="card-desc">One dispatch hub, parallel agents, no duplicate work. Intentional work graph routing. Profile replication across the fleet. No more isolated islands.</p>
+          <p class="card-desc">The orchestration pillar: break work into lanes, dispatch parallel agents, preserve receipts, and keep the fleet coordinated without turning every worker into an isolated island.</p>
         </div>
 
         <div class="card card--bnx fade-in-up">
           <div class="card-top">
-            <img src="img/maestro-lite-logo.jpg" alt="Maestro" class="card-logo">
-            <span class="badge badge--live">Live</span>
+            <img src="img/maestro-lite-logo.jpg" alt="Maestro routing" class="card-logo">
+            <span class="badge badge--live">Live Surface</span>
           </div>
           <h3 class="card-name">Maestro</h3>
-          <p class="card-tagline card-tagline--blue">Smart routing &amp; consensus</p>
-          <p class="card-desc">Cheapest model for each task. Zero wasted tokens. 24+ models in parallel. Quorum consensus. Vega routing. Self-improving cost optimization.</p>
+          <p class="card-tagline card-tagline--blue">Routing and consensus</p>
+          <p class="card-desc">The model-intelligence pillar: route by task, cost, latency, privacy, and quality history; compare local and frontier models; and use consensus where a single answer is too brittle.</p>
+        </div>
+
+        <div class="card card--maestro fade-in-up">
+          <div class="card-top">
+            <img src="img/maestro-lite-logo.jpg" alt="Forge adapter factory" class="card-logo">
+            <span class="badge badge--soon">Active Build</span>
+          </div>
+          <h3 class="card-name">Forge</h3>
+          <p class="card-tagline card-tagline--blue">Source-grounded engineering</p>
+          <p class="card-desc">The engineering pillar: source corpora, eval-gated code review, label harvesting, adapter-factory readiness, and a path from cloud-trained specialists to local serving.</p>
+        </div>
+
+        <div class="card card--tl fade-in-up">
+          <div class="card-top">
+            <img src="img/brand-icons.jpg" alt="Surfaces interface layer" class="card-logo">
+            <span class="badge badge--soon">Active Build</span>
+          </div>
+          <h3 class="card-name">Surfaces</h3>
+          <p class="card-tagline card-tagline--cyan">Pocket Agent, Life OS, Fleet Terminal</p>
+          <p class="card-desc">The interface pillar: Pocket Agent turns voice into punched-up intent, Personal Life OS handles dynamic calendar and todo, and Fleet Terminal brings the fleet to the Even Realities interface.</p>
         </div>
 
       </div>
