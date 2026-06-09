@@ -71,11 +71,13 @@ def main() -> None:
                 fail(f"Forbidden/unverified claim in {path.name}: {claim}")
 
     index = (BLOG / "index.html").read_text(encoding="utf-8")
+    if "blog-archive-cleanup" in index or "truth pass" in index.lower():
+        fail("Blog cleanup should not be promoted as a public/canonical blog entry")
     for post in posts:
         if f'/blog/{post["file"]}' not in index:
             fail(f"Canonical post missing from index: {post['file']}")
 
-    print(f"Blog archive cleanup check passed: {len(posts)} weekly posts from {posts[0]['date']} to {posts[-1]['date']}")
+    print(f"Blog archive cadence/truth check passed: {len(posts)} weekly posts from {posts[0]['date']} to {posts[-1]['date']}")
 
 
 if __name__ == "__main__":

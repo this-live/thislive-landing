@@ -11,7 +11,7 @@ blog_index = (root / 'blog' / 'index.html').read_text(encoding='utf-8')
 required_landing = [
     'id="blog"',
     'What I am building, in public.',
-    '/blog/2026-06-08-blog-archive-cleanup.html',
+    '/blog/2026-06-08-digital-products-lab-content-loop.html',
     '/blog/2026-06-01-thislive-operating-model.html',
     '/blog/2026-05-25-tool-calling-and-receipts.html',
     '/blog/2026-03-16-forge-source-grounded-engineering-agents.html',
@@ -32,7 +32,7 @@ for stale in [
 
 required_files = [
     'blog/index.html',
-    'blog/2026-06-08-blog-archive-cleanup.html',
+    'blog/2026-06-08-digital-products-lab-content-loop.html',
     'blog/2026-06-01-thislive-operating-model.html',
     'blog/2026-05-25-tool-calling-and-receipts.html',
     'blog/2026-03-16-forge-source-grounded-engineering-agents.html',
