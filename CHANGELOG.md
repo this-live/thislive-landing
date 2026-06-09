@@ -37,6 +37,17 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-08 - Cortex Suite cards corrected to component grid
+- Date: 2026-06-08
+- Change: Reframed the top `#stack` section so Cortex is the umbrella suite, not a peer component card.
+- Change: The Cortex Suite component card grid now contains exactly five cards: Mnemos, Agent Fabric, Maestro, Forge, and Surfaces.
+- Change: Surfaces card explicitly names Personal Life OS, Pocket Agent, Fleet Terminal, and the Even Realities interface.
+- Change: Updated `scripts/check_stack_cards.py` to fail if Cortex appears as a peer card, if the component grid is not exactly five cards, or if any required suite component/copy is missing.
+- Why it matters: Cortex Suite means Mnemos + Agent Fabric + Maestro + Surfaces + Forge; the page should not imply Cortex is a sixth sibling product.
+- Files/systems touched: index.html, scripts/check_stack_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_stack_cards.py`; full site checks.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-08 - Cortex stack cards expanded to six first-class pillars
 - Date: 2026-06-08
 - Change: Updated the top `#stack` Cortex card grid from four cards to six: Cortex, Mnemos, Agent Fabric, Maestro, Forge, and Surfaces.
