@@ -330,6 +330,8 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
+a.card { text-decoration: none; color: inherit; }
+
 .card:hover {
   background: var(--surface-hover);
   border-color: var(--border-hover);

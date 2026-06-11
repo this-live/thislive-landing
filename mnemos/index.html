@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mnemos | The memory plane your whole fleet shares</title>
+  <meta name="description" content="One hierarchical, scoped memory service every agent, harness, and provider reads and writes the same way. ~92k-95k memories in production, 7/7 acceptance gates passing. Nothing leaves your hardware.">
+  <meta property="og:title" content="Mnemos | The memory plane your whole fleet shares">
+  <meta property="og:description" content="Scoped, hierarchical memory for every agent. In production at fleet scale. Nothing leaves your hardware.">
+  <meta property="og:url" content="https://this.live/mnemos/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pillar.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/maestro/">Maestro</a>
+        <a href="/fabric/">Fabric</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/cortex/" class="nav-back">&larr; Cortex</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="phero">
+    <div class="phero-orb phero-orb--1"></div>
+    <div class="phero-orb phero-orb--2"></div>
+    <div class="container">
+      <div class="phero-inner">
+        <p class="phero-eyebrow">Mnemos &middot; the memory plane</p>
+        <h1>Your agents stop being <span class="accent">scattered and forgetful.</span></h1>
+        <p class="phero-lede">One hierarchical, scoped memory service every agent, harness, and provider on your fleet reads and writes the same way. <strong>Memory lives on your hardware</strong> &mdash; SQLite system-of-record plus a Qdrant vector index on your NAS. Nothing leaves your machines.</p>
+        <div class="phero-actions">
+          <a href="#whats-real" class="btn btn-primary">See what's live</a>
+          <a href="#model" class="btn btn-outline">How memory is scoped</a>
+        </div>
+        <p class="phero-meta">~92k&ndash;95k memories in production &middot; v3.0.0-prd &middot; as-of 2026-06-11</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- THE PROBLEM IT KILLS -->
+  <section class="psection problem-band">
+    <div class="container">
+      <p class="psection-label">The problem it kills</p>
+      <h2 class="psection-title">Cross-agent memory loss + context rot</h2>
+      <div style="margin-top:18px">
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>Context windows are fake memory</h3><p>200K context is not 200K memory. Models degrade at the end of long contexts, every session resets, and you pay to re-process your own data.</p></div>
+        </div>
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>Every agent re-discovers what the others already know</h3><p>No shared context means duplicated work and one project leaking into another. Mnemos gives every agent the same scoped store &mdash; without sibling leakage.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MEMORY MODEL -->
+  <section class="psection" id="model">
+    <div class="container">
+      <p class="psection-label">The memory model</p>
+      <h2 class="psection-title">Scoped by hierarchy, curated by promotion</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3>Container hierarchy</h3><p>Memories live in paths like <code>cortex/&lt;pillar&gt;</code>. Recall on a container returns its memories plus ancestors' promoted memories &mdash; never siblings.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Scoped recall by default</h3><p>Unscoped recall floors to a triage scope; it is never a global scan. Every result carries its source container tag.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Protected root + promotion</h3><p>Direct writes to a shared root return 403. A memory reaches shared scope only via an explicit promotion ritual with an attestation.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Sessions + tombstones</h3><p>Ephemeral session containers with TTL, atomic promote-on-close (exactly-once), and soft-delete tombstones that keep a version snapshot.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S REAL -->
+  <section class="psection" id="whats-real">
+    <div class="container">
+      <p class="psection-label">Truth discipline</p>
+      <h2 class="psection-title">What's real today vs. staged</h2>
+      <div class="status-grid" style="margin-top:24px">
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>7/7 acceptance gates PASS against production</h3>
+            <p>Tombstone exclusion, scoped recall, labeled cross-project recall, session persistence, quarantine, write-protected root (403), and full session lifecycle &mdash; all probed live against the production NAS service.</p>
+            <span class="evidence">receipts/mnemos-deploy/versions-fix-verify.md (2026-06-11)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>~92k&ndash;95k memories in production</h3>
+            <p>Live firehose on the NAS: <code>/health</code> healthy, v3.0.0-prd, queue_pending 0, Qdrant ok. Namespace unified to <code>cortex/*</code>, hierarchy-spec v2.0.0, 18 containers.</p>
+            <span class="evidence">receipts/mnemos-deploy/deploy-verify.md (as-of 2026-06-11)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Memory by config, not code</h3>
+            <p>Claude Code, Codex, Hermes, and Mavis are wired live over three MCP transports plus REST. Last live smoke: 12 pass / 0 fail / 1 skip.</p>
+            <span class="evidence">mnemos/docs/integration-matrix.md (smoke 2026-06-11)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--build">In Progress</span></div>
+          <div class="s-body">
+            <h3>Semantic BGE embeddings in production</h3>
+            <p>The BGE backend is implemented in code, but the production reindex of the points is not yet run. Until the blue/green flip, live recall runs on a deterministic-hash embedder (dim 384). <strong>Implemented; production reindex pending.</strong></p>
+            <span class="evidence">receipts/phase1/bge-embedder.md &middot; plans/04-mnemos.md MNEM-WS4</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--spec">Known limit</span></div>
+          <div class="s-body">
+            <h3>Hyphen-slug container drift</h3>
+            <p>8 rows under malformed slugs from a separate writer bug, plus one stale <code>test/container</code> row, are open and flagged for a hygiene sweep. We state limits plainly.</p>
+            <span class="evidence">receipts/mnemos-deploy/versions-fix-verify.md ISSUES</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Give your fleet one memory.</h2>
+      <p>Scoped, curated, on your hardware. Running in production today.</p>
+      <div class="cta-actions">
+        <a href="/cortex/" class="btn btn-primary">See the full suite</a>
+        <a href="/fabric/" class="btn btn-outline">How agents use it</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfooter">
+    <div class="container pfooter-inner">
+      <span class="pfooter-brand">this<span class="logo-dot">.</span>live</span>
+      <div class="pfooter-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/maestro/">Maestro</a>
+        <a href="/mnemos/">Mnemos</a>
+        <a href="/fabric/">Fabric</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/">this.live</a>
+      </div>
+      <p class="pfooter-note">All claims derive from mnemos/README.md and receipts/mnemos-deploy/. Production scale is a dated snapshot.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

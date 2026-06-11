@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Fabric | Use all your agents, parallel and deterministic</title>
+  <meta name="description" content="An execution spine that dispatches your agents in parallel and leaves durable receipts. n8n drives scheduled work today; the dynamic-workflow engine primitives are proven end-to-end.">
+  <meta property="og:title" content="Agent Fabric | Use all your agents, parallel and deterministic">
+  <meta property="og:description" content="Break work into lanes, dispatch parallel agents, keep durable receipts. The fleet execution spine.">
+  <meta property="og:url" content="https://this.live/fabric/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pillar.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/maestro/">Maestro</a>
+        <a href="/mnemos/">Mnemos</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/cortex/" class="nav-back">&larr; Cortex</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="phero">
+    <div class="phero-orb phero-orb--1"></div>
+    <div class="phero-orb phero-orb--2"></div>
+    <div class="container">
+      <div class="phero-inner">
+        <p class="phero-eyebrow">Agent Fabric &middot; the execution substrate</p>
+        <h1>Use <span class="accent">all</span> your agents. Parallel and deterministic.</h1>
+        <p class="phero-lede">Break work into lanes, dispatch agents in parallel, and keep a durable receipt for everything that runs. <strong>A boring-reliable execution spine</strong> so your fleet is coordinated &mdash; not a set of isolated islands re-doing each other's work.</p>
+        <div class="phero-actions">
+          <a href="#whats-real" class="btn btn-primary">See what's live</a>
+          <a href="#how" class="btn btn-outline">How it works</a>
+        </div>
+        <p class="phero-meta">:3333 execution service &middot; ExecutionReceipt v1 &middot; n8n spine live</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- THE PROBLEM IT KILLS -->
+  <section class="psection problem-band">
+    <div class="container">
+      <p class="psection-label">The problem it kills</p>
+      <h2 class="psection-title">Scattered agents, no receipts, duplicated spend</h2>
+      <div style="margin-top:18px">
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>One agent for writing, one for coding, one for research &mdash; none coordinated</h3><p>You have agents everywhere and no way to run them together. Fabric turns a fleet into one work graph you can dispatch against.</p></div>
+        </div>
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>Confident summaries instead of evidence</h3><p>Tool calls are only useful when they leave receipts. Fabric persists a durable receipt for every run so you can audit what actually happened.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="psection" id="how">
+    <div class="container">
+      <p class="psection-label">How it works</p>
+      <h2 class="psection-title">A spine, a receipt bus, an engine</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3>Execution service</h3><p>A <code>:3333</code> service handles dispatch, an SSE event stream, human-in-the-loop relay, and fleet health.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Durable receipts</h3><p>Every run conforms to ExecutionReceipt v1 on a receipt bus, with an 8-state task lifecycle.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>n8n orchestration spine</h3><p>The live n8n spine drives scheduled work. Fabric coexists as the on-demand layer per ADR-0017.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Maestro-routed dispatch</h3><p>Live Maestro routing is wired into dispatch &mdash; a decision id and cost thread end-to-end through a run.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S REAL -->
+  <section class="psection" id="whats-real">
+    <div class="container">
+      <p class="psection-label">Truth discipline</p>
+      <h2 class="psection-title">What's real today vs. staged</h2>
+      <div class="status-grid" style="margin-top:24px">
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Boring-reliable execution spine</h3>
+            <p>The <code>:3333</code> service &mdash; dispatch, v1 receipt bus, SSE events, HITL relay, fleet health &mdash; is up and verified. n8n drives scheduled work live.</p>
+            <span class="evidence">agent-fabric/README.md &middot; receipts/phase2/verify-suite.md</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Dynamic-workflow engine primitives proven e2e</h3>
+            <p>Agent, parallel, pipeline, tournament, and loop primitives &mdash; with per-node isolation (real git worktrees) and checkpoint/resume &mdash; proven end-to-end (29/29).</p>
+            <span class="evidence">receipts/phase2/00-PHASE2-ROLLUP.md &sect;5</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Live Maestro routing wired into dispatch</h3>
+            <p>A routing decision id and cost thread through dispatch end-to-end. Committed HEAD test suite green (147 pass).</p>
+            <span class="evidence">receipts/phase3/maestro-live.md &middot; agent-fabric CHANGELOG 2026-06-11</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--build">Active Build</span></div>
+          <div class="s-body">
+            <h3>The engine as the daily production driver</h3>
+            <p>The dynamic engine is proven e2e but is <strong>not yet the daily production driver.</strong> The routing flag ships default-off and the live migration is not yet applied. It becomes the default after spec approval and live enablement.</p>
+            <span class="evidence">receipts/phase2/00-PHASE2-ROLLUP.md &sect;6 (review-pending)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Coordinate the whole fleet.</h2>
+      <p>Parallel dispatch, deterministic runs, durable receipts. The spine is live today.</p>
+      <div class="cta-actions">
+        <a href="/cortex/" class="btn btn-primary">See the full suite</a>
+        <a href="/mnemos/" class="btn btn-outline">Shared memory plane</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfooter">
+    <div class="container pfooter-inner">
+      <span class="pfooter-brand">this<span class="logo-dot">.</span>live</span>
+      <div class="pfooter-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/maestro/">Maestro</a>
+        <a href="/mnemos/">Mnemos</a>
+        <a href="/fabric/">Fabric</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/">this.live</a>
+      </div>
+      <p class="pfooter-note">Spine + engine-primitives claims map to receipts/phase2. The engine is proven e2e, not yet the daily driver.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

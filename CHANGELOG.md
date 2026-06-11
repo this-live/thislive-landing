@@ -37,6 +37,14 @@ Update rules:
 - Files/systems touched: index.html, style.css
 - Author/agent: Hermes (NAS)
 
+## 2026-06-11 - Six evidence-gated pillar product pages + grid wiring (Phase 7, SITE-WS3)
+- Date: 2026-06-11
+- Change: Added six pillar product pages on the existing static no-build stack — `/cortex/`, `/maestro/`, `/mnemos/`, `/fabric/`, `/surfaces/` (Pocket Agent / Personal Life OS / Fleet Terminal sub-sections), `/forge/` — each its own `index.html` under a new shared `pillar.css` using the this.live brand tokens (navy #0A0F2E / cyan #00D4FF, dark-only, no emojis). Every page carries a "Live / Active Build / Specced" status section where each claim maps to a receipt path; copy follows plans/08-sites.md claims tables and receipts/phase7/claims-ledger.md. Truth posture enforced: Mnemos claims "~92k-95k memories, 7/7 gates" (allowed); Maestro claims "live routing proven" (allowed) but auto-labeling is framed "in progress, no useful signal yet" (consensus pool empty); Forge explicitly states "no trained adapter, none served" (factory-not-adapters framing, R3/R4 blocked); Surfaces states "Android sideload today, desktop in active build, no store listings". Updated the homepage stack + products grids so each pillar card links to its page and the card hero == page hero (kills click-through dissonance); Maestro card now links to /maestro/ instead of the console domain. Added `a.card { text-decoration:none }` guard to style.css for anchored cards.
+- Why it matters: Six pillars had one card each and no pages; the umbrella story now resolves to evidence-gated pillar pages instead of dead links or an off-canon enterprise-SaaS page. No phantom maturity: every public claim is gated to a receipt and staged work is labeled as such.
+- Files/systems touched: pillar.css (new); cortex/index.html, maestro/index.html, mnemos/index.html, fabric/index.html, surfaces/index.html, forge/index.html (new); index.html (grid wiring); style.css (anchored-card guard); CHANGELOG.md
+- Migration/operator action: Deploy is repo-driven via Railway + Cloudflare (no Vercel). Operator deploy: `git push origin main` triggers the Railway build (Dockerfile → nginx:alpine, healthcheck `/`); Cloudflare fronts this.live. nginx `try_files $uri $uri/ /index.html` serves the new `/<pillar>/index.html` directories. NOT auto-deployed by this change — commit is pushed; operator promotes.
+- Author/agent: sites (Phase 7, SITE-WS3)
+
 ## 2026-06-08 - Cortex Suite cards corrected to component grid
 - Date: 2026-06-08
 - Change: Reframed the top `#stack` section so Cortex is the umbrella suite, not a peer component card.

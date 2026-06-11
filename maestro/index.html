@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maestro | Model routing that gets cheaper the more you use it</title>
+  <meta name="description" content="Maestro routes every prompt to the right model by task, cost, latency, privacy, and quality history. BYOK or fully local. Live routing proven. Every routed request becomes a label.">
+  <meta property="og:title" content="Maestro | Routing that gets cheaper the more you use it">
+  <meta property="og:description" content="Route by task, cost, latency, privacy, and quality. BYOK or fully local. No provider lock-in.">
+  <meta property="og:url" content="https://this.live/maestro/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pillar.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/mnemos/">Mnemos</a>
+        <a href="/fabric/">Fabric</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/cortex/" class="nav-back">&larr; Cortex</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="phero">
+    <div class="phero-orb phero-orb--1"></div>
+    <div class="phero-orb phero-orb--2"></div>
+    <div class="container">
+      <div class="phero-inner">
+        <p class="phero-eyebrow">Maestro &middot; the model-intelligence pillar</p>
+        <h1>The right model for the job. <span class="accent">Cheaper over time.</span></h1>
+        <p class="phero-lede">Maestro routes every prompt by task, cost, latency, privacy, and quality history &mdash; across local and frontier models. <strong>BYOK or fully local, no provider lock-in.</strong> Every routed request becomes a label, so routing gets better and cheaper the more you use it.</p>
+        <div class="phero-actions">
+          <a href="#quickstart" class="btn btn-primary">Run it locally</a>
+          <a href="https://github.com/brycemurad0/maestro" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <p class="phero-meta">Live routing proven &middot; OpenAI-compatible /v1/chat/completions</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- THE PROBLEM IT KILLS -->
+  <section class="psection problem-band">
+    <div class="container">
+      <p class="psection-label">The problem it kills</p>
+      <h2 class="psection-title">Provider lock-in + infinite token burn</h2>
+      <div style="margin-top:18px">
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>You rent intelligence from a few providers</h3><p>One API, one bill, one vendor's roadmap and guardrails. When they change the model, your stack changes whether you like it or not.</p></div>
+        </div>
+        <div class="problem-kill">
+          <span class="x">&times;</span>
+          <div><h3>Every interaction is an ongoing tax</h3><p>$0.01&ndash;$0.10 per call adds up. Persistent agents at scale burn cash forever, and you re-pay to process your own context every session.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="psection">
+    <div class="container">
+      <p class="psection-label">How it works</p>
+      <h2 class="psection-title">Route, verify, redact, learn</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><h3>Smart routing</h3><p>A learned router (Vega) plus benchmark priors picks across 7 routing tiers by task, cost, latency, privacy, and quality history.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Quorum consensus</h3><p>When one answer is too brittle, multiple models score and synthesize. The Quorum consensus engine runs live.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Secret-scan redaction</h3><p>A redaction scanner runs before anything leaves for a cloud provider &mdash; so BYOK never means leaking secrets.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Every request is a label</h3><p>Routed calls feed a learning flywheel. Routing improves with your usage instead of staying static.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S REAL -->
+  <section class="psection">
+    <div class="container">
+      <p class="psection-label">Truth discipline</p>
+      <h2 class="psection-title">What's real today vs. staged</h2>
+      <div class="status-grid" style="margin-top:24px">
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Live routing, proven end-to-end</h3>
+            <p>A dispatch hits live Maestro on a real GPU node and a durable routing decision round-trips with a decision id &mdash; verified across repeated runs.</p>
+            <span class="evidence">receipts/phase3/maestro-live.md (MAES-1 round_trip_proven)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>Quorum consensus engine</h3>
+            <p>Multi-model scoring and synthesis, running as a live service. OpenAI-compatible <code>/v1/chat/completions</code>; durable receipt at <code>/v1/receipt/{id}</code>.</p>
+            <span class="evidence">receipts/phase3/maestro-quorum-hygiene.md</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--live">Live</span></div>
+          <div class="s-body">
+            <h3>63,000+ historical routing labels (frozen corpus)</h3>
+            <p>A frozen Feb&ndash;Mar 2026 corpus of ~63,258 historical routing decisions. We keep it caveated as a historical learning corpus &mdash; not a live or growing stat.</p>
+            <span class="evidence">receipts/phase3/maestro-labeling.md &sect;1 (provenance kept)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--build">In Progress</span></div>
+          <div class="s-body">
+            <h3>Auto-labeling on live calls</h3>
+            <p>The labeling pipeline mechanically fires on routed calls &mdash; <strong>but it does not yet produce useful training signal.</strong> The in-process consensus pool is empty, so fresh rows are degenerate until that pool is populated. We do not claim useful auto-labels yet.</p>
+            <span class="evidence">receipts/phase3/maestro-labeling.md &sect;2 (consensus pool empty)</span>
+          </div>
+        </div>
+
+        <div class="status-row">
+          <div class="s-state"><span class="badge badge--spec">Planned</span></div>
+          <div class="s-body">
+            <h3>Hosted convenience tier</h3>
+            <p>No managed/hosted offer, no pricing tiers, no managed key pool, no <code>api.maestro.this.live</code> service today. The billing shell is parked until a real offer and the governance loop exist.</p>
+            <span class="evidence">plans/08-sites.md D4 &middot; ADR-0016 (shell parked)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICKSTART -->
+  <section class="psection" id="quickstart">
+    <div class="container">
+      <p class="psection-label">Quickstart</p>
+      <h2 class="psection-title">Run Maestro locally</h2>
+      <p class="psection-desc">Free, local-first, bring your own keys. Clone the public repo and bring it up with Docker.</p>
+      <pre class="code-block">git clone https://github.com/brycemurad0/maestro
+cd maestro
+docker compose up -d  <span class="cmt"># Vega routing + Quorum, on your machine</span></pre>
+      <div class="note"><strong>100% private when local.</strong> Run it fully local and your data never leaves your hardware. Use BYOK to reach frontier models &mdash; the secret-scan redaction runs before anything leaves.</div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Stop renting your routing logic.</h2>
+      <p>Own the router. BYOK or fully local. It gets cheaper the more you use it.</p>
+      <div class="cta-actions">
+        <a href="https://github.com/brycemurad0/maestro" class="btn btn-primary" target="_blank" rel="noopener">Get Maestro</a>
+        <a href="/cortex/" class="btn btn-outline">See the full suite</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pfooter">
+    <div class="container pfooter-inner">
+      <span class="pfooter-brand">this<span class="logo-dot">.</span>live</span>
+      <div class="pfooter-links">
+        <a href="/cortex/">Cortex</a>
+        <a href="/maestro/">Maestro</a>
+        <a href="/mnemos/">Mnemos</a>
+        <a href="/fabric/">Fabric</a>
+        <a href="/surfaces/">Surfaces</a>
+        <a href="/forge/">Forge</a>
+        <a href="/">this.live</a>
+      </div>
+      <p class="pfooter-note">Routing claims map to receipts/phase3/maestro-live.md. Auto-labeling is wiring-only until the consensus pool is populated.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
