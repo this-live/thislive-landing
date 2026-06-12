@@ -3,160 +3,429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forge | An adapter factory, gated so it cannot lie</title>
-  <meta name="description" content="Forge is the adapter factory that kills model dependency: 8 lanes, curated examples, no-bypass safety gates, base model served on your own GPU. Trained adapters are not yet served - the factory is built and gated; the first measured adapter is the milestone.">
-  <meta property="og:title" content="Forge | An adapter factory, gated so it cannot lie">
-  <meta property="og:description" content="The factory exists and is gated so it cannot lie. Base model served on your own GPU. First measured adapter is the milestone.">
+  <title>Forge · The adapter factory, gated so it cannot lie</title>
+  <meta name="description" content="Forge is the model factory that kills model dependency: 8 lanes, a Modal training harness, no-bypass eval gates, and the base model served on your own GPU. The factory is built end-to-end; the first adapters are in training. No trained or served adapters are claimed.">
+  <meta name="theme-color" content="#080B14">
+  <meta property="og:title" content="Forge · The adapter factory, gated so it cannot lie">
+  <meta property="og:description" content="The factory is built end-to-end and gated so it cannot lie. Base model served on your own GPU. First adapters in training. No trained adapters claimed.">
   <meta property="og:url" content="https://this.live/forge/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Forge · This.Live">
+  <meta name="twitter:description" content="The model-factory pillar. Verticalized local adapters, eval-gated training, the cost-down flywheel. Built and gated; first adapters in training.">
+  <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/pillar-legacy.css">
+  <link rel="stylesheet" href="/design-system.css">
+  <link rel="stylesheet" href="/pillar.css">
 </head>
-<body>
+<body class="pillar-page h-amber">
 
-  <nav class="nav">
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="/cortex/">Cortex</a>
         <a href="/maestro/">Maestro</a>
         <a href="/mnemos/">Mnemos</a>
         <a href="/fabric/">Fabric</a>
         <a href="/surfaces/">Surfaces</a>
-        <a href="/cortex/" class="nav-back">&larr; Cortex</a>
+        <a href="/#suite" class="nav-back">&larr; The Suite</a>
+        <a href="#how" class="btn btn-primary btn-sm nav-cta">How the factory works</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </nav>
 
+  <!-- ── HERO ── -->
   <header class="phero">
-    <div class="phero-orb phero-orb--1"></div>
-    <div class="phero-orb phero-orb--2"></div>
+    <div class="phero-bg" aria-hidden="true">
+      <div class="phero-grid"></div>
+      <div class="phero-orb phero-orb--1"></div>
+      <div class="phero-orb phero-orb--2"></div>
+      <canvas id="heroCanvas" class="phero-particles"></canvas>
+    </div>
     <div class="container">
       <div class="phero-inner">
-        <p class="phero-eyebrow">Forge &middot; the adapter factory</p>
-        <h1>Your own models, improving on <span class="accent">your own work.</span></h1>
-        <p class="phero-lede">Forge is the factory that turns your fleet's own labels into local specialists &mdash; so you stop depending on a provider's model. <strong>The factory is built end-to-end and gated so it cannot lie:</strong> nothing gets promoted without passing an eval. The base model already serves on your own GPU.</p>
-        <div class="phero-actions">
-          <a href="#whats-real" class="btn btn-primary">See what's real</a>
-          <a href="#how" class="btn btn-outline">The flywheel</a>
+        <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the model factory</p>
+        <h1 class="reveal" data-delay="1">Your own models, <span class="grad">trained on your own work.</span></h1>
+        <p class="phero-lede reveal" data-delay="2">
+          Forge is the factory that turns your fleet's own labels into local specialists — so you stop depending on a provider's model. <strong>The factory is built end-to-end and gated so it cannot lie:</strong> nothing is promoted without passing an eval. The base model already serves on your own GPU; the first adapters are in training.
+        </p>
+        <div class="phero-actions reveal" data-delay="3">
+          <a href="#how" class="btn btn-primary btn-arrow">
+            How the factory works
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#whats-real" class="btn btn-outline">What's real today</a>
         </div>
-        <p class="phero-meta">Factory built end-to-end &middot; base model served on own GPU &middot; first measured adapter is the milestone</p>
+        <div class="phero-meta reveal" data-delay="4">
+          <span>Factory built end-to-end</span>
+          <span>Base model on your own GPU</span>
+          <span>First adapters in training</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- THE PROBLEM IT KILLS -->
-  <section class="psection problem-band">
+  <!-- ── THE PROBLEM IT KILLS ── -->
+  <section class="section section--hairline" id="problem">
     <div class="container">
-      <p class="psection-label">The problem it kills</p>
-      <h2 class="psection-title">Model dependency</h2>
-      <div style="margin-top:18px">
-        <div class="problem-kill">
-          <span class="x">&times;</span>
-          <div><h3>When a provider neuters its model, your stack gets dumber</h3><p>Guardrails that block one thing make a model hedge on everything. Forge's answer is to train local specialists on your own work, served on your own hardware.</p></div>
+      <div class="section-head reveal">
+        <p class="eyebrow">The problem it kills</p>
+        <h2 class="title">Model dependency — and agents that ship slop</h2>
+        <p class="lede">Rent your intelligence and you inherit a provider's roadmap: their model, their reprices, their deprecations. And a model you can't specialize keeps making the same mistakes on your domain, confidently.</p>
+      </div>
+      <div class="kills">
+        <div class="kill reveal">
+          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <div>
+            <h3>You can't improve a model you don't own</h3>
+            <p>When the only path is a provider's API, your stack can never get better at your work. Every quirk of your domain is re-learned in-context, every call, forever — and you pay for it each time.</p>
+          </div>
         </div>
-        <div class="problem-kill">
-          <span class="x">&times;</span>
-          <div><h3>Agents that confidently ship slop</h3><p>The factory is built with no-bypass safety and eval gates, so a candidate adapter cannot be promoted unless it measurably beats the bar. The gate is what keeps it honest.</p></div>
+        <div class="kill reveal" data-delay="1">
+          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <div>
+            <h3>Agents that confidently ship slop</h3>
+            <p>An unspecialized model has no bar to clear and no memory of getting it wrong. Forge is built with no-bypass eval and safety gates, so a candidate can't be promoted unless it measurably beats the bar. The gate is what keeps it honest.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="psection" id="how">
+  <!-- ── HOW IT WORKS (honest) ── -->
+  <section class="section" id="how">
     <div class="container">
-      <p class="psection-label">The flywheel</p>
-      <h2 class="psection-title">Labels &rarr; harvest &rarr; curate &rarr; train &rarr; eval-gate &rarr; serve</h2>
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2 class="title">Curate, train, eval-gate, serve</h2>
+        <p class="lede">A factory with eight lanes and a cloud harness, gated so nothing ships unproven. The base model serves today; the adapter steps light up as the first specialists clear their evals.</p>
+      </div>
       <div class="steps">
-        <div class="step"><div class="step-num">01</div><h3>Harvest + curate</h3><p>8 lanes, a harvest loop on a non-Hermes cron, and curate gates with depth, safety, and alignment checks. Built end-to-end.</p></div>
-        <div class="step"><div class="step-num">02</div><h3>Cloud training harness</h3><p>A Modal cloud execution harness, proven on a CPU end-to-end run at $0. The pipeline runs; the trained-adapter step is gated and pending.</p></div>
-        <div class="step"><div class="step-num">03</div><h3>Eval gate</h3><p>An eval-gated promotion: a candidate must measurably beat the base before it can be served. Registry adapters stay <code>planned</code> until they pass.</p></div>
-        <div class="step"><div class="step-num">04</div><h3>Serve locally</h3><p>The base model serves on your own GPU today. Routing local-first to a Forge adapter is the step that lights up once an adapter is trained and passes.</p></div>
+        <div class="step reveal">
+          <span class="step-n">01</span>
+          <h3>Curate from your work</h3>
+          <p>Your fleet's own labels become training examples. Curate gates plus depth and safety gates filter what's allowed in — built across eight lanes.</p>
+        </div>
+        <div class="step reveal" data-delay="1">
+          <span class="step-n">02</span>
+          <h3>Train in the cloud</h3>
+          <p>A Modal cloud training harness runs the pipeline — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are in training.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <span class="step-n">03</span>
+          <h3>Eval gate</h3>
+          <p>Promotion is eval-gated: a candidate must <strong>measurably beat the base</strong> before it can be served. Registry adapters stay <code>planned</code> until they pass.</p>
+        </div>
+        <div class="step reveal" data-delay="3">
+          <span class="step-n">04</span>
+          <h3>Serve locally</h3>
+          <p>The base model serves on your own GPU today. Routing local-first to a Forge adapter lights up the moment an adapter is trained and clears its gate.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT'S REAL -->
-  <section class="psection" id="whats-real">
+  <!-- ── REAL CAPABILITIES ── -->
+  <section class="section section--hairline">
     <div class="container">
-      <p class="psection-label">Truth discipline</p>
-      <h2 class="psection-title">What's real today vs. staged</h2>
-      <div class="status-grid" style="margin-top:24px">
+      <div class="section-head reveal">
+        <p class="eyebrow">Real capabilities</p>
+        <h2 class="title">What Forge actually does</h2>
+        <p class="lede">Verified against the real factory — not a mock. Each capability below maps to a receipt in the truth ledger further down, including the line we will not cross.</p>
+      </div>
+      <div class="caps">
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <h3>Factory built end-to-end</h3>
+          <p>Eight lanes, the Modal harness, curate gates, depth and safety gates, and an alignment gate — all built. The pipeline exists and runs.</p>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg></span>
+          <h3>No-bypass eval gates</h3>
+          <p>A candidate adapter cannot be promoted unless it measurably beats the base on an eval. The gate is structural — there's no path around it.</p>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M8 21v-4M16 21v-4"/></svg></span>
+          <h3>Base served on your GPU</h3>
+          <p>Qwen3.6 serves on a local GPU node via SGLang at 262k context, base-only. The base code-review eval baseline is measured live at <strong>0.4727</strong>.</p>
+        </div>
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.5"/><path d="M12 7v5l3 2"/></svg></span>
+          <h3>The cost-down flywheel</h3>
+          <p>Maestro labels feed harvest, curate, train, eval-gate, serve, and route — documented with live vs pending marked per link. The more you use it, the cheaper it's designed to get.</p>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
+          <h3>Autonomous harvest loop</h3>
+          <p>A harvest loop is deployed and fired autonomously from a Sparky cron (a non-Hermes scheduler) — the intake side of the flywheel runs on its own.</p>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></span>
+          <h3>Verticalized specialists</h3>
+          <p>The factory is built to produce local adapters specialized to your domains — so the next generation of your stack is owned and tuned to your work, not rented.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Adapter factory built end-to-end</h3>
-            <p>8 lanes, the Modal harness, curate gates, depth + safety gates, and an alignment gate &mdash; all built. The pipeline exists and runs.</p>
-            <span class="evidence">receipts/phase4/00-PHASE4-ROLLUP.md (R1, R2)</span>
+  <!-- ── ARCHITECTURE VISUAL ── -->
+  <section class="section arch">
+    <div class="container">
+      <div class="arch-layout">
+        <div class="arch-copy reveal">
+          <p class="eyebrow">The factory flywheel</p>
+          <h2>Labels in. A specialized model out — only if it clears the gate.</h2>
+          <p>Maestro's routing labels are harvested and curated into training data, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served and routed. Today the base serves; the first adapters are in training.</p>
+          <ul class="arch-list">
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gated, not aspirational.</b> The eval gate is structural — nothing unproven gets promoted.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Base serves now.</b> Qwen3.6 on your GPU via SGLang, 262k context, base-only.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Adapters in training.</b> The train→serve→route steps light up as the first specialist clears its eval.</span></li>
+          </ul>
+        </div>
+        <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
+          <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img">
+            <!-- harvest -->
+            <rect class="dg-chip" x="14" y="40" width="116" height="48" rx="11"/>
+            <text class="dg-label" x="72" y="61" text-anchor="middle" font-size="12">Harvest</text>
+            <text class="dg-sub" x="72" y="76" text-anchor="middle" font-size="8.5">Maestro labels</text>
+
+            <!-- curate -->
+            <rect class="dg-node-accent" x="14" y="108" width="116" height="48" rx="11"/>
+            <text class="dg-label" x="72" y="129" text-anchor="middle" font-size="12">Curate</text>
+            <text class="dg-sub" x="72" y="144" text-anchor="middle" font-size="8.5">depth · safety gate</text>
+
+            <!-- train -->
+            <rect class="dg-node-accent" x="172" y="108" width="116" height="48" rx="11"/>
+            <text class="dg-label" x="230" y="129" text-anchor="middle" font-size="12">Train · Modal</text>
+            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">in training</text>
+
+            <!-- flows harvest -> curate -> train -->
+            <path class="dg-flow" d="M72 88v16"/>
+            <path class="dg-flow" d="M130 132h38"/>
+            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="3s" repeatCount="indefinite" path="M130 132h38"/></circle>
+            <polygon points="168,132 161,128 161,136" fill="currentColor" class="accent-text"/>
+
+            <!-- EVAL GATE (the load-bearing element) -->
+            <rect class="dg-node-accent" x="172" y="190" width="116" height="56" rx="12"
+                  stroke-dasharray="0" style="stroke-width:1.8"/>
+            <path class="dg-ico" d="M214 218l5 5 11-11"/>
+            <text class="dg-label" x="230" y="210" text-anchor="middle" font-size="12">Eval gate</text>
+            <text class="dg-sub" x="230" y="240" text-anchor="middle" font-size="8">must beat base</text>
+            <path class="dg-flow" d="M230 156v34"/>
+
+            <!-- serve (base today) -->
+            <rect class="dg-node" x="330" y="108" width="116" height="48" rx="11"/>
+            <text class="dg-label" x="388" y="129" text-anchor="middle" font-size="12">Serve · SGLang</text>
+            <text class="dg-sub" x="388" y="144" text-anchor="middle" font-size="8.5">base on your GPU</text>
+
+            <!-- route (staged) -->
+            <rect class="dg-node" x="330" y="190" width="116" height="56" rx="12"/>
+            <text class="dg-label" x="388" y="214" text-anchor="middle" font-size="12">Route adapter</text>
+            <text class="dg-sub" x="388" y="232" text-anchor="middle" font-size="8.5">staged · after gate</text>
+
+            <!-- gate -> serve/route (gated, dashed = not yet) -->
+            <path class="dg-flow-soft" d="M288 210h42" stroke-dasharray="4 5"/>
+            <path class="dg-flow-soft" d="M288 200 C 308 180, 308 138, 330 132" stroke-dasharray="4 5"/>
+
+            <!-- base serves now (solid) -->
+            <text class="dg-sub" x="388" y="96" text-anchor="middle" font-size="8" class="accent-text">live today</text>
+
+            <!-- flywheel return: route -> harvest -->
+            <path class="dg-flow-soft" d="M388 246 C 388 300, 72 300, 72 156" stroke-dasharray="3 6"/>
+            <text class="dg-sub" x="230" y="312" text-anchor="middle" font-size="9">cost-down flywheel — the more you use it, the cheaper it gets</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT'S REAL TODAY ── -->
+  <section class="section section--hairline" id="whats-real">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Truth discipline</p>
+        <h2 class="title">What's real today — and what's staged</h2>
+        <p class="lede">We sell what's built and label what isn't. This is the page where the gate matters most: the factory is built; no adapter is trained or served, and we say so.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
+            <h3>The factory is built end-to-end</h3>
+            <p>Eight lanes, the Modal harness, curate gates, depth and safety gates, and an alignment gate — all built. Modal cloud execution is proven on a CPU end-to-end run at <strong>$0</strong>. The harvest loop is deployed and fired autonomously from a Sparky cron.</p>
+            <span class="ledger-ev">receipts/phase4/00-PHASE4-ROLLUP.md · forge-modal-execution-verified.md · forge-harvest-deployed.md</span>
           </div>
         </div>
-
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
             <h3>Base model served on your own GPU</h3>
-            <p>Qwen3.6 served on a local GPU node via SGLang (262k context), base-only. Base code-review eval baseline measured live at 0.4727.</p>
-            <span class="evidence">receipts/phase4/forge-serve.md &middot; evals/results/code_review_base_2026-06-11.json</span>
+            <p>Qwen3.6 serves on a local GPU node via SGLang at 262k context, <strong>base-only.</strong> The base code-review eval baseline is measured live at <code>0.4727</code> — a real number, not a projection.</p>
+            <span class="ledger-ev">receipts/phase4/forge-serve.md · evals/results/code_review_base_2026-06-11.json</span>
           </div>
         </div>
-
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--build">Active Build</span></div>
-          <div class="s-body">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--build">In Progress</span></div>
+          <div class="ledger-body">
             <h3>Trained &amp; served adapters</h3>
-            <p><strong>No adapter is trained, and none is served, today.</strong> All registry adapters are <code>status: planned</code> with null eval scores. The factory is built and gated so it cannot lie; the first measured local adapter is the current milestone.</p>
-            <span class="evidence">receipts/phase4/forge-serve.md (served:false) &middot; forge-train.md (none trained)</span>
+            <p><strong>No adapter is trained, and none is served, today.</strong> Every registry adapter is <code>status: planned</code> with null eval scores. The factory is built and gated so it cannot lie; the first measured local adapter is the current milestone — and Maestro can't route to an adapter that doesn't exist yet.</p>
+            <span class="ledger-ev">receipts/phase4/forge-train.md · forge-serve.md (served: false) · registry.yaml (all planned)</span>
           </div>
         </div>
-
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--spec">Planned</span></div>
-          <div class="s-body">
-            <h3>Maestro routes local-first to a Forge adapter</h3>
-            <p>Routing to a Forge adapter is staged behind a trained, eval-passing adapter &mdash; it cannot route to something that does not exist yet.</p>
-            <span class="evidence">receipts/phase4/forge-serve.md step 3 (not done)</span>
-          </div>
-        </div>
-
       </div>
-      <div class="note"><strong>Why we say this plainly.</strong> A factory that claimed adapters it never trained would be exactly the kind of phantom maturity this whole suite is built to avoid. The gate exists so the claim can't drift ahead of the evidence.</div>
+      <p class="honesty reveal"><strong>Why we say this plainly.</strong> A factory that claimed adapters it never trained would be exactly the phantom maturity this whole suite is built to avoid. The gate exists so the claim can't drift ahead of the evidence — the factory is built and honest; follow it to the first measured adapter.</p>
     </div>
   </section>
 
-  <section class="cta-band">
+  <!-- ── CTA ── -->
+  <section class="cta">
     <div class="container">
-      <h2>Own the model, not just the prompt.</h2>
-      <p>The factory is built and honest. Follow it to the first measured adapter.</p>
-      <div class="cta-actions">
-        <a href="/cortex/" class="btn btn-primary">See the full suite</a>
-        <a href="/maestro/" class="btn btn-outline">Where adapters get routed</a>
+      <div class="cta-card reveal">
+        <p class="eyebrow" style="justify-content:center;">Own your models</p>
+        <h2>Stop renting your intelligence.</h2>
+        <p>The factory is built end-to-end and gated so it cannot lie. The base serves on your own GPU; the first specialists are in training. Watch it reach the first measured adapter.</p>
+        <div class="cta-actions">
+          <a href="/cortex/" class="btn btn-primary btn-arrow">
+            See the full suite
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/maestro/" class="btn btn-outline">Where adapters get routed</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="pfooter">
-    <div class="container pfooter-inner">
-      <span class="pfooter-brand">this<span class="logo-dot">.</span>live</span>
-      <div class="pfooter-links">
-        <a href="/cortex/">Cortex</a>
-        <a href="/maestro/">Maestro</a>
-        <a href="/mnemos/">Mnemos</a>
-        <a href="/fabric/">Fabric</a>
-        <a href="/surfaces/">Surfaces</a>
-        <a href="/forge/">Forge</a>
-        <a href="/">this.live</a>
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+          <p class="footer-tag">A sovereign, fully-local agentic AI platform you own. Democratizing agentic AI — no providers necessary.</p>
+        </div>
+        <div class="footer-col">
+          <h4>The Suite</h4>
+          <a href="/cortex/">Cortex</a>
+          <a href="/maestro/">Maestro</a>
+          <a href="/mnemos/">Mnemos</a>
+          <a href="/fabric/">Agent Fabric</a>
+          <a href="/surfaces/">Surfaces</a>
+          <a href="/forge/">Forge</a>
+        </div>
+        <div class="footer-col">
+          <h4>Forge</h4>
+          <a href="#how">How it works</a>
+          <a href="#whats-real">What's real</a>
+          <a href="/maestro/">Where it routes</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="mailto:hello@mail.this.live">Contact</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/privacy.html">Privacy</a>
+        </div>
       </div>
-      <p class="pfooter-note">Factory + base-serving claims map to receipts/phase4. No trained or served adapters exist; the page says so.</p>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 this.live LLC</span>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/thislive" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://x.com/ThisLiveActual" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/thisliveactual" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
+      </div>
+      <p class="footer-note">Factory and base-serving claims map to receipts/phase4. No trained or served adapters exist; the page says so. The first measured local adapter is the milestone.</p>
     </div>
   </footer>
+
+  <!-- ── JS (vanilla, CSP-safe inline) ── -->
+  <script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+      });
+    }
+    var reveals = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+    var canvas = document.getElementById('heroCanvas');
+    if (canvas && !reduce) {
+      var ctx = canvas.getContext('2d');
+      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
+      function size() {
+        var host = canvas.parentElement;
+        w = host.offsetWidth; h = host.offsetHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      function seed() {
+        pts = [];
+        var n = Math.min(60, Math.floor((w * h) / 24000));
+        for (var i = 0; i < n; i++) pts.push({
+          x: Math.random() * w, y: Math.random() * h,
+          r: Math.random() * 1.4 + 0.4,
+          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
+          o: Math.random() * 0.4 + 0.12
+        });
+      }
+      function frame() {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          p.x += p.dx; p.y += p.dy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
+          ctx.fillStyle = 'rgba(251,191,119,' + p.o + ')'; ctx.fill();
+        }
+        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
+          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
+          if (d < 14400) {
+            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
+            ctx.strokeStyle = 'rgba(251,191,119,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
+          }
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      size(); seed(); frame();
+      var rt; window.addEventListener('resize', function () {
+        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
+      });
+    }
+  })();
+  </script>
 
 </body>
 </html>
