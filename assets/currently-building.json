@@ -1,0 +1,86 @@
+{
+  "$schema": "./currently-building.schema",
+  "_comment": "Auto-updating 'currently building' strip for the living resume (#about). Each entry is FOUNDING WORK under the this.live LLC. Manually-authored seed; scripts/update-founder-living-resume.mjs refreshes `status`, `last_active`, and ordering from real repo/fleet activity. Keep `name`/`note` curated; the script will not overwrite prose.",
+  "updated": "2026-06-12",
+  "source": "fleet repo scan (scripts/update-founder-living-resume.mjs)",
+  "llc": "this.live LLC",
+  "building": [
+    {
+      "name": "Cortex Suite",
+      "note": "Sovereign, fully-local agentic operating stack — the engine the whole portfolio runs on.",
+      "status": "live",
+      "last_active": "2026-06-12",
+      "href": "/cortex/"
+    },
+    {
+      "name": "Maestro",
+      "note": "Provider-agnostic model routing — proven live against a real fleet.",
+      "status": "live",
+      "last_active": "2026-06-12",
+      "href": "/maestro/"
+    },
+    {
+      "name": "Mnemos",
+      "note": "Project-scoped local memory plane — 75k+ memories in production.",
+      "status": "live",
+      "last_active": "2026-06-12",
+      "href": "/mnemos/"
+    },
+    {
+      "name": "Agent Fabric",
+      "note": "Deterministic multi-agent execution spine with durable receipts.",
+      "status": "live",
+      "last_active": "2026-06-12",
+      "href": "/fabric/"
+    },
+    {
+      "name": "Signal & Noise",
+      "note": "AI podcast pipeline with persistent memory and voice cloning — production pipeline.",
+      "status": "live",
+      "last_active": "2026-06-05",
+      "href": null
+    },
+    {
+      "name": "Beacon",
+      "note": "Local-service lead generation — public surface live.",
+      "status": "beta",
+      "last_active": "2026-04-10",
+      "href": "https://beacon.this.live"
+    },
+    {
+      "name": "Surfaces",
+      "note": "Pocket Agent, Personal Life OS, and Fleet Terminal converging into one desktop shell.",
+      "status": "build",
+      "last_active": "2026-06-12",
+      "href": "/surfaces/"
+    },
+    {
+      "name": "Forge",
+      "note": "Adapter factory built end-to-end and gated — first measured local adapter is the milestone.",
+      "status": "build",
+      "last_active": "2026-06-11",
+      "href": "/forge/"
+    },
+    {
+      "name": "FTAG · Age of Arrows",
+      "note": "Future Throwback Arcade Games — flagship Unity title in 6-agent parallel build.",
+      "status": "build",
+      "last_active": "2026-06-07",
+      "href": null
+    },
+    {
+      "name": "Digital Products Lab",
+      "note": "Turning live fleet work into blog, social, lead magnets, and operator products.",
+      "status": "build",
+      "last_active": "2026-06-03",
+      "href": null
+    },
+    {
+      "name": "Fieldhouse Games",
+      "note": "MiniMax team-backed studio for underserved mobile arcade sports.",
+      "status": "build",
+      "last_active": "2026-05-06",
+      "href": null
+    }
+  ]
+}

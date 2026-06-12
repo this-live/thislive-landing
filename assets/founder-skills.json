@@ -1,0 +1,99 @@
+{
+  "$schema": "./founder-skills.schema",
+  "_comment": "Auto-updating SKILLS strip for the living resume (#about). Manually-authored seed; refreshed by scripts/update-founder-living-resume.mjs which scans the fleet/repos for skills-in-use. Hand edits to the seed groups are preserved; the script only rewrites the `detected` array and `updated`.",
+  "updated": "2026-06-12",
+  "source": "resume.html + fleet scan (scripts/update-founder-living-resume.mjs)",
+  "groups": [
+    {
+      "label": "Agentic coding harnesses",
+      "items": [
+        "Cursor",
+        "Hermes",
+        "OpenClaw",
+        "Claude Code",
+        "Kimi Code",
+        "MiniMax Code",
+        "Codex",
+        "terminal-native subagents",
+        "delegated code review",
+        "automated test loops",
+        "multi-agent workspace bootstrapping"
+      ]
+    },
+    {
+      "label": "Models, routing & training",
+      "items": [
+        "OpenAI",
+        "Anthropic",
+        "Google/Gemini",
+        "Kimi",
+        "DeepSeek",
+        "Qwen",
+        "Gemma",
+        "Llama",
+        "MiniMax",
+        "Ollama",
+        "vLLM",
+        "SGLang",
+        "Hugging Face",
+        "LoRA / adapter training",
+        "eval suites",
+        "label generation",
+        "model marketplaces"
+      ]
+    },
+    {
+      "label": "Infrastructure & deployment",
+      "items": [
+        "Railway",
+        "Cloudflare",
+        "Docker",
+        "nginx",
+        "GitHub",
+        "CI/CD",
+        "Tailscale",
+        "Terminus",
+        "SSH-first ops",
+        "NAS-backed docs",
+        "macOS/Linux fleet admin",
+        "observability",
+        "DNS & custom domains",
+        "incident response"
+      ]
+    },
+    {
+      "label": "Product systems",
+      "items": [
+        "memory layers",
+        "MCP / plugins",
+        "browser & vision tooling",
+        "content pipelines",
+        "Buffer / social scheduling",
+        "model cost controls",
+        "local-first privacy architecture",
+        "founder-operated publishing"
+      ]
+    }
+  ],
+  "detected": {
+    "_comment": "Rewritten by the updater from real fleet activity — most recently touched skills surface as a live strip.",
+    "active_now": [
+      "Claude Code",
+      "Railway",
+      "Cloudflare",
+      "Mnemos memory plane",
+      "Agent Fabric orchestration",
+      "Maestro routing",
+      "SGLang",
+      "vLLM",
+      "Ollama",
+      "NAS-backed docs",
+      "multi-agent workspace bootstrapping",
+      "LoRA / adapter training",
+      "Hugging Face",
+      "eval suites",
+      "browser & vision tooling",
+      "MCP / plugins"
+    ]
+  }
+}
