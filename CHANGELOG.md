@@ -5,6 +5,9 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-12 — hero animation safe-box fit + mobile density
+- hero.js: bounding-box-fit each project mind-map into a computed safe box (clears hero copy + canvas edges so no node/label clips); tuned mobile particle density (lighter on battery, still reads as a constellation). Ships with the award-winning redesign to live this.live.
+
 Current known canonical workspace(s):
 - /Users/admin/Desktop/This.Live
 - /Users/fred/.openclaw/workspace/thislive-landing

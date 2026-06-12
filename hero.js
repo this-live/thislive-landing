@@ -65,8 +65,11 @@
 
   function buildPool() {
     var area = w * h;
-    var density = reduce ? 16000 : (isMobile ? 17000 : 11000);
-    var n = Math.max(26, Math.min(reduce ? 150 : (isMobile ? 60 : 150), Math.floor(area / density)));
+    // Mobile/low-power: fewer particles (lighter on battery + GPU) but enough to
+    // read as a constellation, not an empty field. Desktop keeps the full count.
+    var density = reduce ? 12500 : (isMobile ? 12500 : 11000);
+    var floor = isMobile ? 40 : 30;
+    var n = Math.max(floor, Math.min(reduce ? 150 : (isMobile ? 72 : 150), Math.floor(area / density)));
     pts = [];
     for (var i = 0; i < n; i++) {
       var z = Math.random();
@@ -87,30 +90,75 @@
 
   /* ---- mind-map data ----------------------------------------------------- */
   var MAPS = null, mapIndex = 0;
-  function mapCenter() {
-    // On wide layouts the hero copy owns the left column, so the constellation
-    // lives in the open right-hand space (whole map stays legible). On narrow/
-    // mobile layouts the copy sits above, so the map is centred.
+
+  /* The "safe box" is the rectangle the WHOLE map must fit inside so nothing
+     clips an edge or hides behind the hero copy. On wide layouts the copy owns
+     a left column (max-width 880 inside a max-width-1120 container), so the box
+     is the open space to its right; on narrow/mobile the copy stacks over the
+     whole hero, so the box is the full frame (centred), and the scrim keeps the
+     copy AAA-legible above it. We then bounding-box-FIT each map's normalized
+     node cloud into this box (uniform-ish scale + centre) — so every node, edge
+     and label stays on-canvas and clear of the text, regardless of map shape. */
+  function safeBox() {
     var wide = w >= 900;
-    return { cx: w * (wide ? 0.70 : 0.5), cy: h * (wide ? 0.50 : 0.46) };
+    // label chips overflow ~46px past a node + the map title sits above the box:
+    var padTop = 64, padBot = 56, padR = 56, padL = 24;
+    if (wide) {
+      // copy column right edge, derived from the container math used site-wide
+      var container = Math.min(w, 1120);
+      var copyLeft = (w - container) / 2 + 32;          // container gutter
+      var copyRight = Math.min(w - 24, copyLeft + 880);  // hero-inner max-width
+      var left = copyRight + 28;                          // clear the text column
+      var right = w - padR;
+      // if the open column is too thin (e.g. ~1024–1180 widths) pull the box up
+      // and let it ride a little higher/right rather than collapse to nothing
+      if (right - left < 230) { left = Math.max(copyRight - 40, w * 0.52); }
+      return { x0: left, y0: padTop, x1: right, y1: h - padBot, wide: true };
+    }
+    return { x0: padL, y0: padTop, x1: w - padR, y1: h - padBot, wide: false };
   }
-  function mapSpan() {
-    var s = Math.min(w, h) * (isMobile ? 0.40 : 0.34);
-    return { span: s, spanX: Math.min(w * (w >= 900 ? 0.26 : 0.40), s * 1.5) };
+
+  // normalized map extents (data is authored in roughly -1..1 but not exactly)
+  function mapExtent(map) {
+    var minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+    map.nodes.forEach(function (n) {
+      if (n.x < minx) minx = n.x; if (n.x > maxx) maxx = n.x;
+      if (n.y < miny) miny = n.y; if (n.y > maxy) maxy = n.y;
+    });
+    return { minx: minx, maxx: maxx, miny: miny, maxy: maxy,
+             cx: (minx + maxx) / 2, cy: (miny + maxy) / 2,
+             w: Math.max(0.001, maxx - minx), h: Math.max(0.001, maxy - miny) };
   }
+
   function projectMap(map) {
-    // place a normalized (-1..1) map into an aspect-safe box
-    var ctr = mapCenter(), sp = mapSpan();
-    var cx = ctr.cx, cy = ctr.cy, span = sp.span, spanX = sp.spanX;
+    // Fit the map's bounding box into the safe box with a single scale (keeps
+    // the topology's true proportions) + a gentle aspect nudge so wide/tall
+    // maps still use the column. Everything is clamped inside the box.
+    var box = safeBox();
+    var ex = mapExtent(map);
+    var boxW = box.x1 - box.x0, boxH = box.y1 - box.y0;
+    var bcx = (box.x0 + box.x1) / 2, bcy = (box.y0 + box.y1) / 2;
+    // base uniform scale to fit, then allow up to 1.35x stretch toward the box
+    // aspect so a square map fills a tall narrow column without overflowing.
+    var s = Math.min(boxW / ex.w, boxH / ex.h);
+    var sx = s, sy = s;
+    var boxAspect = boxW / boxH, mapAspect = ex.w / ex.h;
+    if (boxAspect < mapAspect) { sy = Math.min(s * 1.35, boxH / ex.h); }
+    else { sx = Math.min(s * 1.35, boxW / ex.w); }
     var nodes = {};
     map.nodes.forEach(function (nd) {
+      var X = bcx + (nd.x - ex.cx) * sx;
+      var Y = bcy + (nd.y - ex.cy) * sy;
+      // hard clamp inside the box (defensive; fit should already satisfy this)
+      X = Math.max(box.x0, Math.min(box.x1, X));
+      Y = Math.max(box.y0, Math.min(box.y1, Y));
       nodes[nd.id] = {
         id: nd.id, label: nd.label, hue: HUES[nd.hue] || ACCENT,
-        dim: !!nd.dim, core: !!nd.core,
-        x: cx + nd.x * spanX, y: cy + nd.y * span
+        dim: !!nd.dim, core: !!nd.core, x: X, y: Y
       };
     });
-    return { nodes: nodes, edges: map.edges, label: map.label, caption: map.caption };
+    return { nodes: nodes, edges: map.edges, label: map.label, caption: map.caption,
+             _box: box };
   }
 
   /* ---- assignment: bind nearest free particles to node targets ----------- */
@@ -147,6 +195,11 @@
   var active = null; // current projected+bound map
 
   function advance(now) {
+    // On mobile the narrow hero is filled by the copy, so we hold a calm ambient
+    // field instead of forming cramped labelled maps (matches the static
+    // fallback + the brief's "reduce on mobile" intent, and saves battery).
+    // Capture mode (?herocap=1) still allows forced holds for verification.
+    if (isMobile && !CAP) { formAmt = 0; active = null; phase = PHASE.AMBIENT; return; }
     var el = now - phaseStart;
     if (phase === PHASE.AMBIENT) {
       if (el >= DUR.AMBIENT) {
@@ -344,6 +397,7 @@
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       var nds = active.nodes;
+      var box = active._box || { x0: 6, y0: 6, x1: w - 6, y1: h - 6 };
       for (var nk in nds) {
         var nd = nds[nk];
         var lx = nd.x + (pmx * 18) * 0.9 * par;
@@ -352,19 +406,22 @@
         // label chip backing for legibility
         var txt = nd.label;
         var tw = ctx.measureText(txt).width;
+        // keep the chip on-canvas: clamp its centre so the chip never clips the
+        // viewport edge (labels were the thing most prone to running off-screen)
+        lx = Math.max(tw / 2 + 8, Math.min(w - tw / 2 - 8, lx));
         ctx.fillStyle = rgba({ r: 8, g: 11, b: 20 }, 0.55 * lblA);
         roundRect(ctx, lx - tw / 2 - 6, labY - 8, tw + 12, 16, 5); ctx.fill();
         ctx.fillStyle = nd.dim ? rgba({ r: 243, g: 246, b: 251 }, 0.42 * lblA)
                                : rgba({ r: 243, g: 246, b: 251 }, 0.92 * lblA);
         ctx.fillText(txt, lx, labY);
       }
-      // map title (above the constellation box)
+      // map title (above the constellation box, centred on the box, clamped)
       ctx.font = '600 ' + (isMobile ? 10 : 11) + "px " + FONT_MONO;
-      var ctr = mapCenter();
-      var titleY = ctr.cy - mapSpan().span - (isMobile ? 8 : 16);
+      var titleCx = (box.x0 + box.x1) / 2;
+      var titleY = Math.max(20, box.y0 - (isMobile ? 6 : 10));
       ctx.fillStyle = rgba(ACCENT_RGB, 0.85 * lblA);
       ctx.textAlign = 'center';
-      ctx.fillText(active.label.toUpperCase(), ctr.cx, Math.max(20, titleY));
+      ctx.fillText(active.label.toUpperCase(), titleCx, titleY);
     }
   }
 
@@ -380,18 +437,30 @@
 
   /* ---- static composed frame (reduced-motion fallback) ------------------- */
   function drawStatic() {
-    // one beautiful, fully-formed Cortex constellation — painted once, no rAF.
+    // One beautiful frame, painted once, no rAF.
+    //  · wide  → a fully-formed Cortex constellation in the open right column
+    //            (room for the labelled 6-pillar map without fighting the copy).
+    //  · mobile → an elegant ambient constellation field. The copy fills the
+    //            narrow hero, so a cramped labelled map would not read; an
+    //            ambient field is the honest, composed, non-blank fallback and
+    //            stays clear of the text. (The full project-map sequence is the
+    //            wide hero's signature; this matches the brief's mobile intent.)
     measure(); buildPool(); recalcEdgeDist();
     // settle ambient a touch so it isn't a uniform grid
     for (var s = 0; s < 30; s++) for (var i = 0; i < pts.length; i++) stepAmbient(pts[i]);
     for (var k = 0; k < pts.length; k++) { pts[k].x = pts[k].hx; pts[k].y = pts[k].hy; }
+    pmx = pmy = scrollPar = 0;
+    if (isMobile) {
+      active = null; formAmt = 0; phase = PHASE.AMBIENT;
+      draw(performance.now());
+      return;
+    }
     active = bindMap(projectMap(MAPS[0]));
     // snap bound particles onto targets
     for (var j = 0; j < pts.length; j++) {
       if (pts[j].tx != null) { pts[j].x = pts[j].tx; pts[j].y = pts[j].ty; pts[j].glow = 1; }
     }
     formAmt = 1; phase = PHASE.HOLD;
-    pmx = pmy = scrollPar = 0;
     draw(performance.now());
   }
 
@@ -477,7 +546,8 @@
           return formAmt;
         },
         ambient: function () { formAmt = 0; active = null; phase = PHASE.AMBIENT; phaseStart = performance.now(); start(); },
-        phase: function () { return ['ambient', 'form', 'hold', 'dissolve'][phase] + ' formAmt=' + formAmt.toFixed(2); }
+        phase: function () { return ['ambient', 'form', 'hold', 'dissolve'][phase] + ' formAmt=' + formAmt.toFixed(2); },
+        particleCount: function () { return pts.length; }
       };
     }
     evaluateRun();
