@@ -163,8 +163,103 @@
 .ledger-ev { display: inline-block; margin-top: var(--sp-3); font-family: var(--font-mono); font-size: var(--fs-mono); color: var(--text-muted); }
 
 /* ---------------------------------------------------------------------------
+   INSIDE CORTEX · suite component strip (#stack)  +  PORTFOLIO grid (#products)
+   Tasteful cards on the shared design tokens. Component cards carry a small
+   hued mark; portfolio cards carry a mark + status badge + read-more CTA.
+   ------------------------------------------------------------------------- */
+.section-desc { /* alias used by recovered copy — inherits .lede */ }
+
+.inside-cortex { background: linear-gradient(180deg, transparent, rgba(45,226,255,0.012), transparent); }
+.stack-suite-intro {
+  margin: 0 0 var(--sp-6); padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--accent-line); border-radius: var(--r-md);
+  background: var(--accent-faint); max-width: 760px;
+}
+.stack-suite-intro p { font-size: var(--fs-sm); color: var(--text-body); line-height: var(--lh-body); }
+.stack-suite-intro strong { color: var(--accent); font-weight: 600; }
+
+.stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+
+/* shared card chrome for the two new grids (extends design-system .card) */
+.card--component, .card--portfolio { display: flex; flex-direction: column; }
+.card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-4); }
+
+/* small hued accent mark (NOT a reading-blocker — a 40px chip like .pillar-mark) */
+.card-mark {
+  --hue: var(--accent);
+  width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--hue) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--hue) 28%, transparent);
+  color: var(--hue);
+}
+.card-mark svg { width: 20px; height: 20px; }
+.card-mark.h-cyan   { --hue: var(--accent); }
+.card-mark.h-indigo { --hue: var(--indigo); }
+.card-mark.h-violet { --hue: var(--violet); }
+.card-mark.h-blue   { --hue: var(--blue); }
+.card-mark.h-green  { --hue: var(--green); }
+.card-mark.h-amber  { --hue: var(--amber); }
+
+.card-name { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600;
+  color: var(--text); letter-spacing: -0.01em; margin-bottom: 2px; }
+.card-tagline { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted);
+  margin-bottom: var(--sp-3); letter-spacing: 0.01em; }
+.card-desc { color: var(--text-body); font-size: var(--fs-sm); line-height: var(--lh-body); flex: 1; }
+
+.card-cta {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: var(--sp-5);
+  font-size: var(--fs-sm); font-weight: 600; color: var(--accent);
+  transition: gap var(--dur-2) var(--ease);
+}
+.card-cta svg { width: 14px; height: 14px; }
+.card--portfolio:hover .card-cta { gap: 10px; }
+.card-cta--muted { color: var(--text-subtle); font-family: var(--font-mono); font-size: var(--fs-xs);
+  letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ---------------------------------------------------------------------------
+   ABOUT THE FOUNDER (#about) — venture-studio operator block
+   ------------------------------------------------------------------------- */
+.about-section { background: linear-gradient(180deg, transparent, rgba(129,140,248,0.022), transparent); }
+.founder-stack {
+  border: 1px solid var(--border); border-radius: var(--r-lg); padding: var(--sp-7);
+  background:
+    radial-gradient(620px 280px at 90% -10%, rgba(129,140,248,0.07), transparent 70%),
+    linear-gradient(180deg, rgba(255,255,255,0.022), rgba(255,255,255,0.006));
+}
+.founder-head { max-width: 760px; }
+.founder-stack-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--fs-mono); font-weight: 500;
+  letter-spacing: var(--tracking-label); text-transform: uppercase;
+  color: var(--indigo); margin-bottom: var(--sp-3);
+}
+.founder-stack-eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--indigo); opacity: 0.6; }
+.founder-stack h3 { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 700;
+  color: var(--text); letter-spacing: var(--tracking-tight); margin-bottom: var(--sp-4); }
+.founder-bio { color: var(--text-body); font-size: var(--fs-md); line-height: var(--lh-body); margin-bottom: var(--sp-4); }
+
+.founder-beliefs { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-6) 0 var(--sp-7); }
+.founder-beliefs span {
+  font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-body);
+  padding: 6px 12px; border-radius: var(--r-pill);
+  border: 1px solid var(--border-hover); background: var(--surface-2);
+}
+
+.founder-stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5);
+  padding-top: var(--sp-6); border-top: 1px solid var(--border); }
+.founder-stack-grid h4 { font-family: var(--font-display); font-size: var(--fs-base); font-weight: 600;
+  color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+.founder-stack-grid p { font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-body); }
+.founder-cta { margin-top: var(--sp-7); }
+
+/* ---------------------------------------------------------------------------
    RESPONSIVE (home-specific)
    ------------------------------------------------------------------------- */
+@media (max-width: 980px) {
+  .stack-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 900px) {
   .fw-layout { grid-template-columns: 1fr; gap: var(--sp-7); }
   .fw-visual { max-width: 360px; }
@@ -172,9 +267,12 @@
   .ps-arrow { border: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     padding: var(--sp-2) 0; }
   .ps-arrow svg { transform: rotate(90deg); }
+  .founder-stack-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
   .hero { padding: 140px 0 64px; }
   .trust-inner { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
   .ledger-row { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .stack-grid, .portfolio-grid { grid-template-columns: 1fr; }
+  .founder-stack { padding: var(--sp-6) var(--sp-5); }
 }
