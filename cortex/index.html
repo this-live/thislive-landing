@@ -3,184 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cortex Suite | Sovereign, fully-local agentic AI you own</title>
-  <meta name="description" content="Cortex is the sovereign, fully-local agentic system you own: provider-agnostic, token-optimized, remembers locally, recursively self-improving. The more you use it, the smarter AND cheaper it gets.">
-  <meta property="og:title" content="Cortex Suite | Sovereign, fully-local agentic AI you own">
-  <meta property="og:description" content="A fully-local agentic system you own. Provider-agnostic. Remembers locally. Gets smarter AND cheaper the more you use it.">
+  <title>Cortex · The governance pillar — control &amp; privacy through locality</title>
+  <meta name="description" content="Cortex is the governance pillar and canon home of the suite: a ratified six-pillar topology, shared contracts imported and never redefined, maturity gates that keep claims honest, and a productization shell parked until governance clears. Control and privacy come from locality — your hardware, your models, your data.">
+  <meta name="theme-color" content="#080B14">
+  <meta property="og:title" content="Cortex · The governance pillar of the Cortex Suite">
+  <meta property="og:description" content="Canon, contracts, and maturity gates. Control and privacy through locality. The managed tier is parked, not offered.">
   <meta property="og:url" content="https://this.live/cortex/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cortex · This.Live">
+  <meta name="twitter:description" content="The governance pillar: canon, shared contracts, maturity gates. Control and privacy through locality.">
+  <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/design-system.css">
   <link rel="stylesheet" href="/pillar.css">
 </head>
-<body>
+<body class="pillar-page h-green">
 
-  <nav class="nav">
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="/maestro/">Maestro</a>
         <a href="/mnemos/">Mnemos</a>
         <a href="/fabric/">Fabric</a>
         <a href="/surfaces/">Surfaces</a>
         <a href="/forge/">Forge</a>
-        <a href="/#products" class="nav-back">&larr; this.live</a>
+        <a href="/#suite" class="nav-back">&larr; this.live</a>
+        <a href="#pillars" class="btn btn-primary btn-sm nav-cta">The six pillars</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ── HERO ── -->
   <header class="phero">
-    <div class="phero-orb phero-orb--1"></div>
-    <div class="phero-orb phero-orb--2"></div>
+    <div class="phero-bg" aria-hidden="true">
+      <div class="phero-grid"></div>
+      <div class="phero-orb phero-orb--1"></div>
+      <div class="phero-orb phero-orb--2"></div>
+      <canvas id="heroCanvas" class="phero-particles"></canvas>
+    </div>
     <div class="container">
       <div class="phero-inner">
-        <p class="phero-eyebrow">Cortex Suite &middot; the umbrella</p>
-        <h1>The sovereign agentic system <span class="accent">you own.</span></h1>
-        <p class="phero-lede">Today's AI makes you dependent: you rent intelligence from a few providers, your context lives in their clouds, your agents are scattered and forgetful, cost scales with usage, and quality is inconsistent. <strong>Cortex is the alternative &mdash; a fully-local agentic system you own that is provider-agnostic, token-optimized, remembers locally, and recursively self-improves.</strong> The more you use it, the smarter AND cheaper it gets &mdash; without anything leaving your machines.</p>
-        <div class="phero-actions">
-          <a href="/maestro/" class="btn btn-primary">Start with Maestro</a>
+        <p class="phero-eyebrow reveal"><span class="dot"></span> Cortex · the governance pillar</p>
+        <h1 class="reveal" data-delay="1">The sovereign agentic system <span class="grad">you own.</span></h1>
+        <p class="phero-lede reveal" data-delay="2">
+          Cortex is the umbrella and the canon home: a ratified six-pillar topology, shared contracts imported and never redefined, and maturity gates that keep every claim honest. <strong>Control and privacy come from locality</strong> — your hardware, your models, your data. The pillars stand alone and plug together into one local-first system you own.
+        </p>
+        <div class="phero-actions reveal" data-delay="3">
+          <a href="#pillars" class="btn btn-primary btn-arrow">
+            Explore the six pillars
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <a href="https://github.com/brycemurad0/maestro" class="btn btn-outline" target="_blank" rel="noopener">Inspect the OSS onramp</a>
         </div>
-        <p class="phero-meta">6-pillar topology ratified &middot; ADR-0014 &rarr; ADR-0016</p>
+        <div class="phero-meta reveal" data-delay="4">
+          <span>6-pillar topology ratified (ADR-0014 → ADR-0016)</span>
+          <span>Shared contracts, imported never redefined</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- THE FLYWHEEL -->
-  <section class="psection">
+  <!-- ── THE PROBLEM IT KILLS ── -->
+  <section class="section section--hairline" id="problem">
     <div class="container">
-      <p class="psection-label">The thesis</p>
-      <h2 class="psection-title">A local cost&darr; + quality&uarr; flywheel</h2>
-      <p class="psection-desc">Every routed request becomes a label. Every label can train a local specialist. Every specialist routes more work off paid providers and back onto your own hardware. Memory compounds locally instead of being re-bought every session. Use creates leverage instead of recurring cost.</p>
-    </div>
-  </section>
-
-  <!-- SIX PILLARS, EACH KILLS A PROBLEM -->
-  <section class="psection">
-    <div class="container">
-      <p class="psection-label">Six pillars</p>
-      <h2 class="psection-title">Each one kills a specific problem</h2>
-      <div class="status-grid" style="margin-top:24px">
-
-        <a href="/maestro/" class="status-row" style="text-decoration:none">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Maestro &rarr; provider lock-in + token cost</h3>
-            <p>Route every prompt to the right model by task, cost, latency, privacy, and quality history. BYOK or fully local. Live routing is proven against a real fleet.</p>
-          </div>
-        </a>
-
-        <a href="/mnemos/" class="status-row" style="text-decoration:none">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Mnemos &rarr; cross-agent memory loss + context rot</h3>
-            <p>One hierarchical, scoped memory plane every agent reads and writes the same way. ~92k&ndash;95k memories in production with 7/7 acceptance gates passing.</p>
-          </div>
-        </a>
-
-        <a href="/fabric/" class="status-row" style="text-decoration:none">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Agent-Fabric &rarr; use <em>all</em> your agents, parallel + deterministic</h3>
-            <p>An execution spine with durable receipts. n8n drives scheduled work; the dynamic-workflow engine primitives are proven end-to-end.</p>
-          </div>
-        </a>
-
-        <a href="/surfaces/" class="status-row" style="text-decoration:none">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Surfaces &rarr; too many AI surfaces &rarr; one</h3>
-            <p>Pocket Agent, Personal Life OS, and Fleet Terminal over one shared backend &mdash; converging into a single desktop shell.</p>
-          </div>
-        </a>
-
-        <a href="/forge/" class="status-row" style="text-decoration:none">
-          <div class="s-state"><span class="badge badge--build">Active Build</span></div>
-          <div class="s-body">
-            <h3>Forge &rarr; model dependency</h3>
-            <p>An adapter factory, built end-to-end and gated so it cannot lie. Base model served on your own GPU; the first measured local adapter is the current milestone.</p>
-          </div>
-        </a>
-
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>Cortex governance &rarr; control + privacy</h3>
-            <p>The canon home: contracts imported and never redefined, standards, the control plane, and the productization shell &mdash; which stays parked until governance clears.</p>
+      <div class="section-head reveal">
+        <p class="eyebrow">The problem it kills</p>
+        <h2 class="title">Losing control &amp; privacy to the rented stack</h2>
+        <p class="lede">When intelligence, context, and orchestration all live in someone else's cloud, you don't govern your own system — and a sprawl of components with no shared canon drifts into phantom maturity.</p>
+      </div>
+      <div class="kills">
+        <div class="kill reveal">
+          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <div>
+            <h3>Your data and decisions live in their cloud</h3>
+            <p>Control and privacy erode the moment your context, models, and routing live on infrastructure you don't own. Locality is the only durable answer — not a privacy policy you have to trust.</p>
           </div>
         </div>
-
+        <div class="kill reveal" data-delay="1">
+          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+          <div>
+            <h3>Components drift into phantom maturity</h3>
+            <p>Six independent parts with no shared contracts and no maturity gates quietly start claiming things they can't prove. Cortex is the canon that keeps the whole suite honest.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT'S REAL -->
-  <section class="psection">
+  <!-- ── HOW IT WORKS (honest) — governance ── -->
+  <section class="section" id="how">
     <div class="container">
-      <p class="psection-label">Truth discipline</p>
-      <h2 class="psection-title">What's real today vs. staged</h2>
-      <div class="status-grid" style="margin-top:24px">
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
-            <h3>6-pillar topology, ratified</h3>
-            <p>ADR-0014 through ADR-0016 consolidated the suite; the 1E surgery moved code into its canonical homes; shared contracts are imported, never redefined.</p>
-            <span class="evidence">ADR-0016 &middot; receipts/phase0/1e-surgery-verify.md</span>
+      <div class="section-head reveal">
+        <p class="eyebrow">How governance works</p>
+        <h2 class="title">Canon, contracts, gates, shell</h2>
+        <p class="lede">Cortex doesn't run your prompts — it governs the system that does. Decisions are recorded, contracts are shared, maturity is gated, and the productization shell stays parked until it clears.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-n">01</span>
+          <h3>Ratified canon</h3>
+          <p>The six-pillar topology is decided in the open via ADRs (<code>ADR-0014</code> → <code>ADR-0016</code>). Structure is a recorded decision, not an accident.</p>
+        </div>
+        <div class="step reveal" data-delay="1">
+          <span class="step-n">02</span>
+          <h3>Shared contracts</h3>
+          <p>TaskEnvelope, ExecutionReceipt v1, RouteDecision — imported by every pillar, never redefined. One source of truth keeps the parts interoperable.</p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <span class="step-n">03</span>
+          <h3>Maturity gates</h3>
+          <p>Every public claim maps to a receipt; staged work reads as future. The gate is what stops a pillar from shipping a claim it can't prove.</p>
+        </div>
+        <div class="step reveal" data-delay="3">
+          <span class="step-n">04</span>
+          <h3>Productization shell</h3>
+          <p>The managed/dashboard shell exists in design but is <strong>parked</strong> behind a governance loop. It is not offered until it clears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── REAL CAPABILITIES ── -->
+  <section class="section section--hairline">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Real capabilities</p>
+        <h2 class="title">What the governance pillar holds</h2>
+        <p class="lede">Cortex is the control plane and the canon. These are the things it actually owns for the whole suite.</p>
+      </div>
+      <div class="caps">
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
+          <h3>The control plane</h3>
+          <p>The home for the suite's structure and standards. The pillars stand alone, but Cortex is where the system is governed as one coherent whole.</p>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></span>
+          <h3>Decisions of record</h3>
+          <p>Architecture is ratified through ADRs. The six-pillar topology — and the 1E surgery that moved code into its canonical homes — are recorded decisions anyone can read.</p>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M21 3l-9 9M8 21H3v-5M3 21l9-9"/></svg></span>
+          <h3>Imported, never redefined</h3>
+          <p>Canonical contracts live once and are imported by every pillar. A receipt means the same thing in Maestro, Agent Fabric, and Mnemos — by construction.</p>
+        </div>
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <h3>Control through locality</h3>
+          <p>Privacy isn't a setting you trust a vendor to honor — it's a property of running on your own hardware. Provider-agnostic and local-first by design.</p>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>
+          <h3>Truth-discipline gates</h3>
+          <p>A claim with no receipt doesn't ship. Maturity gates are what let the suite move fast without quietly overclaiming — the whole point of the canon.</p>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8"/></svg></span>
+          <h3>The OSS onramp</h3>
+          <p><code>maestro-lite</code> is the inspectable, open way in. You don't have to take the architecture on faith — read it, run it, own it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ARCHITECTURE VISUAL — the topology ── -->
+  <section class="section arch" id="pillars">
+    <div class="container">
+      <div class="arch-layout">
+        <div class="arch-copy reveal">
+          <p class="eyebrow">The topology</p>
+          <h2>One canon. Six pillars. Each kills a problem.</h2>
+          <p>Cortex governs from the center: shared contracts and maturity gates flow out to every pillar, and each pillar reports back against the same canon. They stand alone — and together they form one local-first system you own.</p>
+          <ul class="arch-list">
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Contracts flow out.</b> TaskEnvelope, ExecutionReceipt, RouteDecision — defined once, imported everywhere.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Claims report back.</b> Every pillar's public surface is gated against the same receipts.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>The shell stays parked.</b> The managed tier is governed work-in-progress, not an offer.</span></li>
+          </ul>
+        </div>
+        <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
+          <svg viewBox="0 0 440 380" xmlns="http://www.w3.org/2000/svg" role="img">
+            <!-- spokes -->
+            <path class="dg-flow-soft" d="M220 190 L220 70"/>
+            <path class="dg-flow-soft" d="M220 190 L330 120"/>
+            <path class="dg-flow-soft" d="M220 190 L330 260"/>
+            <path class="dg-flow-soft" d="M220 190 L220 310"/>
+            <path class="dg-flow-soft" d="M220 190 L110 260"/>
+            <path class="dg-flow-soft" d="M220 190 L110 120"/>
+            <!-- traveling contract pulses out -->
+            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="3.2s" repeatCount="indefinite" path="M220 190 L220 70"/></circle>
+            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" path="M220 190 L330 260"/></circle>
+
+            <!-- core -->
+            <circle cx="220" cy="190" r="46" class="dg-node-accent"/>
+            <text class="dg-label" x="220" y="186" text-anchor="middle" font-size="14">Cortex</text>
+            <text class="dg-sub" x="220" y="203" text-anchor="middle" font-size="8.5">canon · gates</text>
+
+            <!-- pillar nodes -->
+            <g>
+              <circle cx="220" cy="50" r="30" class="dg-node"/>
+              <text class="dg-sub" x="220" y="48" text-anchor="middle" font-size="10">Maestro</text>
+              <text class="dg-sub" x="220" y="61" text-anchor="middle" font-size="7.5">routing</text>
+            </g>
+            <g>
+              <circle cx="358" cy="112" r="30" class="dg-node"/>
+              <text class="dg-sub" x="358" y="110" text-anchor="middle" font-size="10">Mnemos</text>
+              <text class="dg-sub" x="358" y="123" text-anchor="middle" font-size="7.5">memory</text>
+            </g>
+            <g>
+              <circle cx="358" cy="268" r="30" class="dg-node"/>
+              <text class="dg-sub" x="358" y="266" text-anchor="middle" font-size="10">Fabric</text>
+              <text class="dg-sub" x="358" y="279" text-anchor="middle" font-size="7.5">execution</text>
+            </g>
+            <g>
+              <circle cx="220" cy="330" r="30" class="dg-node"/>
+              <text class="dg-sub" x="220" y="328" text-anchor="middle" font-size="10">Surfaces</text>
+              <text class="dg-sub" x="220" y="341" text-anchor="middle" font-size="7.5">front doors</text>
+            </g>
+            <g>
+              <circle cx="82" cy="268" r="30" class="dg-node"/>
+              <text class="dg-sub" x="82" y="266" text-anchor="middle" font-size="10">Forge</text>
+              <text class="dg-sub" x="82" y="279" text-anchor="middle" font-size="7.5">adapters</text>
+            </g>
+            <g>
+              <circle cx="82" cy="112" r="30" class="dg-node"/>
+              <text class="dg-sub" x="82" y="110" text-anchor="middle" font-size="10">Contracts</text>
+              <text class="dg-sub" x="82" y="123" text-anchor="middle" font-size="7.5">v1 · shared</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHAT'S REAL TODAY ── -->
+  <section class="section section--hairline" id="whats-real">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Truth discipline</p>
+        <h2 class="title">What's real today — and what's staged</h2>
+        <p class="lede">Cortex sets the truth-discipline bar for the whole suite, so it holds itself to it first. Every claim maps to a receipt; the managed tier is labeled exactly as it is.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
+            <h3>Six-pillar topology, ratified</h3>
+            <p><code>ADR-0014</code> through <code>ADR-0016</code> consolidated the suite; the 1E surgery moved code into its canonical homes and removed a stale subtree. Structure is a recorded decision.</p>
+            <span class="ledger-ev">ADR-0016 · receipts/phase0/1e-surgery-verify.md</span>
           </div>
         </div>
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--live">Live</span></div>
-          <div class="s-body">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
+            <h3>Shared contracts, imported never redefined</h3>
+            <p>TaskEnvelope, ExecutionReceipt v1, RouteDecision, and TaskEnqueueRequest live once and are imported by every pillar — a parity test guards the Agent-Fabric mirror.</p>
+            <span class="ledger-ev">cortex/contracts/ · cortex CHANGELOG 2026-06-10 (AF mirror parity)</span>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
             <h3>Provider-agnostic, local-first by design</h3>
-            <p>Control and privacy come from locality: your hardware, your models, your data. <code>maestro-lite</code> is the inspectable OSS onramp.</p>
-            <span class="evidence">cortex/README.md thesis &middot; github.com/brycemurad0/maestro</span>
+            <p>Control and privacy come from locality: your hardware, your models, your data. <code>maestro-lite</code> is the inspectable OSS onramp — you can read and run the way in.</p>
+            <span class="ledger-ev">cortex/README.md thesis · github.com/brycemurad0/maestro</span>
           </div>
         </div>
-        <div class="status-row">
-          <div class="s-state"><span class="badge badge--spec">Planned</span></div>
-          <div class="s-body">
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--plan">Planned</span></div>
+          <div class="ledger-body">
             <h3>Managed / dashboard convenience tier</h3>
             <p>A hosted convenience tier is <strong>not offered today</strong>. The productization shell is parked until the governance loop clears. We sell local-first; we don't pre-sell what isn't built.</p>
-            <span class="evidence">ADR-0016 (shell parked) &middot; plans/08-sites.md D4</span>
+            <span class="ledger-ev">ADR-0016 (shell parked) · plans/08-sites.md D4</span>
           </div>
+        </div>
+      </div>
+      <p class="honesty reveal"><strong>The canon governs itself first.</strong> If Cortex sets the truth-discipline bar for every pillar, it has to clear that bar on its own page — which is why the managed tier reads "planned, parked," not "available."</p>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card reveal">
+        <p class="eyebrow" style="justify-content:center;">Own your intelligence</p>
+        <h2>Own the system, not just the prompt.</h2>
+        <p>Start with the pillar that hurts most today. They stand alone, they plug together, and nothing leaves your machines.</p>
+        <div class="cta-actions">
+          <a href="/maestro/" class="btn btn-primary btn-arrow">
+            Start with Maestro
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/mnemos/" class="btn btn-outline">Explore Mnemos</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-band">
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
     <div class="container">
-      <h2>Own your intelligence.</h2>
-      <p>Start with the pillar that hurts most today. They stand alone and they plug together.</p>
-      <div class="cta-actions">
-        <a href="/maestro/" class="btn btn-primary">Explore Maestro</a>
-        <a href="/mnemos/" class="btn btn-outline">Explore Mnemos</a>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+          <p class="footer-tag">A sovereign, fully-local agentic AI platform you own. Democratizing agentic AI — no providers necessary.</p>
+        </div>
+        <div class="footer-col">
+          <h4>The Suite</h4>
+          <a href="/cortex/">Cortex</a>
+          <a href="/maestro/">Maestro</a>
+          <a href="/mnemos/">Mnemos</a>
+          <a href="/fabric/">Agent Fabric</a>
+          <a href="/surfaces/">Surfaces</a>
+          <a href="/forge/">Forge</a>
+        </div>
+        <div class="footer-col">
+          <h4>Cortex</h4>
+          <a href="#how">How governance works</a>
+          <a href="#pillars">The topology</a>
+          <a href="#whats-real">What's real</a>
+          <a href="https://github.com/brycemurad0/maestro" target="_blank" rel="noopener">OSS onramp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="mailto:hello@mail.this.live">Contact</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/privacy.html">Privacy</a>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <footer class="pfooter">
-    <div class="container pfooter-inner">
-      <span class="pfooter-brand">this<span class="logo-dot">.</span>live</span>
-      <div class="pfooter-links">
-        <a href="/cortex/">Cortex</a>
-        <a href="/maestro/">Maestro</a>
-        <a href="/mnemos/">Mnemos</a>
-        <a href="/fabric/">Fabric</a>
-        <a href="/surfaces/">Surfaces</a>
-        <a href="/forge/">Forge</a>
-        <a href="/">this.live</a>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 this.live LLC</span>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/thislive" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://x.com/ThisLiveActual" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.instagram.com/thisliveactual" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        </div>
       </div>
-      <p class="pfooter-note">Sovereign, fully-local, provider-agnostic. Claims map to receipts; staged work is labeled as such.</p>
+      <p class="footer-note">Topology and contract claims map to ADR-0016 and receipts/phase0. The managed tier is parked, not offered — labeled as such.</p>
     </div>
   </footer>
+
+  <!-- ── JS (vanilla, CSP-safe inline) ── -->
+  <script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+      });
+    }
+    var reveals = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+    var canvas = document.getElementById('heroCanvas');
+    if (canvas && !reduce) {
+      var ctx = canvas.getContext('2d');
+      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
+      function size() {
+        var host = canvas.parentElement;
+        w = host.offsetWidth; h = host.offsetHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      function seed() {
+        pts = [];
+        var n = Math.min(60, Math.floor((w * h) / 24000));
+        for (var i = 0; i < n; i++) pts.push({
+          x: Math.random() * w, y: Math.random() * h,
+          r: Math.random() * 1.4 + 0.4,
+          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
+          o: Math.random() * 0.4 + 0.12
+        });
+      }
+      function frame() {
+        ctx.clearRect(0, 0, w, h);
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          p.x += p.dx; p.y += p.dy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
+          ctx.fillStyle = 'rgba(52,229,160,' + p.o + ')'; ctx.fill();
+        }
+        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
+          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
+          if (d < 14400) {
+            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
+            ctx.strokeStyle = 'rgba(52,229,160,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
+          }
+        }
+        raf = requestAnimationFrame(frame);
+      }
+      size(); seed(); frame();
+      var rt; window.addEventListener('resize', function () {
+        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
+      });
+    }
+  })();
+  </script>
 
 </body>
 </html>
