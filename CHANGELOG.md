@@ -162,3 +162,14 @@ Update rules:
 - Files/systems touched: blog/2026-06-15-forge.html, blog/index.html, index.html, CHANGELOG.md.
 - Verification: verify_content_package.py passed; check_blog_surface.py, check_product_cards.py, check_resume_surface.py, check_founder_proficiencies.py all passed; HTMLParser over index.html, resume.html, blog/index.html, and blog/2026-06-15-forge.html clean.
 - Author/agent: Jarvis/Hermes (DPL weekly cron)
+
+## 2026-06-11 — Award-winning design system + flagship umbrella rebuild (branch design/award-winning-v1)
+- Date: 2026-06-11
+- Change: Established the shared This.Live / Cortex Suite design system (`design-system.css` tokens + reusable component kit; `DESIGN-SYSTEM.md` docs) and rebuilt the umbrella `index.html` to an award-winning reference bar — sovereign-local thesis hero, 6-pillar suite grid (each links its page), problem→solution narrative, "smarter AND cheaper" flywheel, truthful "what's real today vs staged" ledger, and a strong CTA. Added `home.css` page layer.
+- Why it matters: Gives every pillar page ONE coherent, dark-first, single-accent (cyan) system with a modular type scale, 8pt spacing, consistent radius/elevation/motion, AAA-minded contrast, reduced-motion support, and responsive parity at 390/768/1280/1920 — replacing the prior template-per-page drift. Establishes the visual quality bar for the rest of the site work.
+- Truth discipline: Every claim cross-checked against `cortex-completion-2026-06-10/receipts/phase7/claims-ledger.md` — Mnemos 75k+/7-of-7 gates, Maestro live routing + ~63k historical labels (auto-labeling "fires", signal still maturing — NOT claimed useful), Forge factory built + base served but NO trained/served adapters, Agent Fabric engine proven e2e (not yet daily prod driver), Surfaces 3 surfaces + desktop shell (GA/store staged), managed tier labeled Planned/not-offered. No pricing, no "iOS of agentic AI", no "54 models", no fake testimonials/metrics.
+- Files/systems touched: design-system.css (new), home.css (new), DESIGN-SYSTEM.md (new), index.html (rebuilt), .claude/launch.json (new), CHANGELOG.md.
+- Verification: HTML tag-balance validator OK; Claude Preview MCP screenshots at 390/768/1280/1920 + headless-Chrome full-page captures (receipts/design/shots/index-1280.png, index-390.png); browser console clean (0 errors/warnings); check_resume_surface.py passed.
+- Known follow-up: Legacy DOM-contract guards (check_product_cards/founder_proficiencies/stack_cards/blog_surface) now fail against the reframed index (product catalog/founder block/blog preview moved off the umbrella; still reachable via nav+footer). These are advisory only — NOT wired into the Docker build or Railway deploy — and should be re-pointed at the new contract (or retired for the index) on review/merge.
+- Build-and-review: branch design/award-winning-v1 only; main untouched, NOT deployed.
+- Author/agent: Jarvis (design-system phase, Claude Code)
