@@ -5,6 +5,14 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-12 — Restore homepage #blog teaser on the award-winning design system (design/award-winning-v1, slug blog-teaser-restore)
+- Date: 2026-06-12
+- Change: Restored the homepage "What I am building, in public." blog teaser (`<section id="blog">`) that the award-winning redesign dropped — the pre-existing `check_blog_surface.py` failure called out by the last two entries. Canonical copy recovered from git history (`33fba1f`, the newest pre-redesign revision: correct "Latest" card → digital-products-lab-content-loop, not the older `c1551ea` archive-cleanup card) and rebuilt on the current design system instead of pasting the legacy markup: `.section--hairline` + `.section-head` (eyebrow/title/lede), four `.card.card--blog` link cards reusing the design-system `.card` base + hover elevation, staggered `.reveal`/`data-delay`, mono uppercase kickers (accent-cyan "Latest"), `card-cta` arrow affordance, and a `btn-outline btn-arrow` "Read the Blog" CTA → `/blog/`. Placed between the `#about` founder section and the closing CTA band. New `home.css` block (blog-section/blog-grid/blog-kicker/blog-card-title) — 2-col grid, 1-col ≤720px.
+- Result: `python3 scripts/check_blog_surface.py` PASSES (63 HTML files, landing section present, links normalized). All four required post links + heading + "Read the Blog" CTA present. Other content guards untouched.
+- Verification: live preview screenshots of `#blog` at 1280 and 390 — desktop 2×2 grid and mobile single-column both render on-token; zero console errors. Pre-existing ~7px mobile overflow (nav/hero-orb/fw-node) confirmed NOT from this section.
+- Files/systems touched: `index.html` (new #blog section), `home.css` (blog teaser styles + responsive), this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+- Author/agent: blog-teaser-restore (design/award-winning-v1)
+
 ## 2026-06-12 — Final QA + production deploy of the venture-studio reframe (slug ship-qa)
 - Date: 2026-06-12
 - Change: Ran final QA on `design/award-winning-v1` and deployed it to production. Full-page Playwright capture of all 9 public surfaces (umbrella + 6 pillars + /blog/ + /resume.html) at 4 viewports (390 / 768 / 1280 / 1920), with per-page console-error and CLS instrumentation. New verification harness `scripts/qa_shoot.js`.
