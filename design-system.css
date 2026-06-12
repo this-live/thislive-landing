@@ -35,6 +35,32 @@
 }
 
 /* ---------------------------------------------------------------------------
+   0b · SELF-HOSTED WEBFONTS  (woff2, latin subset, font-display: optional)
+   Self-hosted + preloaded (see each page <head>) so the brand faces are
+   render-ready before first paint — there is NO swap window, so the hero
+   headline never reflows. This kills the residual ~0.10 cold-paint CLS on
+   /cortex/, where the h1 wraps to 2 lines in real Space Grotesk but 3 lines
+   in the Arial/Avenir metric fallback (no system font wraps it identically).
+   `optional` is the bulletproof choice: a face that isn't ready within the
+   ~100ms block period yields to the metric fallback above for that one load
+   (no shift, ever) and is cached for the next visit; the preload makes that
+   path rare for the two critical faces. The Google Fonts <link> is retired —
+   these files are the sole source, with the metric fallbacks as the floor.
+   Files: /fonts/*.woff2 (Google latin subset, one static face per weight).
+   ------------------------------------------------------------------------- */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 300; font-display: optional; src: url('/fonts/inter-300.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: optional; src: url('/fonts/inter-400.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: optional; src: url('/fonts/inter-500.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: optional; src: url('/fonts/inter-600.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: optional; src: url('/fonts/inter-700.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 400; font-display: optional; src: url('/fonts/space-grotesk-400.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 500; font-display: optional; src: url('/fonts/space-grotesk-500.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 600; font-display: optional; src: url('/fonts/space-grotesk-600.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-style: normal; font-weight: 700; font-display: optional; src: url('/fonts/space-grotesk-700.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: optional; src: url('/fonts/jetbrains-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: optional; src: url('/fonts/jetbrains-mono-500.woff2') format('woff2'); }
+
+/* ---------------------------------------------------------------------------
    0 · RESET
    ------------------------------------------------------------------------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
