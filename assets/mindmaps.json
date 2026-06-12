@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "about": "Data-driven mind-maps for the this.live signature hero. Truthful structures only: real Cortex pillar dependencies, the real fleet Tailscale mesh, and the real route-label-train-serve-cheaper flywheel. Coordinates are normalized in a -1..1 square centred on the hero; the engine scales/positions them. Edited here, not in code.",
+    "accent": "#2DE2FF",
+    "version": 1
+  },
+  "maps": [
+    {
+      "id": "cortex",
+      "label": "Cortex Suite",
+      "caption": "Six pillars · one sovereign stack",
+      "nodes": [
+        { "id": "cortex",   "label": "Cortex",       "x":  0.00, "y":  0.02, "hue": "green",  "core": true },
+        { "id": "maestro",  "label": "Maestro",      "x": -0.62, "y": -0.40, "hue": "cyan"   },
+        { "id": "mnemos",   "label": "Mnemos",       "x":  0.60, "y": -0.42, "hue": "indigo" },
+        { "id": "fabric",   "label": "Agent Fabric", "x":  0.78, "y":  0.30, "hue": "violet" },
+        { "id": "surfaces", "label": "Surfaces",     "x":  0.10, "y":  0.66, "hue": "blue"   },
+        { "id": "forge",    "label": "Forge",        "x": -0.74, "y":  0.30, "hue": "amber"  }
+      ],
+      "edges": [
+        { "from": "surfaces", "to": "fabric"  },
+        { "from": "fabric",   "to": "maestro" },
+        { "from": "maestro",  "to": "mnemos"  },
+        { "from": "forge",    "to": "maestro", "flywheel": true },
+        { "from": "maestro",  "to": "forge",   "flywheel": true },
+        { "from": "cortex",   "to": "maestro",  "governs": true },
+        { "from": "cortex",   "to": "mnemos",   "governs": true },
+        { "from": "cortex",   "to": "fabric",   "governs": true },
+        { "from": "cortex",   "to": "surfaces", "governs": true },
+        { "from": "cortex",   "to": "forge",    "governs": true }
+      ]
+    },
+    {
+      "id": "fleet",
+      "label": "The fleet",
+      "caption": "Tailscale mesh · nodes you own",
+      "nodes": [
+        { "id": "atlas",  "label": "Atlas",  "x":  0.00, "y": -0.62, "hue": "cyan",   "core": true },
+        { "id": "fred",   "label": "Fred",   "x":  0.70, "y": -0.10, "hue": "cyan"   },
+        { "id": "jarvis", "label": "Jarvis", "x":  0.46, "y":  0.62, "hue": "cyan"   },
+        { "id": "sparky", "label": "Sparky", "x": -0.46, "y":  0.62, "hue": "violet" },
+        { "id": "nas",    "label": "NAS",    "x": -0.70, "y": -0.10, "hue": "indigo" },
+        { "id": "bob",    "label": "bob",    "x":  0.00, "y":  0.18, "hue": "muted", "dim": true }
+      ],
+      "edges": [
+        { "from": "atlas",  "to": "fred"   },
+        { "from": "atlas",  "to": "jarvis" },
+        { "from": "atlas",  "to": "sparky" },
+        { "from": "atlas",  "to": "nas"    },
+        { "from": "fred",   "to": "jarvis" },
+        { "from": "fred",   "to": "nas"    },
+        { "from": "jarvis", "to": "sparky" },
+        { "from": "sparky", "to": "nas"    },
+        { "from": "jarvis", "to": "nas"    },
+        { "from": "atlas",  "to": "bob", "dim": true }
+      ]
+    },
+    {
+      "id": "flywheel",
+      "label": "The flywheel",
+      "caption": "Smarter AND cheaper, the more you use it",
+      "loop": true,
+      "nodes": [
+        { "id": "route",   "label": "Route",   "x":  0.00, "y": -0.80, "hue": "cyan"   },
+        { "id": "label",   "label": "Label",   "x":  0.66, "y": -0.42, "hue": "cyan"   },
+        { "id": "harvest", "label": "Harvest", "x":  0.82, "y":  0.22, "hue": "indigo" },
+        { "id": "train",   "label": "Train",   "x":  0.40, "y":  0.74, "hue": "amber"  },
+        { "id": "eval",    "label": "Eval",    "x": -0.40, "y":  0.74, "hue": "violet" },
+        { "id": "serve",   "label": "Serve",   "x": -0.82, "y":  0.22, "hue": "blue"   },
+        { "id": "cheaper", "label": "Cheaper", "x": -0.66, "y": -0.42, "hue": "green", "core": true }
+      ],
+      "edges": [
+        { "from": "route",   "to": "label"   },
+        { "from": "label",   "to": "harvest" },
+        { "from": "harvest", "to": "train"   },
+        { "from": "train",   "to": "eval"    },
+        { "from": "eval",    "to": "serve"   },
+        { "from": "serve",   "to": "cheaper" },
+        { "from": "cheaper", "to": "route", "flywheel": true }
+      ]
+    }
+  ]
+}

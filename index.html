@@ -53,6 +53,7 @@
       <div class="hero-orb hero-orb--2"></div>
       <div class="hero-orb hero-orb--3"></div>
       <canvas id="heroCanvas" class="hero-particles"></canvas>
+      <div class="hero-scrim"></div>
     </div>
     <div class="container">
       <div class="hero-inner">
@@ -507,57 +508,11 @@
       reveals.forEach(function (el) { io.observe(el); });
     }
 
-    /* Hero particle field — light, paused under reduced-motion */
-    var canvas = document.getElementById('heroCanvas');
-    if (canvas && !reduce) {
-      var ctx = canvas.getContext('2d');
-      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
-      function size() {
-        var host = canvas.parentElement;
-        w = host.offsetWidth; h = host.offsetHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function seed() {
-        pts = [];
-        var n = Math.min(64, Math.floor((w * h) / 22000));
-        for (var i = 0; i < n; i++) pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.4,
-          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
-          o: Math.random() * 0.4 + 0.12
-        });
-      }
-      function frame() {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i];
-          p.x += p.dx; p.y += p.dy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
-          ctx.fillStyle = 'rgba(45,226,255,' + p.o + ')'; ctx.fill();
-        }
-        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
-          if (d < 14400) {
-            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
-            ctx.strokeStyle = 'rgba(45,226,255,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
-          }
-        }
-        raf = requestAnimationFrame(frame);
-      }
-      size(); seed(); frame();
-      var rt; window.addEventListener('resize', function () {
-        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
-      });
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-      });
-    }
   })();
   </script>
+
+  <!-- ── SIGNATURE HERO ENGINE (neural constellation → project mind-maps) ── -->
+  <script src="/hero.js" defer></script>
 
 </body>
 </html>
