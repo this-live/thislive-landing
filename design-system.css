@@ -9,6 +9,32 @@
    ========================================================================== */
 
 /* ---------------------------------------------------------------------------
+   0a · METRIC-COMPATIBLE FONT FALLBACKS (kill font-swap CLS)
+   Webfonts load with display=swap; without metric-matched fallbacks the swap
+   reflows the hero (~0.1 CLS). These Arial-derived faces are size/ascent/descent
+   tuned so the fallback occupies the same box as the real font — swap = no shift.
+   ------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Inter-fallback';
+  src: local('ArialMT'), local('Arial');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+@font-face {
+  /* Avenir Next (Apple) wraps identically to Space Grotesk for our headlines, so
+     the swap reflows zero lines on the bulk of this audience's machines; Arial is
+     the cross-platform floor. ascent/descent tuned to hold the same line box. */
+  font-family: 'SpaceGrotesk-fallback';
+  src: local('AvenirNext-Regular'), local('ArialMT'), local('Arial');
+  size-adjust: 100%;
+  ascent-override: 93%;
+  descent-override: 23%;
+  line-gap-override: 0%;
+}
+
+/* ---------------------------------------------------------------------------
    0 · RESET
    ------------------------------------------------------------------------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,7 +80,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   --text:          #F3F6FB;   /* headings / primary */
   --text-body:     rgba(243, 246, 251, 0.74);
   --text-muted:    rgba(243, 246, 251, 0.50);
-  --text-subtle:   rgba(243, 246, 251, 0.30);
+  --text-subtle:   rgba(243, 246, 251, 0.50);  /* AA-legible (≈5:1 on --bg) for footer labels, copyright, eyebrow rules */
   --on-accent:     #051016;   /* text on cyan fills */
 
   /* — Color · structure — */
@@ -63,8 +89,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
   --border-strong: rgba(255, 255, 255, 0.20);
 
   /* — Type — */
-  --font-display:  'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display:  'Space Grotesk', 'SpaceGrotesk-fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:     'Inter', 'Inter-fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:     'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
 
   /* modular type scale (1.250 major-third on a 16px base, fluid where it earns it) */
@@ -198,9 +224,11 @@ a { color: var(--accent); text-decoration: none; }
 .logo-dot { color: var(--accent); }
 
 .nav-links { display: flex; gap: var(--sp-6); align-items: center; }
-.nav-links a { color: var(--text-muted); font-weight: 500; font-size: var(--fs-sm);
+/* :not(.btn) so the nav CTA pill keeps its own ink (--on-accent) instead of
+   inheriting muted text via specificity — otherwise the CTA label sits at ~1.2:1 on cyan */
+.nav-links a:not(.btn) { color: var(--text-muted); font-weight: 500; font-size: var(--fs-sm);
   transition: color var(--dur-1) var(--ease-soft); }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:not(.btn):hover { color: var(--text); }
 .nav-cta { /* nav-scoped pill button */ }
 .nav-back { font-family: var(--font-mono); font-size: var(--fs-xs); }
 
@@ -383,7 +411,7 @@ a.card, .card a.card-link { text-decoration: none; color: inherit; }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: var(--sp-6); margin-bottom: var(--sp-7); }
 .footer-brand .logo { margin-bottom: var(--sp-3); }
 .footer-tag { color: var(--text-muted); font-size: var(--fs-sm); max-width: 30ch; line-height: 1.6; }
-.footer-col h4 { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
+.footer-col .footer-h { font-family: var(--font-mono); font-size: var(--fs-mono); text-transform: uppercase;
   letter-spacing: 0.1em; color: var(--text-subtle); margin-bottom: var(--sp-4); font-weight: 600; }
 .footer-col a { display: block; color: var(--text-muted); font-size: var(--fs-sm); padding: 5px 0;
   transition: color var(--dur-1) var(--ease-soft); }
