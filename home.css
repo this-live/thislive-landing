@@ -349,3 +349,8 @@ a.living-card:hover { border-color: var(--accent); transform: translateY(-2px); 
   .living-track { grid-template-columns: 1fr; }
   .founder-stack { padding: var(--sp-6) var(--sp-5); }
 }
+
+/* Where I stand */
+.stance-section .stance-body { max-width: 720px; }
+.stance-section .stance-body .founder-bio { margin-bottom: var(--sp-4); }
+.stance-section .stance-body .founder-bio:last-child { margin-bottom: 0; }
