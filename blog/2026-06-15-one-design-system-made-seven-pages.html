@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><link rel="canonical" href="https://this.live/blog/2026-06-15-one-design-system-made-seven-pages.html"><title>One design system made seven pages | this.live Blog</title><meta name="description" content="How I built one shared design system and rebuilt the entire This.Live site from scratch: seven pages, zero inconsistency.">
+<meta property="og:title" content="One design system made seven pages | this.live Blog"><meta property="og:description" content="How I built one shared design system and rebuilt the entire This.Live site from scratch: seven pages, zero inconsistency."><meta property="og:url" content="https://this.live/blog/2026-06-15-one-design-system-made-seven-pages.html"><meta property="og:type" content="article"><meta property="og:image" content="https://this.live/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/favicon.png?v=2"><link rel="stylesheet" href="/blog.css"></head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+
+<div class="post-container">
+<h1>One design system made seven pages</h1>
+<p class="post-meta">June 15, 2026</p>
+
+<div class="post-body">
+
+<p>Seven pages. One design system. Before that night, each page had its own stylesheet, its own spacing rules, its own font sizes, its own button styles. The umbrella homepage used a different card radius than the Cortex pillar. The Forge page had a header the height of a small room. The blog feed felt like a different website entirely. It was not the kind of inconsistency you notice until you point at it and say: this looks wrong.</p>
+
+<p>I started the overhaul on June 11. I knew the exact problem. Every page was a separate product, not pages of a product. The fix had to begin at the layer above CSS. I needed tokens. Not a few variables here and there, but a complete set of design decisions locked into a single file that every page could import.</p>
+
+<p>I built <code>design-system.css</code> and committed it as the single source of truth. The file runs 504 lines. It defines color tokens for a dark-first palette. One accent color: cyan (#2DE2FF). Everything else lives in surface gradients, text hierarchy, and supporting hues used only sparingly for pillar identity. The text colors target AAA compliance on the dark background. Heading text is #F3F6FB. Body text drops to 74% opacity. Muted labels sit at 50%. The contrast ratios are not aspirational. They are measured.</p>
+
+<p>The spacing system is an 8pt grid. Four pixels for tight gaps, 8 for padding, 16 for card edges, 24 for section breathing room, 32 for layout gutters, up to 160 pixels for the massive hero sections. Every element on every page now uses the same spacing tokens. A card padding on the umbrella page matches a card padding on the Cortex pillar page. No exceptions. No manual overrides.</p>
+
+<p>Typography got the same treatment. Space Grotesk for display text, Inter for body, JetBrains Mono for code and monospaced labels. I stopped using Google Fonts for critical rendering and self-hosted the fonts as woff2 files with font-display: optional. The critical CLS culprit was the font swap. Inter swaps from Arial to Inter at roughly 107% size match with ascent-override set to 90%. Space Grotesk swaps from Avenir Next to Space Grotesk at 100% size match with ascent-override at 93%. The hero headline on the Cortex page was wrapping to three lines in the fallback font and two lines in the real font, creating a 0.1 CLS jump. With metric-matched fallbacks and self-hosted files preloaded, the swap window closed before first paint. The hero never reflows. CLS dropped from 0.1 to near zero.</p>
+
+<p>The radius system is five levels: 8, 12, 16, 20, 28 pixels. Cards use 16. Pillar cards use 16. Buttons use 8. The CTA band uses 28. Everything is one of five values. There is no "I'll make it 14 pixels" moment. The elevation system mirrors this with three shadow levels plus an accent glow variant for interactive cards. Motion follows the same discipline: four duration steps at 180ms, 280ms, 500ms, 800ms, and two easing curves. The primary curve is cubic-bezier(0.22, 1, 0.36, 1). It is an expo-out curve. Confident, no jank. Every transition in every page now uses the same durations and the same curves.</p>
+
+<p>Then I rebuilt the pages. The umbrella index.html came first. I replaced the entire layout with the new component system: nav with backdrop-blur and scroll-triggered border, hero with neural-constellation canvas animation, six-pillar suite grid using the new pillar card component, problem-to-solution narrative section, flywheel section, current-state ledger, and a CTA band. Each section used the new layout primitives: container, section, section-head, eyebrow, title, lede. The page went from a hand-assembled collection of blocks to a structured page built from the design system's vocabulary.</p>
+
+<p>The pillar pages followed. Cortex, Maestro, and Mnemos were rebuilt together as the Compute + Intelligence cluster. Each got its own hue modifier on the pillar card (indigo for Cortex, blue for Maestro, violet for Mnemos) while sharing the same structure: name, kill-statement, description, status badge, and a link. Fabric, Surfaces, and Forge were rebuilt as the Execution + Products cluster with their own hue modifiers (amber, green, cyan). Six pillar pages. Six files. One design system.</p>
+
+<p>The QA pass came last. Every page on every device. Accessibility audit. Contrast verification. CLS measurement across cold and cached loads. Mobile nav with hamburger toggle. Reduced-motion media query disabling all animations and transitions. The design system includes a [data-delay] system for staggered reveal-on-scroll animations, but everything respects prefers-reduced-motion by setting transition-duration to 0.001ms and hiding the opacity transform entirely.</p>
+
+<p>After the design system work, I rebuilt the about page with the "Where I stand" stance section and condensed the founder operating principles from 14 down to 9. The blog surface got restored to the homepage as a teaser grid. Per-pillar subdomains were configured via Host-routed nginx so each product page gets its own slug subdomain. The entire site now ships as a coherent product rather than a collection of pages that agree only by accident.</p>
+
+<p>The file stats tell the story. 14 files changed. 3,934 insertions. 1,126 deletions. That is a net gain of 2,808 lines. But the lines are not bloat. They are structure. The old code was duplicated across pages. The new code is shared. If I change the accent color, it changes everywhere. If I change the corner radius, it changes everywhere. If I change the easing curve, it changes everywhere. The cost of consistency is a design system file. The cost of inconsistency is seven pages that look different.</p>
+
+<p>The lesson is simple. If you are building a product family, build the system first. The pages will follow. You will spend more lines upfront, but you will spend fewer lines forever after. Inconsistency is cheap at the start. It compounds. So do the fixes.</p>
+
+</div>
+
+<div class="post-nav"><p style="color:var(--text-muted);font-size:14px;">&larr; <a href="/blog/" style="color:var(--accent);text-decoration:none;">Back to blog</a></p></div>
+</div>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body></html>
