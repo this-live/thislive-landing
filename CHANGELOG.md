@@ -5,6 +5,19 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-14 — Landing content reframe: one-operator/portfolio → decentralized agentic AI
+
+The landing UI/UX is loved and untouched, but the initial CONTENT had drifted to a "one operator /
+build a portfolio" angle; it should lead with DECENTRALIZED AGENTIC AI (the Cortex thesis). Content-only
+reframe — no structure/CSS/animation changes:
+- Hero H1: "Own the intelligence. / Build a portfolio with the leverage of a team." → "Decentralized agentic
+  AI you own. / Smarter and cheaper the more it runs." Plus the hero pill, lede, and sub.
+- Suite intro: "The engine that lets one person run all of this." → "One decentralized system. Six pillars."
+- Products lede, closing CTA, footer tag, and all title/meta/OG/Twitter tags shifted from operator-leverage
+  to the thesis (sovereign, fully-local, provider-agnostic, recursively self-improving fleet of agents + nodes).
+- Founder bio kept as Bryce's story (only softened one "one operator move like a team" phrase).
+Verified rendered via local preview (hero reads "Decentralized agentic AI you own…"), loved UI intact.
+
 ## 2026-06-13 — Fix SCRUTINY Tier-3 #17: no-slash 522 on pillar pages (slug no-slash-522)
 - Date: 2026-06-13 (Mavis pickup tick, cron `cortex-whole-suite-autopickup`, session mvs_c03f0fb433534a1a905ee561fdfa797c)
 - Change: nginx was 301-redirecting `/<pillar>` (no trailing slash) to `http://<host>:8080/<pillar>/` — leaking the internal `:8080` listen port into the public URL. Cloudflare then tried to follow the absolute redirect to a non-publicly-exposed port and returned 522. Two-line nginx config change: `absolute_redirect off; port_in_redirect off;` in `nginx.conf` `server { … }` block, so trailing-slash redirects emit the RELATIVE `/<pillar>/` path. Cloudflare resolves the relative path against the public `https://<host>` scheme/host and the 522 is gone. Apex `/`, `/<pillar>/`, and the pillar-Host `location = /` Host-routing are all unchanged.
