@@ -18,6 +18,13 @@ reframe — no structure/CSS/animation changes:
 - Founder bio kept as Bryce's story (only softened one "one operator move like a team" phrase).
 Verified rendered via local preview (hero reads "Decentralized agentic AI you own…"), loved UI intact.
 
+Follow-up (same day, per master-plan `00-LANDING-REFRAME.md`): completed the remaining three spots that still
+carried portfolio/operator framing — `#products` (eyebrow "The portfolio" → "Proof it runs"; title → "One
+decentralized engine. Many things built on it."; lede → products-as-proof-it-runs), the founder section head
+("The operator behind the mission." → "Built by one operator. Designed to outlive him."; lede engine-led +
+"no single node, provider, or person is a point of failure"), and the final CTA eyebrow ("One operator · one
+engine" → "One decentralized engine · owned, not rented"). All verified present in the live DOM.
+
 ## 2026-06-13 — Fix SCRUTINY Tier-3 #17: no-slash 522 on pillar pages (slug no-slash-522)
 - Date: 2026-06-13 (Mavis pickup tick, cron `cortex-whole-suite-autopickup`, session mvs_c03f0fb433534a1a905ee561fdfa797c)
 - Change: nginx was 301-redirecting `/<pillar>` (no trailing slash) to `http://<host>:8080/<pillar>/` — leaking the internal `:8080` listen port into the public URL. Cloudflare then tried to follow the absolute redirect to a non-publicly-exposed port and returned 522. Two-line nginx config change: `absolute_redirect off; port_in_redirect off;` in `nginx.conf` `server { … }` block, so trailing-slash redirects emit the RELATIVE `/<pillar>/` path. Cloudflare resolves the relative path against the public `https://<host>` scheme/host and the 522 is gone. Apex `/`, `/<pillar>/`, and the pillar-Host `location = /` Host-routing are all unchanged.
