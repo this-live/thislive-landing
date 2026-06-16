@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><link rel="canonical" href="https://this.live/blog/2026-06-15-operating-debt-and-the-agentic-journey.html"><title>Operating debt and the agentic journey | this.live Blog</title><meta name="description" content="A few months into building with agents. What I organized, what broke, what I rebuilt, and the small things I wish someone had told me on day one."><meta property="og:title" content="Operating debt and the agentic journey | this.live Blog"><meta property="og:description" content="A few months into building with agents. What I organized, what broke, what I rebuilt, and the small things I wish someone had told me on day one."><meta property="og:url" content="https://this.live/blog/2026-06-15-operating-debt-and-the-agentic-journey.html"><meta property="og:type" content="article"><meta property="og:image" content="https://this.live/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/favicon.png?v=2"><link rel="stylesheet" href="/blog.css"></head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+
+<div class="post-container">
+<h1>Operating debt and the agentic journey</h1>
+<p class="post-meta">June 15, 2026</p>
+
+<div class="post-body">
+
+<p>I started building seriously with agents in January. It is June now. I want to write down what I have actually learned, not the parts that make a good demo, because the parts that broke are the ones that taught me anything.</p>
+
+<h2>What changed for me</h2>
+
+<p>Before agents, I was the bottleneck on every project. I was the one who wrote the spec, the one who wrote the code, the one who tested it, the one who wrote the README, the one who replied on Telegram. I liked that, for a long time, and I think a lot of independent builders will recognize the trap. You are good at all the parts. You are also the only person doing all the parts. The growth ceiling is you.</p>
+
+<p>What changed is that I started treating the work as a system instead of a series of projects. Not because I read a book about it. Because I hit the wall. I had a half-finished product in three different repos. I had a Telegram bot that talked to a model that talked to a database that nobody, including me, could explain. I had a cron that fired a prompt that called an API that timed out and a script that silently swallowed the error. The systems worked, sometimes. When they did not, the failure looked the same as the success from the outside. That is the worst kind of bug. It is the kind that lets you ship something broken with confidence.</p>
+
+<p>So I started keeping receipts. Not the kind you put on a fridge. The kind that prove a thing actually happened. A cron fired, the model said X, the database stored Y, the next cron read Z. If any link in that chain was missing, the thing did not ship. I am not rigorous about this the way an engineer would be. I am rigorous about it the way a person who has been embarrassed one too many times would be.</p>
+
+<h2>What I organized, and how</h2>
+
+<p>The first thing I did was stop pretending I had a clean stack. I do not have a clean stack. I have a Mac mini on the kitchen counter, four other machines scattered around the house, a NAS that has been mostly stable since I stopped using NFS in anger, a Discord server, a few Telegram bots, and a calendar I look at once a day. The job was not to make it pretty. The job was to make the parts I touch every day stop fighting me.</p>
+
+<p>Three concrete things helped. The first was naming things the way I would name them if I was explaining to a friend. Not "the orchestration layer." A dispatcher. Not "the long-term memory substrate." Memory. The second was making the daily path boring. The things I do every morning should not require me to remember ten steps. A cron fires, an agent reads, a receipt lands in my Telegram, I read the receipt with coffee. If that path breaks, the day breaks. The third was admitting that I would forget. I would forget the API key, I would forget the path, I would forget the model. So the system has to fail loud, fail with the missing thing named, and fail in the same place every time. When something goes wrong, I want a single message that says what was missing. Not a stack trace. Not a log line. A name.</p>
+
+<h2>Local plus paid, on purpose</h2>
+
+<p>I run a local model on a DGX Spark for the work I do a hundred times a day, and I pay for frontier models for the work I do ten times a day. That is not a flex. It is a math problem. Local is free after the hardware is paid off. Local is also slower, often less smart, and more work to keep running. Frontier is expensive per call, but it is fast and good at the kinds of things I am not good at, which is everything that requires me to remember a 200-page spec without skim-reading it first.</p>
+
+<p>The honest version of my model router looks like this. Cheap local model for things I do not need to be smart at. Routing a request, looking up a memory, summarizing a session, checking a format. Frontier model for things where being wrong is expensive. Writing copy. Debugging a hard race condition. Reading a long document and giving me the three things I should care about. The router is dumb. It does not learn. It is a config file with a few rules. That is on purpose. The things I want from a router are reliability, cheapness, and the ability to explain why it picked the model it picked. Learning routers are a different problem and I am not there yet.</p>
+
+<p>For the curious, the local model is a Qwen 3.6 35B on the Spark. It is wrong in interesting ways about once a day, and the failures are easy to spot if I read the output. The frontier model I default to is the one I trust the most for the work I do. I do not want to name them all publicly. I do want to say the boring thing: the right model is the one that is reliable and good enough, and there is no prize for using a more expensive one.</p>
+
+<h2>What I built, and what it is for</h2>
+
+<p>Most of the things I have built exist because I was annoyed. That is a fine way to build. It is not the only way. It is the way that has worked for me.</p>
+
+<p>The first thing I built was a small fleet of bots that talked to the same memory. The point was not the bots. The point was that I could ask a Telegram bot a question about something I had asked a different Telegram bot last week, and it would know. That sounds obvious. It was not obvious when I started. Most agent systems treat memory as a single store, but the store is shared across everything that talks to it, including the parts you would rather it did not. The fix was scoping. A bot that helps with customer support does not need to know what I had for breakfast. The bot only sees the support scope. The scoping is the feature. Most of the agentic systems I have built since are variations on the same idea. Constrain what each part can see. Constrain what each part can do. The constraints are not a limitation. They are the design.</p>
+
+<p>The second thing I built was a way to actually see what was running. Before this, I had a half-dozen services on different machines, a few crons firing at different intervals, and no single place to ask "what is alive right now." I now have a single screen that lists every service, what it is doing, and what it has done in the last day. The screen is not fancy. It is a list. The list is the point. If a service is not on the list, it is not on the list because it is not running. If it is on the list and doing the wrong thing, I can tell in three seconds. If a cron did not fire when it should have, I can tell in three seconds. Three seconds is the budget.</p>
+
+<p>The third thing I built was a receipt convention. Every time an agent does something consequential, it writes a short note about what it did, what it saw, and what it expects to happen next. The note goes into a folder. The folder gets read by a daily job. The daily job writes me a one-page summary. I read the summary with coffee. If a note is missing for a thing that should have one, the daily job flags it. I do not have to remember. I do not have to look. The system tells me. That is the part I wish someone had told me on day one. The work is not the agents. The work is the system that watches the agents.</p>
+
+<h2>Operational debt, honestly</h2>
+
+<p>I have more operational debt than I have features. I am writing this on a Sunday morning and the debt is on the whiteboard behind me. I will not pretend it is gone.</p>
+
+<p>The debt looks like this. I have a cron that fires every five minutes and tails a log. I do not need it. I have not killed it. I have a service that talks to an API that has changed its auth scheme twice this year. I have not updated the auth code. I have a model configuration that points at a model that has been deprecated for six weeks. I have not migrated. I have a folder of receipts that is a year old and unreadable in the current tooling. I have a database that nobody is supposed to write to but everybody does. I have an authentication scheme that is "I trust this source." I have three of those. They are all wrong.</p>
+
+<p>The right answer is to pay the debt down. I am paying it down. The wrong answer is to pretend the debt is not there. The wrong answer is what I was doing for a while, and it is why I started this whole thing. The system should be honest about what it is and is not doing. The system should tell me when it is lying to me. The system should not pretend to be more reliable than it is.</p>
+
+<p>I am not there yet. I am closer than I was. I will write a post in three months about how the debt is different. That is the arc.</p>
+
+<h2>The small things, in case they help</h2>
+
+<p>A few small things I learned that I wish I had been told on day one. None of these are big. All of them saved me time.</p>
+
+<p>Write the prompt the way you would talk to a smart coworker who has never seen the project. Not the way you would write a spec. The coworker does not need the spec. The coworker needs the goal, the constraints, and the format you want the answer in. Everything else is noise. If the answer comes back wrong, the prompt was probably wrong. Fix the prompt before you blame the model.</p>
+
+<p>Pick one place for state. Not three. Not five. One. The place you reach for when you are debugging at 11pm. Everything else is a cache, a derived view, or a log. If you find yourself syncing state between two systems, you have two places for state. Pick one. Move the other to a derived view.</p>
+
+<p>Make the daily path boring on purpose. The things you do every day should be the things that are easiest to do. If the daily path is exciting, the daily path is fragile. Boring means it works. Boring means you do not have to think about it. Boring is what you want.</p>
+
+<p>When the model is wrong, the model is wrong in a specific way. Name the way. "It hallucinated a function name" is a different bug from "It forgot a constraint I told it about three messages ago." If you cannot name the way, you cannot fix it. If you cannot fix it, you cannot trust the next response either. The trust has to be re-earned after every mistake. That is fine. That is how it should work.</p>
+
+<p>Read the receipts. All of them. The receipt is the proof that the thing happened the way you think it happened. If you do not read the receipts, you are trusting the system. Trust is fine. Trust plus reading is better. Trust plus reading plus a system that writes the receipts for you is the best. Build the system that writes the receipts. You will not regret it.</p>
+
+<h2>What I am not going to do</h2>
+
+<p>I am not going to claim that any of this is generally true. It is what is true for me, in my situation, with my constraints, on the machines I have, with the budget I have, with the time I have. Your situation is different. Some of this will apply. Most of it will not. The parts that do apply will apply differently. That is fine.</p>
+
+<p>I am not going to claim I have solved the hard problems. I have not. The hard problems are still hard. The agent still hallucinates. The router still picks the wrong model sometimes. The cron still fires at the wrong time once a month. The system still lies to me. I catch the lies faster than I did. I do not catch them all.</p>
+
+<p>I am not going to claim the agents are autonomous. They are not. They are tools. The tool is more capable than a screwdriver. The tool is less capable than a teammate. The honest comparison is somewhere in the middle, and the middle depends on the task. The point is not that the tool is magic. The point is that the tool is useful for a specific shape of work, and I have learned the shape.</p>
+
+<h2>How other people can learn from this</h2>
+
+<p>If you are starting out, do not start by building an agent. Start by picking one thing that annoys you, by hand, every week. Then build the smallest thing that fixes it. The smallest thing is probably a cron. The smallest thing is probably a script. The smallest thing is not a system. The smallest thing is a thing that does one job, runs on a schedule, and writes a receipt. If the receipt is good, the thing is good. If the receipt is bad, the thing is bad. The receipt is the truth.</p>
+
+<p>Then add a second thing. Make the second thing talk to the first. Make the conversation scoped. Make the scopes small. Make the small scopes the same across the system. Now you have a pattern. The pattern scales. The pattern scales badly if the scopes are wrong. The pattern scales fine if the scopes are right. The work is getting the scopes right. Most of the rest of the work is being patient while you get the scopes right.</p>
+
+<p>Then add a third thing. By the third thing you will know what the system wants to be. The system will not be what you drew on the whiteboard. The system will be what survived the second and third attempts. The whiteboard is a starting point. The whiteboard is not the destination. The destination is whatever is still running six months after you stopped drawing the whiteboard.</p>
+
+<h2>What I will say if you ask me in six months</h2>
+
+<p>If you ask me in six months what changed, I will tell you what the operational debt looks like then. I will tell you what I have paid down and what I have not. I will tell you which crons I killed and which ones I am embarrassed I still have. I will tell you which models I trust and which ones I have stopped using. I will tell you the receipts I have and the receipts I do not. That is the honest update. The honest update is the one I owe you.</p>
+
+<p>Thanks for reading. If you are building something similar, I would love to hear what is working for you. The systems I have are the systems I needed. Yours will be different. That is the point.</p>
+
+</div>
+
+<div class="post-nav"><p style="color:var(--text-muted);font-size:14px;">&larr; <a href="/blog/" style="color:var(--accent);text-decoration:none;">Back to blog</a></p></div>
+</div>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body></html>
