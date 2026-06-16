@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mnemos · The memory plane your whole fleet shares</title>
-  <meta name="description" content="One hierarchical, scoped memory plane every agent, harness, and provider reads and writes the same way. Project-scoped by default, labeled across projects, write-protected at the root. 75k+ memories in production with 7/7 acceptance gates passing. Nothing leaves your hardware.">
+  <meta name="description" content="One decentralized memory plane every agent, harness, and provider in your fleet reads and writes the same way. Project-scoped by default, labeled across projects, write-protected at the root. 107k+ memories on your own hardware with 7/7 acceptance gates passing. No vendor silo, no rented context window. Nothing leaves your machines.">
   <meta name="theme-color" content="#080B14">
   <meta property="og:title" content="Mnemos · The memory plane your whole fleet shares">
-  <meta property="og:description" content="Scoped, hierarchical memory for every agent and harness. 75k+ memories in production, 7/7 gates passing. Nothing leaves your hardware.">
+  <meta property="og:description" content="One decentralized, scoped memory plane every agent and harness in your fleet shares. 107k+ memories on hardware you own, 7/7 gates passing. No vendor silo. Nothing leaves your machines.">
   <meta property="og:url" content="https://this.live/mnemos/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
@@ -58,7 +58,7 @@
         <p class="phero-eyebrow reveal"><span class="dot"></span> Mnemos · the memory plane</p>
         <h1 class="reveal" data-delay="1">Your agents stop being <span class="grad">scattered and forgetful.</span></h1>
         <p class="phero-lede reveal" data-delay="2">
-          One hierarchical, scoped memory plane every agent, harness, and provider reads and writes the same way — project-scoped by default, labeled across projects, write-protected at the root. <strong>Memory lives on your hardware</strong>: a SQLite system-of-record plus a Qdrant vector index on your NAS. Nothing leaves your machines.
+          One hierarchical, scoped memory plane every agent, harness, and provider in your fleet reads and writes the same way — project-scoped by default, labeled across projects, write-protected at the root. A SQLite system-of-record plus a Qdrant vector index on your NAS. <strong>No vendor silo, no rented context window, no single point of control.</strong> Nothing leaves your machines.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#whats-real" class="btn btn-primary btn-arrow">
@@ -68,8 +68,8 @@
           <a href="#model" class="btn btn-outline">How memory is scoped</a>
         </div>
         <div class="phero-meta reveal" data-delay="4">
-          <span>75k+ memories in production</span>
-          <span>7/7 acceptance gates passing</span>
+          <span>107k+ memories on your hardware</span>
+          <span>Write-protected at the root</span>
           <span>Provider-agnostic across harnesses</span>
         </div>
       </div>
@@ -82,7 +82,7 @@
       <div class="section-head reveal">
         <p class="eyebrow">The problem it kills</p>
         <h2 class="title">Cross-agent memory loss &amp; context rot</h2>
-        <p class="lede">A bigger context window is not memory. It resets every session, degrades at the tail, and you re-pay to process your own data — while every agent rediscovers what the others already knew.</p>
+        <p class="lede">A bigger context window is not memory, and a vendor's vector DB is not yours. Memory resets every session, degrades at the tail, and lives in a silo you don't control — while every agent in your fleet rediscovers what the others already knew.</p>
       </div>
       <div class="kills">
         <div class="kill reveal">
@@ -95,8 +95,8 @@
         <div class="kill reveal" data-delay="1">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
-            <h3>Every agent re-discovers what the others knew</h3>
-            <p>No shared store means duplicated work — or worse, one project's context leaking into another. Mnemos gives every agent the same scoped memory, without sibling leakage.</p>
+            <h3>Memory held in someone else's silo</h3>
+            <p>Rented vector DBs and per-vendor context live in a tenant you don't own. With no shared, sovereign store, every agent rediscovers what the others already knew — and one project's context can leak into another. Mnemos gives the whole fleet one scoped memory, on hardware you control, without sibling leakage.</p>
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@
             <text class="dg-sub" x="216" y="294" text-anchor="middle" font-size="9">system of record</text>
             <rect class="dg-node" x="294" y="250" width="124" height="58" rx="12"/>
             <text class="dg-label" x="356" y="276" text-anchor="middle" font-size="12.5">Qdrant</text>
-            <text class="dg-sub" x="356" y="294" text-anchor="middle" font-size="9">vector index</text>
+            <text class="dg-sub" x="356" y="294" text-anchor="middle" font-size="9">vector index · qdrant + sqlite</text>
 
             <path class="dg-flow-soft" d="M340 206v32" stroke-dasharray="3 5"/>
             <path class="dg-flow-soft" d="M216 206 C 216 230, 216 232, 216 248" stroke-dasharray="3 5"/>
@@ -247,6 +247,34 @@
             <rect class="dg-chip" x="154" y="326" width="264" height="34" rx="9"/>
             <text class="dg-sub" x="286" y="347" text-anchor="middle" font-size="10">on your NAS · nothing leaves your machines</text>
           </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DECENTRALIZED BY DESIGN ── -->
+  <section class="section section--hairline" id="decentralized">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Decentralized by design</p>
+        <h2 class="title">A sovereign memory plane, not a rented one</h2>
+        <p class="lede">One shared memory your whole fleet owns — never a vendor's vector DB, never a context window you re-pay to fill. Decentralized across harnesses, sovereign on your hardware.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <h3>You own the store</h3>
+          <p>A SQLite system-of-record plus a Qdrant vector index, both on your NAS. No vendor tenant, no rented context, no single point of control. Nothing leaves your machines.</p>
+          <span class="ledger-ev">SQLite + Qdrant · on your NAS</span>
+        </div>
+        <div class="card reveal" data-delay="1">
+          <h3>One memory, every harness</h3>
+          <p>The same hierarchical plane that Claude Code, Codex, Hermes, and Mavis all read and write the same way — provider-agnostic, project-scoped by default, labeled across projects.</p>
+          <span class="ledger-ev">provider-agnostic across harnesses</span>
+        </div>
+        <div class="card reveal" data-delay="2">
+          <h3>Protected + auditable</h3>
+          <p>Write-protected at the root, delete is a tombstone not an erase, and every write is canonicalized server-side — so no agent can dump to the shared root and no memory is ever stranded.</p>
+          <span class="ledger-ev">protected root · tombstone · server-side canonicalization</span>
         </div>
       </div>
     </div>
@@ -272,9 +300,9 @@
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>75k+ memories in production</h3>
-            <p>A live firehose on the NAS: <code>/health</code> healthy, <code>v3.0.0-prd</code>, queue_pending 0, Qdrant ok. Namespace unified to <code>cortex/*</code>, hierarchy-spec v2.0.0, 18 containers.</p>
-            <span class="ledger-ev">receipts/mnemos-deploy/deploy-verify.md (dated snapshot · 2026-06-11)</span>
+            <h3>107k+ memories on your hardware</h3>
+            <p>A live store on the NAS: <code>/health</code> healthy, <code>v3.0.0-prd</code>, <code>total_memories 107,913</code>, queue_pending 0, Qdrant ok. Namespace unified to <code>cortex/*</code>, hierarchy-spec v2.0.0 — on NVMe RAID1 you own.</p>
+            <span class="ledger-ev">curl :8090/health (live snapshot · 2026-06-16)</span>
           </div>
         </div>
         <div class="ledger-row reveal">
@@ -302,7 +330,7 @@
           </div>
         </div>
       </div>
-      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "75k+" is a conservative floor on a live, growing store — so we cite it with an as-of date instead of a frozen exact figure. The gates, by contrast, are pass/fail and were probed on the same day.</p>
+      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "107k+" is a conservative floor on a live, growing store — so we cite it with an as-of date and the measured <code>total_memories</code> instead of a frozen marketing figure. The gates, by contrast, are pass/fail and were probed on the same day.</p>
     </div>
   </section>
 
@@ -311,8 +339,8 @@
     <div class="container">
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">One memory for the fleet</p>
-        <h2>Give your agents one shared memory.</h2>
-        <p>Scoped, curated, write-protected at the root, and on your own hardware. Running in production today.</p>
+        <h2>One memory your fleet shares. On hardware you own.</h2>
+        <p>Scoped, curated, write-protected at the root, sovereign on your own NAS. No vendor silo — running in production today.</p>
         <div class="cta-actions">
           <a href="/cortex/" class="btn btn-primary btn-arrow">
             See the full suite
@@ -398,56 +426,12 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { io.observe(el); });
     }
-    var canvas = document.getElementById('heroCanvas');
-    if (canvas && !reduce) {
-      var ctx = canvas.getContext('2d');
-      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
-      function size() {
-        var host = canvas.parentElement;
-        w = host.offsetWidth; h = host.offsetHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function seed() {
-        pts = [];
-        var n = Math.min(60, Math.floor((w * h) / 24000));
-        for (var i = 0; i < n; i++) pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.4,
-          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
-          o: Math.random() * 0.4 + 0.12
-        });
-      }
-      function frame() {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i];
-          p.x += p.dx; p.y += p.dy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
-          ctx.fillStyle = 'rgba(129,140,248,' + p.o + ')'; ctx.fill();
-        }
-        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
-          if (d < 14400) {
-            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
-            ctx.strokeStyle = 'rgba(129,140,248,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
-          }
-        }
-        raf = requestAnimationFrame(frame);
-      }
-      size(); seed(); frame();
-      var rt; window.addEventListener('resize', function () {
-        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
-      });
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-      });
-    }
+    // The signature hero animation ("ARRIVE → FILE → PERSIST") lives in
+    // mnemos/mnemos-hero.js — self-contained, token-driven, reduced-motion-safe,
+    // paused when hidden/off-screen. It drives the same #heroCanvas.
   })();
   </script>
+  <script src="/mnemos/mnemos-hero.js" defer></script>
 
 </body>
 </html>

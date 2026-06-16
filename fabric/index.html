@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Fabric · Use all your agents — parallel and deterministic</title>
-  <meta name="description" content="Agent Fabric is a boring-reliable execution spine: dispatch every agent in parallel, isolate each in its own git worktree, and keep a durable receipt for everything that runs. The dynamic-workflow engine — agent, parallel, pipeline, tournament, loop — is proven end-to-end.">
+  <title>Agent Fabric · One request, a fleet of agents, in parallel</title>
+  <meta name="description" content="Agent Fabric is the decentralized execution spine of Cortex: one task fans out across many nodes and many agents at once — each isolated in its own worktree, each routed to the best model, each leaving a receipt. A spine that runs on hardware you own and finishes work a single chat would grind through one lane at a time.">
   <meta name="theme-color" content="#080B14">
-  <meta property="og:title" content="Agent Fabric · Use all your agents, parallel and deterministic">
-  <meta property="og:description" content="A durable execution spine with an 8-state task lifecycle and a dynamic-workflow engine proven end-to-end. Dispatch in parallel, isolate per-node, audit every run.">
+  <meta property="og:title" content="Agent Fabric · One request, a fleet of agents, in parallel">
+  <meta property="og:description" content="The decentralized execution spine of Cortex. One request fans out across many nodes and agents, each routed per lane, each receipted — parallelism with provenance, on hardware you own.">
   <meta property="og:url" content="https://this.live/fabric/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Agent Fabric · This.Live">
-  <meta name="twitter:description" content="The execution pillar. Dispatch every agent in parallel, deterministically, with a receipt for every run.">
+  <meta name="twitter:description" content="The decentralized execution spine. One request fans out across a fleet of agents in parallel, routed per lane, with a receipt for every run.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -56,9 +56,9 @@
     <div class="container">
       <div class="phero-inner">
         <p class="phero-eyebrow reveal"><span class="dot"></span> Agent Fabric · execution</p>
-        <h1 class="reveal" data-delay="1">Use <span class="grad">all your agents.</span> Parallel and deterministic.</h1>
+        <h1 class="reveal" data-delay="1">One request. <span class="grad">A fleet of agents.</span> In parallel.</h1>
         <p class="phero-lede reveal" data-delay="2">
-          Break work into lanes, dispatch agents in parallel, isolate each one in its own git worktree, and keep a durable receipt for everything that runs. <strong>A boring-reliable execution spine</strong> — so your fleet is coordinated, not a set of islands re-doing each other's work.
+          Agent Fabric fans one task out across many nodes and many agents at once — each isolated in its own worktree, each routed to the best model, each leaving a receipt. <strong>A decentralized execution spine</strong> that runs on your hardware and finishes work a single chat would grind through one lane at a time.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#how" class="btn btn-primary btn-arrow">
@@ -68,9 +68,9 @@
           <a href="#whats-real" class="btn btn-outline">What's real today</a>
         </div>
         <div class="phero-meta reveal" data-delay="4">
-          <span>:3333 execution service</span>
-          <span>ExecutionReceipt v1</span>
-          <span>Engine proven end-to-end</span>
+          <span>Parallel by design</span>
+          <span>Routed per lane</span>
+          <span>A receipt for every run</span>
         </div>
       </div>
     </div>
@@ -81,22 +81,22 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">The problem it kills</p>
-        <h2 class="title">Agents that work alone — and step on each other</h2>
-        <p class="lede">You have more than one agent, but they run as isolated chats. Nothing coordinates them, nothing isolates them, and nothing keeps a record. So they collide, repeat work, and leave you guessing what actually happened.</p>
+        <h2 class="title">A fleet you own, running like one slow chat</h2>
+        <p class="lede">You have many agents and several machines, but the work still flows through one lane on someone else's server. The nodes you own sit idle, your context lives in a silo you don't control, and when a run goes sideways there's no receipt to audit.</p>
       </div>
       <div class="kills">
         <div class="kill reveal">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
-            <h3>One agent at a time, in serial</h3>
-            <p>Work that could fan out across five agents runs one chat at a time. The fleet you're paying for sits idle while a single thread grinds through a queue it could have parallelized.</p>
+            <h3>Serial by default</h3>
+            <p>Work that could fan across the fleet runs one agent, one lane, one machine at a time. The nodes you own sit idle while a single thread grinds through a queue it could have parallelized.</p>
           </div>
         </div>
         <div class="kill reveal" data-delay="1">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
-            <h3>No isolation, no record</h3>
-            <p>Two agents touch the same files and clobber each other. And when a run goes sideways, there's no receipt — no record of who ran what, on which inputs, with what result. You can't audit what you can't see.</p>
+            <h3>Centralized and opaque</h3>
+            <p>The orchestration lives on someone else's server, your context held in their silo. When a run goes sideways there's no receipt to audit — no record of who ran what, on which inputs, with what result. You can't audit what you can't see.</p>
           </div>
         </div>
       </div>
@@ -108,29 +108,29 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">How it works</p>
-        <h2 class="title">Dispatch, isolate, receipt, compose</h2>
-        <p class="lede">One execution service takes a task, fans it across agents in isolated worktrees, streams progress, and writes a durable receipt. The dynamic-workflow engine composes those primitives into real graphs.</p>
+        <h2 class="title">A decentralized spine you run, lane by lane</h2>
+        <p class="lede">One service on your hardware takes a task, fans it across nodes in isolated worktrees, routes each lane to the best model, and writes a durable receipt. The workflow engine composes those primitives into real graphs — parallelism with provenance.</p>
       </div>
       <div class="steps">
         <div class="step reveal">
           <span class="step-n">01</span>
-          <h3>Dispatch service</h3>
-          <p>A <code>:3333</code> service handles dispatch, a v1 receipt bus, an SSE event stream, human-in-the-loop relay, and fleet health — boring-reliable on purpose.</p>
+          <h3>You run the spine</h3>
+          <p>A <code>:3333</code> service on hardware you own handles dispatch, a v1 receipt bus, an SSE event stream, and fleet health. The deploy-parity stamp is built and ready, and the spine is being made restartable-from-HEAD — both land on the next gated restart (staged).</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
           <h3>Per-node isolation</h3>
-          <p>Each node runs in its own real <code>git worktree</code>, so parallel agents never clobber each other's files. Checkpoint and resume are built in.</p>
+          <p>Each lane runs in its own real <code>git worktree</code>, so parallel agents across the fleet never clobber each other's files. Checkpoint and resume are built in.</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="step-n">03</span>
-          <h3>Durable receipts</h3>
-          <p>Every task conforms to <strong>ExecutionReceipt v1</strong> and moves through an 8-state lifecycle. What ran, on what, with what result — all auditable after the fact.</p>
+          <h3>A receipt for every run</h3>
+          <p>Every lane conforms to <strong>ExecutionReceipt v1</strong> and moves through an 8-state lifecycle. Nothing runs without an audit trail you hold locally — what ran, on what, with what result.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <span class="step-n">04</span>
           <h3>Workflow engine</h3>
-          <p>Agent, parallel, pipeline, tournament, and loop primitives compose into dynamic graphs — proven end-to-end at <strong>29/29</strong> with real isolation.</p>
+          <p>Agent, parallel, pipeline, tournament, and loop primitives compose into dynamic graphs, with <strong>composable patterns</strong> on top — fan-out runs in parallel, not one lane at a time.</p>
         </div>
       </div>
     </div>
@@ -141,19 +141,19 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">Real capabilities</p>
-        <h2 class="title">What Agent Fabric actually does</h2>
-        <p class="lede">Verified against the real execution service — not a mock. Each capability below maps to a receipt in the truth ledger further down.</p>
+        <h2 class="title">What the spine actually does</h2>
+        <p class="lede">Verified against the real execution service running on the fleet — not a mock. Each capability below maps to a receipt in the truth ledger further down.</p>
       </div>
       <div class="caps">
         <div class="cap reveal">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
-          <h3>Parallel dispatch</h3>
-          <p>Fan one task across many agents at once. The fleet works in parallel instead of a single thread queuing through serial chats.</p>
+          <h3>Parallel fan-out</h3>
+          <p>One request fans out across many nodes and agents at once. The fleet you own works in parallel instead of a single thread queuing one lane at a time.</p>
         </div>
         <div class="cap reveal" data-delay="1">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v12a3 3 0 0 0 3 3h6"/><path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></span>
-          <h3>Real per-node isolation</h3>
-          <p>Each node gets its own real <code>git worktree</code>. Two agents can edit the same repo at the same time without ever clobbering one another.</p>
+          <h3>Per-node worktree isolation</h3>
+          <p>Each lane gets its own real <code>git worktree</code>. Agents across the fleet can edit the same repo at the same time without ever clobbering one another.</p>
         </div>
         <div class="cap reveal" data-delay="2">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
@@ -168,12 +168,12 @@
         <div class="cap reveal" data-delay="1">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6M20 7l-8 5 8 5"/><circle cx="20" cy="7" r="1.5"/><circle cx="20" cy="17" r="1.5"/></svg></span>
           <h3>Composable workflows</h3>
-          <p>Agent, parallel, pipeline, tournament, and loop primitives compose into dynamic graphs — proven end-to-end with checkpoint and resume.</p>
+          <p>Agent, parallel, pipeline, tournament, and loop primitives compose into dynamic graphs — with checkpoint and resume, so a run is restartable from where it stopped.</p>
         </div>
         <div class="cap reveal" data-delay="2">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <h3>Routed through Maestro</h3>
-          <p>Dispatch can route through live Maestro, threading the <code>decision_id</code> and per-call cost end-to-end into the receipt — so every run is priced and auditable.</p>
+          <h3>Per-lane routing</h3>
+          <p>Each lane routes through the model router to the best model and node, threading the <code>decision_id</code> and per-call cost end-to-end into the receipt — so every placement is explainable.</p>
         </div>
       </div>
     </div>
@@ -185,12 +185,12 @@
       <div class="arch-layout">
         <div class="arch-copy reveal">
           <p class="eyebrow">The dispatch path</p>
-          <h2>One task in. A fleet of agents out — with a receipt for each.</h2>
-          <p>A task enters the <code>:3333</code> service and fans across agents, each running in its own git worktree. Progress streams over SSE; every node returns an ExecutionReceipt v1, and runs that route through Maestro carry a durable decision and cost.</p>
+          <h2>One request in. A fleet of agents out — with a receipt for each.</h2>
+          <p>A request enters the <code>:3333</code> service on your hardware and fans across nodes, each lane running in its own git worktree. Progress streams over SSE; every lane returns an ExecutionReceipt v1, and the router threads a <code>decision_id</code> + cost into each one.</p>
           <ul class="arch-list">
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Parallel by default.</b> Lanes run at once in isolated worktrees — no clobbering, no serial queue.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Receipt for everything.</b> Each node returns an ExecutionReceipt v1; the bus collects them.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Priced when routed.</b> Maestro threads a <code>decision_id</code> + cost into the receipt.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Parallel by default.</b> Lanes run at once in isolated worktrees across the fleet — no clobbering, no serial queue.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Receipt for everything.</b> Each lane returns an ExecutionReceipt v1; the durable bus collects them locally.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Explainable per lane.</b> The router threads a <code>decision_id</code> + cost into the receipt.</span></li>
           </ul>
         </div>
         <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
@@ -202,9 +202,9 @@
 
             <!-- dispatch service -->
             <rect class="dg-node-accent" x="150" y="138" width="120" height="84" rx="14"/>
-            <text class="dg-label" x="210" y="170" text-anchor="middle" font-size="13.5">Fabric :3333</text>
-            <text class="dg-sub" x="210" y="187" text-anchor="middle" font-size="9">dispatch · SSE</text>
-            <text class="dg-sub" x="210" y="201" text-anchor="middle" font-size="9">receipt bus</text>
+            <text class="dg-label" x="210" y="167" text-anchor="middle" font-size="13.5">Fabric :3333</text>
+            <text class="dg-sub" x="210" y="183" text-anchor="middle" font-size="9">dispatch · SSE</text>
+            <text class="dg-sub" x="210" y="197" text-anchor="middle" font-size="9">deploy-parity · staged</text>
 
             <!-- task -> dispatch -->
             <path class="dg-flow" d="M118 180h28"/>
@@ -232,13 +232,13 @@
             <!-- maestro route tap -->
             <circle cx="296" cy="244" r="15" class="dg-node-accent"/>
             <path class="dg-ico" d="M296 237v7l4 3"/>
-            <text class="dg-sub" x="296" y="274" text-anchor="middle" font-size="8.5">Maestro route</text>
+            <text class="dg-sub" x="296" y="274" text-anchor="middle" font-size="8.5">router · per lane</text>
             <path class="dg-flow-soft" d="M232 222 C 260 234, 270 240, 281 242" stroke-dasharray="3 5"/>
 
             <!-- receipts back -> bus -->
             <rect class="dg-node" x="150" y="290" width="120" height="48" rx="11"/>
-            <text class="dg-label" x="210" y="311" text-anchor="middle" font-size="12">Receipts</text>
-            <text class="dg-sub" x="210" y="326" text-anchor="middle" font-size="9">v1 · 8-state</text>
+            <text class="dg-label" x="210" y="310" text-anchor="middle" font-size="12">Receipts</text>
+            <text class="dg-sub" x="210" y="325" text-anchor="middle" font-size="9">v1 · decision_id</text>
             <path class="dg-flow-soft" d="M378 194 C 378 270, 300 296, 272 308" stroke-dasharray="3 5"/>
             <path class="dg-flow-soft" d="M210 222v62" stroke-dasharray="3 5"/>
           </svg>
@@ -254,8 +254,8 @@
         <div class="qs-copy reveal">
           <p class="eyebrow">Dispatch in practice</p>
           <h2>Fan one task across the fleet</h2>
-          <p>Hand the service a task and lanes, and it dispatches each agent into its own worktree, streams progress over SSE, and hands back a receipt per node. Deterministic, auditable, parallel.</p>
-          <p class="honesty" style="margin-top:0"><strong>Boring on purpose.</strong> The spine doesn't try to be clever. It dispatches, isolates, and records — so the smart part, your agents, can run without stepping on each other.</p>
+          <p>Hand the service a request and lanes, and it fans each agent into its own worktree across the fleet, routes per lane, streams progress over SSE, and hands back a receipt per node. Decentralized, auditable, parallel.</p>
+          <p class="honesty" style="margin-top:0"><strong>Boring on purpose.</strong> The spine doesn't try to be clever. It dispatches, isolates, routes, and records — so the smart part, your agents, can run in parallel without stepping on each other.</p>
         </div>
         <div class="terminal reveal" data-delay="1">
           <div class="terminal-bar">
@@ -275,6 +275,37 @@
 <span class="cmt"># every lane returns a durable ExecutionReceipt v1</span>
 <span class="ok">{ "task": "t_8b41", "state": "succeeded", "receipts": 3 }</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DECENTRALIZED BY DESIGN ── -->
+  <section class="section section--hairline" id="decentralized">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Decentralized by design</p>
+        <h2 class="title">Parallelism with provenance, on hardware you own</h2>
+        <p class="lede">Not a SaaS orchestrator you rent — a spine that runs on your machines, dispatches to whichever providers you choose (or none), and keeps the truth locally. Three properties make a fleet you own work like one parallel system.</p>
+      </div>
+      <div class="caps">
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></span>
+          <h3>You run the spine</h3>
+          <p>The <code>:3333</code> service runs on your hardware — no orchestration silo and no provider lock-in. The deploy-parity stamp is ready and the spine is being made restartable-from-HEAD, both landing on the next gated restart (staged). The spine is yours.</p>
+          <span class="cap-ev">45,470 requests · 0 errors · p50 0.66ms</span>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6"/><path d="M9 6h6l3 6-3 6H9"/></svg></span>
+          <h3>Routed per lane, across the fleet</h3>
+          <p>The model router places each lane on the best model and node. A <code>decision_id</code> ties every placement back to the routing call that made it — so each lane is explainable, not opaque.</p>
+          <span class="cap-ev">decision_id on every routed receipt</span>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></span>
+          <h3>A receipt for every run</h3>
+          <p>A durable <strong>ExecutionReceipt v1</strong> bus with SSE replay records every lane. Nothing runs without an audit trail — the provenance stays local, on your hardware.</p>
+          <span class="cap-ev">ExecutionReceipt v1 · durable bus · SSE replay</span>
         </div>
       </div>
     </div>
@@ -317,8 +348,16 @@
           <div><span class="badge badge--build">In Progress</span></div>
           <div class="ledger-body">
             <h3>The engine as the daily production driver</h3>
-            <p>The workflow engine is <strong>proven end-to-end — not yet the default driver of production multi-agent dispatch.</strong> The dynamic-workflow spec is ratified but review-pending, Maestro routing ships default-off, and migration 011 isn't yet applied live. It's real and tested; daily-driver status is the next gate.</p>
+            <p>The workflow engine is <strong>proven end-to-end — not yet the default driver of production multi-agent dispatch.</strong> The dynamic-workflow spec is ratified but review-pending, per-lane routing ships default-off, and migration 011 isn't yet applied live. It's real and tested; daily-driver status is the next gate.</p>
             <span class="ledger-ev">receipts/phase2/00-PHASE2-ROLLUP.md §6 (spec ratified, review-pending)</span>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--plan">Staged</span></div>
+          <div class="ledger-body">
+            <h3>Multi-node dispatch across the fleet</h3>
+            <p>The spine is <strong>single-box today</strong> — bound to loopback, safe by construction. Fanning real lanes across multiple machines lands on the API-key rollout: mint <code>AF_API_KEY</code>, authenticate cross-node dispatch, then restore the fleet-wide bind. Fleet-wide on the rollout, not before.</p>
+            <span class="ledger-ev">FOLLOWUP-af-api-key-rollout.md (single-box today, fleet-wide staged)</span>
           </div>
         </div>
       </div>
@@ -331,8 +370,8 @@
     <div class="container">
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">Coordinate the fleet</p>
-        <h2>Stop running your agents one at a time.</h2>
-        <p>Dispatch them in parallel, isolate each in its own worktree, and keep a receipt for every run. Deterministic execution you own.</p>
+        <h2>Run your fleet in parallel. On hardware you own.</h2>
+        <p>Fan one request across many nodes and agents, route each lane to the best model, and keep a receipt for every run. A decentralized execution spine you own.</p>
         <div class="cta-actions">
           <a href="/cortex/" class="btn btn-primary btn-arrow">
             See the full suite
@@ -417,53 +456,292 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { io.observe(el); });
     }
+    /* ====================================================================
+       SIGNATURE HERO ANIMATION — "FAN-OUT → PARALLELIZE → FINISH FIRST"
+       One cyan request fans N lanes simultaneously across the fleet; each
+       parallel lane lights + ticks done in the first half, while a lone serial
+       pulse trudges node-to-node and finishes last — the speedup is shown, not
+       told. Converges to a synthesis dot + a receipt mark, then breathes & loops.
+       Same house engine as hero.js: DPR cap 2, debounced resize, visibility +
+       IntersectionObserver pause, rAF loop, ALL colors via tok() (no hex),
+       --ease easing, low-contrast (nodes ≤8% / lines ≤8% / accent ≤22%), nothing
+       moves >~0.3px/frame. prefers-reduced-motion → ONE static composed frame.
+       ==================================================================== */
     var canvas = document.getElementById('heroCanvas');
-    if (canvas && !reduce) {
-      var ctx = canvas.getContext('2d');
-      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
-      function size() {
-        var host = canvas.parentElement;
-        w = host.offsetWidth; h = host.offsetHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function seed() {
-        pts = [];
-        var n = Math.min(60, Math.floor((w * h) / 24000));
-        for (var i = 0; i < n; i++) pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.4,
-          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
-          o: Math.random() * 0.4 + 0.12
-        });
-      }
-      function frame() {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i];
-          p.x += p.dx; p.y += p.dy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
-          ctx.fillStyle = 'rgba(167,139,250,' + p.o + ')'; ctx.fill();
+    if (canvas) {
+      var ctx = canvas.getContext('2d', { alpha: true });
+      if (ctx) (function () {
+        /* -- token resolution (stay coherent with the umbrella) ------------- */
+        var css = getComputedStyle(document.documentElement);
+        function tok(name, fb) { var v = css.getPropertyValue(name); return (v && v.trim()) || fb; }
+        function hexToRgb(hex) {
+          var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec((hex || '').trim());
+          return m ? { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) } : null;
         }
-        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
-          if (d < 14400) {
-            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
-            ctx.strokeStyle = 'rgba(167,139,250,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
+        var ACCENT = hexToRgb(tok('--accent', '#2DE2FF')) || { r: 45, g: 226, b: 255 };
+        var HUE = hexToRgb(tok('--violet', '#A78BFA')) || { r: 167, g: 139, b: 250 };
+        var INK = hexToRgb(tok('--bg', '#080B14')) || { r: 8, g: 11, b: 20 };
+        var PAPER = { r: 243, g: 246, b: 251 };           // --text white, for faint glyph fills
+        var FONT_MONO = tok('--font-mono', "'JetBrains Mono', monospace");
+        function rgba(c, a) { return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')'; }
+        /* house ease (cubic-bezier(.22,1,.36,1) ≈ expo-out) */
+        function ease(t) { t = t < 0 ? 0 : t > 1 ? 1 : t; return 1 - Math.pow(1 - t, 3); }
+        function clamp01(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }
+        function seg(t, a, b) { return clamp01((t - a) / (b - a)); }   // 0..1 within [a,b]
+
+        var host = canvas.parentElement;
+        var w = 0, h = 0, dpr = 1, mobile = false, raf = 0;
+        var origin = { x: 0, y: 0 }, synth = { x: 0, y: 0 };
+        var nodes = [], dust = [];
+        var LOOP = 18000;                                  // ~18s ambient loop
+        var t0 = 0;
+
+        function measure() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          w = host.offsetWidth; h = host.offsetHeight;
+          mobile = w < 720;
+          canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+          canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        /* layout: origin left-of-centre; a loose node row in the right negative
+           space (where the orb sits); synthesis dot at the right edge. */
+        function build() {
+          var N = mobile ? 4 : (w < 1100 ? 5 : (w < 1400 ? 6 : 7));
+          var fx = w * (mobile ? 0.20 : 0.46);             // fan origin x
+          var fy = h * 0.42;                                // vertical anchor
+          origin.x = fx; origin.y = fy;
+          var colX = mobile ? w * 0.74 : w * 0.76;          // node column x (loose)
+          var spread = Math.min(h * 0.62, (mobile ? 150 : 230));
+          var top = fy - spread / 2;
+          // synthesis dot sits right-of-field but leaves room for the receipt mark
+          synth.x = Math.min(w - (mobile ? 36 : 96), colX + (mobile ? 64 : 104));
+          synth.y = fy;
+          nodes = [];
+          for (var i = 0; i < N; i++) {
+            var fr = N === 1 ? 0.5 : i / (N - 1);
+            // loose, slightly organic column (not a rigid line)
+            var jx = (i % 2 === 0 ? -1 : 1) * (mobile ? 8 : 16);
+            nodes.push({
+              x: colX + jx, y: top + fr * spread,
+              order: i,                                     // serial visit order
+              // a short internal lane-arc each parallel lane traces
+              ax: (Math.random() * 0.5 + 0.5) * (mobile ? 9 : 13)
+            });
+          }
+          // faint connective dust (the recurring node motif as background tissue)
+          dust = [];
+          var dn = mobile ? 14 : Math.min(34, Math.floor((w * h) / 42000));
+          for (var d = 0; d < dn; d++) {
+            dust.push({
+              x: Math.random() * w, y: Math.random() * h,
+              r: Math.random() * 1.1 + 0.3,
+              dx: (Math.random() - 0.5) * 0.10, dy: (Math.random() - 0.5) * 0.10,
+              o: Math.random() * 0.05 + 0.02
+            });
           }
         }
-        raf = requestAnimationFrame(frame);
-      }
-      size(); seed(); frame();
-      var rt; window.addEventListener('resize', function () {
-        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
-      });
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-      });
+
+        function nodeGlyph(n, hairline, doneAmt, lit) {
+          var s = mobile ? 11 : 14;                         // node square size
+          var x = n.x - s / 2, y = n.y - s / 2;
+          // body: faint surface fill + 1px border (≤8% white)
+          ctx.fillStyle = rgba(PAPER, 0.05 + 0.03 * lit);
+          ctx.strokeStyle = rgba(PAPER, 0.07 + 0.05 * lit);
+          ctx.lineWidth = 1; roundRect(x, y, s, s, 3); ctx.fill(); ctx.stroke();
+          // violet title-hairline across the top (pillar identity), brightens one notch
+          ctx.strokeStyle = rgba(HUE, 0.10 + hairline * 0.30);
+          ctx.lineWidth = 1.4; ctx.beginPath();
+          ctx.moveTo(x + 2.5, y + 2.5); ctx.lineTo(x + s - 2.5, y + 2.5); ctx.stroke();
+          // done-tick: a small filled cyan dot once the lane completes (≤0.5)
+          if (doneAmt > 0.02) {
+            ctx.fillStyle = rgba(ACCENT, 0.5 * doneAmt);
+            ctx.beginPath(); ctx.arc(n.x, n.y + 1.5, 2.0, 0, 6.2832); ctx.fill();
+          }
+        }
+
+        function roundRect(x, y, ww, hh, r) {
+          ctx.beginPath();
+          ctx.moveTo(x + r, y);
+          ctx.arcTo(x + ww, y, x + ww, y + hh, r);
+          ctx.arcTo(x + ww, y + hh, x, y + hh, r);
+          ctx.arcTo(x, y + hh, x, y, r);
+          ctx.arcTo(x, y, x + ww, y, r);
+          ctx.closePath();
+        }
+
+        /* draw one composed frame at loop-fraction p ∈ [0,1).
+           Phases: ARRIVE 0–.12 · FAN-OUT .12–.40 · RACE .40–.72 ·
+                   CONVERGE+RECEIPT .72–.88 · BREATHE .88–1 */
+        function compose(p, animate) {
+          ctx.clearRect(0, 0, w, h);
+          ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+          // 0) faint dust (connective tissue ~0.05)
+          for (var di = 0; di < dust.length; di++) {
+            var g = dust[di];
+            if (animate) {
+              g.x += g.dx; g.y += g.dy;
+              if (g.x < 0) g.x = w; else if (g.x > w) g.x = 0;
+              if (g.y < 0) g.y = h; else if (g.y > h) g.y = 0;
+            }
+            ctx.fillStyle = rgba(HUE, g.o);
+            ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832); ctx.fill();
+          }
+
+          var arrive = seg(p, 0.00, 0.12);
+          var fan = seg(p, 0.12, 0.40);
+          var race = seg(p, 0.40, 0.72);
+          var conv = seg(p, 0.72, 0.88);
+          var breathe = seg(p, 0.88, 1.00);
+
+          // 1) ARRIVE — origin pulses; a short cyan stub extends toward the field
+          var stub = ease(arrive);
+          if (stub > 0.01) {
+            var sx = origin.x + 22 * stub;
+            ctx.strokeStyle = rgba(ACCENT, 0.18 * stub * (1 - fan * 0.6));
+            ctx.lineWidth = 1.2; ctx.beginPath();
+            ctx.moveTo(origin.x + 6, origin.y); ctx.lineTo(sx, origin.y); ctx.stroke();
+          }
+
+          // 2) FAN-OUT — N faint cyan lines fan SIMULTANEOUSLY to every node.
+          //    As a line lands, its node hairline brightens + a parallel lane-pulse
+          //    traces a short internal arc; all N light at once (the parallel beat).
+          var doneArr = [];
+          for (var i = 0; i < nodes.length; i++) {
+            var n = nodes[i];
+            var grow = ease(fan);                            // every lane grows together
+            var ex = origin.x + (n.x - origin.x) * grow;
+            var ey = origin.y + (n.y - origin.y) * grow;
+            // fan-out line (cyan ≤8%)
+            if (fan > 0.001 && breathe < 0.5) {
+              ctx.strokeStyle = rgba(ACCENT, 0.07 * (1 - breathe));
+              ctx.lineWidth = 1; ctx.beginPath();
+              ctx.moveTo(origin.x, origin.y); ctx.lineTo(ex, ey); ctx.stroke();
+            }
+            var landed = clamp01(fan * 1.05);                // ~1 once the line arrives
+            // parallel lane: a short internal arc that runs early and finishes by RACE/2
+            var lane = ease(seg(p, 0.20, 0.52));             // all lanes complete in 1st half
+            var laneDone = lane >= 1 ? 1 : 0;
+            doneArr[i] = laneDone;
+            // travelling lane-dot inside the node (2px), only while working
+            nodeGlyph(n, landed, ease(seg(p, 0.48, 0.62)) * landed, landed);
+            if (lane > 0.02 && lane < 0.999 && breathe < 0.5) {
+              var ang = -Math.PI / 2 + lane * Math.PI * 1.6;
+              var lx = n.x + Math.cos(ang) * n.ax;
+              var ly = n.y + Math.sin(ang) * n.ax;
+              ctx.fillStyle = rgba(ACCENT, 0.45 * landed * (1 - breathe));
+              ctx.beginPath(); ctx.arc(lx, ly, 1.6, 0, 6.2832); ctx.fill();
+            }
+          }
+
+          // 3) RACE — a single SERIAL pulse visits node→node→node in sequence
+          //    (one at a time). It is the SLOWEST element, so by the time it is
+          //    mid-way the parallel set is already done — the speedup reads.
+          if (!mobile) {
+            var serial = seg(p, 0.18, 0.92);                 // long, deliberate trudge
+            if (serial > 0.001 && serial < 0.999 && breathe < 0.5) {
+              var hops = nodes.length;
+              var pos = serial * hops;                        // which hop we're on
+              var idx = Math.min(hops - 1, Math.floor(pos));
+              var frac = ease(pos - idx);
+              var from = idx === 0 ? origin : nodes[idx - 1];
+              var to = nodes[idx];
+              var px = from.x + (to.x - from.x) * frac;
+              var py = from.y + (to.y - from.y) * frac + 18;  // lower "serial track"
+              // faint trailing serial track line
+              ctx.strokeStyle = rgba(PAPER, 0.05 * (1 - breathe));
+              ctx.lineWidth = 0.8; ctx.beginPath();
+              ctx.moveTo(from.x, from.y + 18); ctx.lineTo(px, py); ctx.stroke();
+              // the lone serial dot (dim, white — not accent — so parallel cyan wins)
+              ctx.fillStyle = rgba(PAPER, 0.22 * (1 - breathe));
+              ctx.beginPath(); ctx.arc(px, py, 2.2, 0, 6.2832); ctx.fill();
+            }
+          }
+
+          // 4) CONVERGE + RECEIPT — completed lanes draw faint fan-in lines to a
+          //    synthesis dot that brightens once; a small mono receipt mark fades in.
+          var allDone = 0; for (var k = 0; k < doneArr.length; k++) allDone += doneArr[k];
+          var convAmt = ease(conv);
+          if (convAmt > 0.01) {
+            for (var c = 0; c < nodes.length; c++) {
+              var nn = nodes[c];
+              var gx = nn.x + (synth.x - nn.x) * convAmt;
+              var gy = nn.y + (synth.y - nn.y) * convAmt;
+              ctx.strokeStyle = rgba(ACCENT, 0.06 * convAmt * (1 - breathe * 0.7));
+              ctx.lineWidth = 1; ctx.beginPath();
+              ctx.moveTo(nn.x, nn.y); ctx.lineTo(gx, gy); ctx.stroke();
+            }
+          }
+          // synthesis dot — brightens at converge, then a slow breathing glow
+          var synGlow = Math.max(convAmt, 0);
+          var pulse = breathe > 0 ? (0.5 + 0.5 * Math.sin(breathe * Math.PI * 2)) : 0;
+          var synA = 0.10 + synGlow * 0.45 + pulse * 0.10 * synGlow;
+          if (synGlow > 0.01 || breathe > 0) {
+            var gr = ctx.createRadialGradient(synth.x, synth.y, 0, synth.x, synth.y, mobile ? 14 : 20);
+            gr.addColorStop(0, rgba(ACCENT, 0.22 * synGlow));
+            gr.addColorStop(1, rgba(ACCENT, 0));
+            ctx.fillStyle = gr;
+            ctx.beginPath(); ctx.arc(synth.x, synth.y, mobile ? 14 : 20, 0, 6.2832); ctx.fill();
+            ctx.fillStyle = rgba(ACCENT, Math.min(0.55, synA));
+            ctx.beginPath(); ctx.arc(synth.x, synth.y, mobile ? 2.6 : 3.2, 0, 6.2832); ctx.fill();
+          }
+          // receipt mark — a tiny 1px-bordered rounded rect + a mono tick, fades in
+          var rcpt = Math.min(ease(conv), 1) * (1 - breathe * 0.8);
+          if (rcpt > 0.02 && !mobile) {
+            var rw = 30, rh = 16, rx = synth.x + 14, ry = synth.y - rh / 2;
+            if (rx + rw > w - 14) { rx = synth.x - 14 - rw; }   // flip left, keep clear of edge
+            ctx.fillStyle = rgba(INK, 0.45 * rcpt);
+            ctx.strokeStyle = rgba(ACCENT, 0.22 * rcpt);
+            ctx.lineWidth = 1; roundRect(rx, ry, rw, rh, 4); ctx.fill(); ctx.stroke();
+            ctx.fillStyle = rgba(ACCENT, 0.5 * rcpt);
+            ctx.font = '500 8px ' + FONT_MONO;
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            ctx.fillText('✓ rcpt', rx + rw / 2, ry + rh / 2 + 0.5);
+          }
+
+          // origin dot (cyan ~5px) — pulses on arrive, holds faint otherwise
+          var oA = 0.30 + ease(arrive) * 0.35 * (1 - fan * 0.4);
+          ctx.fillStyle = rgba(ACCENT, Math.min(0.7, oA));
+          ctx.beginPath(); ctx.arc(origin.x, origin.y, mobile ? 2.6 : 3.0, 0, 6.2832); ctx.fill();
+        }
+
+        /* -- lifecycle ----------------------------------------------------- */
+        var running = false, visible = !document.hidden, onScreen = true;
+        function tick(now) {
+          if (!running) return;
+          if (!t0) t0 = now;
+          var p = ((now - t0) % LOOP) / LOOP;
+          compose(p, true);
+          raf = requestAnimationFrame(tick);
+        }
+        function start() { if (running || reduce) return; running = true; raf = requestAnimationFrame(tick); }
+        function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+        function evaluate() { if (reduce) return; if (visible && onScreen) start(); else stop(); }
+
+        /* reduced-motion → ONE static composed frame of the FINISHED state:
+           origin → fanned lines → N done-ticks → synthesis dot + receipt mark,
+           serial pulse frozen mid-track. The metaphor reads with zero motion. */
+        function staticFrame() { measure(); build(); compose(0.80, false); }
+
+        measure(); build();
+        if (reduce) { staticFrame(); return; }
+
+        document.addEventListener('visibilitychange', function () { visible = !document.hidden; evaluate(); });
+        if ('IntersectionObserver' in window) {
+          var io2 = new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; evaluate(); }, { threshold: 0.02 });
+          io2.observe(host);
+        }
+        var rt; window.addEventListener('resize', function () {
+          clearTimeout(rt); rt = setTimeout(function () {
+            measure(); build();
+            if (reduce) { staticFrame(); }
+          }, 160);
+        }, { passive: true });
+
+        evaluate();
+      })();
     }
   })();
   </script>

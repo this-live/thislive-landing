@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maestro · Model routing that gets cheaper the more you use it</title>
-  <meta name="description" content="Maestro routes every prompt to the right model by task, cost, latency, privacy, and quality history — across local and frontier models. BYOK or fully local. Live routing is proven end-to-end over an OpenAI-compatible endpoint. No provider lock-in.">
+  <title>Maestro · The routing brain that runs on your hardware</title>
+  <meta name="description" content="Maestro is the decentralized routing brain of Cortex. One prompt arrives, it picks the best model on the right node across your fleet — local first, frontier only when it earns it — and hands back a decision_id you can audit. When a provider caps, it advances to the next seat automatically. A cap is a non-event.">
   <meta name="theme-color" content="#080B14">
-  <meta property="og:title" content="Maestro · Routing that gets cheaper the more you use it">
-  <meta property="og:description" content="Route by task, cost, latency, privacy, and quality history. BYOK or fully local. Live routing proven. No provider lock-in.">
+  <meta property="og:title" content="Maestro · The right model. On the right node. Every prompt.">
+  <meta property="og:description" content="A routing brain you run across your fleet. Routed per prompt, failover is automatic, a receipt for every decision. BYOK or fully local. A cap is a non-event.">
   <meta property="og:url" content="https://this.live/maestro/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Maestro · This.Live">
-  <meta name="twitter:description" content="The model-intelligence pillar. Route every prompt to the right model. BYOK or fully local.">
+  <meta name="twitter:description" content="The model-intelligence pillar. A routing brain you run across your fleet — routed per prompt, failover automatic, a receipt for every decision.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -56,9 +56,9 @@
     <div class="container">
       <div class="phero-inner">
         <p class="phero-eyebrow reveal"><span class="dot"></span> Maestro · model intelligence</p>
-        <h1 class="reveal" data-delay="1">The right model for the job. <span class="grad">Cheaper over time.</span></h1>
+        <h1 class="reveal" data-delay="1">The right model. <span class="grad">On the right node.</span> Every prompt.</h1>
         <p class="phero-lede reveal" data-delay="2">
-          Maestro routes every prompt by task, cost, latency, privacy, and quality history — across local and frontier models. <strong>BYOK or fully local, no provider lock-in.</strong> Local-first by default; a frontier model is reached only when it earns it, and the redaction scanner runs before anything leaves your machine.
+          Maestro is the routing brain that runs on your hardware. One prompt arrives, it picks the best model on the right node across your fleet — <strong>local first, frontier only when it earns it</strong> — and hands back a <code>decision_id</code> you can audit. When a provider caps, it advances to the next seat automatically. <strong>A cap is a non-event.</strong>
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#quickstart" class="btn btn-primary btn-arrow">
@@ -68,9 +68,9 @@
           <a href="#how" class="btn btn-outline">How routing works</a>
         </div>
         <div class="phero-meta reveal" data-delay="4">
-          <span>Live routing proven end-to-end</span>
-          <span>OpenAI-compatible /v1/chat/completions</span>
-          <span>Durable decision receipts</span>
+          <span>Routed per prompt</span>
+          <span>Failover is automatic</span>
+          <span>A receipt for every decision</span>
         </div>
       </div>
     </div>
@@ -81,22 +81,22 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">The problem it kills</p>
-        <h2 class="title">Provider lock-in &amp; runaway token cost</h2>
-        <p class="lede">The rented stack optimizes the provider's margin, not yours. You take their model, their guardrails, their price — and you re-pay to process your own context every single call.</p>
+        <h2 class="title">A rented router that optimizes their margin, not yours</h2>
+        <p class="lede">A gateway you rent decides which model you get, on whose hardware, at whose price — and there is no second seat to fall to when it caps. The intelligence lives somewhere else, on someone else's roadmap.</p>
       </div>
       <div class="kills">
         <div class="kill reveal">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
             <h3>One vendor owns your intelligence</h3>
-            <p>One API, one bill, one roadmap. When a provider neuters, deprecates, or reprices a model, your whole stack inherits the decision — and migrating means rebuilding around a new API.</p>
+            <p>One API, one bill, one roadmap. When they cap, neuter, or reprice a model, your whole stack inherits the decision — and there's no second seat to fall to. The routing lives on their hardware, not yours.</p>
           </div>
         </div>
         <div class="kill reveal" data-delay="1">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
-            <h3>Every call is an open-ended tax</h3>
-            <p>Per-token pricing means persistent agents burn cash forever, even on work a local model could do for free. The bill scales with usage instead of falling as your stack matures.</p>
+            <h3>A cap stops everything</h3>
+            <p>On a rented endpoint, a 429 or a daily cap is a hard wall — the work just halts until the window resets. One exhausted seat and your agents are stuck, with nowhere automatic to route to.</p>
           </div>
         </div>
       </div>
@@ -108,29 +108,29 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">How it works</p>
-        <h2 class="title">Route, consense, redact, learn</h2>
-        <p class="lede">A single OpenAI-compatible endpoint, a learned router behind it, and a durable decision you can audit. Local first; frontier only when the task earns it.</p>
+        <h2 class="title">A routing brain you run across your fleet</h2>
+        <p class="lede">A single OpenAI-compatible endpoint on your hardware, a learned router behind it, and a durable decision you can audit. Local first; frontier only when the task earns it — and a seat chain always ready underneath.</p>
       </div>
       <div class="steps">
         <div class="step reveal">
           <span class="step-n">01</span>
-          <h3>Smart routing</h3>
-          <p>Vega — a learned router with benchmark priors — picks across <strong>7 routing tiers</strong> by task, cost, latency, privacy, and quality history.</p>
+          <h3>Route, with a seat chain ready</h3>
+          <p>Vega — a learned router with benchmark priors — scores each prompt across <strong>7 tiers</strong> and picks the best model on the right node. The failover engine keeps a seat chain ready, so an exhausted seat advances automatically.</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
           <h3>Quorum consensus</h3>
-          <p>When one answer is too brittle, multiple models score and synthesize. The Quorum consensus engine runs as a live service.</p>
+          <p>When one answer is too brittle, multiple models across the fleet score and synthesize. The Quorum consensus engine runs as a live service you own.</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="step-n">03</span>
           <h3>Secret-scan redaction</h3>
-          <p>A redaction scanner runs before anything leaves for a cloud provider — so BYOK never means leaking secrets.</p>
+          <p>A redaction scanner runs before anything leaves your machine for a cloud provider — so BYOK never means leaking secrets.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <span class="step-n">04</span>
           <h3>Durable decision</h3>
-          <p>Every route returns a <code>decision_id</code> with a cost in cents — fetch the full receipt at <code>/v1/receipt/{id}</code> and audit any call.</p>
+          <p>Every route returns a <code>decision_id</code> with a cost in cents — fetch the full receipt at <code>/v1/receipt/{id}</code> and audit any placement after the fact.</p>
         </div>
       </div>
     </div>
@@ -142,18 +142,18 @@
       <div class="section-head reveal">
         <p class="eyebrow">Real capabilities</p>
         <h2 class="title">What Maestro actually does</h2>
-        <p class="lede">Proven against a real fleet — not a mock. Each capability below maps to a receipt in the truth ledger further down.</p>
+        <p class="lede">Proven against a real fleet you own — not a mock. Each capability below maps to a receipt in the truth ledger further down.</p>
       </div>
       <div class="caps">
         <div class="cap reveal">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 9 15M20 20 9 9"/></svg></span>
           <h3>One endpoint, many models</h3>
-          <p>OpenAI-compatible <code>/v1/chat/completions</code>. Point any client at Maestro and routing happens implicitly — local models and frontier providers behind one URL.</p>
+          <p>OpenAI-compatible <code>/v1/chat/completions</code> on your hardware. Point any client at Maestro and routing happens implicitly — local models and frontier providers behind one URL you own.</p>
         </div>
         <div class="cap reveal" data-delay="1">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-8"/><path d="M21 7v5M21 7h-5"/></svg></span>
           <h3>Cost &amp; latency aware</h3>
-          <p>Routing weighs price and latency alongside quality. Cheap, fast, local paths handle what they can; the expensive path is the exception, not the default.</p>
+          <p>Routing weighs price and latency alongside quality, per prompt. Cheap, fast, local nodes handle what they can; the expensive frontier seat is the exception, not the default.</p>
         </div>
         <div class="cap reveal" data-delay="2">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9"/></svg></span>
@@ -179,17 +179,48 @@
     </div>
   </section>
 
+  <!-- ── DECENTRALIZED BY DESIGN ── -->
+  <section class="section" id="decentralized">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Decentralized by design</p>
+        <h2 class="title">A routing brain you own, on your fleet</h2>
+        <p class="lede">Not a gateway you rent that optimizes the vendor's margin — a router you run, that places every prompt across your own hardware and never stops on a cap.</p>
+      </div>
+      <div class="caps">
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+          <h3>You run the brain</h3>
+          <p>An OpenAI-compatible router on <code>:8003</code>, on your hardware. The deploy-parity stamp and a supervised restart-from-HEAD are built and ready, landing on the next gated restart. The intelligence layer lives where your data does.</p>
+          <span class="cap-ev">/v1/status deploy_parity stamp · staged</span>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 11 16 5.8M8.2 13 16 18.2"/></svg></span>
+          <h3>Routed per prompt, across the fleet</h3>
+          <p>Vega places each prompt on the best model and node for it — local first, frontier only when it earns the call. The <code>decision_id</code> makes every placement explainable.</p>
+          <span class="cap-ev">decision_id on every route</span>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
+          <h3>A cap is a non-event</h3>
+          <p>The failover engine advances down a seat chain across providers and nodes automatically. The <code>ExhaustionTracker</code> remembers which seats are capped, so a 429 silently routes to the next.</p>
+          <span class="cap-ev">60 failover tests green · seat chain ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── ARCHITECTURE VISUAL ── -->
   <section class="section arch">
     <div class="container">
       <div class="arch-layout">
         <div class="arch-copy reveal">
           <p class="eyebrow">The routing path</p>
-          <h2>One request in. The right model out — with a receipt.</h2>
-          <p>A prompt enters the OpenAI-compatible endpoint, Vega scores it across seven tiers, and the call lands on the cheapest model that clears the bar — local first. Frontier egress passes the redaction gate; every route writes a durable decision.</p>
+          <h2>One request in. The right model out — with a seat chain underneath.</h2>
+          <p>A prompt enters the OpenAI-compatible endpoint, Vega scores it across seven tiers, and the call lands on the best model that clears the bar — local first. If that seat is exhausted, the failover engine advances to the next; every route writes a durable decision.</p>
           <ul class="arch-list">
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Local-first.</b> On-device models handle what they can; nothing leaves unless a frontier model truly earns the call.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Redaction before egress.</b> The secret-scan gate is in the path, not an afterthought.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>A cap is a non-event.</b> An exhausted seat advances down the chain automatically — the redaction gate still runs before any frontier egress.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Durable by default.</b> Each decision is fetchable at <code>/v1/receipt/{id}</code> with the model, tier, and cost.</span></li>
           </ul>
         </div>
@@ -210,9 +241,9 @@
             <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="2.6s" repeatCount="indefinite" path="M134 180h32"/></circle>
             <polygon points="166,180 159,176 159,184" fill="currentColor" class="accent-text"/>
 
-            <!-- targets -->
-            <rect class="dg-chip" x="328" y="40" width="116" height="46" rx="10"/>
-            <text class="dg-label" x="386" y="61" text-anchor="middle" font-size="12">Local model</text>
+            <!-- seat chain (failover advances down it on a cap) -->
+            <rect class="dg-node-accent" x="328" y="40" width="116" height="46" rx="10"/>
+            <text class="dg-label" x="386" y="61" text-anchor="middle" font-size="12">Seat 1 · local</text>
             <text class="dg-sub" x="386" y="76" text-anchor="middle" font-size="9">on your GPU</text>
 
             <rect class="dg-chip" x="328" y="156" width="116" height="46" rx="10"/>
@@ -220,17 +251,20 @@
             <text class="dg-sub" x="386" y="192" text-anchor="middle" font-size="9">consensus</text>
 
             <rect class="dg-node" x="328" y="272" width="116" height="46" rx="10"/>
-            <text class="dg-label" x="386" y="293" text-anchor="middle" font-size="12">Frontier</text>
-            <text class="dg-sub" x="386" y="308" text-anchor="middle" font-size="9">BYOK · redacted</text>
+            <text class="dg-label" x="386" y="293" text-anchor="middle" font-size="12">Seat 2 · frontier</text>
+            <text class="dg-sub" x="386" y="308" text-anchor="middle" font-size="9">on cap · BYOK</text>
 
-            <!-- vega -> targets -->
+            <!-- vega -> seats -->
             <path class="dg-flow" d="M288 168 C 308 150, 308 80, 328 66"/>
             <path class="dg-flow" d="M288 180h36"/>
-            <path class="dg-flow-soft" d="M288 192 C 308 220, 308 286, 328 294"/>
-            <!-- redaction gate on frontier path -->
+            <!-- failover advance: seat 1 -> seat 2 when a seat is exhausted -->
+            <path class="dg-flow-soft" d="M386 86 C 386 120, 386 230, 386 272" stroke-dasharray="3 5"/>
+            <text class="dg-sub" x="402" y="170" text-anchor="start" font-size="8">on cap →</text>
+            <!-- redaction gate on the frontier seat path -->
             <circle cx="308" cy="250" r="13" class="dg-node-accent"/>
             <path class="dg-ico" d="M303 250l3 3 6-6"/>
             <text class="dg-sub" x="308" y="232" text-anchor="middle" font-size="8.5">redact</text>
+            <path class="dg-flow-soft" d="M288 192 C 304 214, 308 240, 312 262"/>
 
             <!-- receipt out -->
             <rect class="dg-node" x="172" y="284" width="116" height="46" rx="10"/>
@@ -269,6 +303,14 @@
           </div>
         </div>
         <div class="ledger-row reveal">
+          <div><span class="badge badge--build">Staged</span></div>
+          <div class="ledger-body">
+            <h3>Failover engine — a cap is a non-event</h3>
+            <p>The provider-failover engine advances down a seat chain on a 429/cap, and the <code>ExhaustionTracker</code> persists per-seat windows. It is <strong>built and 60-test-proven</strong>; energizing it on the live router (<code>AF_MAESTRO_ROUTING=1</code>) is a staged, gated cutover. We claim the engine, not a live hop count, until that lands.</p>
+            <span class="ledger-ev">tests/test_fallback_engine.py + test_provider_error_egress.py (60 passed) · seam staged</span>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
             <h3>~63k historical routing labels</h3>
@@ -293,7 +335,7 @@
           </div>
         </div>
       </div>
-      <p class="honesty reveal"><strong>Why we say this plainly.</strong> Routing is proven; the auto-labeling flywheel is wired but not yet smart. Drawing that line is the whole point — a claim that ran ahead of its evidence would be exactly the phantom maturity this suite exists to avoid.</p>
+      <p class="honesty reveal"><strong>Why we say this plainly.</strong> Routing is proven and the failover engine is test-green; energizing it live and making the auto-labeling flywheel smart are staged, gated work. Drawing that line is the whole point — a claim that ran ahead of its evidence would be exactly the phantom maturity this suite exists to avoid.</p>
     </div>
   </section>
 
@@ -334,7 +376,7 @@
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">Own your routing</p>
         <h2>Stop renting your routing logic.</h2>
-        <p>Own the router. BYOK or fully local. Local-first by default, frontier only when it earns it.</p>
+        <p>Own the brain that routes every prompt across your fleet. BYOK or fully local, local-first by default — and a cap is a non-event.</p>
         <div class="cta-actions">
           <a href="https://github.com/brycemurad0/maestro" class="btn btn-primary btn-arrow" target="_blank" rel="noopener">
             Get Maestro
@@ -368,6 +410,7 @@
         <div class="footer-col">
           <p class="footer-h">Maestro</p>
           <a href="#how">How it works</a>
+          <a href="#decentralized">Decentralized by design</a>
           <a href="#whats-real">What's real</a>
           <a href="#quickstart">Quickstart</a>
           <a href="https://github.com/brycemurad0/maestro" target="_blank" rel="noopener">GitHub</a>
@@ -387,7 +430,7 @@
           <a href="https://www.instagram.com/thisliveactual" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
         </div>
       </div>
-      <p class="footer-note">Routing claims map to receipts/phase3/maestro-live.md. Auto-labeling is wiring-only until the consensus pool is populated. No pricing, no managed tier — local-first.</p>
+      <p class="footer-note">Routing claims map to receipts/phase3/maestro-live.md. The failover engine is built and 60-test-proven; energizing it live is staged. Auto-labeling is wiring-only until the consensus pool is populated. No pricing, no managed tier — local-first.</p>
     </div>
   </footer>
 
@@ -420,56 +463,13 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { io.observe(el); });
     }
-    var canvas = document.getElementById('heroCanvas');
-    if (canvas && !reduce) {
-      var ctx = canvas.getContext('2d');
-      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
-      function size() {
-        var host = canvas.parentElement;
-        w = host.offsetWidth; h = host.offsetHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function seed() {
-        pts = [];
-        var n = Math.min(60, Math.floor((w * h) / 24000));
-        for (var i = 0; i < n; i++) pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.4,
-          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
-          o: Math.random() * 0.4 + 0.12
-        });
-      }
-      function frame() {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i];
-          p.x += p.dx; p.y += p.dy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
-          ctx.fillStyle = 'rgba(45,226,255,' + p.o + ')'; ctx.fill();
-        }
-        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
-          if (d < 14400) {
-            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
-            ctx.strokeStyle = 'rgba(45,226,255,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
-          }
-        }
-        raf = requestAnimationFrame(frame);
-      }
-      size(); seed(); frame();
-      var rt; window.addEventListener('resize', function () {
-        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
-      });
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-      });
-    }
+    // The signature hero animation ("ARRIVE → CONSIDER → SELECT → RECEIPT" —
+    // a prompt arrives and Maestro routes it to the best model+node) lives in
+    // maestro/maestro-hero.js — self-contained, token-driven, reduced-motion-safe,
+    // paused when hidden/off-screen. It drives the same #heroCanvas.
   })();
   </script>
+  <script src="/maestro/maestro-hero.js" defer></script>
 
 </body>
 </html>

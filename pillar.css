@@ -148,6 +148,9 @@
 .cap h3 { font-family: var(--font-display); font-size: var(--fs-md); font-weight: 600;
   color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
 .cap p { font-size: var(--fs-sm); color: var(--text-body); line-height: var(--lh-body); }
+/* mono evidence line under a capability card (mirrors .ledger-ev) */
+.cap-ev { display: inline-block; margin-top: var(--sp-4); font-family: var(--font-mono);
+  font-size: var(--fs-mono); color: var(--text-muted); }
 
 /* ---------------------------------------------------------------------------
    ARCHITECTURE / INTEGRATION VISUAL

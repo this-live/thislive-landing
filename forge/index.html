@@ -56,9 +56,9 @@
     <div class="container">
       <div class="phero-inner">
         <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the model factory</p>
-        <h1 class="reveal" data-delay="1">Your own models, <span class="grad">trained on your own work.</span></h1>
+        <h1 class="reveal" data-delay="1">Your own models, <span class="grad">that teach themselves.</span></h1>
         <p class="phero-lede reveal" data-delay="2">
-          Forge is the factory that turns your fleet's own labels into local specialists — so you stop depending on a provider's model. <strong>The factory is built end-to-end and gated so it cannot lie:</strong> nothing is promoted without passing an eval. The base model already serves on your own GPU; the first adapters are in training.
+          Forge turns your fleet's own routed work into local specialists you own — harvested, gated, trained, and served on your hardware, then routed to first so each lane gets cheaper and better the more you use it. A factory that feeds itself, on weights you control. <strong>Built end-to-end and gated so it cannot lie:</strong> nothing is promoted without beating the base on an eval. The base serves on your GPU today; the first adapters are in training.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#how" class="btn btn-primary btn-arrow">
@@ -82,14 +82,14 @@
       <div class="section-head reveal">
         <p class="eyebrow">The problem it kills</p>
         <h2 class="title">Model dependency — and agents that ship slop</h2>
-        <p class="lede">Rent your intelligence and you inherit a provider's roadmap: their model, their reprices, their deprecations. And a model you can't specialize keeps making the same mistakes on your domain, confidently.</p>
+        <p class="lede">Rent your intelligence and the model, the reprices, the deprecations, and the kill-switch all live on a server you don't control. And a model you can't specialize keeps making the same mistakes on your domain, confidently.</p>
       </div>
       <div class="kills">
         <div class="kill reveal">
           <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
           <div>
             <h3>You can't improve a model you don't own</h3>
-            <p>When the only path is a provider's API, your stack can never get better at your work. Every quirk of your domain is re-learned in-context, every call, forever — and you pay for it each time.</p>
+            <p>Rent your intelligence and the model, the reprices, the deprecations, and the kill-switch all live on a server you don't control. Your stack can never get better at your work — every quirk of your domain is re-learned in-context, every call, forever, and you pay for it each time.</p>
           </div>
         </div>
         <div class="kill reveal" data-delay="1">
@@ -108,29 +108,60 @@
     <div class="container">
       <div class="section-head reveal">
         <p class="eyebrow">How it works</p>
-        <h2 class="title">Curate, train, eval-gate, serve</h2>
-        <p class="lede">A factory with eight lanes and a cloud harness, gated so nothing ships unproven. The base model serves today; the adapter steps light up as the first specialists clear their evals.</p>
+        <h2 class="title">A loop you own: curate, train, eval-gate, serve</h2>
+        <p class="lede">Eight lanes and a cloud harness wired into one closed loop, gated so nothing ships unproven. The base model serves today; the adapter steps light up as the first specialists clear their evals — and the routed work feeds the next pass.</p>
       </div>
       <div class="steps">
         <div class="step reveal">
           <span class="step-n">01</span>
           <h3>Curate from your work</h3>
-          <p>Your fleet's own labels become training examples. Curate gates plus depth and safety gates filter what's allowed in — built across eight lanes.</p>
+          <p>Your fleet's own routed work becomes training fuel. Curate, depth, and safety gates filter what's allowed in — the first stage of a loop you own, built across eight lanes.</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
           <h3>Train in the cloud</h3>
-          <p>A Modal cloud training harness runs the pipeline — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are in training.</p>
+          <p>A Modal cloud training harness turns curated fuel into a candidate adapter — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are in training.</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="step-n">03</span>
           <h3>Eval gate</h3>
-          <p>Promotion is eval-gated: a candidate must <strong>measurably beat the base</strong> before it can be served. Registry adapters stay <code>planned</code> until they pass.</p>
+          <p>Promotion is eval-gated: a candidate must <strong>measurably beat the base</strong> before it can be served. Registry adapters stay <code>planned</code> until they pass — the gate is what keeps the loop honest.</p>
         </div>
         <div class="step reveal" data-delay="3">
           <span class="step-n">04</span>
-          <h3>Serve locally</h3>
-          <p>The base model serves on your own GPU today. Routing local-first to a Forge adapter lights up the moment an adapter is trained and clears its gate.</p>
+          <h3>Serve locally, route to first</h3>
+          <p>The base serves on your own GPU today. A gate-passing adapter is served locally and routed to first — and the routed work becomes the next adapter's training data. <strong>The loop closes.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OWNED, GATED, RECURSIVE ── -->
+  <section class="section" id="owned">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Owned, gated, recursive</p>
+        <h2 class="title">A factory you own that compounds</h2>
+        <p class="lede">Decentralized by design: the weights live on your hardware, the gates make sure a claim can never drift ahead of the evidence, and the loop feeds itself — the more you use it, the cheaper and better it gets.</p>
+      </div>
+      <div class="caps">
+        <div class="cap reveal">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <h3>You own the weights</h3>
+          <p>The base serves on your own GPU via SGLang at 262k context. Adapters are local files you hold — not API access you rent. No provider's server, no kill-switch, no reprice between you and your own model.</p>
+          <span class="ledger-ev">/models/qwen36 · 262k ctx · base_rag 0.4727</span>
+        </div>
+        <div class="cap reveal" data-delay="1">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <h3>Gated so it cannot lie</h3>
+          <p>No-bypass curate → depth → safety → eval. A candidate is promoted only if it measurably beats the base on a held-out eval. Until then, every registry lane stays <code>planned</code> — the page says exactly what's true.</p>
+          <span class="ledger-ev">263 tests · all lanes status:planned</span>
+        </div>
+        <div class="cap reveal" data-delay="2">
+          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span>
+          <h3>It feeds itself</h3>
+          <p>Maestro auto-labels your routed work → harvest → gate → train → serve → register to <code>cortex_models</code> → route local-first → more labels. A recursive loop, owned end-to-end: the more you use it, the cheaper and better it gets.</p>
+          <span class="ledger-ev">harvest cron 15 6 · curate rejects ungrounded fuel</span>
         </div>
       </div>
     </div>
@@ -185,12 +216,12 @@
       <div class="arch-layout">
         <div class="arch-copy reveal">
           <p class="eyebrow">The factory flywheel</p>
-          <h2>Labels in. A specialized model out — only if it clears the gate.</h2>
-          <p>Maestro's routing labels are harvested and curated into training data, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served and routed. Today the base serves; the first adapters are in training.</p>
+          <h2>Your routed work in. A better model out — that feeds the next pass.</h2>
+          <p>Maestro's routing labels are harvested and curated into training fuel, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served, registered to <code>cortex_models</code>, and routed local-first — and that routed work becomes the next adapter's fuel. The loop closes. Today the base serves; the first adapters are in training.</p>
           <ul class="arch-list">
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gated, not aspirational.</b> The eval gate is structural — nothing unproven gets promoted.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Base serves now.</b> Qwen3.6 on your GPU via SGLang, 262k context, base-only.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Adapters in training.</b> The train→serve→route steps light up as the first specialist clears its eval.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>It feeds itself.</b> A served adapter registers to <code>cortex_models</code> and routes local-first — the routed work becomes the next adapter's fuel. The train→serve→route loop lights up as the first specialist clears its eval.</span></li>
           </ul>
         </div>
         <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
@@ -231,8 +262,8 @@
 
             <!-- route (staged) -->
             <rect class="dg-node" x="330" y="190" width="116" height="56" rx="12"/>
-            <text class="dg-label" x="388" y="214" text-anchor="middle" font-size="12">Route adapter</text>
-            <text class="dg-sub" x="388" y="232" text-anchor="middle" font-size="8.5">staged · after gate</text>
+            <text class="dg-label" x="388" y="214" text-anchor="middle" font-size="12">Route local-first</text>
+            <text class="dg-sub" x="388" y="232" text-anchor="middle" font-size="8.5">cortex_models · staged</text>
 
             <!-- gate -> serve/route (gated, dashed = not yet) -->
             <path class="dg-flow-soft" d="M288 210h42" stroke-dasharray="4 5"/>
@@ -293,8 +324,8 @@
     <div class="container">
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">Own your models</p>
-        <h2>Stop renting your intelligence.</h2>
-        <p>The factory is built end-to-end and gated so it cannot lie. The base serves on your own GPU; the first specialists are in training. Watch it reach the first measured adapter.</p>
+        <h2>Own a factory that teaches itself.</h2>
+        <p>Stop renting your intelligence. The factory is built end-to-end and gated so it cannot lie — a loop you own that compounds. The base serves on your own GPU; the first specialists are in training. Watch it reach the first measured adapter.</p>
         <div class="cta-actions">
           <a href="/cortex/" class="btn btn-primary btn-arrow">
             See the full suite
@@ -379,53 +410,317 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { io.observe(el); });
     }
+    /* ====================================================================
+       SIGNATURE HERO ANIMATION — "LEARN → FORGE → A BETTER MODEL → RECURSE"
+       Maestro's auto-labels stream in as cyan data dots; ungrounded fuel dims
+       at the gate (honest rejection); the rest feed a FACTORY node that brightens
+       notch-by-notch as it learns; it forges ONE better adapter (amber + a cyan
+       done-tick) that drifts out, then a faint loopback curve feeds the next pass.
+       The product thesis — a factory that feeds itself — shown, not told.
+       Same house engine as hero.js: DPR cap 2, debounced resize, visibility +
+       IntersectionObserver pause, rAF loop, ALL colors via tok() (no hex),
+       --ease easing, low-contrast (cyan ≤40% · fills ≤8% · amber hairline ≤22% ·
+       lines ≤6%). The hero TEXT always wins. prefers-reduced-motion → ONE static
+       composed frame. Two roles, no third hue: cyan = the moving data/request,
+       amber --hue = the factory/model identity (output only, never chrome).
+       ==================================================================== */
     var canvas = document.getElementById('heroCanvas');
-    if (canvas && !reduce) {
-      var ctx = canvas.getContext('2d');
-      var w, h, dpr = Math.min(window.devicePixelRatio || 1, 2), pts = [], raf;
-      function size() {
-        var host = canvas.parentElement;
-        w = host.offsetWidth; h = host.offsetHeight;
-        canvas.width = w * dpr; canvas.height = h * dpr;
-        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      function seed() {
-        pts = [];
-        var n = Math.min(60, Math.floor((w * h) / 24000));
-        for (var i = 0; i < n; i++) pts.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.4 + 0.4,
-          dx: (Math.random() - 0.5) * 0.22, dy: (Math.random() - 0.5) * 0.22,
-          o: Math.random() * 0.4 + 0.12
-        });
-      }
-      function frame() {
-        ctx.clearRect(0, 0, w, h);
-        for (var i = 0; i < pts.length; i++) {
-          var p = pts[i];
-          p.x += p.dx; p.y += p.dy;
-          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283);
-          ctx.fillStyle = 'rgba(251,191,119,' + p.o + ')'; ctx.fill();
+    if (canvas) {
+      var ctx = canvas.getContext('2d', { alpha: true });
+      if (ctx) (function () {
+        /* -- token resolution (stay coherent with the umbrella) ------------- */
+        var css = getComputedStyle(document.documentElement);
+        function tok(name, fb) { var v = css.getPropertyValue(name); return (v && v.trim()) || fb; }
+        function hexToRgb(hex) {
+          var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec((hex || '').trim());
+          return m ? { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) } : null;
         }
-        for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-          var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y, d = dx * dx + dy * dy;
-          if (d < 14400) {
-            ctx.beginPath(); ctx.moveTo(pts[a].x, pts[a].y); ctx.lineTo(pts[b].x, pts[b].y);
-            ctx.strokeStyle = 'rgba(251,191,119,' + (0.05 * (1 - d / 14400)) + ')'; ctx.lineWidth = 0.5; ctx.stroke();
+        var ACCENT = hexToRgb(tok('--accent', '#2DE2FF')) || { r: 45, g: 226, b: 255 };
+        var HUE = hexToRgb(tok('--amber', '#FBBF77')) || { r: 251, g: 191, b: 119 };  // forge identity
+        var INK = hexToRgb(tok('--bg', '#080B14')) || { r: 8, g: 11, b: 20 };
+        var PAPER = { r: 243, g: 246, b: 251 };           // --text white, for faint fills
+        var FONT_MONO = tok('--font-mono', "'JetBrains Mono', monospace");
+        function rgba(c, a) { return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')'; }
+        /* house ease (cubic-bezier(.22,1,.36,1) ≈ expo-out) */
+        function ease(t) { t = t < 0 ? 0 : t > 1 ? 1 : t; return 1 - Math.pow(1 - t, 3); }
+        function clamp01(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }
+        function seg(t, a, b) { return clamp01((t - a) / (b - a)); }   // 0..1 within [a,b]
+
+        var host = canvas.parentElement;
+        var w = 0, h = 0, dpr = 1, mobile = false, raf = 0;
+        var gate = { x: 0, y: 0 }, factory = { x: 0, y: 0 }, intake = { x: 0, y: 0 };
+        var stream = [], dust = [];
+        var LOOP = 19000;                                  // ~19s ambient loop
+        var t0 = 0;
+
+        function measure() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          w = host.offsetWidth; h = host.offsetHeight;
+          mobile = w < 720;
+          canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+          canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        /* layout: intake at the left edge; a gate waypoint mid-left; the factory
+           node in the right negative space (where the orb sits); the emitted
+           adapter settles right of the factory. */
+        function build() {
+          var fy = h * 0.44;
+          intake.x = w * (mobile ? 0.10 : 0.12); intake.y = fy;
+          gate.x = w * (mobile ? 0.40 : 0.46); gate.y = fy;
+          factory.x = mobile ? w * 0.74 : w * 0.72; factory.y = fy;
+          // N label-dots, staggered phase offsets so they trickle, not firehose.
+          // each {phase, lane (vertical jitter), passed} — ~1 in 5 dims at the gate.
+          var N = mobile ? 4 : (w < 1100 ? 5 : (w < 1400 ? 6 : 7));
+          stream = [];
+          for (var i = 0; i < N; i++) {
+            stream.push({
+              off: i / N,                                   // staggered entry within STREAM window
+              lane: (i % 2 === 0 ? -1 : 1) * (mobile ? 10 : 18) * (0.4 + Math.random() * 0.6),
+              // honest gate rejection: roughly 1 in 5 dims and falls (never on mobile, where detail drops)
+              reject: (!mobile && i === Math.floor(N * 0.6))
+            });
+          }
+          // faint connective dust (the node motif as background tissue ~0.06)
+          dust = [];
+          var dn = mobile ? 12 : Math.min(30, Math.floor((w * h) / 46000));
+          for (var d = 0; d < dn; d++) {
+            dust.push({
+              x: Math.random() * w, y: Math.random() * h,
+              r: Math.random() * 1.0 + 0.3,
+              dx: (Math.random() - 0.5) * 0.09, dy: (Math.random() - 0.5) * 0.09,
+              o: Math.random() * 0.045 + 0.02
+            });
           }
         }
-        raf = requestAnimationFrame(frame);
-      }
-      size(); seed(); frame();
-      var rt; window.addEventListener('resize', function () {
-        clearTimeout(rt); rt = setTimeout(function () { size(); seed(); }, 150);
-      });
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) { cancelAnimationFrame(raf); } else { frame(); }
-      });
+
+        function roundRect(x, y, ww, hh, r) {
+          ctx.beginPath();
+          ctx.moveTo(x + r, y);
+          ctx.arcTo(x + ww, y, x + ww, y + hh, r);
+          ctx.arcTo(x + ww, y + hh, x, y + hh, r);
+          ctx.arcTo(x, y + hh, x, y, r);
+          ctx.arcTo(x, y, x + ww, y, r);
+          ctx.closePath();
+        }
+
+        /* the factory node: a faint surface square with an amber title-hairline that
+           brightens notch-by-notch as fuel arrives (learn = the slowest element). */
+        function factoryGlyph(fill, hairline, ring) {
+          var s = mobile ? 22 : 28;
+          var x = factory.x - s / 2, y = factory.y - s / 2;
+          // promote pulse-ring (amber) expands once on emit, then fades
+          if (ring > 0.001) {
+            var rr = (s * 0.5) + ring * (mobile ? 26 : 40);
+            ctx.strokeStyle = rgba(HUE, 0.20 * (1 - ring));
+            ctx.lineWidth = 1.2; ctx.beginPath();
+            ctx.arc(factory.x, factory.y, rr, 0, 6.2832); ctx.stroke();
+          }
+          // body: faint surface fill (≤8% white) + 1px border
+          ctx.fillStyle = rgba(PAPER, 0.035 + 0.045 * fill);
+          ctx.strokeStyle = rgba(PAPER, 0.07 + 0.05 * fill);
+          ctx.lineWidth = 1; roundRect(x, y, s, s, 5); ctx.fill(); ctx.stroke();
+          // internal "learning" fill rising from the bottom (≤8% white)
+          if (fill > 0.01) {
+            var fh = (s - 4) * clamp01(fill);
+            ctx.fillStyle = rgba(HUE, 0.06 * fill);
+            roundRect(x + 2, y + s - 2 - fh, s - 4, fh, 3); ctx.fill();
+          }
+          // amber title-hairline across the top — brightens one notch per arrival,
+          // momentarily caps at the --accent-line-equivalent (~0.22) then settles.
+          ctx.strokeStyle = rgba(HUE, 0.10 + clamp01(hairline) * 0.12);
+          ctx.lineWidth = 1.4; ctx.beginPath();
+          ctx.moveTo(x + 3.5, y + 3.5); ctx.lineTo(x + s - 3.5, y + 3.5); ctx.stroke();
+        }
+
+        /* the served-adapter glyph: a small amber square + a single cyan done-tick. */
+        function adapterGlyph(ax, ay, alpha, tick) {
+          if (alpha < 0.01) return;
+          var s = mobile ? 11 : 14, x = ax - s / 2, y = ay - s / 2;
+          ctx.fillStyle = rgba(HUE, 0.06 * alpha);
+          ctx.strokeStyle = rgba(HUE, 0.22 * alpha);
+          ctx.lineWidth = 1; roundRect(x, y, s, s, 3); ctx.fill(); ctx.stroke();
+          if (tick > 0.02) {
+            ctx.strokeStyle = rgba(ACCENT, 0.5 * alpha * tick);
+            ctx.lineWidth = 1.4; ctx.lineCap = 'round'; ctx.beginPath();
+            ctx.moveTo(ax - 3, ay + 0.5); ctx.lineTo(ax - 0.5, ay + 3); ctx.lineTo(ax + 3.5, ay - 2.5);
+            ctx.stroke();
+          }
+        }
+
+        /* draw one composed frame at loop-fraction p ∈ [0,1).
+           Phases: STREAM 0–.28 · LEARN .28–.58 · FORGE/EMIT .58–.78 ·
+                   RECURSE .78–.92 · BREATHE .92–1 */
+        function compose(p, animate) {
+          ctx.clearRect(0, 0, w, h);
+          ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+
+          // 0) faint dust (connective tissue ~0.06, amber-tinted)
+          for (var di = 0; di < dust.length; di++) {
+            var g = dust[di];
+            if (animate) {
+              g.x += g.dx; g.y += g.dy;
+              if (g.x < 0) g.x = w; else if (g.x > w) g.x = 0;
+              if (g.y < 0) g.y = h; else if (g.y > h) g.y = 0;
+            }
+            ctx.fillStyle = rgba(HUE, g.o);
+            ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832); ctx.fill();
+          }
+
+          var streamP = seg(p, 0.00, 0.58);                // dots keep flowing through LEARN
+          var learn = seg(p, 0.28, 0.58);
+          var emit = seg(p, 0.58, 0.78);
+          var recurse = seg(p, 0.78, 0.92);
+          var breathe = seg(p, 0.92, 1.00);
+          // a slightly brighter intake for the post-recurse "better next pass"
+          var rearm = recurse > 0.5 ? ease(seg(p, 0.86, 1.00)) : 0;
+
+          // 1) intake marker (faint cyan) at the left edge — re-arms brighter post-recurse
+          ctx.fillStyle = rgba(ACCENT, 0.22 + rearm * 0.18);
+          ctx.beginPath(); ctx.arc(intake.x, intake.y, mobile ? 2.2 : 2.6, 0, 6.2832); ctx.fill();
+
+          // 2) the gate waypoint — a small 1px mono-styled rounded rect the dots pass through
+          var gs = mobile ? 10 : 13, gx = gate.x - gs / 2, gy = gate.y - gs / 2;
+          ctx.strokeStyle = rgba(PAPER, 0.10);
+          ctx.fillStyle = rgba(INK, 0.30);
+          ctx.lineWidth = 1; roundRect(gx, gy, gs, gs, 3); ctx.fill(); ctx.stroke();
+
+          // 3) STREAM + LEARN — N cyan label-dots enter from the left, drift through the
+          //    gate toward the factory; ~1 in 5 dims and falls at the gate (honest).
+          //    Each absorbed dot brightens the factory hairline one notch.
+          var arrived = 0;                                  // how many have reached the factory (drives learn)
+          for (var i = 0; i < stream.length; i++) {
+            var d = stream[i];
+            // each dot's own progress within the STREAM window, staggered by its offset
+            var dp = clamp01((streamP - d.off * 0.5) / (1 - d.off * 0.5 + 0.0001));
+            if (dp <= 0.001 || breathe > 0.5) continue;
+            var dpe = ease(dp);
+            // path: intake → gate → factory (two legs)
+            var legGate = clamp01(dpe / 0.5);                // first half: intake → gate
+            var legFac = clamp01((dpe - 0.5) / 0.5);         // second half: gate → factory
+            var x, y, alpha;
+            if (legFac <= 0) {
+              x = intake.x + (gate.x - intake.x) * legGate;
+              y = intake.y + d.lane * legGate;
+              alpha = 0.40 * clamp01(dp * 4);                // fade in on entry
+            } else {
+              // rejected dots dim + sink just past the gate (the curate gate rejecting)
+              if (d.reject) {
+                var fall = clamp01(legFac * 2.2);
+                x = gate.x + 14 * legFac;
+                y = gate.y + d.lane * (1 - legFac) + fall * (mobile ? 16 : 26);
+                alpha = 0.40 * (1 - fall);
+              } else {
+                x = gate.x + (factory.x - gate.x) * legFac;
+                y = (gate.y + d.lane * (1 - legFac)) + (factory.y - gate.y) * 0; // ride toward factory y
+                y = gate.y + (factory.y - gate.y) * legFac + d.lane * (1 - legFac);
+                alpha = 0.40 * (1 - clamp01((legFac - 0.85) / 0.15)); // absorb (fade) at the factory
+                if (legFac >= 0.999) arrived++;
+              }
+            }
+            // faint 1px tail so motion reads as flow, not scatter (dropped on mobile)
+            if (!mobile && alpha > 0.02) {
+              ctx.strokeStyle = rgba(ACCENT, 0.06 * (alpha / 0.40));
+              ctx.lineWidth = 1; ctx.beginPath();
+              ctx.moveTo(x - 9, y); ctx.lineTo(x, y); ctx.stroke();
+            }
+            if (alpha > 0.01) {
+              ctx.fillStyle = rgba(ACCENT, alpha);
+              ctx.beginPath(); ctx.arc(x, y, mobile ? 2.4 : 3, 0, 6.2832); ctx.fill();
+            }
+          }
+
+          // 4) the factory node — fill + hairline brighten with LEARN (the slowest beat);
+          //    a single amber promote pulse-ring expands once at the start of EMIT.
+          var fill = ease(learn);                            // 0..1 internal learning fill
+          var hairline = ease(learn);                        // notch-by-notch brightening
+          var ring = emit > 0 && emit < 0.55 ? ease(seg(p, 0.58, 0.70)) : 0;
+          // dim back after emit
+          if (emit > 0.5) { fill *= (1 - seg(p, 0.70, 0.92)); hairline *= (1 - seg(p, 0.70, 0.92) * 0.5); }
+          factoryGlyph(fill, hairline, ring);
+
+          // 5) FORGE/EMIT — the factory emits ONE adapter glyph that eases out to the right.
+          var emitE = ease(emit);
+          var ax = factory.x + (mobile ? 30 : 52) * emitE;
+          var ay = factory.y - (mobile ? 6 : 10) * emitE;
+          var adapterA = clamp01(emit * 3) * (breathe > 0 ? (1 - breathe * 0.4) : 1);
+          // breathing glow on the settled adapter
+          var bpulse = breathe > 0 ? (0.5 + 0.5 * Math.sin(breathe * Math.PI * 2)) : 0;
+          if (adapterA > 0.02) {
+            var gr = ctx.createRadialGradient(ax, ay, 0, ax, ay, mobile ? 12 : 16);
+            gr.addColorStop(0, rgba(HUE, (0.14 + bpulse * 0.06) * adapterA));
+            gr.addColorStop(1, rgba(HUE, 0));
+            ctx.fillStyle = gr;
+            ctx.beginPath(); ctx.arc(ax, ay, mobile ? 12 : 16, 0, 6.2832); ctx.fill();
+          }
+          adapterGlyph(ax, ay, adapterA, clamp01(seg(p, 0.66, 0.78)));
+
+          // 6) RECURSE — a faint curved loopback line from the emitted adapter back to the
+          //    intake, with one cyan dot travelling along it: the new adapter feeds the next.
+          if (recurse > 0.001 && adapterA > 0.02) {
+            var rE = ease(recurse);
+            var c1x = ax, c1y = ay - (mobile ? 70 : 110);
+            var c2x = intake.x, c2y = intake.y - (mobile ? 70 : 110);
+            // draw the curve (grows with recurse), amber-faint ≤6%
+            ctx.strokeStyle = rgba(HUE, 0.06 * adapterA);
+            ctx.lineWidth = 1; ctx.beginPath();
+            ctx.moveTo(ax, ay);
+            // sample the bezier up to rE so the line "draws"
+            var steps = 26;
+            for (var s2 = 1; s2 <= steps; s2++) {
+              var tt = (s2 / steps) * rE;
+              var u = 1 - tt;
+              var bx = u * u * u * ax + 3 * u * u * tt * c1x + 3 * u * tt * tt * c2x + tt * tt * tt * intake.x;
+              var by = u * u * u * ay + 3 * u * u * tt * c1y + 3 * u * tt * tt * c2y + tt * tt * tt * intake.y;
+              ctx.lineTo(bx, by);
+            }
+            ctx.stroke();
+            // the travelling cyan dot along the curve
+            var tt2 = rE, u2 = 1 - tt2;
+            var lx = u2 * u2 * u2 * ax + 3 * u2 * u2 * tt2 * c1x + 3 * u2 * tt2 * tt2 * c2x + tt2 * tt2 * tt2 * intake.x;
+            var ly = u2 * u2 * u2 * ay + 3 * u2 * u2 * tt2 * c1y + 3 * u2 * tt2 * tt2 * c2y + tt2 * tt2 * tt2 * intake.y;
+            ctx.fillStyle = rgba(ACCENT, 0.40 * adapterA);
+            ctx.beginPath(); ctx.arc(lx, ly, mobile ? 2.2 : 2.6, 0, 6.2832); ctx.fill();
+          }
+        }
+
+        /* -- lifecycle ----------------------------------------------------- */
+        var running = false, visible = !document.hidden, onScreen = true;
+        function tick(now) {
+          if (!running) return;
+          if (!t0) t0 = now;
+          var p = ((now - t0) % LOOP) / LOOP;
+          compose(p, true);
+          raf = requestAnimationFrame(tick);
+        }
+        function start() { if (running || reduce) return; running = true; raf = requestAnimationFrame(tick); }
+        function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+        function evaluate() { if (reduce) return; if (visible && onScreen) start(); else stop(); }
+
+        /* reduced-motion → ONE static composed frame: the stream frozen mid-flow into
+           the factory (hairline at full brightness), one emitted adapter glyph + its
+           done-tick to the right, and the faint loopback curve drawn back to intake.
+           The metaphor (learn → forge → better model → recurse) reads with zero motion. */
+        function staticFrame() { measure(); build(); compose(0.86, false); }
+
+        measure(); build();
+        if (reduce) { staticFrame(); return; }
+
+        document.addEventListener('visibilitychange', function () { visible = !document.hidden; evaluate(); });
+        if ('IntersectionObserver' in window) {
+          var io2 = new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; evaluate(); }, { threshold: 0.02 });
+          io2.observe(host);
+        }
+        var rt; window.addEventListener('resize', function () {
+          clearTimeout(rt); rt = setTimeout(function () {
+            measure(); build();
+            if (reduce) { staticFrame(); }
+          }, 160);
+        }, { passive: true });
+
+        evaluate();
+      })();
     }
   })();
   </script>

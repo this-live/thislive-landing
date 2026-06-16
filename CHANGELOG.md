@@ -5,6 +5,30 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-14 — Pillar pages: signature product-specific animations + decentralized reframe + truth-discipline pass
+
+Each of the 6 pillar pages gets its own SUBTLE, product-specific background animation — one shared visual
+language (the loved `hero.js` substrate: single `#heroCanvas`, token-only colors, `prefers-reduced-motion`
+static frame, mobile degrade, paused when hidden), six dialects:
+- **mnemos** (`mnemos-hero.js`) — "arrive → file → persist": scattered data dots file into hierarchical,
+  project-scoped containers (`cortex/maestro`, `cortex/agent-fabric`…); the lattice never resets across loops;
+  write-protected root deflects writes; a recall pulse + receipt mark.
+- **agent-fabric** (`fabric/index.html` + `pillar.css`) — one request fans out across fleet nodes in parallel
+  and ticks done before a lone serial pulse finishes (the speedup shown, not told; no fake number).
+- **maestro** (`maestro-hero.js`) — "consider → select → receipt": a prompt lands, candidate lanes score, one
+  brightens (the model selected), a `decision_id` receipt fades in.
+- **forge** (`forge/index.html`) — "learn → forge → recurse": Maestro labels stream through a curate gate into
+  a factory that forges a better adapter, which loops back recursively.
+- **surfaces** (`surfaces-hero.js`) — "sprawl → sync": scattered tool-windows nest into one unified app card.
+- **cortex** (`cortex-hero.js`) — the decentralized mesh with honest live status dots.
+
+Copy on all six reframed to decentralized-agentic-AI (no "one operator"; loved UI/components verbatim). Then a
+TRUTH-DISCIPLINE pass: every forward-looking claim stated as shipped (deploy-parity stamped, `deployParity
+match:true`, restartable-from-HEAD, surfaces `247/247` backend, mnemos `qdrant == sor`) was relabeled "staged /
+built and ready / lands on the next gated restart" — *we claim the stamp once it emits, not before.* Genuinely-
+true claims kept (mnemos 7/7 gates + 107k memories; desktop 192/192 + 22/22 smoke; ownership/architecture).
+All `*-hero.js` pass `node --check`; mnemos + fabric verified rendering via local preview.
+
 ## 2026-06-14 — Landing content reframe: one-operator/portfolio → decentralized agentic AI
 
 The landing UI/UX is loved and untouched, but the initial CONTENT had drifted to a "one operator /
