@@ -27,7 +27,9 @@ TRUTH-DISCIPLINE pass: every forward-looking claim stated as shipped (deploy-par
 match:true`, restartable-from-HEAD, surfaces `247/247` backend, mnemos `qdrant == sor`) was relabeled "staged /
 built and ready / lands on the next gated restart" — *we claim the stamp once it emits, not before.* Genuinely-
 true claims kept (mnemos 7/7 gates + 107k memories; desktop 192/192 + 22/22 smoke; ownership/architecture).
-All `*-hero.js` pass `node --check`; mnemos + fabric verified rendering via local preview.
+All `*-hero.js` pass `node --check`; mnemos + fabric + forge verified rendering via local preview.
+Follow-up truth fix: forge said "first adapters are in training" in ~9 spots (meta/hero/chip/pipeline/loop/SVG/
+CTA) — but no adapter is training (Modal-spend-gated, $0, none started) — relabeled to "gated, ready to train."
 
 ## 2026-06-14 — Landing content reframe: one-operator/portfolio → decentralized agentic AI
 

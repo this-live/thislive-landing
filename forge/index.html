@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forge · The adapter factory, gated so it cannot lie</title>
-  <meta name="description" content="Forge is the model factory that kills model dependency: 8 lanes, a Modal training harness, no-bypass eval gates, and the base model served on your own GPU. The factory is built end-to-end; the first adapters are in training. No trained or served adapters are claimed.">
+  <meta name="description" content="Forge is the model factory that kills model dependency: 8 lanes, a Modal training harness, no-bypass eval gates, and the base model served on your own GPU. The factory is built end-to-end; the first adapters are gated, ready to train. No trained or served adapters are claimed.">
   <meta name="theme-color" content="#080B14">
   <meta property="og:title" content="Forge · The adapter factory, gated so it cannot lie">
-  <meta property="og:description" content="The factory is built end-to-end and gated so it cannot lie. Base model served on your own GPU. First adapters in training. No trained adapters claimed.">
+  <meta property="og:description" content="The factory is built end-to-end and gated so it cannot lie. Base model served on your own GPU. First adapters gated, ready to train. No trained adapters claimed.">
   <meta property="og:url" content="https://this.live/forge/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Forge · This.Live">
-  <meta name="twitter:description" content="The model-factory pillar. Verticalized local adapters, eval-gated training, the cost-down flywheel. Built and gated; first adapters in training.">
+  <meta name="twitter:description" content="The model-factory pillar. Verticalized local adapters, eval-gated training, the cost-down flywheel. Built and gated; first adapters gated, ready to train.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -58,7 +58,7 @@
         <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the model factory</p>
         <h1 class="reveal" data-delay="1">Your own models, <span class="grad">that teach themselves.</span></h1>
         <p class="phero-lede reveal" data-delay="2">
-          Forge turns your fleet's own routed work into local specialists you own — harvested, gated, trained, and served on your hardware, then routed to first so each lane gets cheaper and better the more you use it. A factory that feeds itself, on weights you control. <strong>Built end-to-end and gated so it cannot lie:</strong> nothing is promoted without beating the base on an eval. The base serves on your GPU today; the first adapters are in training.
+          Forge turns your fleet's own routed work into local specialists you own — harvested, gated, trained, and served on your hardware, then routed to first so each lane gets cheaper and better the more you use it. A factory that feeds itself, on weights you control. <strong>Built end-to-end and gated so it cannot lie:</strong> nothing is promoted without beating the base on an eval. The base serves on your GPU today; the first adapters are gated, ready to train.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#how" class="btn btn-primary btn-arrow">
@@ -70,7 +70,7 @@
         <div class="phero-meta reveal" data-delay="4">
           <span>Factory built end-to-end</span>
           <span>Base model on your own GPU</span>
-          <span>First adapters in training</span>
+          <span>First adapters gated, ready to train</span>
         </div>
       </div>
     </div>
@@ -120,7 +120,7 @@
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
           <h3>Train in the cloud</h3>
-          <p>A Modal cloud training harness turns curated fuel into a candidate adapter — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are in training.</p>
+          <p>A Modal cloud training harness turns curated fuel into a candidate adapter — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are gated, ready to train.</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="step-n">03</span>
@@ -217,7 +217,7 @@
         <div class="arch-copy reveal">
           <p class="eyebrow">The factory flywheel</p>
           <h2>Your routed work in. A better model out — that feeds the next pass.</h2>
-          <p>Maestro's routing labels are harvested and curated into training fuel, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served, registered to <code>cortex_models</code>, and routed local-first — and that routed work becomes the next adapter's fuel. The loop closes. Today the base serves; the first adapters are in training.</p>
+          <p>Maestro's routing labels are harvested and curated into training fuel, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served, registered to <code>cortex_models</code>, and routed local-first — and that routed work becomes the next adapter's fuel. The loop closes. Today the base serves; the first adapters are gated, ready to train.</p>
           <ul class="arch-list">
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gated, not aspirational.</b> The eval gate is structural — nothing unproven gets promoted.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Base serves now.</b> Qwen3.6 on your GPU via SGLang, 262k context, base-only.</span></li>
@@ -239,7 +239,7 @@
             <!-- train -->
             <rect class="dg-node-accent" x="172" y="108" width="116" height="48" rx="11"/>
             <text class="dg-label" x="230" y="129" text-anchor="middle" font-size="12">Train · Modal</text>
-            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">in training</text>
+            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">gated, ready</text>
 
             <!-- flows harvest -> curate -> train -->
             <path class="dg-flow" d="M72 88v16"/>
@@ -325,7 +325,7 @@
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">Own your models</p>
         <h2>Own a factory that teaches itself.</h2>
-        <p>Stop renting your intelligence. The factory is built end-to-end and gated so it cannot lie — a loop you own that compounds. The base serves on your own GPU; the first specialists are in training. Watch it reach the first measured adapter.</p>
+        <p>Stop renting your intelligence. The factory is built end-to-end and gated so it cannot lie — a loop you own that compounds. The base serves on your own GPU; the first specialists are gated, ready to train. Watch it reach the first measured adapter.</p>
         <div class="cta-actions">
           <a href="/cortex/" class="btn btn-primary btn-arrow">
             See the full suite
