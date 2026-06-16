@@ -48,8 +48,14 @@ if (root / 'blog' / '2026-04-22-project-scoping.html').exists():
     raise SystemExit('Broken generated draft post should not ship')
 
 bad_links = []
+# Post-content links must be under /blog/. Nav links can go anywhere.
 for href in re.findall(r'href="(/[^"]+\.html)"', blog_index):
     if not href.startswith('/blog/'):
+        # Allow root-level links in the nav (first nav block) only
+        nav_idx = blog_index.find('<nav class="nav">')
+        href_idx = blog_index.find(f'href="{href}"')
+        if nav_idx != -1 and href_idx != -1 and href_idx < blog_index.find('</nav>', nav_idx):
+            continue
         bad_links.append(href)
 if bad_links:
     raise SystemExit('Blog index has root-relative post links outside /blog: ' + ', '.join(bad_links[:8]))
