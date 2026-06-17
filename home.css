@@ -354,3 +354,33 @@ a.living-card:hover { border-color: var(--accent); transform: translateY(-2px); 
 .stance-section .stance-body { max-width: 720px; }
 .stance-section .stance-body .founder-bio { margin-bottom: var(--sp-4); }
 .stance-section .stance-body .founder-bio:last-child { margin-bottom: 0; }
+
+/* ---------------------------------------------------------------------------
+   Pillar card "how it works" mini-figures (driven by /pillar-cards.js)
+   A compact, token-driven canvas band injected under each card's icon row.
+   Calm by default; a hair more present on hover. Reduced-motion → static frame.
+   ------------------------------------------------------------------------- */
+.pillar-fig {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  margin: 0 0 var(--sp-3);
+  border-radius: var(--r-sm, 8px);
+  overflow: hidden;
+  /* a whisper of the pillar hue so the band reads as part of the card */
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--hue) 4%, transparent),
+      transparent 80%);
+  opacity: 0.85;
+  transition: opacity var(--dur-2) var(--ease-soft);
+}
+.pillar:hover .pillar-fig,
+.pillar:focus-visible .pillar-fig { opacity: 1; }
+.pillar-fig-canvas { display: block; width: 100%; height: 100%; }
+@media (max-width: 720px) {
+  .pillar-fig { height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pillar-fig { opacity: 1; }
+}

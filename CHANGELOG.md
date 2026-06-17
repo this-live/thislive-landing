@@ -5,6 +5,33 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-17 — Umbrella pillar cards: interactive "how it works" mini-figures
+
+The six `.pillar` cards on the landing ("One decentralized system. Six pillars.") are now interactive,
+educational micro-infographics. Each card gets a compact `<canvas>` band injected under its icon row (layout,
+classes, and copy untouched) that animates the same idea as that pillar's page hero — so a visitor understands
+the pillar at a glance. One shared, dependency-free, CSP-safe file `/pillar-cards.js` finds each card by its
+href and drives its mini-canvas; the six choreographies follow `00-DESIGN-SYSTEM.md §4.2` verbatim:
+- **maestro** — a prompt arrives at a junction, candidate model-lanes score, ONE brightens to cyan (others
+  dim) + a `decision_id` receipt mark.
+- **mnemos** — scattered data dots file into a small hierarchy of scoped bins; the protected root never takes
+  the write; bins accumulate (memory survives the loop).
+- **agent-fabric** — one request fans out across nodes in parallel and ticks done before a lone serial pulse
+  finishes (the speedup shown, not told).
+- **surfaces** — ~9–18 scattered tool-windows nest into ONE unified app card + a soft cyan pulse-ring.
+- **forge** — labels stream into a factory node that brightens notch-by-notch, emits a served-adapter glyph,
+  and a recursive arc loops it back.
+- **cortex** — a small living mesh of nodes with honest status hues (the decentralized fleet).
+
+House rules obeyed (the loved substrate): colors ONLY via each card's own `--hue` + system `--accent` read
+with `getComputedStyle` (no literal hex in the motion); low-contrast (fills 5–10%, lines ≤8%, one accent for a
+beat); eased not snapped; plays ONLY while hovered OR scrolled into view (IntersectionObserver) and pauses
+otherwise + on `visibilitychange`; `prefers-reduced-motion` → one static composed frame; degrades < ~150px;
+zero deps. Does NOT touch `hero.js` (umbrella mesh) or any per-pillar page hero. Adds `.pillar-fig` styles to
+`home.css` and one `<script src="/pillar-cards.js" defer>` after `hero.js`. Verified via local preview: all 6
+figures inject and paint, animate on hover/in-view, reduced-motion renders static frames, `node --check` clean,
+0 console/page errors on the umbrella + all 7 pillar pages.
+
 ## 2026-06-14 — Pillar pages: signature product-specific animations + decentralized reframe + truth-discipline pass
 
 Each of the 6 pillar pages gets its own SUBTLE, product-specific background animation — one shared visual
