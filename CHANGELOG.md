@@ -5,6 +5,14 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-06-17 — Resume "Current focus" corrected to the real focus
+
+The resume's "Current focus" (`resume.html`) was stale/off — it described "migrating active projects into
+MiniMax Code workspaces" + a long project list. Per Bryce, the actual current focus is **getting Cortex to
+fully work end-to-end and releasing it to the public**. Rewrote it to lead with that: harden the six pillars
+into a mature reliable product, link the decentralized fleet into one system that brings itself up, and ship
+Cortex so anyone can run owned, local AI on their own hardware. On-thesis (decentralized/sovereign/owned-not-rented).
+
 ## 2026-06-17 — Umbrella pillar cards: interactive "how it works" mini-figures
 
 The six `.pillar` cards on the landing ("One decentralized system. Six pillars.") are now interactive,
