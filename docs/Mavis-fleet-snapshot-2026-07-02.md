@@ -204,10 +204,11 @@ These are the cross-cutting items awaiting Bryce's explicit call. None are
 auto-resolvable by PMs; each routes through Mavis. They are surfaced here so
 the landing page narrative can hold the right honest-red claims.
 
-1. **DPL signal-source decision (option B vs C vs A).** DPL PM halted because
-   the input surfaces are empty by design. Bryce: pick (A) hold, (B) approve
-   cross-project current-work signal sources, or (C) author the 3 hooks inline.
-   Without one of these, DPL remains in scaffolded-but-idle state.
+1. **DPL signal-source decision — RESOLVED (option-B variant) at 03:42 ET.** DPL
+   PM halted because the input surfaces are empty by design; Mavis dispatched
+   the option-B variant at 03:42 ET (cross-project current-work signal sources
+   approved). DPL PM's handoff-prep doc carries the resolution. No further
+   Bryce action needed unless DPL surfaces another empty-input round.
 
 2. **Maestro B4a consensus-pool fix** — gated on Bryce's OpenRouter key decision
    (spend OK + token). This is the actual fuel unblock for the Maestro→Forge

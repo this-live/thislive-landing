@@ -440,7 +440,11 @@ not yet active). DPL-PM correctly refused to invent filler; three options
 surfaced to Mavis (A hold / B cross-project signal / C Bryce authors hooks). Per
 DECISIONS/0001 §4 + the scoring-rubric's anti-pattern list, evergreen framing
 without a current-work hook is out of scope. DPL remains in scaffolded-but-idle
-state pending the Bryce signal-source call.
+state pending the Bryce signal-source call. **Update 2026-07-02 03:42 ET**:
+DPL signal-source decision resolved by Mavis via the option-B variant
+(cross-project current-work signal sources approved); DPL PM's
+handoff-prep doc carries the resolution. No further Bryce action on
+this item.
 
 **Signal and Noise — v3 rein collapse landed.** Legacy `podcast-host-bryce`,
 `podcast-host-darin`, `podcast-producer` reins deleted (3 D entries, intentional
@@ -457,10 +461,12 @@ cross-project (identity lock §1 + §8 forbids); Mavis authored the scaffold
 inline per SAQ PM's recommendation. CREST-PM now routable in the fleet;
 first Mavis-handoff-prep doc lands on CREST-PM's first routable session.
 
-**5 Bryce-needed-actions queue items surfaced (open).** Captured in
-`docs/Mavis-fleet-snapshot-2026-07-02.md` (the mirror doc this landing page
-can render):
-1. DPL signal-source decision (A/B/C).
+**5 Bryce-needed-actions queue items surfaced (4 open, 1 resolved).**
+Captured in `docs/Mavis-fleet-snapshot-2026-07-02.md` (the mirror doc this
+landing page can render):
+1. ✅ DPL signal-source decision — RESOLVED (option-B variant) at 03:42 ET
+   (cross-project current-work signal sources approved by Mavis); DPL PM
+   handoff-prep doc carries the resolution. No further Bryce action.
 2. Maestro B4a consensus-pool fix — gated on Bryce OpenRouter key (the actual
    flywheel fuel unblock; label-provenance plumbing is already in place).
 3. SAQ push authorization — commits `cf82e11` + `a690832`; AND a decision on
