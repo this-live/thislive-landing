@@ -373,3 +373,30 @@ Update rules:
 - Known follow-up: Legacy DOM-contract guards (check_product_cards/founder_proficiencies/stack_cards/blog_surface) now fail against the reframed index (product catalog/founder block/blog preview moved off the umbrella; still reachable via nav+footer). These are advisory only — NOT wired into the Docker build or Railway deploy — and should be re-pointed at the new contract (or retired for the index) on review/merge.
 - Build-and-review: branch design/award-winning-v1 only; main untouched, NOT deployed.
 - Author/agent: Jarvis (design-system phase, Claude Code)
+## 2026-07-02 — bryce.this.live now matches the umbrella (full rewrite)
+
+The bryce.this.live apex was serving a stale "Bryce Murad — Builder" page from a
+prior build before the resume reframe and the new design system. Source-vs-live
+drift: the served HTML (24,219 bytes) no longer existed anywhere in the repo.
+
+Rewrite:
+- new `bryce.html` (~28KB) — full founder/living resume page with hero (portrait
+  + side-by-side "currently" card), current-focus grid, founder background,
+  experience, project portfolio (6 tracked products + tail), tooling bracket,
+  education / athletics / global, operating principles, operating model, footer.
+- new `founder-page.css` — reuses `/design-system.css` and `/home.css`
+  (same nav, trust strip, reveals, hero scaffolding). Adds bryce-only layout
+  primitives (portrait-frame, focus grid, portfolio cards with status badges,
+  principles list, responsive rules).
+- `nginx.conf` — adds `bryce.this.live → /bryce.html` to the $pillar_home map
+  so the apex stop matches the umbrella's pillar-subdomain convention.
+
+Content source: existing `resume.html` (Founder & AI Operator framing,
+"Current focus" = getting Cortex to the public). Visual family matches the
+new umbrella (cyan accent #2DE2FF, Space Grotesk / Inter / JetBrains Mono,
+orb-blur hero, glass surfaces, status badges, hover lifts).
+
+Honest-claim discipline: portfolio cards mirror this.live's product truth —
+live / active-build labels match the umbrella; no fabricated metrics; status
+notes mirror `CLAIMS-LEDGER.md`. File modified: bryce.html (new), founder-page.css
+(new), nginx.conf (1 line added).

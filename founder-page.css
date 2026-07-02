@@ -1,0 +1,288 @@
+/* ============================================================================
+   bryce.this.live — page-specific styles
+   Loaded on top of /design-system.css + /home.css so hero / nav / trust strip
+   + founder-stack / section scaffolding are reused byte-identical from the
+   umbrella. Anything new for the founder page lives here.
+   ============================================================================ */
+
+/* ── Active nav link (Founder) ─────────────────────────────────────────── */
+.nav-links a.is-active { color: var(--text); }
+
+/* ── HERO LAYOUT: text + portrait + "currently" card, side-by-side ─────── */
+.bryce-hero { padding: 144px 0 88px; }
+
+.bryce-hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--sp-7);
+  align-items: start;
+}
+
+.bryce-hero-text { min-width: 0; }
+.bryce-hero-text .hero-lede { max-width: 56ch; }
+.bryce-hero-text .hero-sub  { max-width: 56ch; }
+
+/* ── Portrait frame ────────────────────────────────────────────────────── */
+.bryce-portrait {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-top: 0;
+}
+
+.bryce-portrait-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(420px 280px at 50% 0%, rgba(45,226,255,0.18), transparent 70%),
+    linear-gradient(180deg, rgba(45,226,255,0.06), rgba(129,140,248,0.04)),
+    var(--bg-2);
+  border: 1px solid var(--accent-line);
+  box-shadow: var(--el-3), 0 0 80px rgba(45,226,255,0.10);
+  padding: 8px;
+  overflow: hidden;
+}
+
+.bryce-portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(45,226,255,0.10), transparent 55%);
+  pointer-events: none;
+}
+
+.bryce-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--r-xl) - 6px);
+  filter: contrast(1.02) saturate(0.96);
+  display: block;
+}
+
+/* "Currently" status card under the portrait */
+.bryce-portrait-card {
+  position: relative;
+  padding: var(--sp-5) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(8px);
+}
+.bryce-portrait-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--sp-3);
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.bryce-portrait-eyebrow::before {
+  content: "";
+  width: 18px; height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.bryce-portrait-line {
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+  margin-bottom: 6px;
+  display: flex; gap: 8px; align-items: baseline;
+}
+.bryce-portrait-line:last-child { margin-bottom: 0; }
+.bryce-portrait-line .accent-text { font-weight: 700; }
+
+/* ── Current focus cards ──────────────────────────────────────────────── */
+.bryce-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+.bryce-focus-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent);
+  margin-bottom: var(--sp-3);
+}
+.bryce-focus-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  color: var(--text);
+  margin-bottom: var(--sp-3);
+  letter-spacing: -0.01em;
+}
+.bryce-focus-grid p { color: var(--text-body); font-size: var(--fs-sm); }
+
+/* ── Experience blocks (reuse .card padding, custom head) ────────────── */
+.exp-block {
+  padding: var(--sp-6) var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-5);
+  transition: transform var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease-soft), background var(--dur-2) var(--ease-soft);
+}
+.exp-block:hover { background: var(--surface-2); border-color: var(--border-hover); }
+.exp-block:last-child { margin-bottom: 0; }
+.exp-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: var(--sp-4); flex-wrap: wrap;
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--border);
+}
+.exp-role  { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-lg); color: var(--text); letter-spacing: -0.01em; }
+.exp-org   { font-size: var(--fs-sm); color: var(--text-muted); margin-top: 4px; }
+.exp-date  { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-muted); white-space: nowrap; padding-top: 4px; }
+.exp-block ul { list-style: none; padding: 0; }
+.exp-block ul li {
+  position: relative;
+  padding: 6px 0 6px 18px;
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+  line-height: 1.65;
+}
+.exp-block ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 16px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-soft);
+}
+
+/* ── Portfolio grid (6 cards, status badge + hover lift) ─────────────── */
+.bryce-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-6);
+}
+.bryce-portfolio {
+  display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+  --hue: var(--accent);
+}
+.bryce-portfolio-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+.bryce-portfolio-cat {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--hue);
+}
+.bryce-portfolio h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  color: var(--text);
+  margin-bottom: var(--sp-3);
+  letter-spacing: -0.01em;
+}
+.bryce-portfolio p {
+  color: var(--text-body);
+  font-size: var(--fs-sm);
+  flex: 1;
+}
+.bryce-portfolio:hover {
+  border-color: color-mix(in srgb, var(--hue) 35%, var(--border));
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--hue) 18%, transparent);
+}
+.bryce-portfolio-tail {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 auto;
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--border);
+}
+.bryce-portfolio-tail strong { color: var(--text); font-weight: 600; }
+
+/* ── Stack grid (4 tools cards) ──────────────────────────────────────── */
+.bryce-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-5);
+}
+.bryce-stack-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--accent);
+  margin-bottom: var(--sp-3);
+}
+.bryce-stack-grid p { color: var(--text-body); font-size: var(--fs-sm); }
+
+#stack ul, #education ul {
+  list-style: none; padding: 0;
+}
+#stack li, #education li {
+  position: relative;
+  padding: 8px 0 8px 18px;
+  font-size: var(--fs-sm);
+  color: var(--text-body);
+  line-height: 1.65;
+}
+#stack li::before, #education li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 18px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-soft);
+}
+#education article { margin-bottom: var(--sp-6); padding: var(--sp-5) var(--sp-6);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); }
+#education article:last-child { margin-bottom: 0; }
+
+/* ── Principles (left-rule list) ─────────────────────────────────────── */
+.bryce-principles { display: grid; gap: var(--sp-3); }
+.bryce-principles p {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-md);
+  color: var(--text);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: var(--r-sm);
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+  transition: border-color var(--dur-2) var(--ease-soft), background var(--dur-2) var(--ease-soft), transform var(--dur-2) var(--ease);
+}
+.bryce-principles p:hover {
+  background: var(--surface-2);
+  border-color: var(--border-hover);
+  border-left-color: var(--accent);
+  transform: translateX(2px);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .bryce-hero-layout { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .bryce-portrait { max-width: 360px; }
+  .bryce-focus-grid, .bryce-portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bryce-stack-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .bryce-hero { padding: 116px 0 56px; }
+  .bryce-portrait-frame { width: 100%; max-width: 280px; }
+  .bryce-focus-grid, .bryce-portfolio-grid { grid-template-columns: 1fr; }
+  .exp-block { padding: var(--sp-5) var(--sp-4); }
+  .exp-head { flex-direction: column; gap: var(--sp-2); }
+}
