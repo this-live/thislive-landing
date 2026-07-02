@@ -400,3 +400,88 @@ Honest-claim discipline: portfolio cards mirror this.live's product truth —
 live / active-build labels match the umbrella; no fabricated metrics; status
 notes mirror `CLAIMS-LEDGER.md`. File modified: bryce.html (new), founder-page.css
 (new), nginx.conf (1 line added).
+
+## 2026-07-02 — Fleet snapshot for the landing-page narrative
+
+Per Bryce's 2026-07-02 03:34 ET parallelized-pass directive (14 PMs routed via Mavis),
+the landing-page umbrella is updated with the fleet's current state so the public
+"what we are doing" narrative matches the actual receipts. Documentation + audit
+only — no live site push. Honest-claim discipline: every entry below maps to a real
+in-repo CHANGELOG receipt or a verified fact; no aspirational copy.
+
+**Cortex Suite — 5/6 pillars PROVEN, 1 PARTIAL.** E1–E11 are the live-true bars
+(dispatch-executes-E2E, AF-reachable, canonical-receipts-present, enqueue-accepts,
+decision-id-non-auditor, receipts-sampled, etc.). The PARTIAL is surfaces B2 receipts-
+rail: env is wired on `agent-fabric` (`AGENT_FABRIC_EVENTS_URL`, commit `98da178`)
+but the daemon-restart gate is not yet verified. Receipts sampled live against AF
+:3333 tonight include non-auditor decision_ids `maestro-bb8501fa`,
+`maestro-7172f6c4`, `maestro-21190e41`, etc. (cortex C2 scrutiny-rescore commit
+`00a6d54` retired the fossilized 2026-06-12 claim "only the auditor produced a
+decision_id" — `number_one_not_working: null`, `dispatch_executes_e2e: true`).
+E12 host-bridge sidecar landed (`agent-fabric` commit `f8231c1`); the
+BRIDGE-CLI-HARNESSES block at `server.mjs:1166` is identified as Bryce's E12
+collision zone.
+
+**Ftag-studio Age of Arrows rebuild.** P0 (loose-tight loop, tests parity) + P1a
+(projectile bank 42 `.asset` + weapon bank 32 `.asset`) done. P1b (additional
+projectile FX + animation-event hooks) is next. 155-file dirty working tree from
+the 06-26 deep-research pass; MCP-bridge caveat (untrusted MCP tools → quarantine
+before merge) is in HANDOFF.md. The ftag-lesson guardrail (no Unity Editor /
+ProjectSettings / Library / .opencode touches) is enforced; 22 `Scripts/Combat/
+UI/Data` files deferred as concurrent-continuation, NOT ftag-pm's lane.
+
+**DPL — scaffolded + first 3 topics + first blog draft queued.** Workspace is the
+agent-side `~/.mavis/agents/dpl-pm/workspace`; scoring-rubric, audience-map,
+channel-playbooks, idea-inbox, approved-topics, draft-queue,
+interesting-work-signals, DECISIONS/{0001,0002,0003} all in place. **DPL PM
+halted** on the topic/blog-draft task because all four input surfaces are
+structurally empty by design at P0 (upstream project source-of-truth integration
+not yet active). DPL-PM correctly refused to invent filler; three options
+surfaced to Mavis (A hold / B cross-project signal / C Bryce authors hooks). Per
+DECISIONS/0001 §4 + the scoring-rubric's anti-pattern list, evergreen framing
+without a current-work hook is out of scope. DPL remains in scaffolded-but-idle
+state pending the Bryce signal-source call.
+
+**Signal and Noise — v3 rein collapse landed.** Legacy `podcast-host-bryce`,
+`podcast-host-darin`, `podcast-producer` reins deleted (3 D entries, intentional
+per Bryce's "specific job roles, not domain slices" norm). The post-v3 set is 3
+specific-functional reins; matches Bryce/Mavis's agent-team-tab mental model.
+BACKLOG.md updated (M) with the v3 re-scope entry. The show itself is in
+production for the next cycle; the meta-show ops surface is the 3 functional
+reins + the in-repo CHANGELOG.
+
+**CREST PM — registered.** New `crest-pm` agent for `/Users/jarvis/crest`
+project; workspace at `/Users/jarvis/crest/`, clean working tree, CHANGELOG.md
+in-repo + at the external Documents location. SAQ PM correctly escalated as
+cross-project (identity lock §1 + §8 forbids); Mavis authored the scaffold
+inline per SAQ PM's recommendation. CREST-PM now routable in the fleet;
+first Mavis-handoff-prep doc lands on CREST-PM's first routable session.
+
+**5 Bryce-needed-actions queue items surfaced (open).** Captured in
+`docs/Mavis-fleet-snapshot-2026-07-02.md` (the mirror doc this landing page
+can render):
+1. DPL signal-source decision (A/B/C).
+2. Maestro B4a consensus-pool fix — gated on Bryce OpenRouter key (the actual
+   flywheel fuel unblock; label-provenance plumbing is already in place).
+3. SAQ push authorization — commits `cf82e11` + `a690832`; AND a decision on
+   the 24 untracked scaffolding dirs/files.
+4. Surfaces B2 daemon restart authorization — `pocket-agent` PID 71247;
+   operator-bound per PLAN.md blocker B1 (no restart without explicit
+   Bryce yes in the maintenance window).
+5. CREST PM authoring call (closed for the record; SAQ PM escalated,
+   Mavis authored inline).
+
+Plus the 6 still-open Maestro sign-offs from the 06-22 audit carried forward
++ the E3 atlas canary 7-day soak post-2026-06-11 18:27 ET (fhm fleet roll
+on hold until soak clears + Bryce fleet-roll pre-stage).
+
+**Companion doc.** `docs/Mavis-fleet-snapshot-2026-07-02.md` —
+per-project 1-paragraph + open Bryce decisions block. The thislive-landing
+site can mirror that doc (or copy its sections) to keep the public narrative
+honest about the fleet's actual state.
+
+Files touched: `CHANGELOG.md` (this entry), `docs/Mavis-fleet-snapshot-2026-07-02.md`
+(new). No code/UI changes; no live site push. Companion mirrors the external
+`/Users/jarvis/Documents/Claude/Projects/this.live/CHANGELOG.md` entry per
+Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
++ workspace-coherent materials). Author: this-live-pm via Mavis routing.
