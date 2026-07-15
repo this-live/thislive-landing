@@ -5,6 +5,22 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-07-14 — Landing card copy tighten + remove stale about sections (slug landing-tighten)
+
+- Change: Updated Mnemos pillar card description to frame it as an agnostic memory bridge
+  across providers (Claude, ChatGPT, Cursor, Kimi, MiniMax, local) — not just internal
+  to Cortex. Memory count corrected 75k+ -> 111k+.
+- Change: Updated Surfaces pillar card to lead with unified surface for all AIs, naming
+  the specific providers (Claude Code, ChatGPT, Cursor, Kimi, MiniMax, local).
+- Change: Removed the "Operating principles" pill strip from #about (tacky, undermined
+  by the chip design language).
+- Change: Removed the "In active use right now · scanned from the fleet" skills chips
+  (stale, tacky).
+- Change: Removed the "The operator stack" four-cell grid (stale, tacky).
+- Kept: founder bio blurb and the "Currently building" living strip.
+- Files: `index.html` only.
+- Author/agent: Jarvis/Hermes
+
 ## 2026-06-17 — Resume "Current focus" corrected to the real focus
 
 The resume's "Current focus" (`resume.html`) was stale/off — it described "migrating active projects into
