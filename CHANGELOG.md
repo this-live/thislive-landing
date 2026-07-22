@@ -5,6 +5,27 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-07-21 — Founder-page recruiter fixes: name Ensono, honest claims (slug founder-recruiter-fixes)
+
+- Change: bryce.html + resume.html — added "Ensono" as the named employer on both
+  experience blocks (previously anonymous "Chicago, IL"; flagged by an external
+  recruiter review as the single biggest screen-out trigger).
+- Change: Dates corrected "02/2022 — 2025" -> "Feb 2022 — Jan 2026" (and intern
+  block to "Jun 2021 — Feb 2022").
+- Change: "Closed more than 50% of complex enterprise deals" reworded to
+  "Supported complex enterprise pursuits as technical lead ... with a >50% close
+  rate on supported deals" — pre-sales-honest framing, removes unfalsifiable
+  sales-credit claim.
+- Change: "24-week military-grade program" -> "24-week intensive program"; dropped
+  "3.33 GPA" from education lines.
+- Why: judge-panel review (3 recruiter personas) of the 2026-07-13 resume rewrite
+  flagged these on the public founder pages; approved by Bryce via PM session
+  2026-07-21.
+- Files: `bryce.html`, `resume.html`.
+- Note: live bryce.this.live apex was serving a pre-redesign build (see 2026-07-02
+  entry) — needs redeploy to pick this up.
+- Author/agent: Jarvis (Claude Code, job-search workstream)
+
 ## 2026-07-14 — Landing card copy tighten + remove stale about sections (slug landing-tighten)
 
 - Change: Updated Mnemos pillar card description to frame it as an agnostic memory bridge
