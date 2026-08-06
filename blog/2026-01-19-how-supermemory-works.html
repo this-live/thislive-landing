@@ -24,15 +24,27 @@
     <div class="post-meta">By Bryce Murad &middot; January 19, 2026</div>
     <div class="post-body">
 <p class="post-dek">What I learned before Mnemos became the center</p>
-<h2>Agents without memory become strangers</h2>
-<p>The first thing that breaks when you work with agents every day is continuity. Not model quality. Not tool calling. Continuity. An agent can write a decent patch and still forget why the project exists by the next session. That gets old fast.</p>
-<p>Early on I used Supermemory patterns to keep project context around. The useful idea was not magic recall. It was scoped recall. Beacon context should not bleed into podcast context. Personal context should not end up inside a public product. If memory is flat, the system gets sloppy.</p>
-<h2>Why I moved toward Mnemos</h2>
-<p>Mnemos became the direction because I wanted local control and cleaner project boundaries. I do not want memory to be a mystery service off to the side. I want it to behave like infrastructure I can inspect, route, back up, and constrain. Every project needs its own container. Every recall needs a reason.</p>
+<h2>Strangers every morning</h2>
+<p>The first thing that breaks when you work with agents every day is not model quality. It is not tool calling. It is continuity.</p>
+<p>An agent can write a decent patch and still forget why the project exists by the next session. You spend the first ten minutes of every morning re-explaining context you already explained yesterday. Multiply that by a few projects and a few machines and the re-explaining becomes the job. That gets old fast.</p>
+<p>This was week two of building This.Live, and it was already obvious: if I was going to run a company on agents, memory was not a feature to add later. It was the first piece of infrastructure to get right, because everything else sits on top of it.</p>
+<h2>Scoped, not magic</h2>
+<p>Early on I used Supermemory to keep project context around. The useful idea was never magic recall. It was scoped recall.</p>
+<p>Beacon context should not bleed into podcast context. Personal context should not end up inside a public product. A coaching bot should not know what my trading experiments are doing. If memory is flat, the system gets sloppy in ways that are hard to see until something embarrassing happens: an agent confidently citing the wrong project's decision, or worse, leaking one project's details into another project's output.</p>
+<p>So the rule became containers. Every project gets its own. Every recall needs a reason. An agent working on Beacon reads Beacon's memory and the shared standards, and nothing else. This sounds like common sense. It is also not how most agent setups work out of the box, which is why so many of them feel haunted by old conversations.</p>
+<h2>Why toward Mnemos</h2>
+<p>I want to be careful here, because in January Mnemos did not exist yet. What existed was a dependency I was not comfortable with. Supermemory was a service I did not control, holding the context my whole company ran on. For a weekend project that is fine. For the nervous system of a one-person company, it is a strange risk to accept by default.</p>
+<p>I wanted memory to behave like infrastructure I could inspect, route, back up, and constrain. I wanted to point at a machine in my house and say: it lives there, and when that machine has a bad day I know exactly what breaks. The decision to eventually build Mnemos came out of this week's discomfort, even though the build itself was months away.</p>
 <p>That sounds boring until you have thirteen projects, multiple machines, and agents making decisions based on stale notes. Then boring becomes beautiful.</p>
-<h2>The rule now</h2>
-<p>The rule now is simple: memory should make the next action better without rewriting history. It should preserve durable facts, not every passing mood. It should know what project it is inside. It should help an agent ask fewer dumb questions while still leaving room for human judgment.</p>
+<p>A concrete example from that week. I had agents touching Beacon, the agent harness itself, and some early routing experiments. Without scoping, a question about Beacon's pipeline stages would surface notes about the harness's tool schema, because both mentioned "stages." The answers were fluent and subtly wrong. With containers, the same question hit one project's memory and came back right. The fix was not a better model. It was a better boundary.</p>
+<h2>What memory is for</h2>
+<p>There is a trap in this space worth naming: the instinct to store everything. Every conversation, every intermediate draft, every passing mood. A memory system that keeps everything is a landfill with a search bar.</p>
+<p>The rule I settled on: memory should make the next action better without rewriting history. It preserves durable facts (how the fleet is wired, which decisions were ratified, what broke before and how it was fixed) and it lets the rest decay. It should know what project it is inside. It should help an agent ask fewer dumb questions while still leaving room for human judgment.</p>
+<p>A memory system that makes the agent confident and wrong is worse than no memory at all. At least a stateless agent knows it does not know.</p>
+<p>The other half of the rule is forgetting on purpose. Decisions get remembered. Drafts get deleted. A wrong turn gets one line saying it was a wrong turn, not the full transcript of the detour. Curation is the difference between a system that gets smarter and a system that just gets heavier.</p>
+<h2>The layer under everything</h2>
 <p>That is the memory layer I want under This.Live. Not a scrapbook. A nervous system.</p>
+<p>I will write the full Mnemos post when we get to May, when the dependency finally annoyed me enough to replace it with something I own. The story of that migration says a lot about why I build infrastructure instead of renting it. For now, the lesson of week two stands on its own: if your agents forget, you do not have a company. You have a very expensive chat. And a chat, no matter how fluent, does not compound.</p>
     </div>
     <div class="post-nav"><a href="/blog/">&larr; All posts</a></div>
   </article>

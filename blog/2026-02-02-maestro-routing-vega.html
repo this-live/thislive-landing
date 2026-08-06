@@ -24,14 +24,26 @@
     <div class="post-meta">By Bryce Murad &middot; February 02, 2026</div>
     <div class="post-body">
 <p class="post-dek">Maestro, Vega, and choosing the right model</p>
-<h2>The default model is usually wrong</h2>
+<h2>The lazy default</h2>
 <p>Most AI products send too much work to the same model. It is easy. Pick a frontier model, wire the API, call it a day. It also wastes money and hides performance problems until the bill shows up.</p>
-<p>Maestro exists because model choice is a systems problem. Some tasks need reasoning. Some need speed. Some need a local model because the data should not leave the machine. Some need a cheap model because the answer is low stakes.</p>
-<h2>Routing is judgment turned into infrastructure</h2>
-<p>Vega is the routing idea inside Maestro: look at the task, constraints, cost, latency, privacy, and quality history, then send the work to the right model. That sounds obvious. It is not obvious in practice because every provider has different quirks, failures, rate limits, and pricing.</p>
-<p>The point is not to worship any one model. The point is to make the system less fragile. If one provider is down, route around it. If a local model can handle the job, keep the work local. If a frontier model is worth the cost, use it deliberately.</p>
-<h2>The operator still matters</h2>
-<p>Routing does not remove judgment. It captures judgment so you do not repeat yourself every time. That is the balance I keep coming back to with This.Live: automate the repeatable decision, but keep the human accountable for the system.</p>
+<p>I noticed this in my own usage before I noticed it anywhere else. I was asking a top-tier model to do things like reformat a list, summarize a short diff, or answer a question with one obviously correct answer. It is like hiring a structural engineer to hang a picture frame. The work gets done beautifully and you should not have paid for it.</p>
+<p>The invoice told the story before any dashboard did. A huge share of the spend was coming from calls that a small local model could have handled while I slept. Not slightly cheaper. Orders of magnitude cheaper, with no quality difference anyone could detect on those tasks. Once you see that, you cannot unsee it.</p>
+<p>Maestro exists because model choice is a systems problem. Some tasks need deep reasoning. Some need speed. Some need a local model because the data should not leave the machine. Some need a cheap model because the stakes are low. Treating all four the same is not simplicity. It is waste with good marketing.</p>
+<h2>Judgment as infrastructure</h2>
+<p>Vega is the routing idea inside Maestro: look at the task, the constraints, the cost, the latency, the privacy requirements, and the quality history, then send the work to the right model.</p>
+<p>That sounds obvious. It is not obvious in practice, because every provider has different quirks, failures, rate limits, and pricing. The router has to know more than prices. It has to know that this model is great at code and oddly bad at following output formats, that this one gets flaky under load in the evening, that this local model handles the classification job at a quality nobody can tell apart from the expensive one.</p>
+<p>The point is not to worship any one model. The point is to make the system less fragile. If one provider is down, route around it. If a local model can handle the job, keep the work local. If a frontier model is worth the cost, use it deliberately and write down why.</p>
+<h2>What routing is not</h2>
+<p>I want to be honest about the failure mode, because I built it first. A router that is too clever becomes its own problem: another layer to debug, another place where a weird decision gets made for reasons nobody can reconstruct. The first version of anything in this family tends to be a tangle of heuristics that made sense the week they were written.</p>
+<p>The discipline that works is boring. Start with a small number of tiers. Make the routing decision explainable in one sentence. Log every decision so you can audit the pattern later. Add sophistication only when the logs say the simple version is leaving money or quality on the table.</p>
+<p>One sentence explainability matters more than it sounds. "Sent to the local model because the data stays on-prem and the task is classification" is a decision you can audit six months later. "Score 0.73 on the composite heuristic" is not. When something goes wrong, and something always goes wrong, the audit trail is the difference between a bad week and a bad quarter.</p>
+<h2>One brain, many voters</h2>
+<p>There is a second idea queued behind routing that became important later this month, and I will give it its own post: consensus. If one model can be confidently wrong, several models can check each other. The work on that started as a sketch in late February and turned into the Quorum engine, where multiple models vote on an answer and the system weighs the votes.</p>
+<p>Routing and consensus sound like opposites. One sends work to a single best model, the other sends work to many. They are actually the same discipline at two stakes levels. Cheap questions get a router. Expensive questions get a committee. Knowing which question you are holding is the whole game.</p>
+<h2>The operator stays</h2>
+<p>Routing does not remove judgment. It captures judgment so you do not have to repeat yourself every time.</p>
+<p>That is the balance I keep coming back to with This.Live: automate the repeatable decision, keep the human accountable for the system. The router decides which model answers. I decide what the tiers are, what the system is allowed to spend, and whether the answers are any good. When that split drifts, quality drifts with it.</p>
+<p>In a few months I will have real numbers on what this pattern costs and saves, and a post about the economics of running local models against paid ones. I am not going to claim savings here that I had not measured yet.</p>
     </div>
     <div class="post-nav"><a href="/blog/">&larr; All posts</a></div>
   </article>

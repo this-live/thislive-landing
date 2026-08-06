@@ -528,3 +528,6 @@ Files touched: `CHANGELOG.md` (this entry), `docs/Mavis-fleet-snapshot-2026-07-0
 `/Users/jarvis/Documents/Claude/Projects/this.live/CHANGELOG.md` entry per
 Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
 + workspace-coherent materials). Author: this-live-pm via Mavis routing.
+
+## 2026-08-06 (blog-archive-rewrite branch)
+- Batch 1 of blog archive rewrite: 2026-01-12 why-i-built-this, 2026-01-19 how-supermemory-works, 2026-01-26 agent-fabric-and-subagents, 2026-02-02 maestro-routing-vega expanded from thin stubs to full-length founder-voice posts. Timeline corrected: layoff Jan 6, quiet build Jan-Feb, public launch early March.
