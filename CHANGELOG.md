@@ -531,3 +531,11 @@ Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
 
 ## 2026-08-06 (blog-archive-rewrite branch)
 - Batch 1 of blog archive rewrite: 2026-01-12 why-i-built-this, 2026-01-19 how-supermemory-works, 2026-01-26 agent-fabric-and-subagents, 2026-02-02 maestro-routing-vega expanded from thin stubs to full-length founder-voice posts. Timeline corrected: layoff Jan 6, quiet build Jan-Feb, public launch early March.
+
+## 2026-08-06 (blog-archive-rewrite branch)
+- Archive re-dated to weekly cadence starting at public launch (early March 2026), per Bryce: no pre-March posts.
+- Renamed+redated batch-1 rewrites: why-i-built-this -> 2026-03-02, how-supermemory-works -> 2026-03-09, agent-fabric-and-subagents -> 2026-03-16, maestro-routing-vega -> 2026-03-23. Bylines updated; prose refs to the Jan-Feb quiet build period intentionally kept (launch-reveal framing).
+- Deleted pre-March stubs: 2026-02-09 consensus, 2026-02-16 beacon-architecture, 2026-02-23 security-and-isolation. Topics re-enter via future rewrite batches at new weekly slots.
+- Moved March stubs (building-with-ai, fleet-topology, forge-source-grounded, surfaces) to blog/_legacy-unlisted/ pending their rewrite batches.
+- blog/index.html: 7 stub cards removed. Homepage Forge card repointed to 2026-06-15-forge. Manifest canonical_count 22 -> 15.
+- Known follow-up: legacy un-dated duplicate posts still cross-link to removed dated files; resolved when legacy dupes are collapsed during the rewrite.

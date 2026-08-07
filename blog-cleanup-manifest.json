@@ -1,82 +1,33 @@
 {
-  "canonical_count": 22,
+  "canonical_count": 15,
   "canonical_posts": [
     {
       "date": "2026-01-12",
       "slug": "why-i-built-this",
-      "file": "2026-01-12-why-i-built-this.html",
+      "file": "2026-03-02-why-i-built-this.html",
       "title": "Why I built This.Live",
       "subtitle": "The first week after January"
     },
     {
       "date": "2026-01-19",
       "slug": "how-supermemory-works",
-      "file": "2026-01-19-how-supermemory-works.html",
+      "file": "2026-03-09-how-supermemory-works.html",
       "title": "Memory is the first serious agent problem",
       "subtitle": "What I learned before Mnemos became the center"
     },
     {
       "date": "2026-01-26",
       "slug": "agent-fabric-and-subagents",
-      "file": "2026-01-26-agent-fabric-and-subagents.html",
+      "file": "2026-03-16-agent-fabric-and-subagents.html",
       "title": "Why one agent is never enough",
       "subtitle": "The case for parallel work without chaos"
     },
     {
       "date": "2026-02-02",
       "slug": "maestro-routing-vega",
-      "file": "2026-02-02-maestro-routing-vega.html",
+      "file": "2026-03-23-maestro-routing-vega.html",
       "title": "Routing is where AI gets expensive or useful",
       "subtitle": "Maestro, Vega, and choosing the right model"
-    },
-    {
-      "date": "2026-02-09",
-      "slug": "maestro-consensus-quorum",
-      "file": "2026-02-09-maestro-consensus-quorum.html",
-      "title": "Consensus is not overkill when the answer matters",
-      "subtitle": "Why I ask more than one model"
-    },
-    {
-      "date": "2026-02-16",
-      "slug": "beacon-architecture",
-      "file": "2026-02-16-beacon-architecture.html",
-      "title": "Beacon is a practical lead engine, not magic",
-      "subtitle": "What the architecture is supposed to do"
-    },
-    {
-      "date": "2026-02-23",
-      "slug": "security-and-isolation",
-      "file": "2026-02-23-security-and-isolation.html",
-      "title": "Security starts before the demo",
-      "subtitle": "The boring rules that keep agents useful"
-    },
-    {
-      "date": "2026-03-02",
-      "slug": "building-with-ai",
-      "file": "2026-03-02-building-with-ai.html",
-      "title": "Building with AI feels like coaching a strange team",
-      "subtitle": "What the collaboration model actually looks like"
-    },
-    {
-      "date": "2026-03-09",
-      "slug": "fleet-topology",
-      "file": "2026-03-09-fleet-topology.html",
-      "title": "The fleet is part of the product",
-      "subtitle": "Why the machines matter"
-    },
-    {
-      "date": "2026-03-16",
-      "slug": "forge-source-grounded-engineering-agents",
-      "file": "2026-03-16-forge-source-grounded-engineering-agents.html",
-      "title": "Forge is about grounding, not magic coding",
-      "subtitle": "Why coding agents need the source tree"
-    },
-    {
-      "date": "2026-03-23",
-      "slug": "surfaces-pocket-agent-life-os-fleet-terminal",
-      "file": "2026-03-23-surfaces-pocket-agent-life-os-fleet-terminal.html",
-      "title": "Surfaces are where the agent stack meets real life",
-      "subtitle": "Pocket Agent, Life OS, and Fleet Terminal"
     },
     {
       "date": "2026-03-30",
