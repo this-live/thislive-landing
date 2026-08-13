@@ -540,3 +540,6 @@ Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
 - blog/index.html: 7 stub cards removed. Homepage Forge card repointed to 2026-06-15-forge. Manifest canonical_count 22 -> 15.
 - Known follow-up: legacy un-dated duplicate posts still cross-link to removed dated files; resolved when legacy dupes are collapsed during the rewrite.
 - Batch 2 of blog archive rewrite: 2026-03-30 DPL content operating system (931w), 2026-04-06 Beacon messy middle, 2026-04-13 Fieldhouse/FTAG lanes, 2026-04-20 Signal & Noise pipeline. All 800+ words, prose cadence, humanizer v3 gates (no dashes, no bullets, no invented numbers, honest forward-looking close).
+
+## 2026-08-13
+- docs: add AEO audit (answer-engine optimization findings + phased plan, sourced from reel analysis; no site changes)
