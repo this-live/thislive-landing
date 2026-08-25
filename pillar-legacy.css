@@ -68,7 +68,15 @@ a { color: var(--accent); text-decoration: none; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 28px; border-radius: 10px; font-size: 14px; font-weight: 600;
-  text-decoration: none; transition: all 0.25s; cursor: pointer; border: none;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-1) var(--ease-soft),
+    color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft);
+  cursor: pointer;
+  border: none;
   font-family: 'Inter', sans-serif;
 }
 .btn-primary { background: var(--accent); color: var(--bg-deep); }
@@ -76,6 +84,8 @@ a { color: var(--accent); text-decoration: none; }
 .btn-outline { background: transparent; color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
 .btn-outline:hover { border-color: var(--accent); background: rgba(0,212,255,0.06); box-shadow: 0 0 24px rgba(0,212,255,0.1); }
 .btn-disabled { background: rgba(255,255,255,0.04); color: var(--text-muted); cursor: default; pointer-events: none; border: 1px solid var(--border); }
+/* emil: press feedback */
+.btn:active { transform: translateY(1px) scale(0.98); transition-duration: 80ms; }
 
 /* ── Badges (status: Live / Active Build / Specced) ── */
 .badge {

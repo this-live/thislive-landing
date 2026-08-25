@@ -98,11 +98,20 @@ body {
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.25s;
+  transition:
+    background-color var(--dur-1) var(--ease-soft),
+    color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft);
   cursor: pointer;
   border: none;
   font-family: 'Inter', sans-serif;
 }
+/* emil: buttons must feel responsive to press — feedback on press, not hover-only */
+.btn:active { transform: translateY(1px) scale(0.98); transition-duration: 80ms; }
+.btn-primary:active { background: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); }
+.btn-outline:active { background: rgba(0, 212, 255, 0.03); }
 
 .btn-primary {
   background: var(--accent);
@@ -241,8 +250,13 @@ body {
   text-decoration: none;
   border: 1px solid var(--border);
   background: var(--surface);
-  transition: all 0.25s;
+  transition:
+    color var(--dur-1) var(--ease-soft),
+    background-color var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease);
 }
+.hero-chip:active { transform: translateY(0); transition-duration: 80ms; }
 
 .hero-chip:hover {
   color: var(--text);
@@ -325,12 +339,17 @@ body {
   padding: 32px;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease),
+    box-shadow var(--dur-1) var(--ease-soft);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 a.card { text-decoration: none; color: inherit; }
+.card:active { transform: translateY(-1px); transition-duration: 80ms; }
 
 .card:hover {
   background: var(--surface-hover);
@@ -503,8 +522,11 @@ a.card { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: all 0.2s;
+  transition:
+    border-color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease);
 }
+.lead-tile:active { transform: translateY(0); transition-duration: 80ms; }
 
 .lead-tile:hover {
   border-color: var(--border-hover);
@@ -617,8 +639,12 @@ a.card { text-decoration: none; color: inherit; }
   cursor: pointer;
   border: none;
   font-family: 'Inter', sans-serif;
-  transition: all 0.2s;
+  transition:
+    background-color var(--dur-1) var(--ease-soft),
+    color var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft);
 }
+.tile-btn:active { transform: translateY(1px); transition-duration: 80ms; }
 
 .tile-btn--primary {
   background: var(--accent);
@@ -899,8 +925,12 @@ a.card { text-decoration: none; color: inherit; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--dur-1) var(--ease-soft),
+    border-color var(--dur-1) var(--ease-soft),
+    transform var(--dur-1) var(--ease);
 }
+.problem-card:active { transform: translateY(0); transition-duration: 80ms; }
 
 .problem-card:hover {
   background: var(--surface-hover);

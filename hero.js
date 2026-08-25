@@ -261,7 +261,8 @@
     ctx.clearRect(0, 0, w, h);
 
     // smooth parallax toward target
-    pmx += (tmx - pmx) * 0.05; pmy += (tmy - pmy) * 0.05;
+    // apple-design §1: be vigilant about every latency; 0.05 = ~333ms lag, 0.15 = ~110ms (snappier, still smooth)
+    pmx += (tmx - pmx) * 0.15; pmy += (tmy - pmy) * 0.15;
 
     var formed = formAmt > 0.001 && active;
 

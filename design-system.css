@@ -465,6 +465,29 @@ a.card, .card a.card-link { text-decoration: none; color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+
+/* apple-design §14: prefers-reduced-transparency → frostier/solid surfaces */
+@media (prefers-reduced-transparency: reduce) {
+  .nav,
+  .nav.nav--sticky {
+    background: var(--bg) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .hero-pill {
+    background: var(--surface) !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* apple-design §15: optical sizing + Inter crispness at hero/display size */
+.hero h1,
+.founder-stack h3,
+.fw-copy h2 {
+  font-optical-sizing: auto;
+  font-synthesis: none;
+}
   .reveal { opacity: 1; transform: none; }
 }
 

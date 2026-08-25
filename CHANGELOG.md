@@ -543,3 +543,12 @@ Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
 
 ## 2026-08-13
 - docs: add AEO audit (answer-engine optimization findings + phased plan, sourced from reel analysis; no site changes)
+## 2026-08-25 — Motion audit (emilkowalski/skills): transition: all → property-bound; :active press feedback; prefers-reduced-transparency; hero parallax tightening
+
+- Change: `style.css` — replaced 6× `transition: all` with property-bound form using `--dur-1` + `--ease-soft`/`--ease` tokens (`.btn`, `.hero-chip`, `.card`, `.lead-tile`, `.tile-btn`, `.problem-card`).
+- Change: `style.css` + `pillar-legacy.css` — added `:active` press feedback to all button selectors per emil "buttons must feel responsive to press" rule. Press feedback is `transform: translateY(1px) scale(0.98); transition-duration: 80ms`.
+- Change: `design-system.css` — added `prefers-reduced-transparency: reduce` handler (apple-design §14): `.nav`, `.hero-pill` drop `backdrop-filter` and become opaque.
+- Change: `design-system.css` — added `font-optical-sizing: auto` + `font-synthesis: none` on `.hero h1`, `.founder-stack h3`, `.fw-copy h2` (apple-design §15).
+- Change: `hero.js` — tightened parallax smoothing factor `0.05 → 0.15` (apple-design §1: kill latency on input path). 0.05 = ~333ms lag, 0.15 = ~110ms.
+
+Rationale: audit against emilkowalski's `apple-design` and `emil-design-eng` skills (installed on Jarvis) found repeated `transition: all` (8 instances), zero `:active` press feedback across all buttons, missing `prefers-reduced-transparency` handler, and a 333ms input-lag on the hero parallax. Each fix is a one-line rule violation with a documented before/after.
