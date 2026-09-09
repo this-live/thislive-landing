@@ -5,6 +5,15 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-09-09 — Retire "kill" language from pillar copy (slug pillar-copy-dekill)
+
+- Change: index.html — section lede "six pillars that each kill a problem" -> "each end a problem".
+- Change: index.html — pillar taglines: Maestro "kills provider lock-in + token cost" -> "ends ..."; Mnemos "kills cross-agent memory loss + context rot" -> "ends ..."; Forge "kills model dependency" -> "ends ...".
+- Change: maestro/mnemos/fabric/surfaces/forge/cortex pillar pages — section eyebrow "The problem it kills" -> "The problem it ends".
+- Change: forge/index.html meta description — "kills model dependency" -> "ends model dependency".
+- Left intact: "kill-switch" (standard technical term), founder-bio "killer robots" line, dated blog posts (historical first-person record), and CSS class names (.pillar-kills/.kill, internal only).
+- Reason: owner direction; "kill" read as needlessly violent for the flagship site.
+
 ## 2026-07-21 — Founder-page recruiter fixes: name Ensono, honest claims (slug founder-recruiter-fixes)
 
 - Change: bryce.html + resume.html — added "Ensono" as the named employer on both
