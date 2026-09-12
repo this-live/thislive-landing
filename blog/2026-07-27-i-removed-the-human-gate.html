@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><link rel="canonical" href="https://this.live/blog/2026-07-27-i-removed-the-human-gate.html"><title>I took myself out of the approval path for a system that writes its own tools | this.live Blog</title><meta name="description" content="On 2026-08-01 I removed the per-skill human gate from the autonomous learning loop and replaced it with policy, receipts, automatic demotion and a kill file."><meta property="og:title" content="I took myself out of the approval path for a system that writes its own tools | this.live Blog"><meta property="og:description" content="On 2026-08-01 I removed the per-skill human gate from the autonomous learning loop and replaced it with policy, receipts, automatic demotion and a kill file."><meta property="og:url" content="https://this.live/blog/2026-07-27-i-removed-the-human-gate.html"><meta property="og:type" content="article"><meta property="og:image" content="https://this.live/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/favicon.png?v=2"><link rel="stylesheet" href="/blog.css"></head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+
+<div class="post-container">
+<h1>I took myself out of the approval path for a system that writes its own tools</h1>
+<p class="post-meta">July 27, 2026</p>
+
+<div class="post-body">
+
+<p>On 2026-08-01 I removed myself from the approval path of a system that writes new tooling for my own fleet.</p>
+
+<p>The autonomous learning loop reads public repositories, extracts reusable engineering workflows and turns them into skills my Hermes agents can load. Version 0.1.0 of its charter had me signing off on each one. Version 0.2.0 does not. The amendment note in the charter records the reason in my own words, which were that I wanted it to run even more autonomously than that.</p>
+
+<h2>Three standing instruments</h2>
+
+<p>What replaced the signature is written into the charter as policy. My control is now exactly three things: the charter itself, a kill file on disk, and an audit trail in Mnemos where every invocation writes a receipt. Reputation is computed from those receipts and nothing else. Any promoted skill is demoted automatically on two invocation errors inside a rolling seven days, and it is excluded from exercise and re-promotion for fourteen days after that. The loop cannot amend the policy that governs it.</p>
+
+<h2>Untrusted by default</h2>
+
+<p>The quarantine spec is the part I would keep if I had to throw the rest away. A skill the loop wrote is untrusted code until proven otherwise. These skills live in a separate repository, off the default search path, behind a loader that denies by default, and they are only visible to a session that mounts them on purpose. Trust is something a skill earns from its own receipt history rather than something it inherits from the directory it landed in.</p>
+
+<p>The loop ran the same week, with extraction moved onto Qwen3.5-122B served by vLLM. The first scout digest scanned 55 repositories, kept 13 and rejected 9, and the rejections were all missing manifests or denied topics. Separately, Age of Arrows got its web port, 19 dormant arrow masteries were wired up, and a measured run went from about 50 minutes to about 23.</p>
+
+<h2>What I am not claiming</h2>
+
+<p>I am not going to claim automatic demotion is the same as safety. It is a fast undo, and a fast undo is worth more than a slow approval, but nothing here proves a bad skill cannot do damage inside its first two invocations.</p>
+
+<p>In three months I will tell you how many skills this loop promoted, how many it demoted, and whether I reached for the kill file.</p>
+
+<p>Thanks for reading. If you automate a gate away, it is worth writing down what the new undo costs.</p>
+
+</div>
+
+<div class="post-nav"><p style="color:var(--text-muted);font-size:14px;">&larr; <a href="/blog/" style="color:var(--accent);text-decoration:none;">Back to blog</a></p></div>
+</div>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body></html>

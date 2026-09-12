@@ -55,11 +55,15 @@ def main() -> None:
     for post in posts:
         current = date.fromisoformat(post["date"])
         if prev:
-            gap = (current - prev).days
-            # 0 = a second post in the same week, 7/8 = the next week.
-            # Anything larger is a week the archive silently skips.
-            if gap not in (0, 7, 8):
-                fail(f"Weekly cadence break: {prev} -> {current} ({gap} days)")
+            # Compare ISO weeks, not raw day gaps: the archive drifted off
+            # Monday at 2026-06-30, so a fixed 7-day step is the wrong test.
+            # Same week = a second post that week. Next week = the cadence
+            # held. Anything further is a week the archive silently skips.
+            step = (current.isocalendar()[0] * 53 + current.isocalendar()[1]) - (
+                prev.isocalendar()[0] * 53 + prev.isocalendar()[1]
+            )
+            if step not in (0, 1):
+                fail(f"Weekly cadence break: {prev} -> {current} ({step} weeks)")
         prev = current
 
         path = BLOG / post["file"]

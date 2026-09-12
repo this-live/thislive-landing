@@ -1,5 +1,5 @@
 {
-  "canonical_count": 26,
+  "canonical_count": 34,
   "canonical_posts": [
     {
       "date": "2026-03-02",
@@ -182,9 +182,65 @@
       "file": "2026-07-07-what-14-principles-taught-me.html",
       "title": "What 14 principles taught me about operating as one person",
       "subtitle": "I had 14 founder principles. I cut them to 9. Here is what the compression taught me about distilling your own operating system."
+    },
+    {
+      "date": "2026-07-13",
+      "slug": "a-release-nobody-can-cut",
+      "file": "2026-07-13-a-release-nobody-can-cut.html",
+      "title": "A release nobody is allowed to cut is not a release",
+      "subtitle": "Three fail-closed gates landed in one week. The one that stalled the work was the gate I had reserved for myself."
+    },
+    {
+      "date": "2026-07-20",
+      "slug": "the-bar-i-ratified-failed-on-my-own-page",
+      "file": "2026-07-20-the-bar-i-ratified-failed-on-my-own-page.html",
+      "title": "The quality bar I ratified failed first on my own page",
+      "subtitle": "I ratified a quality bar on a Tuesday. The first thing it caught was an inflated claim on my own founder page."
+    },
+    {
+      "date": "2026-07-27",
+      "slug": "i-removed-the-human-gate",
+      "file": "2026-07-27-i-removed-the-human-gate.html",
+      "title": "I took myself out of the approval path for a system that writes its own tools",
+      "subtitle": "On 2026-08-01 I removed the per-skill human gate from the autonomous learning loop and replaced it with policy, receipts, automatic demotion and a kill file."
+    },
+    {
+      "date": "2026-08-03",
+      "slug": "the-week-i-only-wrote-down-what-was-already-true",
+      "file": "2026-08-03-the-week-i-only-wrote-down-what-was-already-true.html",
+      "title": "The most useful thing I shipped that week was an accurate description of work already done",
+      "subtitle": "A thin week on the fleet. One closing pass on the game, and a roadmap that had been wrong for seventeen days getting corrected."
+    },
+    {
+      "date": "2026-08-10",
+      "slug": "nine-repositories-only-on-my-laptop",
+      "file": "2026-08-10-nine-repositories-only-on-my-laptop.html",
+      "title": "Nine projects were carrying real work that had never left this machine",
+      "subtitle": "On one day I committed local working state in nine repositories. Until that morning, losing the laptop meant losing all of it."
+    },
+    {
+      "date": "2026-08-17",
+      "slug": "a-daemon-nothing-documented",
+      "file": "2026-08-17-a-daemon-nothing-documented.html",
+      "title": "There was a daemon running on my main machine that nothing documented",
+      "subtitle": "I wrote a runbook for a process that had been running on my primary workstation with no owner, no documentation and no way for anyone else to touch it."
+    },
+    {
+      "date": "2026-08-24",
+      "slug": "an-outside-audit-halved-my-animations",
+      "file": "2026-08-24-an-outside-audit-halved-my-animations.html",
+      "title": "An outside audit cut my animation timings in half and it was right",
+      "subtitle": "A motion audit from someone who does this for a living took my banner animation from 1.8 seconds to 0.8 and changed two repositories in a day."
+    },
+    {
+      "date": "2026-08-31",
+      "slug": "the-first-thing-marketing-produced-cannot-be-sent",
+      "file": "2026-08-31-the-first-thing-marketing-produced-cannot-be-sent.html",
+      "title": "The first thing my marketing agent produced is not allowed to send itself",
+      "subtitle": "A four touch outbound sequence, written by an agent, landed marked draft only with four named blockers standing between it and a single email."
     }
   ],
   "legacy_count": 87,
   "launch_anchor": "2026-03-02",
-  "note": "Canonical archive re-dated to the real weekly cadence from the early-March 2026 public launch. The 2026-01-12 to 2026-02-23 run was batch-created on 2026-06-08 (commit 3587307) and its dates were not real; those seven posts moved forward seven weeks and their old URLs are redirect stubs. Carries the full-length founder-voice rewrites from the blog-archive-rewrite branch (c6b1940, 18f4ef7, c7020f3). 2026-06-15-design-system-rewrite.html stays published at its URL but is outside the weekly spine (it carries fewer than three body headers)."
+  "note": "Canonical archive re-dated to the real weekly cadence from the early-March 2026 public launch. The 2026-01-12 to 2026-02-23 run was batch-created on 2026-06-08 (commit 3587307) and its dates were not real; those seven posts moved forward seven weeks and their old URLs are redirect stubs. Carries the full-length founder-voice rewrites from the blog-archive-rewrite branch (c6b1940, 18f4ef7, c7020f3). 2026-06-15-design-system-rewrite.html stays published at its URL but is outside the weekly spine (it carries fewer than three body headers). Weekly essays for ISO weeks 2026-W29 through 2026-W36 were backfilled on 2026-09-12 from the commit record of each week."
 }

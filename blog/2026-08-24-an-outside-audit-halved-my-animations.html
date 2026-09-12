@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><link rel="canonical" href="https://this.live/blog/2026-08-24-an-outside-audit-halved-my-animations.html"><title>An outside audit cut my animation timings in half and it was right | this.live Blog</title><meta name="description" content="A motion audit from someone who does this for a living took my banner animation from 1.8 seconds to 0.8 and changed two repositories in a day."><meta property="og:title" content="An outside audit cut my animation timings in half and it was right | this.live Blog"><meta property="og:description" content="A motion audit from someone who does this for a living took my banner animation from 1.8 seconds to 0.8 and changed two repositories in a day."><meta property="og:url" content="https://this.live/blog/2026-08-24-an-outside-audit-halved-my-animations.html"><meta property="og:type" content="article"><meta property="og:image" content="https://this.live/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/favicon.png?v=2"><link rel="stylesheet" href="/blog.css"></head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+
+<div class="post-container">
+<h1>An outside audit cut my animation timings in half and it was right</h1>
+<p class="post-meta">August 24, 2026</p>
+
+<div class="post-body">
+
+<p>Somebody who does motion design for a living looked at my interfaces and told me they were twice as slow as they should be.</p>
+
+<p>On 2026-08-25 that audit landed in two repositories. In the FTAG studio tree the banner animation went from 1.8 seconds to 0.8, the draft card lift came down from seven pixels to four, modals got a real entry animation, pressing a control now gives feedback on the press instead of only on the release, and the interface respects a reader who has asked the operating system to reduce transparency. On the this.live site the same pass removed a blanket transition on every property, added the same press feedback, and tightened the hero parallax.</p>
+
+<h2>Half of 1.8 seconds</h2>
+
+<p>The numbers are the interesting part. I had not picked 1.8 seconds. I had picked something that felt deliberate while I was staring at it, over and over, in a tab I already knew the contents of. A first time reader does not have my patience and has no idea what is about to appear. Almost a second of banner is a lot of nothing to sit through, and the only way I was going to find that out was from somebody with a standard I had not absorbed.</p>
+
+<h2>Two repos, one audit</h2>
+
+<p>A blanket transition on all properties is the same mistake in code. It is a shortcut that says make everything smooth and it ends up animating things nobody wanted animated. Naming what moves is more work and it is the work.</p>
+
+<p>Later in the week the Cortex documentation picked up a set of graph engineering patterns for Agent Fabric, which is the quieter half of the same idea. Borrow the pattern somebody else has already proven and stop deriving it badly in private.</p>
+
+<h2>What I am not claiming</h2>
+
+<p>I am not going to claim I now have taste in motion. I have one audit, applied twice, and I did not measure whether anybody perceives the result as better, because I have no way to measure that yet.</p>
+
+<p>In three months I will tell you whether those timings held, or whether I drifted back to durations that only feel right to the person who built the page.</p>
+
+<p>Thanks for reading. If you have been looking at your own interface for months, you are the wrong person to time it.</p>
+
+</div>
+
+<div class="post-nav"><p style="color:var(--text-muted);font-size:14px;">&larr; <a href="/blog/" style="color:var(--accent);text-decoration:none;">Back to blog</a></p></div>
+</div>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body></html>
