@@ -14,6 +14,25 @@ This file is the canonical record of meaningful project-level changes for this C
 - Left intact: "kill-switch" (standard technical term), founder-bio "killer robots" line, dated blog posts (historical first-person record), and CSS class names (.pillar-kills/.kill, internal only).
 - Reason: owner direction; "kill" read as needlessly violent for the flagship site.
 
+## 2026-09-12 — Cortex page: honest cockpit test counts (CTX-COCKPIT-DOCS-01, kanban t_1dcabd9b)
+
+- Date: 2026-09-12
+- Change: `cortex/index.html` "What's real today" ledger corrected to live-verified counts — contracts row 347 → 369, cockpit honesty row 59/59 → 144/144. Both were stale understatements; task mandate is honest-claims-only.
+- Verification: `npm test` in cortex-suite/cortex/contracts = 369 passed / 0 failed; `CORTEX_ISOLATED=1 node --test` in cockpit/server = 144 pass / 0 fail (run 2026-09-12 from worktree cortex-pillar @ 030006e).
+- Related: cockpit Diátaxis docs (tutorial/how-to/reference/explanation) + README/LIMITATIONS refresh landed in cortex@4cc9ca4 on branch claude/cortex-pillar-20260912.
+- Files touched: cortex/index.html, CHANGELOG.md
+- Migration: none
+
+## 2026-09-12 — Cortex pillar page: discovered fleet + honesty rules (branch claude/cortex-pillar-landing-20260912, slug cortex-discovered-fleet)
+
+- Date: 2026-09-12
+- Change: `cortex/index.html` — "An honest cockpit" step and the "You run the control plane" / "Never fakes green" capability cards now describe what the cockpit does as of ADR-0034 (nodes discovered from the operator's tailnet, services detected by probe, opt-in read-only capacity, dark-monitor rule); contract-test count 347 → 369 (in-suite 0.4.0).
+- Result: no claim beyond what was proven standalone on 2026-09-12 (cockpit branch `5d3b322`, :8789 against the real fleet). Release-pinned deploys are deliberately NOT claimed yet (cutover pending).
+- Verification + receipts: cortex pillar brief `~/this.live/cortex-ops/plan/handoffs/2026-09-12-cortex-pillar.md` §5.
+- Files touched: cortex/index.html, CHANGELOG.md
+- Migration: none
+- Author: Claude Fable 5.1 (Cortex pillar agent)
+
 ## 2026-07-21 — Founder-page recruiter fixes: name Ensono, honest claims (slug founder-recruiter-fixes)
 
 - Change: bryce.html + resume.html — added "Ensono" as the named employer on both

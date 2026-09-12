@@ -130,7 +130,7 @@
         <div class="step reveal" data-delay="3">
           <span class="step-n">04</span>
           <h3>An honest cockpit</h3>
-          <p>One always-up dashboard probes the live fleet read-only and renders <code>not probed</code> where it has no evidence. Every public claim maps to a receipt; staged work reads as future. It never fakes green.</p>
+          <p>One always-up dashboard discovers your nodes from your own overlay network, detects which boxes answer on them, and renders <code>not probed</code> where it has no evidence. Every public claim maps to a receipt; staged work reads as future. It never fakes green.</p>
         </div>
       </div>
     </div>
@@ -148,20 +148,20 @@
         <div class="cap reveal">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
           <h3>You run the control plane</h3>
-          <p>The cockpit lives on your hardware, read-only and GET-only by construction — a mirror of the fleet you own, not a SaaS dashboard you log into. Bringing it up supervised and adding the deploy-parity stamp is the active build (see the ledger).</p>
-          <span class="cap-ev">cockpit :8788 · read-only · deploy-parity stamp · staged</span>
+          <p>The cockpit lives on your hardware, read-only and GET-only by construction — a mirror of the fleet you own, not a SaaS dashboard you log into. It reads your machines from <code>tailscale status</code> instead of an inventory file someone has to maintain, detects services by probing well-known ports, and can sample load, memory, disk and GPU over read-only SSH when you opt in.</p>
+          <span class="cap-ev">discovered, not listed · detected ≠ expected ≠ absent · capacity opt-in</span>
         </div>
         <div class="cap reveal" data-delay="1">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5M21 3l-9 9M8 21H3v-5M3 21l9-9"/></svg></span>
           <h3>One canon, imported never redefined</h3>
           <p>Contracts are defined once and imported everywhere; a live producer's receipt is validated against the same schema. Interop is a runtime gate, not a byte-copy that can quietly fork.</p>
-          <span class="cap-ev">347 contract tests · 0 failed</span>
+          <span class="cap-ev">369 contract tests · 0 failed (in-suite 0.4.0)</span>
         </div>
         <div class="cap reveal" data-delay="2">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
           <h3>Never fakes green</h3>
-          <p>Where the cockpit has no evidence, it renders <code>not probed</code> — not a guess, not a green. A claim with no receipt doesn't ship, including the part of the work that isn't done.</p>
-          <span class="cap-ev">not probed ≠ down ≠ green</span>
+          <p>Where the cockpit has no evidence, it renders <code>not probed</code> — not a guess, not a green. A service is "down" only when you said the node should run it; a node nobody can see is "unknown"; and if the daily monitor stops writing receipts, the cockpit shows it as dark instead of quiet.</p>
+          <span class="cap-ev">not probed ≠ down ≠ green · a silent monitor is red</span>
         </div>
       </div>
     </div>
@@ -293,7 +293,7 @@
           <div class="ledger-body">
             <h3>Shared contracts canon — green, fast, hermetic</h3>
             <p>TaskEnvelope, ExecutionReceipt v1, RouteDecision, and TaskEnqueueRequest live once and are imported by every pillar, never redefined. A byte-equality parity test pins the Agent-Fabric and surfaces mirrors against canon.</p>
-            <span class="ledger-ev">347 contract tests · 0 failed · keystone-loader-paths.test.js</span>
+            <span class="ledger-ev">369 contract tests · 0 failed · keystone-loader-paths.test.js</span>
           </div>
         </div>
         <div class="ledger-row reveal">
@@ -309,7 +309,7 @@
           <div class="ledger-body">
             <h3>Honest by construction — the cockpit can't fake green</h3>
             <p>The read-only cockpit renders <code>not probed</code>/<code>unknown</code> where it has no evidence and folds the fleet registry into <code>/api/status</code> — honest by construction, never a faked green. <code>maestro-lite</code> is the inspectable OSS onramp.</p>
-            <span class="ledger-ev">cockpit/server classify.mjs · nodes.mjs · 59/59 unit green</span>
+            <span class="ledger-ev">cockpit/server classify.mjs · nodes.mjs · 144/144 unit green</span>
           </div>
         </div>
         <div class="ledger-row reveal">
