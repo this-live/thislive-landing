@@ -738,6 +738,26 @@ a.card { text-decoration: none; color: inherit; }
   text-align: left;
 }
 
+.founder-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.founder-photo {
+  flex-shrink: 0;
+  width: 112px;
+  height: 112px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.founder-head-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .founder-stack-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px !important;
@@ -803,6 +823,8 @@ a.card { text-decoration: none; color: inherit; }
 @media (max-width: 720px) {
   .founder-stack { padding: 22px; }
   .founder-stack-grid { grid-template-columns: 1fr; }
+  .founder-head { flex-direction: column; align-items: center; text-align: center; }
+  .founder-photo { width: 88px; height: 88px; }
 }
 
 .about-cta {
