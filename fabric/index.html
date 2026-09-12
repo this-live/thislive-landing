@@ -324,7 +324,7 @@
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
             <h3>The :3333 execution service</h3>
-            <p>Dispatch, a v1 receipt bus, an SSE event stream, human-in-the-loop relay, and fleet health — up and verified. n8n drives scheduled work; Fabric coexists as the on-demand layer per ADR-0017.</p>
+            <p>Dispatch, a v1 receipt bus, an SSE event stream, human-in-the-loop relay, and fleet health — up and verified. The in-process dynamic-workflow engine is the spine (n8n retired, ADR-0023); intake is one durable, idempotent identity per intent with cancel and steer.</p>
             <span class="ledger-ev">agent-fabric/README.md · receipts/phase2/verify-suite.md (/health 200)</span>
           </div>
         </div>
@@ -342,6 +342,14 @@
             <h3>Durable receipts &amp; Maestro routing</h3>
             <p>ExecutionReceipt v1 conformance and an 8-state task lifecycle. Live Maestro routing is wired into dispatch — the <code>decision_id</code> and per-call cost thread end-to-end. Committed HEAD suite green at 147 pass.</p>
             <span class="ledger-ev">receipts/phase3/maestro-live.md · receipts/phase2/00-PHASE2-ROLLUP.md §4</span>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
+            <h3>Department-specialist dispatch, receipted per parent</h3>
+            <p>Every accepted intent is stamped at intake with its owning company department, task shape and the Forge specialist that takes it (resolved from versioned routing artifacts, never guessed), executes as that specialist on a cloud harness or a self-hosted local model, and closes with a receipt that records the department, the specialist, and the model decision it actually ran under &mdash; <code>decision_id</code> is null when no router decided, never invented. A supervising surface subscribes to one conversation's children with <code>GET /events?root_conversation_id=</code>; the improvement loop pulls <code>GET /receipts?department=&amp;shape=contract</code>. Proven live on a real child through the same harness wire the Surfaces app uses (release <code>28c05a7</code>, 2026-09-12).</p>
+            <span class="ledger-ev">agent-fabric docs/decisions/ADR-0001 · RECEIPTS/2026-09-12/af-canonical-child-proof-28c05a7.json</span>
           </div>
         </div>
         <div class="ledger-row reveal">
