@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-12 — Remove "Why I'm building" (#stance) section from landing page (slug landing-why-strip, U63)
+
+- Change: index.html — removed the entire `#stance` section ("Where I stand" / "Why this is built the way it is.") between the About section and the Blog section. This was the last remaining philosophical/manifesto-style block on the landing page (the nav link and "read the full philosophy" link to `philosophy.html` were already stripped in U60b/U60c below).
+- Checked and left intact: `bryce.html` and `blog/index.html` have no nav/footer link to `#stance` or to `philosophy.html` today, so no further chrome edits were needed there. Historical blog-post prose that discusses "why I'm building" (e.g. `blog/_legacy-unlisted/beacon-architecture.html`, `blog/_legacy-unlisted/current-ai-news.html`) is untouched — it is a dated first-person record, not live site chrome. `philosophy.html` itself stays on disk, unlinked.
+- Reason: owner direction (Bryce, 2026-09-12) — the "why I'm building" content read as philosophy rather than product/company communication and should not be part of the flagship landing narrative.
+- Verified: `python3 -m http.server` + curl against the built index — 0 case-insensitive hits for "why i'm building" / "why this is built" / `id="stance"` in the served HTML.
+
 Project: This.Live
 Purpose: Parent business/project umbrella covering company operations, GTM, pitch, and brand surfaces.
 
