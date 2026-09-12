@@ -14,6 +14,15 @@ This file is the canonical record of meaningful project-level changes for this C
 - Left intact: "kill-switch" (standard technical term), founder-bio "killer robots" line, dated blog posts (historical first-person record), and CSS class names (.pillar-kills/.kill, internal only).
 - Reason: owner direction; "kill" read as needlessly violent for the flagship site.
 
+## 2026-09-12 — Cortex page: honest cockpit test counts (CTX-COCKPIT-DOCS-01, kanban t_1dcabd9b)
+
+- Date: 2026-09-12
+- Change: `cortex/index.html` "What's real today" ledger corrected to live-verified counts — contracts row 347 → 369, cockpit honesty row 59/59 → 144/144. Both were stale understatements; task mandate is honest-claims-only.
+- Verification: `npm test` in cortex-suite/cortex/contracts = 369 passed / 0 failed; `CORTEX_ISOLATED=1 node --test` in cockpit/server = 144 pass / 0 fail (run 2026-09-12 from worktree cortex-pillar @ 030006e).
+- Related: cockpit Diátaxis docs (tutorial/how-to/reference/explanation) + README/LIMITATIONS refresh landed in cortex@4cc9ca4 on branch claude/cortex-pillar-20260912.
+- Files touched: cortex/index.html, CHANGELOG.md
+- Migration: none
+
 ## 2026-09-12 — Cortex pillar page: discovered fleet + honesty rules (branch claude/cortex-pillar-landing-20260912, slug cortex-discovered-fleet)
 
 - Date: 2026-09-12
