@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forge · The adapter factory, gated so it cannot lie</title>
-  <meta name="description" content="Forge is the model factory that ends model dependency: 8 lanes, a Modal training harness, no-bypass eval gates, and the base model served on your own GPU. The factory is built end-to-end; the first adapters are gated, ready to train. No trained or served adapters are claimed.">
+  <title>Forge · Department specialists, proven by evals</title>
+  <meta name="description" content="Forge turns a company's departments into locally specialized agents: seven departments, 86 chartered agents, one catalog any orchestrator can dispatch to — and a per-agent improvement loop that only keeps a change when a real held-out eval says it got better.">
   <meta name="theme-color" content="#080B14">
-  <meta property="og:title" content="Forge · The adapter factory, gated so it cannot lie">
-  <meta property="og:description" content="The factory is built end-to-end and gated so it cannot lie. Base model served on your own GPU. First adapters gated, ready to train. No trained adapters claimed.">
+  <meta property="og:title" content="Forge · Department specialists, proven by evals">
+  <meta property="og:description" content="Seven departments, 86 chartered agents, one catalog. Agents that get better on their own slice of work — and only when the eval says so.">
   <meta property="og:url" content="https://this.live/forge/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Forge · This.Live">
-  <meta name="twitter:description" content="The model-factory pillar. Verticalized local adapters, eval-gated training, the cost-down flywheel. Built and gated; first adapters gated, ready to train.">
+  <meta name="twitter:description" content="The specialist factory for a company's departments. Real held-out evals, a ratchet that cannot lie, human-readable department memory.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -55,22 +55,22 @@
     </div>
     <div class="container">
       <div class="phero-inner">
-        <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the model factory</p>
-        <h1 class="reveal" data-delay="1">Your own models, <span class="grad">that teach themselves.</span></h1>
+        <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the specialist factory</p>
+        <h1 class="reveal" data-delay="1">Your departments, <span class="grad">run by specialists that get better.</span></h1>
         <p class="phero-lede reveal" data-delay="2">
-          Forge turns your fleet's own routed work into local specialists you own — harvested, gated, trained, and served on your hardware, then routed to first so each lane gets cheaper and better the more you use it. A factory that feeds itself, on weights you control. <strong>Built end-to-end and gated so it cannot lie:</strong> nothing is promoted without beating the base on an eval. The base serves on your GPU today; the first adapters are gated, ready to train.
+          Forge verticalizes agents into your company\'s departments — engineering, intelligence, marketing, sales, customer, finance, operations — charters them, and publishes one catalog any orchestrator can dispatch to. Each agent works its own narrow slice and improves on it: every run leaves a receipt, every change is measured on a real held-out eval, and <strong>nothing is kept unless the score says it got better.</strong> Learnings land in the department\'s own vault, in plain Markdown, mirrored to memory.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#how" class="btn btn-primary btn-arrow">
-            How the factory works
+            How the loop works
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#whats-real" class="btn btn-outline">What's real today</a>
         </div>
         <div class="phero-meta reveal" data-delay="4">
-          <span>Factory built end-to-end</span>
-          <span>Base model on your own GPU</span>
-          <span>First adapters gated, ready to train</span>
+          <span>7 departments · 86 chartered agents</span>
+          <span>Real held-out evals, a ratchet that cannot lie</span>
+          <span>Runs on your own GPU</span>
         </div>
       </div>
     </div>
@@ -287,35 +287,35 @@
       <div class="section-head reveal">
         <p class="eyebrow">Truth discipline</p>
         <h2 class="title">What's real today — and what's staged</h2>
-        <p class="lede">We sell what's built and label what isn't. This is the page where the gate matters most: the factory is built; no adapter is trained or served, and we say so.</p>
+        <p class="lede">We sell what's built and label what isn't. Every row below points at a receipt in the repo.</p>
       </div>
       <div class="ledger">
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>The factory is built end-to-end</h3>
-            <p>Eight lanes, the Modal harness, curate gates, depth and safety gates, and an alignment gate — all built. Modal cloud execution is proven on a CPU end-to-end run at <strong>$0</strong>. The harvest loop is deployed and fired autonomously from a Sparky cron.</p>
-            <span class="ledger-ev">receipts/phase4/00-PHASE4-ROLLUP.md · forge-modal-execution-verified.md · forge-harvest-deployed.md</span>
+            <h3>The department catalog is served</h3>
+            <p>Seven departments and 86 chartered agents, compiled from the company canon into one versioned, digest-pinned catalog (<code>forge.agent-catalog.v1</code>) and served read-only: <code>/v1/departments</code>, <code>/v1/agents/&lt;dept&gt;/&lt;agent&gt;</code>. Agent Fabric already routes every intent to an owning department from the same canon.</p>
+            <span class="ledger-ev">forge/src/cortex_forge/canon.py · forge-verticals/_build/artifacts-manifest.json · agent-fabric enqueue.mjs department resolver</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>Base model served on your own GPU</h3>
-            <p>Qwen3.6 serves on a local GPU node via SGLang at 262k context, <strong>base-only.</strong> The base code-review eval baseline is measured live at <code>0.4727</code> — a real number, not a projection.</p>
-            <span class="ledger-ev">receipts/phase4/forge-serve.md · evals/results/code_review_base_2026-06-11.json</span>
+            <h3>A department agent ran a real task on our own GPU</h3>
+            <p>The engineering code reviewer, briefed with its charter, reviewed a real diff (the reverse of a real fix commit) on a local Qwen3.6 server and returned a cited request-changes verdict in 17 seconds, with a contract-valid <code>ExecutionReceipt v1</code>. Its first measured baselines on a real suite built from real fix commits: <code>0.96</code> on the dev split, <code>0.9667</code> on the six held-out items, zero hallucinations — and the loop's first proposed skill was <strong>rejected</strong> by the ratchet (held-out 0.9667 → 0.9667, no gain), which is the gate doing its job.</p>
+            <span class="ledger-ev">forge/RECEIPTS/agent-runs/ · forge/evals/agents/engineering/code-reviewer/ · FORGE-ADR-0001</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--build">In Progress</span></div>
           <div class="ledger-body">
-            <h3>Trained &amp; served adapters</h3>
-            <p><strong>No adapter is trained, and none is served, today.</strong> Every registry adapter is <code>status: planned</code> with null eval scores. The factory is built and gated so it cannot lie; the first measured local adapter is the current milestone — and Maestro can't route to an adapter that doesn't exist yet.</p>
-            <span class="ledger-ev">receipts/phase4/forge-train.md · forge-serve.md (served: false) · registry.yaml (all planned)</span>
+            <h3>The ratchet, over time</h3>
+            <p>The improvement loop is built and runs (propose a skill from dev failures → re-measure held-out → keep only on a real gain). What it has <strong>not</strong> yet shown is improvement over weeks across many agents; that record accrues in each agent's ledger and is reported as measured, never projected. Trained adapters remain staged: the training pipeline is built and load-validated at $0, and <strong>no adapter is trained or served today.</strong></p>
+            <span class="ledger-ev">forge/evals/agents/&lt;dept&gt;/&lt;agent&gt;/ledger.json · forge/LIMITATIONS.md</span>
           </div>
         </div>
       </div>
-      <p class="honesty reveal"><strong>Why we say this plainly.</strong> A factory that claimed adapters it never trained would be exactly the phantom maturity this whole suite is built to avoid. The gate exists so the claim can't drift ahead of the evidence — the factory is built and honest; follow it to the first measured adapter.</p>
+      <p class="honesty reveal"><strong>Why we say this plainly.</strong> A specialist that claimed competence it never measured would be exactly the phantom maturity this whole suite is built to avoid. The ratchet exists so the claim can't drift ahead of the evidence.</p>
     </div>
   </section>
 
