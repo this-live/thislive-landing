@@ -40,17 +40,30 @@ def fail(msg: str) -> None:
 def main() -> None:
     data = json.loads(MANIFEST.read_text())
     posts = sorted(data["canonical_posts"], key=lambda x: x["date"])
-    if len(posts) != 22:
-        fail(f"Expected 22 canonical weekly posts, found {len(posts)}")
+    if len(posts) != data["canonical_count"]:
+        fail(f"Manifest canonical_count {data['canonical_count']} does not match {len(posts)} listed posts")
 
-    if posts[0]["date"] != "2026-01-12" or posts[-1]["date"] != "2026-06-08":
-        fail(f"Unexpected canonical range: {posts[0]['date']} -> {posts[-1]['date']}")
+    # Honesty guard: the public launch was early March 2026. Nothing in the
+    # canonical archive may claim a date before it. The 2026-01-12 to
+    # 2026-02-23 run was batch-created on 2026-06-08 (commit 3587307) and
+    # those dates were not real.
+    anchor = date.fromisoformat(data["launch_anchor"])
+    if date.fromisoformat(posts[0]["date"]) < anchor:
+        fail(f"Canonical post dated before the {anchor} launch anchor: {posts[0]['file']}")
 
     prev = None
     for post in posts:
         current = date.fromisoformat(post["date"])
-        if prev and (current - prev).days != 7:
-            fail(f"Weekly cadence break: {prev} -> {current}")
+        if prev:
+            # Compare ISO weeks, not raw day gaps: the archive drifted off
+            # Monday at 2026-06-30, so a fixed 7-day step is the wrong test.
+            # Same week = a second post that week. Next week = the cadence
+            # held. Anything further is a week the archive silently skips.
+            step = (current.isocalendar()[0] * 53 + current.isocalendar()[1]) - (
+                prev.isocalendar()[0] * 53 + prev.isocalendar()[1]
+            )
+            if step not in (0, 1):
+                fail(f"Weekly cadence break: {prev} -> {current} ({step} weeks)")
         prev = current
 
         path = BLOG / post["file"]

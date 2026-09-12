@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why one agent is never enough | this.live Blog</title>
+  <meta name="description" content="The case for parallel work without chaos">
+  <meta property="og:title" content="Why one agent is never enough | this.live Blog">
+  <meta property="og:description" content="The case for parallel work without chaos">
+  <meta property="og:url" content="https://this.live/blog/2026-03-16-agent-fabric-and-subagents.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+  <article class="post-container">
+    <h1>Why one agent is never enough</h1>
+    <div class="post-meta">By Bryce Murad &middot; March 16, 2026</div>
+    <div class="post-body">
+<p class="post-dek">The case for parallel work without chaos</p>
+<h2>The confident bottleneck</h2>
+<p>A single agent is fine for a small task. Fix a typo. Read a file. Draft a note. The moment the work turns into research, implementation, testing, and review, one agent starts acting like a very confident bottleneck.</p>
+<p>I hit this wall in week three. Beacon was growing faster than one context window could hold. I would ask for a feature, and the agent would do a reasonable job on the feature while quietly losing track of the schema change it had made an hour earlier. The work was not bad. The shape of the work was wrong.</p>
+<p>Agent Fabric exists because real work decomposes. One lane can inspect code. Another can write tests. Another can review the plan. Another can check the docs. The win is not just speed, though speed is real. The win is separation of concerns: each worker holds less, so each worker forgets less.</p>
+<h2>Walls first</h2>
+<p>Parallel agents are only useful if they know where the walls are. Otherwise you get the worst version of a group project: five workers touching the same files, repeating the same assumptions, and reporting success because nothing caught fire yet.</p>
+<p>The structure that works for me looks like this. Assign the task in writing. Scope the repo or the directory each worker is allowed to touch. Give each one a lane with a definition of done. Bring the results back through a single review point before anything merges. Do not confuse activity with progress, and do not let two agents edit the same file at the same time no matter how confident they both sound.</p>
+<p>This is not a new idea. It is how you would run a team of junior contractors who are fast, tireless, and occasionally wrong with complete conviction. The management discipline is the product.</p>
+<p>Worth saying what parallelism is not for: small tasks. Splitting a ten-minute job across three agents gives you a thirty-minute job plus a merge. I still catch myself over-decomposing when the tooling makes it easy. The rule of thumb that stuck: if I can describe the whole task in one breath, one agent does it. If the description has an "and then" in it, that is a lane boundary.</p>
+<h2>Receipts</h2>
+<p>I trust agents more when they leave receipts. What did they inspect? What did they change? What command proved it? What still looks risky?</p>
+<p>A worker that finishes and says "done, looks good" has told me nothing. A worker that finishes and says "changed these four files, ran the test suite, two tests still fail for a reason that predates my change" has told me something I can act on. The difference between those two reports is the difference between delegation and vibes.</p>
+<p>This convention started informally this month, as a line in my task prompts: report what you actually did. It later hardened into a systemwide rule with its own tooling, and eventually into a post of its own. It belongs in this one too, because it was born here, in the first weeks of running parallel workers.</p>
+<p>The harness itself grew around this need. By the end of January it had a real CLI, browser automation, scheduled jobs, and the beginnings of a skills system, because I kept needing the workers to do the same shaped things in different repos. Every one of those features exists because a parallel worker failed without it. The fabric was not designed in the abstract. It was patched into existence by its own failures, which I mean as a compliment.</p>
+<h2>Long conversations lie</h2>
+<p>One more lesson from this stretch, because it changed how I built the harness. Long agent conversations feel like continuity but behave like drift. By message sixty, the model is negotiating with a summary of a summary of what you originally asked for.</p>
+<p>The fix I landed on was compression with intent: keep the durable decisions, drop the thrash, restart sessions aggressively. A fresh agent with good notes beats a tired agent with a long memory of its own mistakes. This is the same instinct as the memory work from last week, one level down. State is a liability unless you curate it.</p>
+<h2>Orchestration, not genius</h2>
+<p>The future I am building toward is not one genius model doing everything. It is orchestration: human judgment at the top, specialized agents underneath, verification at the edges.</p>
+<p>I will have a lot more to say about how this fabric evolved, including a stretch where I ran it on top of someone else's orchestration layer and then migrated off it onto my own. That story needs a few more months of context to tell properly. For now, the week-three lesson is simple. When the work gets real, split it, wall it, and make every worker prove what it did.</p>
+    </div>
+    <div class="post-nav"><a href="/blog/">&larr; All posts</a></div>
+  </article>
+  <footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body>
+</html>
