@@ -120,7 +120,7 @@
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
           <h3>Train in the cloud</h3>
-          <p>A Modal cloud training harness turns curated fuel into a candidate adapter — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; the first adapters are gated, ready to train.</p>
+          <p>A Modal cloud training harness runs the pipeline — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; no adapter has started training yet (blocked on a Modal payment method).</p>
         </div>
         <div class="step reveal" data-delay="2">
           <span class="step-n">03</span>
@@ -216,12 +216,12 @@
       <div class="arch-layout">
         <div class="arch-copy reveal">
           <p class="eyebrow">The factory flywheel</p>
-          <h2>Your routed work in. A better model out — that feeds the next pass.</h2>
-          <p>Maestro's routing labels are harvested and curated into training fuel, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served, registered to <code>cortex_models</code>, and routed local-first — and that routed work becomes the next adapter's fuel. The loop closes. Today the base serves; the first adapters are gated, ready to train.</p>
+          <h2>Labels in. A specialized model out — only if it clears the gate.</h2>
+          <p>Maestro's routing labels are harvested and curated into training data, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served and routed. Today the base serves; no adapter has started training yet (blocked on a Modal payment method).</p>
           <ul class="arch-list">
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gated, not aspirational.</b> The eval gate is structural — nothing unproven gets promoted.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Base serves now.</b> Qwen3.6 on your GPU via SGLang, 262k context, base-only.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>It feeds itself.</b> A served adapter registers to <code>cortex_models</code> and routes local-first — the routed work becomes the next adapter's fuel. The train→serve→route loop lights up as the first specialist clears its eval.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Training not started.</b> The train→serve→route steps light up once the first specialist starts training and clears its eval.</span></li>
           </ul>
         </div>
         <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
@@ -239,7 +239,7 @@
             <!-- train -->
             <rect class="dg-node-accent" x="172" y="108" width="116" height="48" rx="11"/>
             <text class="dg-label" x="230" y="129" text-anchor="middle" font-size="12">Train · Modal</text>
-            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">gated, ready</text>
+            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">not started</text>
 
             <!-- flows harvest -> curate -> train -->
             <path class="dg-flow" d="M72 88v16"/>
@@ -324,8 +324,8 @@
     <div class="container">
       <div class="cta-card reveal">
         <p class="eyebrow" style="justify-content:center;">Own your models</p>
-        <h2>Own a factory that teaches itself.</h2>
-        <p>Stop renting your intelligence. The factory is built end-to-end and gated so it cannot lie — a loop you own that compounds. The base serves on your own GPU; the first specialists are gated, ready to train. Watch it reach the first measured adapter.</p>
+        <h2>Stop renting your intelligence.</h2>
+        <p>The factory is built end-to-end and gated so it cannot lie. The base serves on your own GPU; the first specialists have not started training yet (blocked on a Modal payment method). Watch it reach the first measured adapter.</p>
         <div class="cta-actions">
           <a href="/cortex/" class="btn btn-primary btn-arrow">
             See the full suite
