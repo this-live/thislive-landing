@@ -5,6 +5,12 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-09-12 — Remove remaining Philosophy nav links (slug landing-founder-main, U60c)
+
+- Change: bryce.html — removed the "Philosophy" nav-bar link (`/philosophy.html`) and the matching footer "Philosophy" link. Both previously reported as out-of-scope; now closed out per U60c so no site chrome links to `/philosophy.html`.
+- Change: blog/index.html — removed the "Philosophy" nav-bar link. Left the historical blog-post prose mention of "the philosophy page" untouched (it is a narrative reference inside a dated post, not a live nav link).
+- Reason: complete the Philosophy-strip removal started in the entry below; `philosophy.html` stays on disk, intentionally unlinked from every page.
+
 ## 2026-09-12 — Remove Philosophy section, add founder photo (slug landing-founder-main)
 
 - Change: index.html — removed the nav bar "Philosophy" link (`/philosophy.html`) and the "Read the full philosophy" link at the end of the #stance section. `philosophy.html` is left on disk, intentionally unlinked from the landing page.
