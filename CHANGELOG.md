@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-12 — Blog: resume the weekly essay, first post in nine weeks (U66a, D-036)
+
+- Change: `blog/2026-09-12-the-cron-that-died-quietly.html` — new weekly essay, 377 words of body prose. Subject: the weekly blog cron was paused 2026-06-22, the whole content lane was paused 2026-07-13 as temporary during the Cortex ship, the job entries were later dropped from the live Hermes registry, and nine weeks passed with no post because a paused job emits no signal.
+- Change: `blog/index.html` — index card prepended at the top of `.blog-grid` (newest first).
+- Reason: U66a resumes the weekly cadence through the new Creative department (D-036, 2026-09-12): a `creative-essayist` drafts and a separate `creative-editor` cuts, fact-gates, and can reject. The department's `concise-essay` gate carries Bryce's 2026-09-12 rule verbatim, which caps an essay at 400 words and supersedes VOICE.md's 800-1600 band. Every other measured property of the archive's voice is kept.
+- Fact gate: every claim in the post traces to a source that was opened — the five run folders under `content-pipeline/runs/`, `cortex-ops/receipts/ops/pm-pause-2026-07-13.md` line 33 (paused 2026-06-22), `plans/2026-07-13-non-cortex-lanes-synth.md` line 26 (PAUSE generation during Cortex ship), `~/.hermes/cron/jobs.json` (6 jobs, no DPL entry), commit `687ed03` (last real post, 2026-07-07). One draft claim was struck: quotation marks around a paraphrase of the 07-13 note.
+- Verified: `python3 -m http.server` + curl — the post returns HTTP 200 with the correct `<title>` and `<h1>`, three short `<h2>`s, a body containing only `<h2>`/`<p>`, and `blog/index.html` returns HTTP 200 linking to the post once. `scripts/check_blog_surface.py` passes.
+- Publishing: this ships as a pull request. Merging is Bryce's.
+
 Project: This.Live
 Purpose: Parent business/project umbrella covering company operations, GTM, pitch, and brand surfaces.
 
