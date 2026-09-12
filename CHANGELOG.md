@@ -5,6 +5,15 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-09-12 — Remove Philosophy section, add founder photo (slug landing-founder-main)
+
+- Change: index.html — removed the nav bar "Philosophy" link (`/philosophy.html`) and the "Read the full philosophy" link at the end of the #stance section. `philosophy.html` is left on disk, intentionally unlinked from the landing page.
+- Change: index.html — added founder headshot (`img/bryce-headshot.jpg`, 112px desktop / 88px mobile, `alt="Bryce Murad, founder of this.live"`, `loading="lazy"`) beside the founder bio in the #about section; wrapped existing bio copy in a new `.founder-head-text` div.
+- Change: style.css — added `.founder-head` / `.founder-photo` / `.founder-head-text` rules plus a 720px breakpoint stacking the photo above centered text at 88px.
+- Reason: deploy-branch correction (U60b) — Railway serves `main`, not `design/award-winning-v1`; redoing U60's founder-photo change against the correct base and auditing out the Philosophy nav/link since the philosophy.html page is not part of the current landing narrative.
+- Left intact: `bryce.html` and `blog/index.html` still nav-link to `/philosophy.html` (out of scope for this change — reported, not edited); historical blog-post prose mentioning "the philosophy page" untouched.
+- Verified: `python3 -m http.server` + curl — served index.html has 0 "philosophy" hits (case-insensitive), the `<img class="founder-photo">` tag is present, and both `img/bryce-headshot.jpg` and `style.css` return HTTP 200.
+
 ## 2026-09-09 — Retire "kill" language from pillar copy (slug pillar-copy-dekill)
 
 - Change: index.html — section lede "six pillars that each kill a problem" -> "each end a problem".
