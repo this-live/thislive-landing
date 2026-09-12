@@ -198,7 +198,7 @@ engine" → "One decentralized engine · owned, not rented"). All verified prese
 
 ## 2026-09-12 — fabric.this.live: department-specialist dispatch row + n8n claim corrected (design/award-winning-v1)
 - Date: 2026-09-12
-- Change: `fabric/index.html` "What's real" ledger gains a Live row for department-specialist dispatch (intake routing stamp → specialist execution → receipts with department/specialist/model decision; per-parent event subscription; contract-shaped receipts), citing agent-fabric ADR-0001 and the live receipt `RECEIPTS/2026-09-12/af-canonical-child-proof-28c05a7.json`. The first Live row no longer claims "n8n drives scheduled work" (retired by cortex ADR-0023); it now describes the in-process engine + idempotent intake.
+- Change: `fabric/index.html` "What's real" ledger gains a Live row for department-specialist dispatch (intake routing stamp → specialist execution → receipts with department/specialist/model decision; per-parent event subscription; contract-shaped receipts), citing agent-fabric ADR-0001 and the live receipt `docs/receipts/2026-09-12/af-canonical-child-proof-28c05a7.json`. The first Live row no longer claims "n8n drives scheduled work" (retired by cortex ADR-0023); it now describes the in-process engine + idempotent intake.
 - Evidence: agent-fabric release 28c05a7 live on jarvis :3333 (parity match), proof child task_01M29VNE4ZV6WDE0JFRGGDNDRA. Honest scope: proven through the harness wire the app uses; the installed-app click-through is pending the Surfaces agent.
 - Author: Agent Fabric pillar agent (Claude Fable 5.1), branch `claude/agent-fabric-pillar-20260912`.
 
