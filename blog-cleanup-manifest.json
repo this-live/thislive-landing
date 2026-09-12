@@ -1,61 +1,19 @@
 {
-  "canonical_count": 22,
+  "canonical_count": 26,
   "canonical_posts": [
-    {
-      "date": "2026-01-12",
-      "slug": "why-i-built-this",
-      "file": "2026-01-12-why-i-built-this.html",
-      "title": "Why I built This.Live",
-      "subtitle": "The first week after January"
-    },
-    {
-      "date": "2026-01-19",
-      "slug": "how-supermemory-works",
-      "file": "2026-01-19-how-supermemory-works.html",
-      "title": "Memory is the first serious agent problem",
-      "subtitle": "What I learned before Mnemos became the center"
-    },
-    {
-      "date": "2026-01-26",
-      "slug": "agent-fabric-and-subagents",
-      "file": "2026-01-26-agent-fabric-and-subagents.html",
-      "title": "Why one agent is never enough",
-      "subtitle": "The case for parallel work without chaos"
-    },
-    {
-      "date": "2026-02-02",
-      "slug": "maestro-routing-vega",
-      "file": "2026-02-02-maestro-routing-vega.html",
-      "title": "Routing is where AI gets expensive or useful",
-      "subtitle": "Maestro, Vega, and choosing the right model"
-    },
-    {
-      "date": "2026-02-09",
-      "slug": "maestro-consensus-quorum",
-      "file": "2026-02-09-maestro-consensus-quorum.html",
-      "title": "Consensus is not overkill when the answer matters",
-      "subtitle": "Why I ask more than one model"
-    },
-    {
-      "date": "2026-02-16",
-      "slug": "beacon-architecture",
-      "file": "2026-02-16-beacon-architecture.html",
-      "title": "Beacon is a practical lead engine, not magic",
-      "subtitle": "What the architecture is supposed to do"
-    },
-    {
-      "date": "2026-02-23",
-      "slug": "security-and-isolation",
-      "file": "2026-02-23-security-and-isolation.html",
-      "title": "Security starts before the demo",
-      "subtitle": "The boring rules that keep agents useful"
-    },
     {
       "date": "2026-03-02",
       "slug": "building-with-ai",
       "file": "2026-03-02-building-with-ai.html",
       "title": "Building with AI feels like coaching a strange team",
       "subtitle": "What the collaboration model actually looks like"
+    },
+    {
+      "date": "2026-03-02",
+      "slug": "why-i-built-this",
+      "file": "2026-03-02-why-i-built-this.html",
+      "title": "Why I built This.Live",
+      "subtitle": "Laid off on a Tuesday, building by Thursday. The honest beginning."
     },
     {
       "date": "2026-03-09",
@@ -65,11 +23,32 @@
       "subtitle": "Why the machines matter"
     },
     {
+      "date": "2026-03-09",
+      "slug": "how-supermemory-works",
+      "file": "2026-03-09-how-supermemory-works.html",
+      "title": "Memory is the first serious agent problem",
+      "subtitle": "What I learned before Mnemos became the center"
+    },
+    {
+      "date": "2026-03-16",
+      "slug": "agent-fabric-and-subagents",
+      "file": "2026-03-16-agent-fabric-and-subagents.html",
+      "title": "Why one agent is never enough",
+      "subtitle": "The case for parallel work without chaos"
+    },
+    {
       "date": "2026-03-16",
       "slug": "forge-source-grounded-engineering-agents",
       "file": "2026-03-16-forge-source-grounded-engineering-agents.html",
       "title": "Forge is about grounding, not magic coding",
       "subtitle": "Why coding agents need the source tree"
+    },
+    {
+      "date": "2026-03-23",
+      "slug": "maestro-routing-vega",
+      "file": "2026-03-23-maestro-routing-vega.html",
+      "title": "Routing is where AI gets expensive or useful",
+      "subtitle": "Maestro, Vega, and choosing the right model"
     },
     {
       "date": "2026-03-23",
@@ -86,6 +65,20 @@
       "subtitle": "Why DPL owns the public loop"
     },
     {
+      "date": "2026-03-30",
+      "slug": "maestro-consensus-quorum",
+      "file": "2026-03-30-maestro-consensus-quorum.html",
+      "title": "Consensus is not overkill when the answer matters",
+      "subtitle": "Why I ask more than one model"
+    },
+    {
+      "date": "2026-04-06",
+      "slug": "beacon-architecture",
+      "file": "2026-04-06-beacon-architecture.html",
+      "title": "Beacon is a practical lead engine, not magic",
+      "subtitle": "What the architecture is supposed to do"
+    },
+    {
       "date": "2026-04-06",
       "slug": "beacon-lessons-from-public-beta",
       "file": "2026-04-06-beacon-lessons-from-public-beta.html",
@@ -100,10 +93,17 @@
       "subtitle": "Sports games and Future Throwback Arcade Games"
     },
     {
+      "date": "2026-04-13",
+      "slug": "security-and-isolation",
+      "file": "2026-04-13-security-and-isolation.html",
+      "title": "Security starts before the demo",
+      "subtitle": "The boring rules that keep agents useful"
+    },
+    {
       "date": "2026-04-20",
       "slug": "signal-and-noise-production-pipeline",
       "file": "2026-04-20-signal-and-noise-production-pipeline.html",
-      "title": "Signal & Noise is a production pipeline first",
+      "title": "Signal &amp; Noise is a production pipeline first",
       "subtitle": "The podcast as a system"
     },
     {
@@ -154,7 +154,37 @@
       "file": "2026-06-08-digital-products-lab-content-loop.html",
       "title": "Digital Products Lab is how the work gets seen",
       "subtitle": "Turning real build progress into a public loop without turning it into noise"
+    },
+    {
+      "date": "2026-06-15",
+      "slug": "the-agnostic-cheat-code",
+      "file": "2026-06-15-the-agnostic-cheat-code.html",
+      "title": "The agnostic cheat code",
+      "subtitle": "Your own local memory is the substrate that survives every model change, every surface change, every dispatch change. Mnemos is the proof."
+    },
+    {
+      "date": "2026-06-22",
+      "slug": "the-receipt-convention",
+      "file": "2026-06-22-the-receipt-convention.html",
+      "title": "The receipt convention keeps the work honest",
+      "subtitle": "Every consequential agent action writes a short note. A daily job reads the notes. A one-page summary goes to Telegram with coffee. Here is why that system exists."
+    },
+    {
+      "date": "2026-06-30",
+      "slug": "how-i-moved-one-idea",
+      "file": "2026-06-30-how-i-moved-one-idea.html",
+      "title": "How I moved one idea through every surface I own",
+      "subtitle": "A conceptual shift cascaded through the philosophy page, landing copy, pillar cards, animations, and resume in a single week. This is about how consistency works when one person owns everything."
+    },
+    {
+      "date": "2026-07-07",
+      "slug": "what-14-principles-taught-me",
+      "file": "2026-07-07-what-14-principles-taught-me.html",
+      "title": "What 14 principles taught me about operating as one person",
+      "subtitle": "I had 14 founder principles. I cut them to 9. Here is what the compression taught me about distilling your own operating system."
     }
   ],
-  "legacy_count": 39
+  "legacy_count": 87,
+  "launch_anchor": "2026-03-02",
+  "note": "Canonical archive re-dated to the real weekly cadence from the early-March 2026 public launch. The 2026-01-12 to 2026-02-23 run was batch-created on 2026-06-08 (commit 3587307) and its dates were not real; those seven posts moved forward seven weeks and their old URLs are redirect stubs. Carries the full-length founder-voice rewrites from the blog-archive-rewrite branch (c6b1940, 18f4ef7, c7020f3). 2026-06-15-design-system-rewrite.html stays published at its URL but is outside the weekly spine (it carries fewer than three body headers)."
 }

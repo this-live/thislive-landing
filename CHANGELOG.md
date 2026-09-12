@@ -5,6 +5,16 @@ Purpose: Parent business/project umbrella covering company operations, GTM, pitc
 
 This file is the canonical record of meaningful project-level changes for this Claude Project surface.
 
+## 2026-09-12 — Blog: honest archive dates, re-anchored to the March 2026 launch (slug blog-archive-honest, U66b)
+
+- Change: the seven posts dated 2026-01-12 through 2026-02-23 moved forward seven weeks, to 2026-03-02 through 2026-04-13. Those dates were never real: the whole 2026-01-12 to 2026-06-08 run was batch-created in one commit on 2026-06-08 (`3587307`), and the first post itself says "The public launch happened in March. The real work started in January." The archive now claims nothing before the launch.
+- Change: every old URL still resolves. Each of the seven old dated paths is now a `Moved` redirect stub (noindex + meta refresh + rel=canonical) pointing at the new date, and the 18 pre-existing stubs that pointed at those files were retargeted.
+- Change: carried the full-length founder-voice rewrites from Bryce's `blog-archive-rewrite` branch (`c6b1940`, `18f4ef7`, `c7020f3`) onto current main: the four re-dated origin posts, plus 2026-03-30 DPL, 2026-04-06 Beacon lessons, 2026-04-13 Fieldhouse/FTAG and 2026-04-20 Signal and Noise, which grow from roughly 220 words of stub prose to 870 to 970 words each.
+- Change: `blog-cleanup-manifest.json` rebuilt against the files on disk. `canonical_count` 22 to 26, `legacy_count` added at 87, plus a `launch_anchor` of 2026-03-02 and a note recording why the dates moved.
+- Change: `scripts/check_blog_archive_cleanup.py` now enforces the honest invariant instead of a hardcoded count. It reads `canonical_count` from the manifest, fails if any canonical post predates `launch_anchor`, and allows a same-week second post (gap of 0, 7 or 8 days) while still failing on a skipped week. All truth guards (banned claims, forbidden dashes, placeholder text, header and paragraph minimums) are unchanged.
+- Reason: reconciling Bryce's stranded `blog-archive-rewrite` branch (2026-08-06/07), which did this re-dating and never merged. This carries its intent onto today's main. Divergence from the branch, deliberate: the branch deleted three pre-March posts and demoted four March posts to `_legacy-unlisted/`, which would have broken live URLs and taken `2026-03-16-forge-source-grounded-engineering-agents.html` out from under both `scripts/check_blog_surface.py` and the landing page's blog section. Nothing is deleted or demoted here; seven weeks carry two posts instead.
+- Evidence: served the tree with `python3 -m http.server` and curled it. All 75 files under `blog/` return 200, all 47 redirect-stub targets resolve to 200, `/` and `/blog/` return 200, the four blog links on the landing page return 200, the index is in date order and its earliest entry is 2026-03-02. `scripts/check_blog_surface.py` and `scripts/check_blog_archive_cleanup.py` both pass.
+
 ## 2026-09-12 — Remove remaining Philosophy nav links (slug landing-founder-main, U60c)
 
 - Change: bryce.html — removed the "Philosophy" nav-bar link (`/philosophy.html`) and the matching footer "Philosophy" link. Both previously reported as out-of-scope; now closed out per U60c so no site chrome links to `/philosophy.html`.
