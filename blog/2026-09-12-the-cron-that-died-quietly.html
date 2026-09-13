@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex"><link rel="canonical" href="https://this.live/blog/2026-09-12-the-cron-that-died-quietly.html"><title>The cron that died quietly | this.live Blog</title><meta name="description" content="A scheduled job can stop running for two months without anything telling you it stopped. Here is how my weekly blog cron went quiet, why nothing reported it, and what I changed."><meta property="og:title" content="The cron that died quietly | this.live Blog"><meta property="og:description" content="A scheduled job can stop running for two months without anything telling you it stopped. Here is how my weekly blog cron went quiet, why nothing reported it, and what I changed."><meta property="og:url" content="https://this.live/blog/2026-09-12-the-cron-that-died-quietly.html"><meta property="og:type" content="article"><meta property="og:image" content="https://this.live/og-image.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/png" href="/favicon.png?v=2"><link rel="stylesheet" href="/blog.css"></head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="/" class="logo">this<span class="logo-dot">.</span>live</a><div class="nav-links"><a href="/">Home</a><a href="/blog/">Blog</a></div></div></nav>
+
+<div class="post-container">
+<h1>The cron that died quietly</h1>
+<p class="post-meta">September 12, 2026</p>
+
+<div class="post-body">
+
+<p>A scheduled job can stop running for two months without anything telling you it stopped.</p>
+
+<p>This blog publishes from a Hermes cron. It worked. Five weekly runs, 2026-06-08 through 2026-07-07, each one a complete package: the post, the social versions, the sync into the site repo. Then it went quiet. I paused it on 2026-06-22. On 2026-07-13 I paused the whole content lane with a note that said to pause generation during Cortex ship. Cortex has been shipping in waves ever since. Nobody resumed anything. At some point the job entries were dropped from the live registry outright, so there was no longer anything in the list to resume.</p>
+
+<p>Nine weeks, no post. I did not find out from the blog. I found out because I went looking for why the blog was stale.</p>
+
+<h2>Nothing looks like quiet</h2>
+
+<p>That is the shape of the failure. A paused job is not an error. It produces no alert, no failed run, no incident to acknowledge. It produces nothing, and nothing looks exactly like a quiet week. The Signal and Noise podcast ran straight through the same period for one reason: it never lived in that registry. It runs on Sparky from its own script, outside the consolidation that disabled the blog chain.</p>
+
+<h2>What I changed</h2>
+
+<p>So the fix is not a better writing prompt. The fix is that absence has to be loud. This week I did two things about it. The job is re-registered on a Monday schedule, and it now runs through a Creative department with a writer and a separate editor that can reject the draft, because a writer grading its own work is the failure I already know about.</p>
+
+<h2>What I am not claiming</h2>
+
+<p>I am not going to claim this is solved. A re-registered cron is one entry in one file. The real gap is that I have no check that asks whether the things which are supposed to produce output actually produced any, and I have not built that yet.</p>
+
+<p>In three months I will tell you whether this posted every week without me looking, or whether I am writing the same essay again with a different job id in it.</p>
+
+<p>Thanks for reading. If you run scheduled work of your own, I would like to know how you find out when it quietly stops.</p>
+
+</div>
+
+<div class="post-nav"><p style="color:var(--text-muted);font-size:14px;">&larr; <a href="/blog/" style="color:var(--accent);text-decoration:none;">Back to blog</a></p></div>
+</div>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 this.live LLC. All rights reserved.</p></div></footer>
+</body></html>
