@@ -292,45 +292,53 @@
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>7/7 acceptance gates PASS against production</h3>
-            <p>Tombstone exclusion, scoped recall, labeled cross-project recall, session persistence, raw-session quarantine, write-protected root (<code>403</code>), and the full session lifecycle — all probed live against the production NAS service.</p>
-            <span class="ledger-ev">receipts/mnemos-deploy/versions-fix-verify.md (7/7 PASS · 2026-06-11)</span>
+            <h3>129k+ memories in production, fail-closed</h3>
+            <p>One NAS box: <code>/health</code> ok, <code>v4.0.0</code>, contracts <code>0.3.0</code>, deploy parity <code>match:true</code> (running SHA advertised), queue 0/0, Qdrant ok. Every write, admin and recall route needs a bearer; a missing or wrong token is a <code>401</code>, never a silent read.</p>
+            <span class="ledger-ev">NAS /health (dated snapshot · 2026-09-12)</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>107k+ memories on your hardware</h3>
-            <p>A live store on the NAS: <code>/health</code> healthy, <code>v3.0.0-prd</code>, <code>total_memories 107,913</code>, queue_pending 0, Qdrant ok. Namespace unified to <code>cortex/*</code>, hierarchy-spec v2.0.0 — on NVMe RAID1 you own.</p>
-            <span class="ledger-ev">curl :8090/health (live snapshot · 2026-06-16)</span>
+            <h3>Department memory with a proven negative test</h3>
+            <p>Seven <code>forge/&lt;department&gt;</code> tenants hold their own scoped token. On production, an engineering token stored and recalled inside <code>forge/engineering/*</code> and got <code>403</code> storing to or recalling <code>forge/finance/*</code>; it cannot promote or run admin routes. Superuser behaviour unchanged.</p>
+            <span class="ledger-ev">mnemos/scripts/department-isolation-probe.sh — 6/6 PASS on production · 2026-09-12</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>Memory by config, not code</h3>
-            <p>Claude Code, Codex, Hermes, and Mavis are wired live over three MCP transports plus REST. Last live integration smoke: <strong>12 pass / 0 fail / 1 skip.</strong></p>
-            <span class="ledger-ev">mnemos/docs/integration-matrix.md (smoke 2026-06-11)</span>
+            <h3>One client per language, wired into the tools you already use</h3>
+            <p>A single Python client and a single zero-dependency JS client build every request from the shared contract; informal categories are folded onto the schema so a memory type can never bounce. Claude Code reaches production through the same client over MCP; the Hermes plugin ships from the repo with a hash-verified installer.</p>
+            <span class="ledger-ev">mnemos/mnemos/client.py · clients/js · ADR-M001 · live MCP store proof 2026-09-12</span>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <div><span class="badge badge--live">Live</span></div>
+          <div class="ledger-body">
+            <h3>Obsidian is part of the memory service</h3>
+            <p>Your vault is the human-readable source of truth. An exactly-once bridge mirrors manifested notes into scoped memory (receipts committed on production), department vaults map to <code>forge/&lt;department&gt;/canon</code>, and a health probe watches the vault-side REST API and the bridge end to end.</p>
+            <span class="ledger-ev">/health extra.second_brain_bridge=ready · obsidian-bridge-probe PASS · 2026-09-12</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--build">In Progress</span></div>
           <div class="ledger-body">
-            <h3>Semantic BGE embeddings in production</h3>
-            <p>The BGE embedding backend is implemented in code, but the production reindex of the points is not yet run. Until the blue/green flip, live recall runs on a deterministic-hash embedder (dim 384). <strong>Implemented; production reindex pending.</strong></p>
-            <span class="ledger-ev">receipts/phase1/bge-embedder.md · plans/04-mnemos.md MNEM-WS4</span>
+            <h3>Semantic embeddings from your own GPU</h3>
+            <p>Mnemos now speaks to any OpenAI-compatible <code>/v1/embeddings</code> server (Ollama, vLLM/SGLang, TEI). On the published 12-query fixture a local <code>nomic-embed-text</code> scores hit@1 1.00 / MRR 1.00 versus 0.67 / 0.75 for the deterministic shim. Production still runs the shim until the blue/green reindex is approved and executed.</p>
+            <span class="ledger-ev">mnemos/scripts/embedding_eval.py --remote · 2026-09-12 · cutover Bryce-gated</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--plan">Known limit</span></div>
           <div class="ledger-body">
-            <h3>Hyphen-slug container drift</h3>
-            <p>8 rows under malformed slugs from a separate writer bug, plus one stale <code>test/container</code> row, are open and flagged for a hygiene sweep. We state limits plainly rather than hide them.</p>
-            <span class="ledger-ev">receipts/mnemos-deploy/versions-fix-verify.md ISSUES (carried)</span>
+            <h3>What we do not claim</h3>
+            <p>Unscoped recall is deliberately floored to a triage bucket (always scope by container). Public <code>/health</code> still lists container names and counts. Scoped tenants cannot promote. Nightly backups shipped without a vector snapshot for 40 nights until 2026-09-12; they are complete and checksummed again, and the first unattended run is the next night.</p>
+            <span class="ledger-ev">mnemos/LIMITATIONS.md · pillar brief 2026-09-12</span>
           </div>
         </div>
       </div>
-      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "107k+" is a conservative floor on a live, growing store — so we cite it with an as-of date and the measured <code>total_memories</code> instead of a frozen marketing figure. The gates, by contrast, are pass/fail and were probed on the same day.</p>
+      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "129k+" is a floor on a live, growing store, so we cite it with an as-of date instead of a moving number. Every row above maps to a script, a receipt, or a health field you can re-run; nothing here is a roadmap item wearing a "Live" badge.</p>
     </div>
   </section>
 
