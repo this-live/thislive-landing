@@ -364,7 +364,7 @@
           <div><span class="badge badge--plan">Staged</span></div>
           <div class="ledger-body">
             <h3>Multi-node dispatch across the fleet</h3>
-            <p>The spine is <strong>single-box today</strong> — bound to loopback, safe by construction. Fanning real lanes across multiple machines lands on the API-key rollout: mint <code>AF_API_KEY</code>, authenticate cross-node dispatch, then restore the fleet-wide bind. Fleet-wide on the rollout, not before.</p>
+            <p>The spine is <strong>single-box today</strong> — bound to loopback, and fail-closed by construction: mutating calls need a real <code>AF_API_KEY</code> even from a local caller, no implicit loopback trust. Fanning real lanes across multiple machines lands on the same key: authenticate cross-node dispatch, then open the fleet-wide bind. Fleet-wide on that rollout, not before.</p>
             <span class="ledger-ev">FOLLOWUP-af-api-key-rollout.md (single-box today, fleet-wide staged)</span>
           </div>
         </div>

@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mnemos · The memory plane your whole fleet shares</title>
-  <meta name="description" content="One decentralized memory plane every agent, harness, and provider in your fleet reads and writes the same way. Project-scoped by default, labeled across projects, write-protected at the root. 107k+ memories on your own hardware with 7/7 acceptance gates passing. No vendor silo, no rented context window. Nothing leaves your machines.">
+  <meta name="description" content="One decentralized memory plane every agent, harness, and provider in your fleet reads and writes the same way. Project-scoped by default, labeled across projects, write-protected at the root. 44.3k live memories (130.9k rows incl. history) on your own hardware with 7/7 acceptance gates passing. No vendor silo, no rented context window. Nothing leaves your machines.">
   <meta name="theme-color" content="#080B14">
   <meta property="og:title" content="Mnemos · The memory plane your whole fleet shares">
-  <meta property="og:description" content="One decentralized, scoped memory plane every agent and harness in your fleet shares. 107k+ memories on hardware you own, 7/7 gates passing. No vendor silo. Nothing leaves your machines.">
+  <meta property="og:description" content="One decentralized, scoped memory plane every agent and harness in your fleet shares. 44.3k live memories, 130.9k rows of history, on hardware you own, 7/7 gates passing. No vendor silo. Nothing leaves your machines.">
   <meta property="og:url" content="https://this.live/mnemos/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
@@ -68,7 +68,7 @@
           <a href="#model" class="btn btn-outline">How memory is scoped</a>
         </div>
         <div class="phero-meta reveal" data-delay="4">
-          <span>107k+ memories on your hardware</span>
+          <span>44.3k live memories on your hardware</span>
           <span>Write-protected at the root</span>
           <span>Provider-agnostic across harnesses</span>
         </div>
@@ -292,8 +292,8 @@
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>129k+ memories in production, fail-closed</h3>
-            <p>One NAS box: <code>/health</code> ok, <code>v4.0.0</code>, contracts <code>0.3.0</code>, deploy parity <code>match:true</code> (running SHA advertised), queue 0/0, Qdrant ok. Every write, admin and recall route needs a bearer; a missing or wrong token is a <code>401</code>, never a silent read.</p>
+            <h3>44.3k live memories, 130.9k rows of history, fail-closed</h3>
+            <p>One NAS box: <code>/health</code> ok, <code>v4.0.0</code>, contracts <code>0.3.0</code>, 147 containers, deploy parity <code>match:true</code> (running SHA advertised), queue 0/0, Qdrant ok. Every write, admin and recall route needs a bearer; a missing or wrong token is a <code>401</code>, never a silent read.</p>
             <span class="ledger-ev">NAS /health (dated snapshot · 2026-09-12)</span>
           </div>
         </div>
@@ -333,12 +333,12 @@
           <div><span class="badge badge--plan">Known limit</span></div>
           <div class="ledger-body">
             <h3>What we do not claim</h3>
-            <p>Unscoped recall is deliberately floored to a triage bucket (always scope by container). Public <code>/health</code> still lists container names and counts. Scoped tenants cannot promote. Nightly backups shipped without a vector snapshot for 40 nights until 2026-09-12; they are complete and checksummed again, and the first unattended run is the next night.</p>
+            <p>Unscoped recall is deliberately floored to a triage bucket (always scope by container). Public <code>/health</code> still lists container names and counts. Scoped tenants cannot promote. Nightly backups are now verified end-to-end (atomic build, checksum + Qdrant-snapshot reopen) with a weekly restore drill wired into cron &mdash; a live restore drill on 2026-09-12 matched the manifest exactly.</p>
             <span class="ledger-ev">mnemos/LIMITATIONS.md · pillar brief 2026-09-12</span>
           </div>
         </div>
       </div>
-      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "129k+" is a floor on a live, growing store, so we cite it with an as-of date instead of a moving number. Every row above maps to a script, a receipt, or a health field you can re-run; nothing here is a roadmap item wearing a "Live" badge.</p>
+      <p class="honesty reveal"><strong>Why the numbers are dated.</strong> "44.3k live / 130.9k total" is a snapshot of a live, growing store, so we cite it with an as-of date instead of a moving number. Every row above maps to a script, a receipt, or a health field you can re-run; nothing here is a roadmap item wearing a "Live" badge.</p>
     </div>
   </section>
 
