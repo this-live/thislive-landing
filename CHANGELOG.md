@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-12 — Maestro page: honest "In Progress" ledger row for the model registry + task-class routing (design/award-winning-v1, slug maestro-registry-row)
+- Date: 2026-09-12
+- Change: `maestro/index.html` "What's real today" ledger gains one row (after Vega/Quorum) describing ADR-0033 — the model registry (descriptors, discovery, Forge registrations; cited cost, capabilities, sourced liveness) and `POST /v1/route` task-class routing — badged **In Progress**, stating plainly that it is built and proven on the dev node but not yet promoted to the GPU node.
+- Evidence: maestro branch `claude/maestro-pillar-20260912` (ac8ee0c, f9d2ee1, 46de484); live proof receipts in the Maestro pillar brief (`cortex-ops/plan/handoffs/2026-09-12-maestro-pillar.md`).
+- Result: no other copy touched; claims limited to what is proven; static no-build site, no deploy performed.
+
 ## 2026-09-12 — Remove "Why I'm building" (#stance) section from landing page (slug landing-why-strip, U63)
 
 - Change: index.html — removed the entire `#stance` section ("Where I stand" / "Why this is built the way it is.") between the About section and the Blog section. This was the last remaining philosophical/manifesto-style block on the landing page (the nav link and "read the full philosophy" link to `philosophy.html` were already stripped in U60b/U60c below).
