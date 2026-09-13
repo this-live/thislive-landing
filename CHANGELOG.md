@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-12 — Founder headshot replaced (slug landing-headshot)
+
+- Change: img/bryce-headshot.jpg replaced with the new photo Bryce sent (head crop, 800×800). Same path, no markup changes.
+- Rollback: revert this commit.
+
 ## 2026-09-12 — Mnemos pillar page: "what's real" ledger refreshed to proven 2026-09-12 state (slug mnemos-pillar-20260912)
 
 - Change: mnemos/index.html §whats-real — six rows replaced (129k+ memories fail-closed; department
