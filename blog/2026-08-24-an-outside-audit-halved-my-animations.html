@@ -11,17 +11,16 @@
 
 <p>Somebody who does motion design for a living looked at my interfaces and told me they were twice as slow as they should be.</p>
 
-<p>On 2026-08-25 that audit landed in two repositories. In the FTAG studio tree the banner animation went from 1.8 seconds to 0.8, the draft card lift came down from seven pixels to four, modals got a real entry animation, pressing a control now gives feedback on the press instead of only on the release, and the interface respects a reader who has asked the operating system to reduce transparency. On the this.live site the same pass removed a blanket transition on every property, added the same press feedback, and tightened the hero parallax.</p>
+<p>That audit landed in one repository. In the game studio tree the banner animation went from 1.8 seconds to 0.8, the draft card lift came down from seven pixels to four, modals got a real entry animation, pressing a control now gives feedback on the press instead of only on the release, and the interface respects a reader who has asked the operating system to reduce transparency. The matching pass for this site, which removes a blanket transition on every property, adds the same press feedback, and tightens the hero parallax, is written and unshipped. It sits on a branch I never merged, so the page you are reading still carries six blanket transitions and the old parallax easing. I wrote earlier that it had landed here too. That was wrong.</p>
 
 <h2>Half of 1.8 seconds</h2>
 
 <p>The numbers are the interesting part. I had not picked 1.8 seconds. I had picked something that felt deliberate while I was staring at it, over and over, in a tab I already knew the contents of. A first time reader does not have my patience and has no idea what is about to appear. Almost a second of banner is a lot of nothing to sit through, and the only way I was going to find that out was from somebody with a standard I had not absorbed.</p>
 
-<h2>Two repos, one audit</h2>
+<h2>One audit, one repo</h2>
 
 <p>A blanket transition on all properties is the same mistake in code. It is a shortcut that says make everything smooth and it ends up animating things nobody wanted animated. Naming what moves is more work and it is the work.</p>
 
-<p>Later in the week the Cortex documentation picked up a set of graph engineering patterns for Agent Fabric, which is the quieter half of the same idea. Borrow the pattern somebody else has already proven and stop deriving it badly in private.</p>
 
 <h2>What I am not claiming</h2>
 
