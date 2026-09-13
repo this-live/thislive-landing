@@ -1,0 +1,651 @@
+# Changelog
+
+## 2026-09-12 — Founder headshot replaced (slug landing-headshot)
+
+- Change: img/bryce-headshot.jpg replaced with the new photo Bryce sent (head crop, 800×800). Same path, no markup changes.
+- Rollback: revert this commit.
+
+## 2026-09-12 — Mnemos pillar page: "what's real" ledger refreshed to proven 2026-09-12 state (slug mnemos-pillar-20260912)
+
+- Change: mnemos/index.html §whats-real — six rows replaced (129k+ memories fail-closed; department
+  isolation negative test 6/6 on production; one client per language incl. Claude Code over MCP;
+  Obsidian-native bridge + probe; semantic embeddings via any /v1/embeddings server with the
+  measured eval; explicit known limits incl. the backup gap and public /health enumeration).
+- Rationale: prior rows cited 2026-06-11 receipts (75k, v3.0.0, 7/7 gates) that are stale; every
+  new claim maps to a script, receipt, or health field re-run on 2026-09-12 (pillar brief
+  cortex-ops/plan/handoffs/2026-09-12-mnemos-pillar.md).
+- Superseded: the 2026-06-11 dated rows.
+
+## 2026-09-12 — Maestro page: honest "In Progress" ledger row for the model registry + task-class routing (design/award-winning-v1, slug maestro-registry-row)
+- Date: 2026-09-12
+- Change: `maestro/index.html` "What's real today" ledger gains one row (after Vega/Quorum) describing ADR-0033 — the model registry (descriptors, discovery, Forge registrations; cited cost, capabilities, sourced liveness) and `POST /v1/route` task-class routing — badged **In Progress**, stating plainly that it is built and proven on the dev node but not yet promoted to the GPU node.
+- Evidence: maestro branch `claude/maestro-pillar-20260912` (ac8ee0c, f9d2ee1, 46de484); live proof receipts in the Maestro pillar brief (`cortex-ops/plan/handoffs/2026-09-12-maestro-pillar.md`).
+- Result: no other copy touched; claims limited to what is proven; static no-build site, no deploy performed.
+
+## 2026-09-12 — Remove "Why I'm building" (#stance) section from landing page (slug landing-why-strip, U63)
+
+- Change: index.html — removed the entire `#stance` section ("Where I stand" / "Why this is built the way it is.") between the About section and the Blog section. This was the last remaining philosophical/manifesto-style block on the landing page (the nav link and "read the full philosophy" link to `philosophy.html` were already stripped in U60b/U60c below).
+- Checked and left intact: `bryce.html` and `blog/index.html` have no nav/footer link to `#stance` or to `philosophy.html` today, so no further chrome edits were needed there. Historical blog-post prose that discusses "why I'm building" (e.g. `blog/_legacy-unlisted/beacon-architecture.html`, `blog/_legacy-unlisted/current-ai-news.html`) is untouched — it is a dated first-person record, not live site chrome. `philosophy.html` itself stays on disk, unlinked.
+- Reason: owner direction (Bryce, 2026-09-12) — the "why I'm building" content read as philosophy rather than product/company communication and should not be part of the flagship landing narrative.
+- Verified: `python3 -m http.server` + curl against the built index — 0 case-insensitive hits for "why i'm building" / "why this is built" / `id="stance"` in the served HTML.
+
+## 2026-09-12 — Blog: resume the weekly essay, first post in nine weeks (U66a, D-036)
+
+- Change: `blog/2026-09-12-the-cron-that-died-quietly.html` — new weekly essay, 377 words of body prose. Subject: the weekly blog cron was paused 2026-06-22, the whole content lane was paused 2026-07-13 as temporary during the Cortex ship, the job entries were later dropped from the live Hermes registry, and nine weeks passed with no post because a paused job emits no signal.
+- Change: `blog/index.html` — index card prepended at the top of `.blog-grid` (newest first).
+- Reason: U66a resumes the weekly cadence through the new Creative department (D-036, 2026-09-12): a `creative-essayist` drafts and a separate `creative-editor` cuts, fact-gates, and can reject. The department's `concise-essay` gate carries Bryce's 2026-09-12 rule verbatim, which caps an essay at 400 words and supersedes VOICE.md's 800-1600 band. Every other measured property of the archive's voice is kept.
+- Fact gate: every claim in the post traces to a source that was opened — the five run folders under `content-pipeline/runs/`, `cortex-ops/receipts/ops/pm-pause-2026-07-13.md` line 33 (paused 2026-06-22), `plans/2026-07-13-non-cortex-lanes-synth.md` line 26 (PAUSE generation during Cortex ship), `~/.hermes/cron/jobs.json` (6 jobs, no DPL entry), commit `687ed03` (last real post, 2026-07-07). One draft claim was struck: quotation marks around a paraphrase of the 07-13 note.
+- Verified: `python3 -m http.server` + curl — the post returns HTTP 200 with the correct `<title>` and `<h1>`, three short `<h2>`s, a body containing only `<h2>`/`<p>`, and `blog/index.html` returns HTTP 200 linking to the post once. `scripts/check_blog_surface.py` passes.
+- Publishing: this ships as a pull request. Merging is Bryce's.
+
+Project: This.Live
+Purpose: Parent business/project umbrella covering company operations, GTM, pitch, and brand surfaces.
+
+This file is the canonical record of meaningful project-level changes for this Claude Project surface.
+
+## 2026-09-12 — Blog: backfill the eight missing weekly essays, 2026-W29 to 2026-W36 (slug blog-essays-w29-w36, U66b)
+
+- Change: eight new posts, one per missed ISO week, dated on that week's Monday: 2026-07-13 "A release nobody is allowed to cut is not a release", 2026-07-20 "The quality bar I ratified failed first on my own page", 2026-07-27 "I took myself out of the approval path for a system that writes its own tools", 2026-08-03 "The most useful thing I shipped that week was an accurate description of work already done", 2026-08-10 "Nine projects were carrying real work that had never left this machine", 2026-08-17 "There was a daemon running on my main machine that nothing documented", 2026-08-24 "An outside audit cut my animation timings in half and it was right", 2026-08-31 "The first thing my marketing agent produced is not allowed to send itself".
+- Change: eight index cards in `blog/index.html`, newest first, and eight entries in `blog-cleanup-manifest.json` (`canonical_count` 26 to 34).
+- Change: `scripts/check_blog_archive_cleanup.py` now compares ISO weeks instead of raw day gaps. The archive drifted off Monday at 2026-06-30, so a fixed seven-day step was the wrong test and would have rejected an honest cadence. Same week or next week passes, a skipped week still fails.
+- Constraint: body prose word counts are 396, 341, 400, 347, 374, 368, 379, 362, all at or under the 400-word cap from the concise-essay skill, counted mechanically. Each post states its point in the first line, carries one idea, uses only `<h2>` and `<p>` in the body, three headings of one to five words each, no em-dashes or en-dashes, no semicolons, no contractions, no banned register words, at least four real product or machine names, and an explicit statement of one unsolved thing.
+- Evidence: each week's "what and why" comes from that week's own record. Quoted rationale where it exists (the 2026-07-16 contracts block, the 2026-07-21 recruiter-review approval, the 2026-08-01 charter amendment, the 2026-08-08 seventeen-day stale roadmap, the 2026-09-04 draft-only outbound sequence's four named blockers). Where the record states no rationale (the 2026-08-18 daemon runbook, the 2026-08-13 vault sync) the post states the observable choice instead and says nothing about motive.
+- Cut, recorded: the discovery evidence table called 2026-W32 a quiet week with only `truth` housekeeping, and a fresh git sweep found a closing pass on Age of Arrows and the Beacon roadmap correction, so that post reports the week as thin rather than empty. The table's "15 USD/wk metered cap" for the auto-skills charter is contradicted by the charter on disk (`metered_weekly_cap_usd: 0`), so no cap figure appears. Per-post cut notes live with the deliverables in `forge-verticals` at `vaults/Creative/work/thislive-blog/`.
+- Evidence: served the tree and curled it. All eight posts return 200, each is linked exactly once from `blog/index.html`, all 83 files under `blog/` return 200, the index is in date order with 2026-08-31 at the top, and both `scripts/check_blog_surface.py` and `scripts/check_blog_archive_cleanup.py` pass.
+
+## 2026-09-12 — Blog: honest archive dates, re-anchored to the March 2026 launch (slug blog-archive-honest, U66b)
+
+- Change: the seven posts dated 2026-01-12 through 2026-02-23 moved forward seven weeks, to 2026-03-02 through 2026-04-13. Those dates were never real: the whole 2026-01-12 to 2026-06-08 run was batch-created in one commit on 2026-06-08 (`3587307`), and the first post itself says "The public launch happened in March. The real work started in January." The archive now claims nothing before the launch.
+- Change: every old URL still resolves. Each of the seven old dated paths is now a `Moved` redirect stub (noindex + meta refresh + rel=canonical) pointing at the new date, and the 18 pre-existing stubs that pointed at those files were retargeted.
+- Change: carried the full-length founder-voice rewrites from Bryce's `blog-archive-rewrite` branch (`c6b1940`, `18f4ef7`, `c7020f3`) onto current main: the four re-dated origin posts, plus 2026-03-30 DPL, 2026-04-06 Beacon lessons, 2026-04-13 Fieldhouse/FTAG and 2026-04-20 Signal and Noise, which grow from roughly 220 words of stub prose to 870 to 970 words each.
+- Change: `blog-cleanup-manifest.json` rebuilt against the files on disk. `canonical_count` 22 to 26, `legacy_count` added at 87, plus a `launch_anchor` of 2026-03-02 and a note recording why the dates moved.
+- Change: `scripts/check_blog_archive_cleanup.py` now enforces the honest invariant instead of a hardcoded count. It reads `canonical_count` from the manifest, fails if any canonical post predates `launch_anchor`, and allows a same-week second post (gap of 0, 7 or 8 days) while still failing on a skipped week. All truth guards (banned claims, forbidden dashes, placeholder text, header and paragraph minimums) are unchanged.
+- Reason: reconciling Bryce's stranded `blog-archive-rewrite` branch (2026-08-06/07), which did this re-dating and never merged. This carries its intent onto today's main. Divergence from the branch, deliberate: the branch deleted three pre-March posts and demoted four March posts to `_legacy-unlisted/`, which would have broken live URLs and taken `2026-03-16-forge-source-grounded-engineering-agents.html` out from under both `scripts/check_blog_surface.py` and the landing page's blog section. Nothing is deleted or demoted here; seven weeks carry two posts instead.
+- Evidence: served the tree with `python3 -m http.server` and curled it. All 75 files under `blog/` return 200, all 47 redirect-stub targets resolve to 200, `/` and `/blog/` return 200, the four blog links on the landing page return 200, the index is in date order and its earliest entry is 2026-03-02. `scripts/check_blog_surface.py` and `scripts/check_blog_archive_cleanup.py` both pass.
+
+## 2026-09-12 — Remove remaining Philosophy nav links (slug landing-founder-main, U60c)
+
+- Change: bryce.html — removed the "Philosophy" nav-bar link (`/philosophy.html`) and the matching footer "Philosophy" link. Both previously reported as out-of-scope; now closed out per U60c so no site chrome links to `/philosophy.html`.
+- Change: blog/index.html — removed the "Philosophy" nav-bar link. Left the historical blog-post prose mention of "the philosophy page" untouched (it is a narrative reference inside a dated post, not a live nav link).
+- Reason: complete the Philosophy-strip removal started in the entry below; `philosophy.html` stays on disk, intentionally unlinked from every page.
+
+## 2026-09-12 — Remove Philosophy section, add founder photo (slug landing-founder-main)
+
+- Change: index.html — removed the nav bar "Philosophy" link (`/philosophy.html`) and the "Read the full philosophy" link at the end of the #stance section. `philosophy.html` is left on disk, intentionally unlinked from the landing page.
+- Change: index.html — added founder headshot (`img/bryce-headshot.jpg`, 112px desktop / 88px mobile, `alt="Bryce Murad, founder of this.live"`, `loading="lazy"`) beside the founder bio in the #about section; wrapped existing bio copy in a new `.founder-head-text` div.
+- Change: style.css — added `.founder-head` / `.founder-photo` / `.founder-head-text` rules plus a 720px breakpoint stacking the photo above centered text at 88px.
+- Reason: deploy-branch correction (U60b) — Railway serves `main`, not `design/award-winning-v1`; redoing U60's founder-photo change against the correct base and auditing out the Philosophy nav/link since the philosophy.html page is not part of the current landing narrative.
+- Left intact: `bryce.html` and `blog/index.html` still nav-link to `/philosophy.html` (out of scope for this change — reported, not edited); historical blog-post prose mentioning "the philosophy page" untouched.
+- Verified: `python3 -m http.server` + curl — served index.html has 0 "philosophy" hits (case-insensitive), the `<img class="founder-photo">` tag is present, and both `img/bryce-headshot.jpg` and `style.css` return HTTP 200.
+
+## 2026-09-09 — Retire "kill" language from pillar copy (slug pillar-copy-dekill)
+
+- Change: index.html — section lede "six pillars that each kill a problem" -> "each end a problem".
+- Change: index.html — pillar taglines: Maestro "kills provider lock-in + token cost" -> "ends ..."; Mnemos "kills cross-agent memory loss + context rot" -> "ends ..."; Forge "kills model dependency" -> "ends ...".
+- Change: maestro/mnemos/fabric/surfaces/forge/cortex pillar pages — section eyebrow "The problem it kills" -> "The problem it ends".
+- Change: forge/index.html meta description — "kills model dependency" -> "ends model dependency".
+- Left intact: "kill-switch" (standard technical term), founder-bio "killer robots" line, dated blog posts (historical first-person record), and CSS class names (.pillar-kills/.kill, internal only).
+- Reason: owner direction; "kill" read as needlessly violent for the flagship site.
+
+## 2026-09-12 — Cortex page: honest cockpit test counts (CTX-COCKPIT-DOCS-01, kanban t_1dcabd9b)
+
+- Date: 2026-09-12
+- Change: `cortex/index.html` "What's real today" ledger corrected to live-verified counts — contracts row 347 → 369, cockpit honesty row 59/59 → 144/144. Both were stale understatements; task mandate is honest-claims-only.
+- Verification: `npm test` in cortex-suite/cortex/contracts = 369 passed / 0 failed; `CORTEX_ISOLATED=1 node --test` in cockpit/server = 144 pass / 0 fail (run 2026-09-12 from worktree cortex-pillar @ 030006e).
+- Related: cockpit Diátaxis docs (tutorial/how-to/reference/explanation) + README/LIMITATIONS refresh landed in cortex@4cc9ca4 on branch claude/cortex-pillar-20260912.
+- Files touched: cortex/index.html, CHANGELOG.md
+- Migration: none
+
+## 2026-09-12 — Cortex pillar page: discovered fleet + honesty rules (branch claude/cortex-pillar-landing-20260912, slug cortex-discovered-fleet)
+
+- Date: 2026-09-12
+- Change: `cortex/index.html` — "An honest cockpit" step and the "You run the control plane" / "Never fakes green" capability cards now describe what the cockpit does as of ADR-0034 (nodes discovered from the operator's tailnet, services detected by probe, opt-in read-only capacity, dark-monitor rule); contract-test count 347 → 369 (in-suite 0.4.0).
+- Result: no claim beyond what was proven standalone on 2026-09-12 (cockpit branch `5d3b322`, :8789 against the real fleet). Release-pinned deploys are deliberately NOT claimed yet (cutover pending).
+- Verification + receipts: cortex pillar brief `~/this.live/cortex-ops/plan/handoffs/2026-09-12-cortex-pillar.md` §5.
+- Files touched: cortex/index.html, CHANGELOG.md
+- Migration: none
+- Author: Claude Fable 5.1 (Cortex pillar agent)
+
+## 2026-07-21 — Founder-page recruiter fixes: name Ensono, honest claims (slug founder-recruiter-fixes)
+
+- Change: bryce.html + resume.html — added "Ensono" as the named employer on both
+  experience blocks (previously anonymous "Chicago, IL"; flagged by an external
+  recruiter review as the single biggest screen-out trigger).
+- Change: Dates corrected "02/2022 — 2025" -> "Feb 2022 — Jan 2026" (and intern
+  block to "Jun 2021 — Feb 2022").
+- Change: "Closed more than 50% of complex enterprise deals" reworded to
+  "Supported complex enterprise pursuits as technical lead ... with a >50% close
+  rate on supported deals" — pre-sales-honest framing, removes unfalsifiable
+  sales-credit claim.
+- Change: "24-week military-grade program" -> "24-week intensive program"; dropped
+  "3.33 GPA" from education lines.
+- Why: judge-panel review (3 recruiter personas) of the 2026-07-13 resume rewrite
+  flagged these on the public founder pages; approved by Bryce via PM session
+  2026-07-21.
+- Files: `bryce.html`, `resume.html`.
+- Note: live bryce.this.live apex was serving a pre-redesign build (see 2026-07-02
+  entry) — needs redeploy to pick this up.
+- Author/agent: Jarvis (Claude Code, job-search workstream)
+
+## 2026-07-14 — Landing card copy tighten + remove stale about sections (slug landing-tighten)
+
+- Change: Updated Mnemos pillar card description to frame it as an agnostic memory bridge
+  across providers (Claude, ChatGPT, Cursor, Kimi, MiniMax, local) — not just internal
+  to Cortex. Memory count corrected 75k+ -> 111k+.
+- Change: Updated Surfaces pillar card to lead with unified surface for all AIs, naming
+  the specific providers (Claude Code, ChatGPT, Cursor, Kimi, MiniMax, local).
+- Change: Removed the "Operating principles" pill strip from #about (tacky, undermined
+  by the chip design language).
+- Change: Removed the "In active use right now · scanned from the fleet" skills chips
+  (stale, tacky).
+- Change: Removed the "The operator stack" four-cell grid (stale, tacky).
+- Kept: founder bio blurb and the "Currently building" living strip.
+- Files: `index.html` only.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-17 — Resume "Current focus" corrected to the real focus
+
+The resume's "Current focus" (`resume.html`) was stale/off — it described "migrating active projects into
+MiniMax Code workspaces" + a long project list. Per Bryce, the actual current focus is **getting Cortex to
+fully work end-to-end and releasing it to the public**. Rewrote it to lead with that: harden the six pillars
+into a mature reliable product, link the decentralized fleet into one system that brings itself up, and ship
+Cortex so anyone can run owned, local AI on their own hardware. On-thesis (decentralized/sovereign/owned-not-rented).
+
+## 2026-06-17 — Umbrella pillar cards: interactive "how it works" mini-figures
+
+The six `.pillar` cards on the landing ("One decentralized system. Six pillars.") are now interactive,
+educational micro-infographics. Each card gets a compact `<canvas>` band injected under its icon row (layout,
+classes, and copy untouched) that animates the same idea as that pillar's page hero — so a visitor understands
+the pillar at a glance. One shared, dependency-free, CSP-safe file `/pillar-cards.js` finds each card by its
+href and drives its mini-canvas; the six choreographies follow `00-DESIGN-SYSTEM.md §4.2` verbatim:
+- **maestro** — a prompt arrives at a junction, candidate model-lanes score, ONE brightens to cyan (others
+  dim) + a `decision_id` receipt mark.
+- **mnemos** — scattered data dots file into a small hierarchy of scoped bins; the protected root never takes
+  the write; bins accumulate (memory survives the loop).
+- **agent-fabric** — one request fans out across nodes in parallel and ticks done before a lone serial pulse
+  finishes (the speedup shown, not told).
+- **surfaces** — ~9–18 scattered tool-windows nest into ONE unified app card + a soft cyan pulse-ring.
+- **forge** — labels stream into a factory node that brightens notch-by-notch, emits a served-adapter glyph,
+  and a recursive arc loops it back.
+- **cortex** — a small living mesh of nodes with honest status hues (the decentralized fleet).
+
+House rules obeyed (the loved substrate): colors ONLY via each card's own `--hue` + system `--accent` read
+with `getComputedStyle` (no literal hex in the motion); low-contrast (fills 5–10%, lines ≤8%, one accent for a
+beat); eased not snapped; plays ONLY while hovered OR scrolled into view (IntersectionObserver) and pauses
+otherwise + on `visibilitychange`; `prefers-reduced-motion` → one static composed frame; degrades < ~150px;
+zero deps. Does NOT touch `hero.js` (umbrella mesh) or any per-pillar page hero. Adds `.pillar-fig` styles to
+`home.css` and one `<script src="/pillar-cards.js" defer>` after `hero.js`. Verified via local preview: all 6
+figures inject and paint, animate on hover/in-view, reduced-motion renders static frames, `node --check` clean,
+0 console/page errors on the umbrella + all 7 pillar pages.
+
+## 2026-06-14 — Pillar pages: signature product-specific animations + decentralized reframe + truth-discipline pass
+
+Each of the 6 pillar pages gets its own SUBTLE, product-specific background animation — one shared visual
+language (the loved `hero.js` substrate: single `#heroCanvas`, token-only colors, `prefers-reduced-motion`
+static frame, mobile degrade, paused when hidden), six dialects:
+- **mnemos** (`mnemos-hero.js`) — "arrive → file → persist": scattered data dots file into hierarchical,
+  project-scoped containers (`cortex/maestro`, `cortex/agent-fabric`…); the lattice never resets across loops;
+  write-protected root deflects writes; a recall pulse + receipt mark.
+- **agent-fabric** (`fabric/index.html` + `pillar.css`) — one request fans out across fleet nodes in parallel
+  and ticks done before a lone serial pulse finishes (the speedup shown, not told; no fake number).
+- **maestro** (`maestro-hero.js`) — "consider → select → receipt": a prompt lands, candidate lanes score, one
+  brightens (the model selected), a `decision_id` receipt fades in.
+- **forge** (`forge/index.html`) — "learn → forge → recurse": Maestro labels stream through a curate gate into
+  a factory that forges a better adapter, which loops back recursively.
+- **surfaces** (`surfaces-hero.js`) — "sprawl → sync": scattered tool-windows nest into one unified app card.
+- **cortex** (`cortex-hero.js`) — the decentralized mesh with honest live status dots.
+
+Copy on all six reframed to decentralized-agentic-AI (no "one operator"; loved UI/components verbatim). Then a
+TRUTH-DISCIPLINE pass: every forward-looking claim stated as shipped (deploy-parity stamped, `deployParity
+match:true`, restartable-from-HEAD, surfaces `247/247` backend, mnemos `qdrant == sor`) was relabeled "staged /
+built and ready / lands on the next gated restart" — *we claim the stamp once it emits, not before.* Genuinely-
+true claims kept (mnemos 7/7 gates + 107k memories; desktop 192/192 + 22/22 smoke; ownership/architecture).
+All `*-hero.js` pass `node --check`; mnemos + fabric + forge verified rendering via local preview.
+Follow-up truth fix: forge said "first adapters are in training" in ~9 spots (meta/hero/chip/pipeline/loop/SVG/
+CTA) — but no adapter is training (Modal-spend-gated, $0, none started) — relabeled to "gated, ready to train."
+
+## 2026-06-14 — Landing content reframe: one-operator/portfolio → decentralized agentic AI
+
+The landing UI/UX is loved and untouched, but the initial CONTENT had drifted to a "one operator /
+build a portfolio" angle; it should lead with DECENTRALIZED AGENTIC AI (the Cortex thesis). Content-only
+reframe — no structure/CSS/animation changes:
+- Hero H1: "Own the intelligence. / Build a portfolio with the leverage of a team." → "Decentralized agentic
+  AI you own. / Smarter and cheaper the more it runs." Plus the hero pill, lede, and sub.
+- Suite intro: "The engine that lets one person run all of this." → "One decentralized system. Six pillars."
+- Products lede, closing CTA, footer tag, and all title/meta/OG/Twitter tags shifted from operator-leverage
+  to the thesis (sovereign, fully-local, provider-agnostic, recursively self-improving fleet of agents + nodes).
+- Founder bio kept as Bryce's story (only softened one "one operator move like a team" phrase).
+Verified rendered via local preview (hero reads "Decentralized agentic AI you own…"), loved UI intact.
+
+Follow-up (same day, per master-plan `00-LANDING-REFRAME.md`): completed the remaining three spots that still
+carried portfolio/operator framing — `#products` (eyebrow "The portfolio" → "Proof it runs"; title → "One
+decentralized engine. Many things built on it."; lede → products-as-proof-it-runs), the founder section head
+("The operator behind the mission." → "Built by one operator. Designed to outlive him."; lede engine-led +
+"no single node, provider, or person is a point of failure"), and the final CTA eyebrow ("One operator · one
+engine" → "One decentralized engine · owned, not rented"). All verified present in the live DOM.
+
+## 2026-06-13 — Fix SCRUTINY Tier-3 #17: no-slash 522 on pillar pages (slug no-slash-522)
+- Date: 2026-06-13 (Mavis pickup tick, cron `cortex-whole-suite-autopickup`, session mvs_c03f0fb433534a1a905ee561fdfa797c)
+- Change: nginx was 301-redirecting `/<pillar>` (no trailing slash) to `http://<host>:8080/<pillar>/` — leaking the internal `:8080` listen port into the public URL. Cloudflare then tried to follow the absolute redirect to a non-publicly-exposed port and returned 522. Two-line nginx config change: `absolute_redirect off; port_in_redirect off;` in `nginx.conf` `server { … }` block, so trailing-slash redirects emit the RELATIVE `/<pillar>/` path. Cloudflare resolves the relative path against the public `https://<host>` scheme/host and the 522 is gone. Apex `/`, `/<pillar>/`, and the pillar-Host `location = /` Host-routing are all unchanged.
+- Verification: `scripts/test_no_slash_redirect.sh` (new) builds two Docker images — the current `fix` (HEAD) and a `pre` baseline with the two new directives removed — spins both containers, curls `/<pillar>` and `/<pillar>/` and `/` and the pillar Host, and asserts: (a) pre's `Location:` header is absolute + contains `:8080` (regression marker), (b) fix's `Location:` header is the relative `/<pillar>/` for all 6 pillars (cortex/maestro/mnemos/fabric/surfaces/forge), (c) following the redirect with `-L` lands on 200 (not 522/404), (d) pillar-Host `cortex.this.live /` → 200, (e) apex `/` → 200. **13/13 PASS** on this commit. The test is self-contained: builds both images, asserts the contract, tears down via `trap cleanup EXIT` (test artifacts are non-dotfile names in `scripts/` covered by a run-scoped `scripts/.gitignore` that the trap removes if it didn't exist beforehand; the `.gitignore` is also git-ignored via its own dotfile so a `git add -A scripts/` won't sweep it). Pre-fix live state captured for the receipt: `curl -I https://this.live/cortex` → 301 `Location: http://this.live:8080/cortex/`; `curl -L https://this.live/cortex` → 522. Post-fix (will be true after Railway redeploys): same requests will return 301 with relative `Location: /cortex/` → 200 on follow.
+- Operator action: redeploy the Railway service for this static site (the `Dockerfile` is unchanged; the new `nginx.conf` ships with the next build). No env var, no DNS, no Cloudflare change needed — the Cloudflare proxy is already what was getting confused by the absolute redirect, and the relative redirect is what it expects. Bryce's `x.this.live` subdomains (§4 DNS todo) are unaffected; the pillar-Host `location = /` rule still works because Host-routing fires on the bare `/`, not the trailing-slash redirect.
+- Files/systems touched: `nginx.conf` (+2 lines: the two new directives + a 6-line comment), NEW `scripts/test_no_slash_redirect.sh` (regression test, 13 assertions, self-contained), this CHANGELOG. Staged explicit paths only; HEAD re-checked before staging (in sync at c1881be).
+- Author/agent: Mavis pickup, cortex-suite-pm, mvs_c03f0fb433534a1a905ee561fdfa797c
+
+## 2026-06-12 — Add "Where I stand" stance section + self-belief principle + free-mission blurb (slug where-i-stand)
+- Change: Added a new `#stance` section ("Where I stand" / "Why this is built the way it is.") after the `#about` founder section on the umbrella, carrying Bryce's approved AI-alignment thesis (no sitting out AI; concentration-of-power danger; Tegmark's 12 outcomes, only 3 good — egalitarian utopia / protector god / decentralized enslaved god; reject conquerors+descendants+zookeeper+Wall-E; this.live founded to fight every outcome that isn't good; build Cortex to be yours). 6 paragraphs reusing the `.founder-bio` body style in a 720px `.stance-body` readable column (new home.css block). Added the free-mission line to the founder bio ("The plan is to release Cortex for free…"), and a 10th operating principle "Bet on yourself, then do the work to be right." to resume.html + a "Bet on yourself" chip on the landing. No em-dashes (Bryce preference). All approved verbatim by Bryce.
+- Files: `index.html` (#stance section + bio free-mission line + chip), `resume.html` (10th principle), `home.css` (.stance-section block), this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+
+## 2026-06-12 — Rework operating principles: de-cliche + meld 14 → 9 (Bryce voice, slug principles-rework)
+- Change: Rewrote the founder operating principles per Bryce's feedback (trite/duplicate, didn't sound natural). Melded the 14-item resume list to 9, cutting clichés ("Hard work works", "Knowledge is power", "Confidence is king") and de-duplicating the people/kindness cluster. Final set (resume.html `<ul>` + landing `#about` `.founder-beliefs` short-form chips): Win on preparation. Perfect practice beats talent. / How you do anything is how you do everything. / Tell the truth. Keep your word. / Solve the real problem, not the easy one. / Trust people, and teach what you know. / Lift the people around you as you climb. / Optimize for the experience, not the outcome. / Do work you'd do for free. When it pays, it buys time for the life you love. / Stay composed. Always compete like it matters. No em-dashes (Bryce preference). #8 reframed around Bryce's real philosophy (build what you love; money buys time, not the point) instead of the inaccurate "want less" frame.
+- Files: `resume.html` (Operating principles `<ul>`), `index.html` (`#about` `.founder-beliefs` 8 short chips + comment fix), this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+
+## 2026-09-12 — U10 honesty pass: remove remaining "adapters in training" false claims (design/award-winning-v1, branch claude/forge-pillar-20260912)
+- Date: 2026-09-12
+- Change: The 2026-09-12 Forge identity-correction commit removed the hero chip claiming adapters were training but left the same false claim in four other places in `forge/index.html`: the `#how` lede paragraph, the `#arch` closing paragraph, one feature-list item, and one SVG diagram label. Per forge-pillar brief + D-011: Model Foundry is built and Modal-image load-validated at $0, but training has never started — blocked on Bryce adding a payment method (SB-A3). Replaced "the first adapters are in training" (x2 prose), "Adapters in training." (feature item), and the diagram label "in training" with accurate "not started training yet (blocked on a Modal payment method)" / "not started" phrasing. No other copy changed.
+- Result: `grep -n "in training" forge/index.html` now returns zero matches.
+- Files/systems touched: `forge/index.html`, this CHANGELOG. Explicit paths only.
+- Author/agent: U10 landing-canonicalization agent (Claude Sonnet 5), branch `claude/forge-pillar-20260912`.
+
+## 2026-09-12 — Forge page re-identified: department specialists, proven by evals (design/award-winning-v1, branch claude/forge-pillar-20260912)
+- Date: 2026-09-12
+- Change: Applied Bryce's 2026-09-12 Forge identity correction (Forge verticalizes agents into the seven company departments and keeps them self-improving on their slice; engineering is one department) to `forge/index.html`: title/meta/og/twitter, hero eyebrow/H1/lede/meta, and the `#whats-real` ledger rewritten. Removed the false hero chip "First adapters in training" (no adapter has ever trained). Ledger rows now: (Live) department catalog served — 7 departments / 86 chartered agents, `forge.agent-catalog.v1`, AF department routing from the same canon; (Live) a department agent ran a real task on our own GPU — engineering code reviewer, real reversed fix diff, cited verdict in 17 s, contract-valid receipt, measured baselines 0.96 dev / 0.9667 held-out, first ratchet proposal rejected (0.9667 → 0.9667); (In progress) the ratchet over time + trained adapters still staged, none trained or served. Homepage `#suite` Forge card (`index.html`) re-voiced to match ("kills generic agents"). Every claim maps to a receipt in `forge/RECEIPTS/`, `forge/evals/agents/`, and `FORGE-ADR-0001`.
+- Result: Rendered locally (`python3 -m http.server`, browser screenshot of hero and the `#whats-real` ledger); no invented metrics; sections unchanged elsewhere (`#how`, `#arch` still describe the factory loop and remain true as the slow loop).
+- Files/systems touched: `forge/index.html`, `index.html` (Forge card only), this CHANGELOG. Explicit paths only.
+- Author/agent: Forge pillar agent (Claude Fable 5.1), branch `claude/forge-pillar-20260912` from `design/award-winning-v1`.
+
+## 2026-09-12 — fabric.this.live: department-specialist dispatch row + n8n claim corrected (design/award-winning-v1)
+- Date: 2026-09-12
+- Change: `fabric/index.html` "What's real" ledger gains a Live row for department-specialist dispatch (intake routing stamp → specialist execution → receipts with department/specialist/model decision; per-parent event subscription; contract-shaped receipts), citing agent-fabric ADR-0001 and the live receipt `docs/receipts/2026-09-12/af-canonical-child-proof-28c05a7.json`. The first Live row no longer claims "n8n drives scheduled work" (retired by cortex ADR-0023); it now describes the in-process engine + idempotent intake.
+- Evidence: agent-fabric release 28c05a7 live on jarvis :3333 (parity match), proof child task_01M29VNE4ZV6WDE0JFRGGDNDRA. Honest scope: proven through the harness wire the app uses; the installed-app click-through is pending the Surfaces agent.
+- Author: Agent Fabric pillar agent (Claude Fable 5.1), branch `claude/agent-fabric-pillar-20260912`.
+
+## 2026-06-12 — Per-pillar `x.this.live` subdomains: serving model + Host routing + setup doc (design/award-winning-v1, slug subdomains)
+- Date: 2026-06-12
+- Change: Wired the serving model so each Cortex-suite pillar can be reached at its own subdomain (`cortex|maestro|mnemos|fabric|surfaces|forge.this.live` → the standalone product page already at `/<pillar>/index.html`). **Serving model = Option (a): one Railway service (nginx static), all six subdomains attached as custom domains, with a tiny Host-based nginx rule** — chosen over per-pillar Railway services because the six pillar pages already exist in this one static tree and reference all assets by absolute root path (`/design-system.css`, `/fonts/…`), so they resolve identically under any `Host` with zero per-host rewriting; one service = one deploy/build/cost line. Implemented in `nginx.conf`: a `map $host $pillar_home` (apex/www/unknown → `/index.html`; each pillar host → `/<pillar>/index.html`) plus an exact-match `location = /` that `try_files $pillar_home /index.html` — so ONLY the bare `/` request is Host-routed, while assets, `/blog/`, `/resume.html`, and cross-pillar nav (`/maestro/`) fall through the unchanged catch-all `location /`. Also fixed a **pre-existing apex 403** discovered during verification: the source `index.html` is mode `0600` on disk, unreadable by the unprivileged nginx worker → 403 (reproduced with the ORIGINAL config, so independent of this work); added `RUN chmod -R a+rX /usr/share/nginx/html` to the `Dockerfile` to normalize read perms at build time. Wrote `docs/SUBDOMAINS.md` documenting the model, the exact 12 records (6 Railway custom domains + 6 Cloudflare proxied CNAMEs host→target), CLI equivalents, order-of-operations, and a `maestro.this.live` caveat (it currently serves a separate live product — confirm before repointing).
+- Auto-config attempt (Bryce-authorized): checked creds — **Railway CLI NOT authenticated** (`railway whoami` → "Unauthorized. Please login"; no `~/.railway/config.json`) and **no Cloudflare creds** (`wrangler`/`cloudflared` not installed, no `CF_API_TOKEN` in env). Per deploy rules, did NOT guess at live DNS; wrote the exact setup doc instead. `dnsConfigured = false`.
+- Result: Routing implemented and **verified against the built Docker image** with spoofed `Host` headers — all six `*.this.live/` → 200 each returning its own pillar `<title>`; apex + `www` → 200 (the 403 is fixed); assets/`/blog/`/`/resume.html`/cross-pillar nav/SPA-fallback → 200. `nginx -t` passes. Because the rule is in `nginx.conf`, no further code change/redeploy is needed when the DNS lands — each pillar page appears the moment its cert issues and CNAME resolves.
+- Files/systems touched: `nginx.conf` (Host-routing map + `location = /`), `Dockerfile` (chmod read-perms fix), NEW `docs/SUBDOMAINS.md`, this CHANGELOG. Staged explicit paths only (concurrent agents on this repo); HEAD re-checked before staging (in sync at 9bd84c7).
+- Migration/operator action: Bryce/a node-with-creds must (1) `railway login` → add the six custom domains to the `thislive-landing` service + copy the CNAME target, (2) add the six proxied CNAMEs in Cloudflare → this.live → DNS to that target (+ any Railway ACME TXT), (3) resolve the `maestro.this.live` caveat. Full steps in `docs/SUBDOMAINS.md`. Build on `design/award-winning-v1`; ShipQA merges to main → Railway deploys the routing rule.
+- Author/agent: subdomains (design/award-winning-v1)
+
+## 2026-06-12 — Cortex page identity correction: the fleet + the engine (design/award-winning-v1, slug productize)
+- Date: 2026-06-12
+- Change: Applied Bryce's 2026-06-12 identity correction to the Cortex pillar page (`cortex/index.html`). Cortex was framed as "the governance pillar / canon home"; it is now **"the fully-local fleet and the engine that runs on it"** — the nodes (GPU, NAS, dev machines) you own running one provider-agnostic agentic stack, with the canon/contracts/gates recast as how that engine stays coherent across the fleet (still true, no longer the headline). Edits: `<title>`/meta/og/twitter rewritten fleet-first; hero eyebrow → "Cortex · the fleet & the engine", H1 → "The fully-local fleet. The engine that runs on it.", lede leads with the nodes; problem-it-kills → "Your intelligence running on rented machines" + "your data on their hardware" / "a fleet of parts that drift into phantom maturity"; how-it-works → "Local nodes, one canon, shared contracts, honest gates" (step 01 now "Run on your nodes"); capabilities → "What the fleet and the engine hold" (new lead card "A fleet of local nodes"); the architecture section anchor renamed `#pillars`→`#fleet` with copy "One canon at the center. Six pillars on your nodes." and the hub-spoke SVG core relabeled "fleet · canon"; ledger lede + the local-first row sharpened to "runs on your own fleet" (evidence rows unchanged — all map to the claims ledger C1–C5); CTA → "Own the fleet, not just the prompt." Nav CTA + footer Cortex links repointed to `#fleet` / "How the engine runs". The six-pillar pages were audited against the phase-7 claims ledger and found already productized + truthful + identity-correct (Maestro = model-intelligence/routing NOT node-management; Forge = factory built, NO adapters served; Mnemos = production) — only Cortex needed the identity correction, so only Cortex was rewritten. Homepage `#suite` Cortex card (`index.html`) re-voiced to match (fleet + engine, managed tier still "parked"). **`hero.js`, the design system, and the other five pillar pages are untouched.**
+- Result: Cortex page reframed to the nodes/fleet+engine identity with all sections rendering; homepage suite card consistent. No invented metrics/testimonials; every ledger claim still maps to a receipt; managed tier still labeled "parked, not offered" (C5).
+- Verification + receipts: Playwright (`scripts/shoot_productize.js`) full-page Cortex + homepage at 1280 + 390 with ZERO console errors, plus hero / fleet-visual / mobile-hero / homepage-suite crops. Tag balance + anchor/id consistency checked (`#fleet`/`#how`/`#whats-real` all resolve). Receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/site-mission/shots/productize/`.
+- Files/systems touched: `cortex/index.html` (full identity reframe), `index.html` (#suite Cortex card copy), NEW `scripts/shoot_productize.js`, this CHANGELOG. Staged explicit paths only (concurrent agents on this repo); HEAD re-checked before staging.
+- Migration/operator action: Build on `design/award-winning-v1`. Each pillar is intended to become its own `x.this.live` subdomain landing page (cortex/maestro/mnemos/fabric/surfaces/forge.this.live) — these standalone product pages are the source. ShipQA merges to main → Railway deploys.
+- Author/agent: productize (design/award-winning-v1)
+
+## 2026-06-12 — Mission-first hero + recovered hybrid living resume (design/award-winning-v1, slug mission-founder)
+- Date: 2026-06-12
+- Change: Reframed the umbrella per Bryce's 2026-06-12 direction — the HERO headline is now the MISSION, not Bryce (operator off the cover). (1) Hero rewritten to studio voice ("Own the intelligence. Build a portfolio with the leverage of a team."); lede/sub carry the canon thesis (sovereign, fully-local, provider-agnostic, recursively self-improving; "smarter AND cheaper the more it runs"; "Nothing leaves your machines"); pill → "The mission"; hero-meta → sovereign & fully local / provider-agnostic / recursively self-improving; portfolio-leading CTA kept ("See what it builds" → #products). `<title>`/meta/og/twitter rewritten mission-first. **The signature neural-constellation hero animation (`hero.js`) + the design system are untouched.** (2) ABOUT THE FOUNDER (#about) rebuilt as a short blurb + RECOVERED living resume (from git history `e601907`/`2a2c655` + `resume.html` via CONTENT-SOURCE.md), rebuilt on the current design tokens as a HYBRID: manual core (verbatim bio/experience/principles + curated operator-stack groups) PLUS two auto-updating, data-driven strips — "Currently building · founding work under this.live LLC" (`assets/currently-building.json`) and "In active use right now · scanned from the fleet" (`assets/founder-skills.json`) — rendered client-side by a fail-silent inline renderer, with a documented cron-ready updater `scripts/update-founder-living-resume.mjs` that scans the real fleet (`/Users/jarvis/this.live/*`) for last-commit dates to refresh `last_active`, reorder `building`, and rewrite `detected.active_now`. Everything framed as founding work under the this.live LLC; links to `/resume.html`. (3) Portfolio (#products) heading → "What the engine is building." / "where you see the things being built" — all 10 real ventures + honest statuses kept, studio voice. Footer brand tag re-voiced to the mission.
+- Result: Living-resume strips populate from JSON at 1280 + 390 with ZERO console errors; updater ran live (11 building entries, 16 active-now skills detected from real git activity). No invented metrics; honest statuses preserved.
+- Verification + receipts: Playwright (`scripts/shoot_mission.js`) full-page umbrella at 1280 + 390 plus hero/#about/#products crops; JSON endpoints HTTP 200. Receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/site-mission/mission-founder.md` + `shots/`.
+- Files/systems touched: `index.html` (hero + #about rebuild + renderer + meta + footer + #products copy), `home.css` (living-resume strip styles + responsive), NEW `assets/founder-skills.json`, NEW `assets/currently-building.json`, NEW `scripts/update-founder-living-resume.mjs`, NEW `scripts/shoot_mission.js`, this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+- Migration/operator action: Living strips refresh nightly via the documented cron stanza in `update-founder-living-resume.mjs` (wire live as follow-up; structure + data + updater shipped now). Build on `design/award-winning-v1`; ShipQA merges to main → Railway deploys.
+- Author/agent: mission-founder (design/award-winning-v1)
+
+## 2026-06-12 — Restore homepage #blog teaser on the award-winning design system (design/award-winning-v1, slug blog-teaser-restore)
+- Date: 2026-06-12
+- Change: Restored the homepage "What I am building, in public." blog teaser (`<section id="blog">`) that the award-winning redesign dropped — the pre-existing `check_blog_surface.py` failure called out by the last two entries. Canonical copy recovered from git history (`33fba1f`, the newest pre-redesign revision: correct "Latest" card → digital-products-lab-content-loop, not the older `c1551ea` archive-cleanup card) and rebuilt on the current design system instead of pasting the legacy markup: `.section--hairline` + `.section-head` (eyebrow/title/lede), four `.card.card--blog` link cards reusing the design-system `.card` base + hover elevation, staggered `.reveal`/`data-delay`, mono uppercase kickers (accent-cyan "Latest"), `card-cta` arrow affordance, and a `btn-outline btn-arrow` "Read the Blog" CTA → `/blog/`. Placed between the `#about` founder section and the closing CTA band. New `home.css` block (blog-section/blog-grid/blog-kicker/blog-card-title) — 2-col grid, 1-col ≤720px.
+- Result: `python3 scripts/check_blog_surface.py` PASSES (63 HTML files, landing section present, links normalized). All four required post links + heading + "Read the Blog" CTA present. Other content guards untouched.
+- Verification: live preview screenshots of `#blog` at 1280 and 390 — desktop 2×2 grid and mobile single-column both render on-token; zero console errors. Pre-existing ~7px mobile overflow (nav/hero-orb/fw-node) confirmed NOT from this section.
+- Files/systems touched: `index.html` (new #blog section), `home.css` (blog teaser styles + responsive), this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+- Author/agent: blog-teaser-restore (design/award-winning-v1)
+
+## 2026-06-12 — Final QA + production deploy of the venture-studio reframe (slug ship-qa)
+- Date: 2026-06-12
+- Change: Ran final QA on `design/award-winning-v1` and deployed it to production. Full-page Playwright capture of all 9 public surfaces (umbrella + 6 pillars + /blog/ + /resume.html) at 4 viewports (390 / 768 / 1280 / 1920), with per-page console-error and CLS instrumentation. New verification harness `scripts/qa_shoot.js`.
+- Result: PASS on the full bar. Zero console errors on any page/viewport; CLS ≤ 0.001 everywhere (self-hosted-fonts fix holds — no swap regression). Founder section ("The operator behind the studio" / AI Founder & Operator Stack) present + prominent on the umbrella; 10-card portfolio grid ("What the engine lets me build") present + tasteful with honest statuses (only Beacon + Maestro link out — both verified HTTP 200; FTAG framed as a prototype studio, not MiniMax). Pillar icons render as small 34–40px accents with text fully readable around them; the ambient `.phero-orb` mobile clamp (600→320 / 480→260px) is proven by the before/after cortex mobile-hero close-up. Hero neural-constellation animation smooth and intact. Contrast: primary text 18.1:1, body 10:1 (AAA); muted metadata token ~5:1 (AA, intentional/documented). Dark premium aesthetic consistent across all surfaces; mobile clean.
+- Verification + receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/site-reframe/00-SHIP-ROLLUP.md` + `shots/ship-qa/` (36 full-page screenshots + `_report.json`) + the build agent's before/after icon-fix proof in `shots/{before,after}/`.
+- Deploy: fast-forwarded `design/award-winning-v1` → `main` (1 commit, clean FF) and pushed `origin main`; Railway autodeploys. Live-verified https://this.live returns 200 and serves the founder section + a portfolio project name, with the mobile orb-clamp markup present in the deployed `pillar.css`.
+- Files/systems touched: NEW `scripts/qa_shoot.js`; this CHANGELOG. Staged explicit paths only (concurrent agents on this repo).
+- Out of scope: `check_blog_surface.py` (homepage `#blog` teaser) remains failing as on HEAD — the redesign dropped that teaser; out of this task's scope and a follow-up was already filed. `/blog/` itself is fully functional and reachable via nav + footer (verified 200 + rendered).
+- Author/agent: ship-qa (design/award-winning-v1 → main)
+
+## 2026-06-12 — Venture-studio reframe: restore founder + portfolio, frame Cortex as the engine (design/award-winning-v1, slug build)
+- Date: 2026-06-12
+- Change: Additive reframe of the umbrella homepage (`index.html`) from a Cortex-only site to **Bryce Murad's venture studio**, with Cortex positioned as the fully-local *engine* that lets one operator run a whole portfolio. (1) Hero/positioning rewritten to operator-first ("One operator. A whole portfolio. One engine that makes it possible."), real founder name, Cortex framed as leverage; hero CTAs flipped to lead with the portfolio; **the signature neural-constellation hero animation (`hero.js`) is untouched**. Nav/trust/CTA/footer + `<head>` metadata reframed to studio voice; footer split into "The studio" / "The engine" columns. (2) Restored the three sections the award-winning redesign dropped, re-seated on the current design tokens: `#stack` "Inside the engine" 5-component strip (Mnemos/Agent Fabric/Maestro/Forge/Surfaces + Cortex Suite umbrella copy), `#products` 10-card real-venture portfolio ("What the engine lets me build" — Cortex Suite, Beacon, Forge, Surfaces, Maestro, Signal & Noise, Digital Products Lab, Fieldhouse Games, FTAG Studio, DRAAN), and `#about` founder block (real bio, 8 belief chips, 4-cell AI Founder & Operator Stack proficiency grid, CTA → /resume.html). Recreated the legacy `<!-- THE PROBLEM -->` / `<!-- ABOUT -->` / `<!-- FOOTER -->` comment markers so the content guards can slice regions. (3) Pillar-icon fix across all 6 pillar pages: the giant-icon obstruction does NOT reproduce on this branch (foreground marks already render as tasteful 34–40px accents) — applied the "constrain only" path: clamp the ambient `.phero-orb` blur (600→320 / 480→260px) and cap `.arch-visual` SVG to 360px on ≤720px so the background glow / diagram never crowd a short mobile hero; desktop unchanged.
+- Result: All three restored-content guards pass — `check_stack_cards.py` (5 cards), `check_product_cards.py` (10 cards, current statuses, FTAG not MiniMax-framed, no overclaims), `check_founder_proficiencies.py` (30/30 phrases inside #about); `check_resume_surface.py` still passes. HTML parses with balanced sections. Truth discipline preserved: real projects only, real bio, no invented metrics/testimonials; staged ventures show muted status labels, live ones (Beacon, Maestro) link out.
+- Verification + receipts: Playwright (`scripts/shoot.js`) full-page screenshots of the umbrella + all 6 pillars at 1280 + 390, before + after, plus a before/after cortex mobile-hero close-up proving the icon-fix orb clamp. Receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/site-reframe/build.md` + `shots/{before,after}/`.
+- Files/systems touched: `index.html` (reframe + restored #stack/#products/#about + markers); `home.css` (new stack-strip / portfolio-grid / founder-block styles + responsive); `pillar.css` (mobile orb clamp + arch-visual cap); NEW `scripts/shoot.js`. Staged explicit paths only (concurrent agents on this repo) + this CHANGELOG.
+- Out of scope: `check_blog_surface.py` was already failing on HEAD (the redesign also dropped the homepage `#blog` teaser) — not part of this task; a follow-up task was filed. Blog remains reachable via nav + footer.
+- Migration/operator action: Build on `design/award-winning-v1`. Bryce authorized auto-deploy after QA passes — ShipQA merges to main → Railway deploys.
+- Author/agent: build (design/award-winning-v1)
+
+## 2026-06-12 — hero animation safe-box fit + mobile density
+- hero.js: bounding-box-fit each project mind-map into a computed safe box (clears hero copy + canvas edges so no node/label clips); tuned mobile particle density (lighter on battery, still reads as a constellation). Ships with the award-winning redesign to live this.live.
+
+Current known canonical workspace(s):
+- /Users/admin/Desktop/This.Live
+- /Users/fred/.openclaw/workspace/thislive-landing
+- Claude Project folder as planning/handoff surface
+
+Update rules:
+- Log meaningful architecture, infra, routing, memory, deployment, auth/config, interface, and operator-workflow changes.
+- Do not log trivial edits or every commit.
+- Agents and AI tools working in this project must update this file as part of finishing meaningful work.
+
+## 2026-06-11 — Self-hosted webfonts kill the residual cortex font-swap CLS (design/award-winning-v1, slug fonts-selfhost)
+- Date: 2026-06-11
+- Change: Self-hosted Inter (300–700), Space Grotesk (400–700), and JetBrains Mono (400/500) as woff2 (Google `latin` subset, one static face per weight) under `/fonts/`, and retired the render-blocking Google Fonts `<link>` + both `preconnect`s from all 7 `<head>`s. Added real `@font-face` rules in `design-system.css` (§0b) with `font-display: optional`, keeping the existing metric-compatible fallbacks (`Inter-fallback`/`SpaceGrotesk-fallback`) as the block-window floor. Preloaded the two render-critical faces (`space-grotesk-700.woff2` for the hero h1, `inter-400.woff2` for body) on every page. With the brand fonts render-ready before first paint there is no swap window, so the hero headline never reflows — closing the residual flagged in the design-polish entry (cortex desktop ≥768px ~0.10, where "The sovereign agentic system you own." wraps 2 lines in real Space Grotesk but 3 in the Arial/Avenir fallback that no system font matches). Tightened CSP accordingly: `font-src 'self'` (was `https://fonts.gstatic.com`) and `style-src 'self' 'unsafe-inline'` (dropped `https://fonts.googleapis.com`).
+- Result (verified via a Playwright cold-cache `layout-shift` PerformanceObserver, Chromium, served under the production `_headers` CSP): cortex desktop CLS 0.1046 → 0.0000; all 7 pages 0.0000 at 390/768/1280/1920 (28 measurements); real Space Grotesk renders (h1 settles at 2 lines desktop / 3 at 390, no shift); zero CSP-blocked font loads; 0 observer errors. Self-hosted payload 213KB across 11 woff2 (Space Grotesk ~13KB/weight, Inter ~24KB, JetBrains Mono ~21KB); only the 2 preloaded faces sit on the critical path. A BEFORE harness against HEAD (gstatic delayed to force the swap window) reproduced the bug at 0.1046 (1280) / 0.1721 (768), confirming the observer detects the reflow.
+- Verification + receipts: Playwright harness + before/after CLS matrix and hero screenshots under `/Users/jarvis/tmp/thislive-fonttest/` (`cortex-{390,768,1280,1920}.png`, `home-1280.png`, `mnemos-1280.png`).
+- Files/systems touched: NEW `fonts/*.woff2` (11 files); `design-system.css` (§0b `@font-face` block); `_headers` (CSP `font-src`/`style-src`); all 7 `<head>`s (`index.html` + cortex/fabric/forge/maestro/mnemos/surfaces — preconnects + Google `<link>` → 2 font preloads). Staged explicit paths only; the concurrent hero commit (`cbce348`) was left untouched (no `git add -A`). No deploy.
+- Migration/operator action: Build-and-review only — main untouched, NOT deployed. Work is on branch `design/award-winning-v1`; Bryce merges to release. Self-hosted woff2 are committed in-repo and served same-origin (nginx/Cloudflare).
+- Author/agent: fonts-selfhost (design/award-winning-v1)
+
+## 2026-06-11 — Signature hero animation: data-driven neural-constellation mind-maps (design/award-winning-v1, slug hero-build)
+- Date: 2026-06-11
+- Change: Replaced the umbrella hero's inline 64-point particle field with a hand-rolled Canvas-2D engine (`hero.js`, 7.5KB gzipped) that renders a living neural-network constellation in deep space which periodically self-organizes into truthful mind-maps of real projects, holds with labels, dissolves, and reforms as the next project. Ambient = drifting "neuron" nodes with z-depth (size/opacity), distance-faded edges (spatial-hash grid keeps it O(n), not O(n²)), soft additive glow, and depth-scaled mouse+scroll parallax (desktop only). The morph is data-driven from `assets/mindmaps.json` (editable, not hard-coded): particles spring/lerp to node targets, edges grow with an eased `formAmt`, labels fade in using the design-system mono token. Cycle: ambient 4.2s → form 1.3s (expo-out) → hold 3.4s → dissolve 1.2s (ease-in-out) → next. Three truthful maps: (1) Cortex 6-pillar topology with real dependency edges (Surfaces→Fabric→Maestro→Mnemos, Forge↔Maestro flywheel, Cortex governs all — dashed); (2) the fleet Tailscale mesh (Atlas/Fred/Jarvis/Sparky/NAS, with bob dimmed/offline); (3) the route→label→harvest→train→eval→serve→cheaper flywheel loop. Colors/type come live from design-system tokens (`--accent` + pillar hues). On wide layouts the map renders in the open right column beside the copy (whole map legible); on narrow/mobile it centres. Added a `.hero-scrim` (radial+linear vignette anchored to the text column) so copy stays AAA-legible over the busiest morph frame, and swapped the hero to load `/hero.js` (deferred, external — CSP `script-src 'self'`).
+- Result (verified via playwright-core chromium dpr2 dark + CDP Performance metrics): 60fps — ~0.4ms JS/frame, main thread only 30.5% busy at the worst case (1920px, 150 particles, full edge pass), ScriptDuration 23.7ms/sec, LayoutDuration 1.67ms/sec (no reflow → zero layout shift). Pauses off-screen (IntersectionObserver threshold 0.02 on `.hero-bg`) and when the tab is hidden (canvas signature frozen on synthetic `visibilitychange→hidden`, animates while visible). `prefers-reduced-motion` paints one beautiful static composed Cortex constellation once with no rAF (not blank). Reduced particle floor + parallax disabled on mobile (`w<640`). 0 page console errors/warnings. Engine 7.5KB gzipped (<10KB bar). A debug-only `?herocap=1` hook (no-op in production) lets the capture script freeze each phase deterministically.
+- Verification + receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/design/signature-hero.md` + `shots/hero-ambient-{390,768,1280,1920}.png`, `shots/hero-form-{1-cortex,2-fleet,3-flywheel}.png`, `shots/hero-dissolve-cortex.png`, `shots/hero-reduced-motion-{1280,390}.png`. Capture harness: `scripts/capture_hero.js`.
+- Files/systems touched: NEW `hero.js`, `assets/mindmaps.json`, `scripts/capture_hero.js`; `index.html` (hero hunks only — inline particle field removed, `.hero-scrim` + `/hero.js` added); `home.css` (`.hero-scrim`). Staged explicit paths only — a concurrent font-self-hosting pass touching `_headers`/`design-system.css`/all 7 `<head>`s/`fonts/` was left untouched for its owner (no `git add -A`). No deploy.
+- Migration/operator action: Build-and-review only — main untouched, NOT deployed. Work is on branch `design/award-winning-v1`; Bryce merges to release.
+- Author/agent: hero-build (design/award-winning-v1)
+
+## 2026-06-11 — Award-winning QA polish pass on all 7 pages (design/award-winning-v1, slug design-polish)
+- Date: 2026-06-11
+- Change: Final award-winning QA pass over `index.html` + the six pillar pages. Screenshotted every page at 390 / 768 / 1280 / 1920 (28 shots), critiqued against the bar, and fixed every real issue found. Four shared, surgical fixes (CSS + structure — they correct all 7 pages at once): (1) **Nav CTA contrast bug** — `.nav-links a` (`--text-muted`) was beating `.btn-primary` on specificity, so the "Explore Cortex" / per-pillar CTA pill rendered muted-white-on-cyan at ~1.2:1 (effectively illegible); scoped the rule to `.nav-links a:not(.btn)` so the CTA keeps its dark `--on-accent` ink (now 12.3:1). (2) **AA contrast on dim labels** — `--text-subtle` 0.30→0.50 alpha, lifting the footer column labels, copyright, footer note, and trust-strip label from 2.49:1 (AA-fail) to 5:1. (3) **Landmark + region a11y** — wrapped each page's primary content in a single `<main id="main">` (was absent), resolving `landmark-one-main` and the 25–44 `region` warnings per page. (4) **Heading order** — the footer column labels and the flywheel step labels were `<h4>` following a section `<h2>` (a 2→4 skip); converted to non-heading `.footer-h` / `.fw-h` elements (styled identically) so the outline only ever steps by one. Plus a CLS fix: added metric-compatible `@font-face` fallbacks (`Inter-fallback`, `SpaceGrotesk-fallback` via `local('AvenirNext-Regular'), local('ArialMT')` + ascent/descent/size-adjust overrides) wired into the font stacks to kill font-swap reflow in the hero.
+- Result (audited via Playwright chromium dpr2 dark + axe-core 4.x): **axe = 0 violations on all 7 pages** (was 4 classes each: a transient color-contrast artifact that disappears once reveals settle, heading-order, landmark-one-main, region). **0 console errors/warnings** at every breakpoint. Contrast: all body/heading/label/badge/accent text now ≥5:1 on `--bg` (headings 18:1, accent links 6.6–12.6:1, badges 5–12:1). Single h1/page; 0 images missing alt; keyboard focus order logical with a visible cyan focus ring on every interactive element; mobile nav toggle drives `aria-expanded` true/false and closes on link select; under `prefers-reduced-motion` reveals stay visible and the particle canvas never animates. CLS: 0 once webfonts load; cold-first-paint CLS dropped from ~0.22 (maestro/surfaces) to ~0.004 on 6 of 7 pillars and clean on all 7 at 390px — one residual remains (cortex desktop ≥768px cold-first-paint ~0.10, a single-line headline wrap difference no Arial/Avenir fallback can fully match; warm/repeat = 0, mobile = 0). No copy changed; the truthful-claims audit re-confirms every numeric/capability claim maps to `receipts/phase7/claims-ledger.md` (Forge "no adapter trained/served", Maestro auto-labeling "In Progress", Mnemos "75k+ / 7/7", managed tier "Planned"; the only forbidden-phrase grep hit is Maestro's disclaimer negating the killed pricing/managed claims).
+- Verification + receipts: `/Users/jarvis/cortex-completion-2026-06-10/receipts/design/00-DESIGN-ROLLUP.md` (per-page before/after, critiques applied, claims audit, ready-to-merge checklist) + `shots/qa/{page}-{390,768,1280,1920}.png` (28 after-shots) alongside the prior `shots/{page}-{1280,390,arch}.png` before-shots.
+- Files/systems touched: design-system.css (font fallbacks, `--text-subtle`, nav `:not(.btn)`, footer-label selector), home.css (`.fw-h` selector), and all 7 HTML files (`<main>` wrapper + footer-label tag swap). No deploy.
+- Migration/operator action: Build-and-review only — main untouched, NOT deployed. Work is on branch `design/award-winning-v1`; Bryce merges to release.
+- Author/agent: design-polish (design/award-winning-v1)
+
+## 2026-06-11 — Award-winning rebuild of Fabric / Surfaces / Forge pillar pages (design/award-winning-v1, slug pages-b)
+- Date: 2026-06-11
+- Change: Rebuilt the remaining three pillar pages — `/fabric/`, `/surfaces/`, `/forge/` — to the award-winning bar set by `index.html` and the pages-a siblings, moving them off the forked legacy `pillar-legacy.css` onto the canonical `design-system.css` + `pillar.css` page layer. Each now follows the family spine: particle-field hero (hue-tinted per pillar) → "the problem it kills" → honest "how it works" steps → real capabilities → a bespoke architecture SVG → a "what's real today vs staged" truth ledger with an honesty note → CTA → shared footer. Hues match the umbrella pillar grid: Fabric `h-violet`, Surfaces `h-blue`, Forge `h-amber`. Bespoke diagrams (re-tinted via `color-mix(... var(--hue))` and the shared `.dg-*` language): Fabric = dispatch path (Task → Fabric :3333 → three isolated git-worktree agent lanes, a Maestro route tap, receipts back to the bus); Surfaces = surface stack (Pocket Agent / Personal Life OS / Fleet Terminal → shared :19000 backend → 6-tab desktop app with a promoted Voice tab, plus an Android Capacitor sideload branch); Forge = factory flywheel (Harvest → Curate → Train·Modal → a load-bearing Eval gate → Serve/Route, base-serve "live today" solid vs adapter route dashed/staged, with a cost-down return arc). Fabric adds a dispatch terminal demo; Surfaces uses the 3-section pattern (no terminal).
+- Truth posture (per receipts/phase7/claims-ledger.md): Fabric claims the proven ":3333 execution service" + "dynamic-workflow engine proven end-to-end 29/29 with real git-worktree isolation" + "ExecutionReceipt v1 / 8-state lifecycle" + "live Maestro routing wired into dispatch (decision_id + cost)", and badges "the engine as the daily production driver" In Progress (proven e2e, NOT yet the default production driver — spec review-pending, routing default-off, migration 011 not applied live). Surfaces claims the built "6-tab desktop app (154/154 unit, 17/17 smoke)" + "one shared :19000 backend (150/150 tests, 7 modules)" + "live voice daemon / Fleet Terminal / PLO Android sideload", framed as desktop/local with app-store distribution badged Planned (sideload today, no store listings, awaits signed artifacts + Apple cert). Forge is framed exactly as "the factory is built; first adapters in training" — explicitly NO "trained adapters available": Live = factory built end-to-end (8 lanes, Modal proven CPU e2e $0, autonomous harvest) + base model served on own GPU (SGLang 262k base-only, eval 0.4727); trained/served adapters badged In Progress with the verbatim "no adapter is trained, none is served, all registry status: planned, Maestro can't route to what doesn't exist." No phantom claims, no fake testimonials/metrics, no invented GitHub URLs (the three non-OSS pillars use internal anchors + "See the full suite", matching the Mnemos/Cortex pattern).
+- Verification: static `python3 -m http.server`; `playwright-core` (chromium, dpr 2, dark) full-page screenshots at 1280 and 390 for all three + element-crops of each architecture visual; audit confirms 0 console errors/warnings, single h1/page, labeled nav toggle with aria-expanded, 0 images missing alt, all internal links resolve to files on disk, and under `prefers-reduced-motion` the reveals stay visible and the particle canvas never animates. Receipts + screenshots: `/Users/jarvis/cortex-completion-2026-06-10/receipts/design/pages-b.md` (+ `shots/{fabric,surfaces,forge}-{1280,390,arch}.png`).
+- Files/systems touched: fabric/index.html, surfaces/index.html, forge/index.html (rebuilt on the canonical system); CHANGELOG.md. No change to index.html (umbrella pillar grid already links all three with correct hues — minimal touch). `pillar-legacy.css` is now unreferenced by any page (all six pillars on `pillar.css`); left in place to avoid scope creep, flagged for separate cleanup.
+- Migration/operator action: Build-and-review only — main untouched, NOT deployed. Work is on branch `design/award-winning-v1`; Bryce merges to release.
+
+## 2026-06-11 — Award-winning rebuild of Cortex / Maestro / Mnemos pillar pages (design/award-winning-v1, slug pages-a)
+- Date: 2026-06-11
+- Change: Rebuilt `/cortex/`, `/maestro/`, and `/mnemos/` to the award-winning bar set by the flagship `index.html`, fully on the shared `design-system.css` (the canonical token + component kit) instead of the legacy `pillar.css`. Each page now follows the same spine as the umbrella: particle-field hero (hue-tinted per pillar) → "the problem it kills" → honest "how it works" steps → real capabilities → a bespoke architecture/integration SVG → a "what's real today vs staged" truth ledger with an honesty note → CTA → shared footer. `pillar.css` was rewritten from a legacy self-contained sheet into a thin hue-driven page layer on top of `design-system.css` (hero, kill cards, step cards, capability cards, an `.arch-visual` frame + a shared `.dg-*` SVG node-diagram language, ledger, quickstart). Bespoke diagrams: Maestro = routing path (Prompt → Vega → Local/Quorum/Frontier with a redaction gate → durable decision_id); Mnemos = memory plane (harnesses → MCP/REST bus → `cortex/*` hierarchy with write-protected root → SQLite + Qdrant on the NAS); Cortex = hub-and-spoke topology (Cortex canon/gates core → six pillars + shared Contracts, with an animated contract pulse).
+- Truth posture (per receipts/phase7/claims-ledger.md): Maestro claims "live routing proven" + "~63k historical labels (caveated, not growing)" and badges auto-labeling "In Progress — no useful training signal yet (consensus pool empty)"; no pricing/managed-tier/"Enterprise AI Orchestration"/"54+ models" copy (killed claims confirmed absent). Mnemos claims "75k+ memories in production (dated snapshot)" + "7/7 acceptance gates PASS" and badges BGE "In Progress — production reindex pending"; hyphen-slug drift stated as a Known limit. Cortex claims "6-pillar topology ratified (ADR-0014→0016)" + "shared contracts imported never redefined" and badges the managed/dashboard tier "Planned — parked until governance clears."
+- Compatibility: rewriting `pillar.css` would have broken the still-legacy pages, so the original sheet was forked verbatim to `pillar-legacy.css` (new) and `/fabric/`, `/surfaces/`, `/forge/` were repointed to it with a one-line `<link>` change each — no visual or content change to those three (forge re-rendered to confirm unchanged). Those three remain owned by other phases.
+- Verification: static `python3 -m http.server`; Playwright (chromium, dpr 2, dark) full-page screenshots at 1280 and 390 for all three + element-crops of each architecture visual; audit confirms 0 console errors/warnings, single h1/page, labeled nav toggle with aria-expanded, 0 images missing alt, all internal links resolve, and under `prefers-reduced-motion` the reveals stay visible and the particle canvas never animates. Receipts + screenshots: `/Users/jarvis/cortex-completion-2026-06-10/receipts/design/pages-a.md` (+ `shots/{cortex,maestro,mnemos}-{1280,390,arch}.png`).
+- Files/systems touched: cortex/index.html, maestro/index.html, mnemos/index.html (rebuilt); pillar.css (rewritten as canonical thin layer); pillar-legacy.css (new); fabric/index.html, surfaces/index.html, forge/index.html (one-line stylesheet repoint only); CHANGELOG.md.
+- Migration/operator action: Build-and-review only — main untouched, NOT deployed. Work is on branch `design/award-winning-v1`; Bryce merges to release. Deploy remains repo-driven (Railway + Cloudflare); `git push origin main` would trigger the build, which this change deliberately does not do.
+- Author/agent: pages-a (design/award-winning-v1)
+
+## 2026-04-15 — Changelog policy initialized
+- Date: 2026-04-15
+- Change: Initialized canonical CHANGELOG.md for this Claude Project and adopted the mandatory project-level changelog standard.
+- Why it matters: Gives this Claude Project a durable project-local record that future agents can use without reconstructing state from chat history.
+- Files/systems touched: CHANGELOG.md
+- Migration/operator action: Append one entry for each meaningful project-level change before considering work complete.
+- Author/agent: Hermes (Sparky)
+
+## 2026-04-15 — Project mapping recorded
+- Date: 2026-04-15
+- Change: Recorded the current known canonical workspace mapping for this Claude Project so the project folder can serve as a reliable handoff/control surface.
+- Why it matters: The Claude Project name now points at known repo/workspace truth instead of relying on implicit memory.
+- Files/systems touched: CHANGELOG.md
+- Migration/operator action: Update the workspace list whenever a canonical repo/workspace changes or a new primary surface is introduced.
+- Author/agent: Hermes (Sparky)
+
+## 2026-05-16 - Landing page redesign: new mission, Cortex stack, problem section
+- Date: 2026-05-16
+- Change: Redesigned this.live landing page with new mission statement, Cortex stack cards (Cortex, Mnemos, Agent Fabric, Maestro), 6-card problem grid, updated products section.
+- Files/systems touched: index.html, style.css
+- Author/agent: Hermes (NAS)
+
+## 2026-06-11 - Six evidence-gated pillar product pages + grid wiring (Phase 7, SITE-WS3)
+- Date: 2026-06-11
+- Change: Added six pillar product pages on the existing static no-build stack — `/cortex/`, `/maestro/`, `/mnemos/`, `/fabric/`, `/surfaces/` (Pocket Agent / Personal Life OS / Fleet Terminal sub-sections), `/forge/` — each its own `index.html` under a new shared `pillar.css` using the this.live brand tokens (navy #0A0F2E / cyan #00D4FF, dark-only, no emojis). Every page carries a "Live / Active Build / Specced" status section where each claim maps to a receipt path; copy follows plans/08-sites.md claims tables and receipts/phase7/claims-ledger.md. Truth posture enforced: Mnemos claims "~92k-95k memories, 7/7 gates" (allowed); Maestro claims "live routing proven" (allowed) but auto-labeling is framed "in progress, no useful signal yet" (consensus pool empty); Forge explicitly states "no trained adapter, none served" (factory-not-adapters framing, R3/R4 blocked); Surfaces states "Android sideload today, desktop in active build, no store listings". Updated the homepage stack + products grids so each pillar card links to its page and the card hero == page hero (kills click-through dissonance); Maestro card now links to /maestro/ instead of the console domain. Added `a.card { text-decoration:none }` guard to style.css for anchored cards.
+- Why it matters: Six pillars had one card each and no pages; the umbrella story now resolves to evidence-gated pillar pages instead of dead links or an off-canon enterprise-SaaS page. No phantom maturity: every public claim is gated to a receipt and staged work is labeled as such.
+- Files/systems touched: pillar.css (new); cortex/index.html, maestro/index.html, mnemos/index.html, fabric/index.html, surfaces/index.html, forge/index.html (new); index.html (grid wiring); style.css (anchored-card guard); CHANGELOG.md
+- Migration/operator action: Deploy is repo-driven via Railway + Cloudflare (no Vercel). Operator deploy: `git push origin main` triggers the Railway build (Dockerfile → nginx:alpine, healthcheck `/`); Cloudflare fronts this.live. nginx `try_files $uri $uri/ /index.html` serves the new `/<pillar>/index.html` directories. NOT auto-deployed by this change — commit is pushed; operator promotes.
+- Author/agent: sites (Phase 7, SITE-WS3)
+
+## 2026-06-08 - Cortex Suite cards corrected to component grid
+- Date: 2026-06-08
+- Change: Reframed the top `#stack` section so Cortex is the umbrella suite, not a peer component card.
+- Change: The Cortex Suite component card grid now contains exactly five cards: Mnemos, Agent Fabric, Maestro, Forge, and Surfaces.
+- Change: Surfaces card explicitly names Personal Life OS, Pocket Agent, Fleet Terminal, and the Even Realities interface.
+- Change: Updated `scripts/check_stack_cards.py` to fail if Cortex appears as a peer card, if the component grid is not exactly five cards, or if any required suite component/copy is missing.
+- Why it matters: Cortex Suite means Mnemos + Agent Fabric + Maestro + Surfaces + Forge; the page should not imply Cortex is a sixth sibling product.
+- Files/systems touched: index.html, scripts/check_stack_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_stack_cards.py`; full site checks.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Cortex stack cards expanded to six first-class pillars
+- Date: 2026-06-08
+- Change: Updated the top `#stack` Cortex card grid from four cards to six: Cortex, Mnemos, Agent Fabric, Maestro, Forge, and Surfaces.
+- Change: Removed stale/overclaiming stack copy and replaced it with pillar-specific descriptions for runtime, memory, orchestration, routing/consensus, source-grounded engineering, and Pocket Agent / Personal Life OS / Fleet Terminal surfaces.
+- Change: Added `scripts/check_stack_cards.py` to require all six Cortex pillars in the stack section and guard against prior stale copy.
+- Why it matters: Forge and Surfaces were only fixed in product cards; the actual Cortex suite card grid still omitted them.
+- Files/systems touched: index.html, scripts/check_stack_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_stack_cards.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_archive_cleanup.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Cortex Suite card names Forge and Surfaces pillars
+- Date: 2026-06-08
+- Change: Updated the Cortex Suite product card to explicitly name the six Cortex pillars: Hermes runtime, Mnemos memory, Agent Fabric orchestration, Maestro routing, Forge adapter factory, and Surfaces for Pocket Agent, Personal Life OS, and Fleet Terminal.
+- Why it matters: Forge and Surfaces were present as separate cards but under-specified inside the Cortex Suite card, which made the suite map incomplete.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Prior professional experience restored to resume
+- Date: 2026-06-08
+- Change: Restored the actual professional-experience material recovered from the stale `bryce.this.live` artifact into canonical `/resume.html`.
+- Details: Added Network Solutions Architect role, 02/2022-2025 Chicago, HLD network architecture for 60+ Fortune 1000 clients and State/Local governments, >50% close rate on complex enterprise deals across Fortune 1000 and 10+ government agencies, enterprise cost modeling, RFP/RFQ, Microsoft mainframe-as-a-service public cloud product, custom CPQ/platform standardization, Pre-Sales/Network Intern role, data center scripting, Blockchain CMDB presentation, CCNA/Azure Fundamentals, SCSU education, NexGenT, athletics, and global perspective.
+- Why it matters: The previous canonical resume had flattened Bryce's actual work history into generic founder/tooling copy.
+- Files/systems touched: resume.html, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Founder background and principles restored
+- Date: 2026-06-08
+- Change: Expanded `/resume.html` from a thin tool/project inventory into a fuller living resume with Bryce's swim coach background, nationally ranked swimming background, network solution architect experience, Singapore/US and travel perspective, active project portfolio, AI/tooling stack, infrastructure stack, and operating principles.
+- Change: Added a short personal About the Founder section to the landing page covering swim coaching, hard work, treating people right, truth/accountability, teaching, experiences, practice, composure, and competitive standards.
+- Why it matters: Restores the human/resume context that had been flattened during earlier production shoring and keeps This.Live from reading like only a technical tool inventory.
+- Files/systems touched: index.html, resume.html, style.css, scripts/check_founder_proficiencies.py, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; `python3 scripts/check_founder_proficiencies.py`; `python3 scripts/check_product_cards.py`; `python3 scripts/check_blog_surface.py`; HTMLParser over index/resume/blog; local HTTP probes for `/` and `/resume.html`.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - FTAG public copy corrected away from MiniMax-backed framing
+- Date: 2026-06-08
+- Change: Updated the FTAG product card to frame FTAG as Future Throwback Arcade Games, not as a MiniMax-backed game studio.
+- Why it matters: FTAG is the public studio/brand concept; MiniMax is an execution workspace detail and should not be the public descriptor for FTAG.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Forge and Surfaces cards added
+- Date: 2026-06-08
+- Change: Added explicit Forge and Surfaces cards to the Products section and added Forge/Surfaces details to the canonical founder resume page.
+- Why it matters: Corrects the public suite map so Forge and the Surfaces pillar are not hidden under Cortex Suite. Surfaces now names Pocket Agent for live voice sessions into punched-up intent and Agent Fabric parallelization, Personal Life OS for dynamic calendar/todo, and Fleet Terminal for the Even Realities interface.
+- Files/systems touched: index.html, resume.html, scripts/check_product_cards.py, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_resume_surface.py`; `python3 scripts/check_blog_surface.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser over index/resume/blog.
+- Note: global hook's project changelog target `/Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md` is protected by macOS permissions from this process; repo-local changelog and project receipt were updated instead.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Canonical founder resume page added to deploy repo
+- Date: 2026-06-08
+- Change: Added `/resume.html` as the canonical in-repo founder/resume surface and repointed landing About/Footer links from stale `bryce.this.live` to `/resume.html`.
+- Why it matters: Gives This.Live a deployable, up-to-date resume page covering active projects, MiniMax Code /team migrations, FTAG, AI coding harnesses, models, training/inference, and deployment stack without depending on the separate old `bryce.this.live` Railway artifact.
+- Files/systems touched: resume.html, index.html, blog.css, scripts/check_resume_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_resume_surface.py`; blog/product/founder checks; HTMLParser pass over landing/legal/blog/resume files; local HTTP probes for `/resume.html` and `/` returned 200 with expected resume/tooling/project sentinels.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-08 - Blog surface merged into canonical deploy repo
+- Date: 2026-06-08
+- Change: Copied the blog HTML surface into the canonical Railway deploy repo, added `/blog/` and 38 post pages, created `blog.css`, added a Blog section/link on the landing page, and normalized blog index links to `/blog/*.html`.
+- Why it matters: Fixes the source-side cause of live `/blog/*` routes serving the homepage fallback once Railway deploys the current repo. Excluded the broken generated draft `2026-04-22-project-scoping.html` from the deploy copy.
+- Files/systems touched: index.html, style.css, blog.css, blog/*.html, scripts/check_blog_surface.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_blog_surface.py`; product/founder checks; HTMLParser pass over landing/legal/blog files; local HTTP probes for `/`, `/blog/`, `/blog/2026-06-01-supermemory.html`, `/blog/2026-06-08-building-with-ai.html`, and `/blog.css` all returned 200 with expected titles/sentinels.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-04 - FTAG Studio added and MiniMax team-backed project language reflected
+- Date: 2026-06-04
+- Change: Added FTAG Studio / Future Throwback Arcade Games to the Products section and updated Fieldhouse copy to reflect MiniMax team-backed project execution.
+- Why it matters: Captures the MiniMax Code /team migration layer Bryce added around existing projects, while separating FTAG as the new non-sports arcade-game studio from Fieldhouse's sports-game studio.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser pass over index.html, terms.html, privacy.html; local HTTP render check confirmed 8 product cards and FTAG/Ages and Arrows copy.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-04 - Product cards corrected for live/build/R&D status
+- Date: 2026-06-04
+- Change: Reworked the Products section from a stale four-card snapshot into a seven-card suite map: Cortex Suite, Beacon, Maestro, Signal & Noise, Digital Products Lab, Fieldhouse Games, and DRAAN.
+- Why it matters: Removes unsupported or confusing public claims (`Shipped`, DPL `Open Source`, DRAAN perfect-retrieval wording) and replaces them with evidence-aligned statuses such as `Public Beta`, `Live Surface`, `Production Pipeline`, `Active Build`, `In Build`, and `R&D Track`.
+- Files/systems touched: index.html, scripts/check_product_cards.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_product_cards.py`; `python3 scripts/check_founder_proficiencies.py`; HTMLParser pass over index.html, terms.html, privacy.html; local HTTP render check confirmed 7 product cards and all required status phrases.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-04 - Founder AI/operator stack added to About section
+- Date: 2026-06-04
+- Change: Added an About-the-Founder proficiency block covering AI model expertise, agentic coding harnesses, model routing/training, deployment infrastructure, and product systems.
+- Why it matters: Makes Bryce's current operator resume visible on the public This.Live landing surface instead of hiding the actual AI/fleet/tooling work behind generic founder copy.
+- Files/systems touched: index.html, style.css, scripts/check_founder_proficiencies.py, CHANGELOG.md.
+- Verification: `python3 scripts/check_founder_proficiencies.py`; HTMLParser pass over index.html, terms.html, privacy.html; local HTTP render check confirmed the block appears inside `<section id="about">`.
+- Author/agent: Jarvis/Hermes
+
+## 2026-06-04 - Banned-word fix: 'leverages' → 'uses' on index.html L176 (P0-007)
+- Date: 2026-06-04
+- Change: Replaced banned word 'leverages' with 'uses' on index.html line 176.
+|- Files/systems touched: index.html (1 line), CHANGELOG.md (this entry), project-level CHANGELOG at /Users/jarvis/Documents/Claude/Projects/This.Live/CHANGELOG.md (updated at lines 52-58 in the same PM cycle).
+|- Author/agent: coder (PM-dispatched via this-live-pm daily-impl 14:00 ET, 2026-06-04)
+
+## 2026-06-15 - Blog post: Forge source-grounded engineering agents
+- Date: 2026-06-15
+- Change: Published blog post at blog/2026-06-15-forge.html about Forge, a source-grounded engineering agent for production codebases. Also updated blog/index.html and index.html blog preview section.
+- Why it matters: Covers the new Forge product card added 2026-06-08 with technical deep dive on source tree parsing, import graphs, test-aware generation, and structured diff review.
+- Files/systems touched: blog/2026-06-15-forge.html, blog/index.html, index.html, CHANGELOG.md.
+- Verification: verify_content_package.py passed; check_blog_surface.py, check_product_cards.py, check_resume_surface.py, check_founder_proficiencies.py all passed; HTMLParser over index.html, resume.html, blog/index.html, and blog/2026-06-15-forge.html clean.
+- Author/agent: Jarvis/Hermes (DPL weekly cron)
+
+## 2026-06-11 — Award-winning design system + flagship umbrella rebuild (branch design/award-winning-v1)
+- Date: 2026-06-11
+- Change: Established the shared This.Live / Cortex Suite design system (`design-system.css` tokens + reusable component kit; `DESIGN-SYSTEM.md` docs) and rebuilt the umbrella `index.html` to an award-winning reference bar — sovereign-local thesis hero, 6-pillar suite grid (each links its page), problem→solution narrative, "smarter AND cheaper" flywheel, truthful "what's real today vs staged" ledger, and a strong CTA. Added `home.css` page layer.
+- Why it matters: Gives every pillar page ONE coherent, dark-first, single-accent (cyan) system with a modular type scale, 8pt spacing, consistent radius/elevation/motion, AAA-minded contrast, reduced-motion support, and responsive parity at 390/768/1280/1920 — replacing the prior template-per-page drift. Establishes the visual quality bar for the rest of the site work.
+- Truth discipline: Every claim cross-checked against `cortex-completion-2026-06-10/receipts/phase7/claims-ledger.md` — Mnemos 75k+/7-of-7 gates, Maestro live routing + ~63k historical labels (auto-labeling "fires", signal still maturing — NOT claimed useful), Forge factory built + base served but NO trained/served adapters, Agent Fabric engine proven e2e (not yet daily prod driver), Surfaces 3 surfaces + desktop shell (GA/store staged), managed tier labeled Planned/not-offered. No pricing, no "iOS of agentic AI", no "54 models", no fake testimonials/metrics.
+- Files/systems touched: design-system.css (new), home.css (new), DESIGN-SYSTEM.md (new), index.html (rebuilt), .claude/launch.json (new), CHANGELOG.md.
+- Verification: HTML tag-balance validator OK; Claude Preview MCP screenshots at 390/768/1280/1920 + headless-Chrome full-page captures (receipts/design/shots/index-1280.png, index-390.png); browser console clean (0 errors/warnings); check_resume_surface.py passed.
+- Known follow-up: Legacy DOM-contract guards (check_product_cards/founder_proficiencies/stack_cards/blog_surface) now fail against the reframed index (product catalog/founder block/blog preview moved off the umbrella; still reachable via nav+footer). These are advisory only — NOT wired into the Docker build or Railway deploy — and should be re-pointed at the new contract (or retired for the index) on review/merge.
+- Build-and-review: branch design/award-winning-v1 only; main untouched, NOT deployed.
+- Author/agent: Jarvis (design-system phase, Claude Code)
+## 2026-07-02 — bryce.this.live now matches the umbrella (full rewrite)
+
+The bryce.this.live apex was serving a stale "Bryce Murad — Builder" page from a
+prior build before the resume reframe and the new design system. Source-vs-live
+drift: the served HTML (24,219 bytes) no longer existed anywhere in the repo.
+
+Rewrite:
+- new `bryce.html` (~28KB) — full founder/living resume page with hero (portrait
+  + side-by-side "currently" card), current-focus grid, founder background,
+  experience, project portfolio (6 tracked products + tail), tooling bracket,
+  education / athletics / global, operating principles, operating model, footer.
+- new `founder-page.css` — reuses `/design-system.css` and `/home.css`
+  (same nav, trust strip, reveals, hero scaffolding). Adds bryce-only layout
+  primitives (portrait-frame, focus grid, portfolio cards with status badges,
+  principles list, responsive rules).
+- `nginx.conf` — adds `bryce.this.live → /bryce.html` to the $pillar_home map
+  so the apex stop matches the umbrella's pillar-subdomain convention.
+
+Content source: existing `resume.html` (Founder & AI Operator framing,
+"Current focus" = getting Cortex to the public). Visual family matches the
+new umbrella (cyan accent #2DE2FF, Space Grotesk / Inter / JetBrains Mono,
+orb-blur hero, glass surfaces, status badges, hover lifts).
+
+Honest-claim discipline: portfolio cards mirror this.live's product truth —
+live / active-build labels match the umbrella; no fabricated metrics; status
+notes mirror `CLAIMS-LEDGER.md`. File modified: bryce.html (new), founder-page.css
+(new), nginx.conf (1 line added).
+
+## 2026-07-02 — Fleet snapshot for the landing-page narrative
+
+Per Bryce's 2026-07-02 03:34 ET parallelized-pass directive (14 PMs routed via Mavis),
+the landing-page umbrella is updated with the fleet's current state so the public
+"what we are doing" narrative matches the actual receipts. Documentation + audit
+only — no live site push. Honest-claim discipline: every entry below maps to a real
+in-repo CHANGELOG receipt or a verified fact; no aspirational copy.
+
+**Cortex Suite — 5/6 pillars PROVEN, 1 PARTIAL.** E1–E11 are the live-true bars
+(dispatch-executes-E2E, AF-reachable, canonical-receipts-present, enqueue-accepts,
+decision-id-non-auditor, receipts-sampled, etc.). The PARTIAL is surfaces B2 receipts-
+rail: env is wired on `agent-fabric` (`AGENT_FABRIC_EVENTS_URL`, commit `98da178`)
+but the daemon-restart gate is not yet verified. Receipts sampled live against AF
+:3333 tonight include non-auditor decision_ids `maestro-bb8501fa`,
+`maestro-7172f6c4`, `maestro-21190e41`, etc. (cortex C2 scrutiny-rescore commit
+`00a6d54` retired the fossilized 2026-06-12 claim "only the auditor produced a
+decision_id" — `number_one_not_working: null`, `dispatch_executes_e2e: true`).
+E12 host-bridge sidecar landed (`agent-fabric` commit `f8231c1`); the
+BRIDGE-CLI-HARNESSES block at `server.mjs:1166` is identified as Bryce's E12
+collision zone.
+
+**Ftag-studio Age of Arrows rebuild.** P0 (loose-tight loop, tests parity) + P1a
+(projectile bank 42 `.asset` + weapon bank 32 `.asset`) done. P1b (additional
+projectile FX + animation-event hooks) is next. 155-file dirty working tree from
+the 06-26 deep-research pass; MCP-bridge caveat (untrusted MCP tools → quarantine
+before merge) is in HANDOFF.md. The ftag-lesson guardrail (no Unity Editor /
+ProjectSettings / Library / .opencode touches) is enforced; 22 `Scripts/Combat/
+UI/Data` files deferred as concurrent-continuation, NOT ftag-pm's lane.
+
+**DPL — scaffolded + first 3 topics + first blog draft queued.** Workspace is the
+agent-side `~/.mavis/agents/dpl-pm/workspace`; scoring-rubric, audience-map,
+channel-playbooks, idea-inbox, approved-topics, draft-queue,
+interesting-work-signals, DECISIONS/{0001,0002,0003} all in place. **DPL PM
+halted** on the topic/blog-draft task because all four input surfaces are
+structurally empty by design at P0 (upstream project source-of-truth integration
+not yet active). DPL-PM correctly refused to invent filler; three options
+surfaced to Mavis (A hold / B cross-project signal / C Bryce authors hooks). Per
+DECISIONS/0001 §4 + the scoring-rubric's anti-pattern list, evergreen framing
+without a current-work hook is out of scope. DPL remains in scaffolded-but-idle
+state pending the Bryce signal-source call. **Update 2026-07-02 03:42 ET**:
+DPL signal-source decision resolved by Mavis via the option-B variant
+(cross-project current-work signal sources approved); DPL PM's
+handoff-prep doc carries the resolution. No further Bryce action on
+this item.
+
+**Signal and Noise — v3 rein collapse landed.** Legacy `podcast-host-bryce`,
+`podcast-host-darin`, `podcast-producer` reins deleted (3 D entries, intentional
+per Bryce's "specific job roles, not domain slices" norm). The post-v3 set is 3
+specific-functional reins; matches Bryce/Mavis's agent-team-tab mental model.
+BACKLOG.md updated (M) with the v3 re-scope entry. The show itself is in
+production for the next cycle; the meta-show ops surface is the 3 functional
+reins + the in-repo CHANGELOG.
+
+**CREST PM — registered.** New `crest-pm` agent for `/Users/jarvis/crest`
+project; workspace at `/Users/jarvis/crest/`, clean working tree, CHANGELOG.md
+in-repo + at the external Documents location. SAQ PM correctly escalated as
+cross-project (identity lock §1 + §8 forbids); Mavis authored the scaffold
+inline per SAQ PM's recommendation. CREST-PM now routable in the fleet;
+first Mavis-handoff-prep doc lands on CREST-PM's first routable session.
+
+**5 Bryce-needed-actions queue items surfaced (4 open, 1 resolved).**
+Captured in `docs/Mavis-fleet-snapshot-2026-07-02.md` (the mirror doc this
+landing page can render):
+1. ✅ DPL signal-source decision — RESOLVED (option-B variant) at 03:42 ET
+   (cross-project current-work signal sources approved by Mavis); DPL PM
+   handoff-prep doc carries the resolution. No further Bryce action.
+2. Maestro B4a consensus-pool fix — gated on Bryce OpenRouter key (the actual
+   flywheel fuel unblock; label-provenance plumbing is already in place).
+3. SAQ push authorization — commits `cf82e11` + `a690832`; AND a decision on
+   the 24 untracked scaffolding dirs/files.
+4. Surfaces B2 daemon restart authorization — `pocket-agent` PID 71247;
+   operator-bound per PLAN.md blocker B1 (no restart without explicit
+   Bryce yes in the maintenance window).
+5. CREST PM authoring call (closed for the record; SAQ PM escalated,
+   Mavis authored inline).
+
+Plus the 6 still-open Maestro sign-offs from the 06-22 audit carried forward
++ the E3 atlas canary 7-day soak post-2026-06-11 18:27 ET (fhm fleet roll
+on hold until soak clears + Bryce fleet-roll pre-stage).
+
+**Companion doc.** `docs/Mavis-fleet-snapshot-2026-07-02.md` —
+per-project 1-paragraph + open Bryce decisions block. The thislive-landing
+site can mirror that doc (or copy its sections) to keep the public narrative
+honest about the fleet's actual state.
+
+Files touched: `CHANGELOG.md` (this entry), `docs/Mavis-fleet-snapshot-2026-07-02.md`
+(new). No code/UI changes; no live site push. Companion mirrors the external
+`/Users/jarvis/Documents/Claude/Projects/this.live/CHANGELOG.md` entry per
+Bryce's 2026-07-02 02:58 ET fleet-wide norm (discoverable CHANGELOG per project
++ workspace-coherent materials). Author: this-live-pm via Mavis routing.

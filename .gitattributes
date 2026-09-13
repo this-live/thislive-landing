@@ -1,0 +1,7 @@
+# CHANGELOG.md is a generated rollup (see scripts/changelog-assemble.mjs).
+# merge=union: if two PRs both regenerate it concurrently (rather than
+# rebasing on top of each other), git takes the union of added lines
+# instead of raising a conflict. Order may end up slightly off in that
+# rare case; re-running the assembler afterward restores canonical order
+# deterministically. See U73 (2026-09-12) and README.md.
+CHANGELOG.md merge=union
