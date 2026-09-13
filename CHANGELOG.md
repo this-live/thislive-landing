@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-12 — Mnemos pillar page: "what's real" ledger refreshed to proven 2026-09-12 state (slug mnemos-pillar-20260912)
+
+- Change: mnemos/index.html §whats-real — six rows replaced (129k+ memories fail-closed; department
+  isolation negative test 6/6 on production; one client per language incl. Claude Code over MCP;
+  Obsidian-native bridge + probe; semantic embeddings via any /v1/embeddings server with the
+  measured eval; explicit known limits incl. the backup gap and public /health enumeration).
+- Rationale: prior rows cited 2026-06-11 receipts (75k, v3.0.0, 7/7 gates) that are stale; every
+  new claim maps to a script, receipt, or health field re-run on 2026-09-12 (pillar brief
+  cortex-ops/plan/handoffs/2026-09-12-mnemos-pillar.md).
+- Superseded: the 2026-06-11 dated rows.
+
 ## 2026-09-12 — Maestro page: honest "In Progress" ledger row for the model registry + task-class routing (design/award-winning-v1, slug maestro-registry-row)
 - Date: 2026-09-12
 - Change: `maestro/index.html` "What's real today" ledger gains one row (after Vega/Quorum) describing ADR-0033 — the model registry (descriptors, discovery, Forge registrations; cited cost, capabilities, sourced liveness) and `POST /v1/route` task-class routing — badged **In Progress**, stating plainly that it is built and proven on the dev node but not yet promoted to the GPU node.
