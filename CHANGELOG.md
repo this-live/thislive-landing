@@ -17,6 +17,14 @@ changes produces byte-identical output.
 - Verified: file present on branch `feature/work-with-me-consulting`; not pushed; not deployed.
 - Rollback: delete `work-with-me/` and this fragment, re-run `node scripts/changelog-assemble.mjs`.
 
+## 2026-09-19 — Landing: /work-with-me drop standalone audit from packaging
+
+- Problem: staged consulting page still showed a $2,500 AI Operations Audit step after Bryce decided the public ladder is Triage → Build → Retain only.
+- Change: `work-with-me/index.html` — offers section is now Automation Triage (free) → scoped Build $6–15k (discovery in kickoff) → Retainer $1.5–3k/mo. No standalone audit card. Booking CTA still PLACEHOLDER pending Workspace unlock.
+- Reason: Bryce decision 2026-09-19 via Consulting Desk.
+- Verified: page copy updated on branch `feature/work-with-me-consulting`; not pushed; not deployed.
+- Rollback: revert this commit.
+
 ## 2026-09-13 — Blog: five terrible posts rewritten through the Creative loop, one false claim corrected (C2)
 
 - Problem: the 2026-09-13 blog audit graded all 35 live posts and found five terrible ones. Four (2026-06-15, 06-22, 06-30, 07-07) ran 1,162 to 1,676 words against a 400-word cap, restated the same idea three or more times, and named no concrete thing built that week. One (2026-04-13 security) was 255 words of platitude with no incident behind it. Separately, the 2026-08-24 post told readers in the present tense that a CSS and motion fix had landed on this site; it had not, and still has not.
