@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work with me · AI consulting for operators · this.live</title>
+  <meta name="description" content="Free 30-minute Automation Triage for small and mid-size businesses. Map low-effort, high-impact AI automations — websites, stores, local AI, ops — then decide if a paid audit or build makes sense.">
+  <meta name="theme-color" content="#080B14">
+  <meta property="og:title" content="Work with me · this.live AI consulting">
+  <meta property="og:description" content="Free 30-minute Automation Triage for operators who want low-effort, high-impact automations. Then audit → build → retainer when it earns it.">
+  <meta property="og:url" content="https://this.live/work-with-me/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work with me · this.live AI consulting">
+  <meta name="twitter:description" content="Free 30-minute Automation Triage for SMB operators. Book a Google Meet.">
+  <meta name="twitter:image" content="https://this.live/og-image.png">
+  <link rel="icon" type="image/png" href="/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
+  <link rel="stylesheet" href="/design-system.css">
+  <link rel="stylesheet" href="/home.css">
+  <style>
+    .wwm-hero { padding: 8rem 0 4rem; }
+    .wwm-section { padding: 3rem 0; }
+    .wwm-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 800px) {
+      .wwm-grid { grid-template-columns: 1fr 1fr; }
+      .wwm-grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .wwm-card {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      background: rgba(255,255,255,.02);
+    }
+    .wwm-card h3 { margin: 0 0 .5rem; font-size: 1.1rem; }
+    .wwm-card p { margin: 0; opacity: .85; line-height: 1.55; }
+    .wwm-price { font-weight: 700; margin-top: .75rem; color: var(--accent, #63beff); }
+    .wwm-note { font-size: .9rem; opacity: .7; margin-top: 1.25rem; line-height: 1.5; }
+    .wwm-book {
+      margin-top: 1.25rem;
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(99,190,255,.35);
+      background: rgba(99,190,255,.06);
+    }
+    .wwm-book .btn { margin: .75rem .5rem 0 0; }
+    .wwm-draft-banner {
+      display: none; /* Bryce: remove this whole banner before deploy */
+      margin: 1rem 0 0;
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      border: 1px dashed rgba(255,180,80,.5);
+      background: rgba(255,180,80,.08);
+      font-size: .85rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/#products">Portfolio</a>
+        <a href="/#suite">The engine</a>
+        <a href="/blog/">Blog</a>
+        <a href="/work-with-me/" class="is-active">Work with me</a>
+        <a href="#book" class="btn btn-primary btn-sm nav-cta">Book a triage</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main id="main">
+    <header class="hero wwm-hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-scrim"></div>
+      </div>
+      <div class="container container--narrow">
+        <div class="hero-pill reveal">
+          <span class="tag">Consulting</span>
+          <span>For operators, not slide decks</span>
+        </div>
+        <h1 class="reveal" data-delay="1">
+          Low-effort automations.<br><span class="gradient-text">High-impact outcomes.</span>
+        </h1>
+        <p class="hero-lede reveal" data-delay="2">
+          I help small and mid-size businesses find the few AI moves that actually save hours — websites, stores, local AI, ops workflows — then build them so they survive contact with reality.
+        </p>
+        <p class="hero-sub reveal" data-delay="3">
+          Start with a <strong>free 30-minute Automation Triage</strong> on Google Meet. You leave with a one-page opportunity list. Paid work only if it’s obviously worth it. Capped at a few slots per week so the call stays sharp.
+        </p>
+        <div class="hero-actions reveal" data-delay="4">
+          <a href="#book" class="btn btn-primary btn-arrow">
+            Book free triage
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#offers" class="btn btn-outline">See packaging</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="wwm-section" id="fit">
+      <div class="container container--narrow">
+        <h2>Who this is for</h2>
+        <div class="wwm-grid">
+          <div class="wwm-card">
+            <h3>Good fit</h3>
+            <p>Owners, COOs, and ops leads at ~20–500 person service businesses (or AI founders) drowning in manual cross-system work, follow-ups, reporting, or “someone lives in the spreadsheet.”</p>
+          </div>
+          <div class="wwm-card">
+            <h3>Not a fit</h3>
+            <p>People hunting free unlimited consulting, “make me an AI company” vague asks, or anyone who needs big-firm RFP theater. I architect and operate agent systems — I don’t pretend to be a commodity freelancing shop.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wwm-section" id="offers">
+      <div class="container container--narrow">
+        <h2>How it works</h2>
+        <div class="wwm-grid wwm-grid--3">
+          <div class="wwm-card">
+            <h3>1. Automation Triage</h3>
+            <p>30 minutes. Map 1–3 painful workflows. Leave with a prioritized opportunity list.</p>
+            <p class="wwm-price">Free · capped ~4/week</p>
+          </div>
+          <div class="wwm-card">
+            <h3>2. AI Operations Audit</h3>
+            <p>~2 weeks. Quantify candidates, honest ROI, build plan you can walk away from.</p>
+            <p class="wwm-price">$2,500 fixed</p>
+          </div>
+          <div class="wwm-card">
+            <h3>3. Build → retain</h3>
+            <p>Ship the automation (site, store, local AI, ops). Retainer only after something works.</p>
+            <p class="wwm-price">$6–15k · then $1.5–3k/mo</p>
+          </div>
+        </div>
+        <p class="wwm-note">Typical first builds: lead follow-up systems, internal ops agents, simple storefronts/sites, local-model setups, and “replace the spreadsheet person” workflows. Cortex (sovereign agent platform) is an option after we’ve earned trust — not the opening pitch. No fabricated case studies or traction claims.</p>
+      </div>
+    </section>
+
+    <section class="wwm-section" id="book">
+      <div class="container container--narrow">
+        <h2>Book your triage</h2>
+        <div class="wwm-book">
+          <p><strong>Automation Triage · 30 minutes · Google Meet</strong></p>
+          <p>Limited slots so the call stays useful. Bring the workflow that burns the most hours.</p>
+          <!-- Replace BOOKING_LINK_PLACEHOLDER with the public Google Appointment schedule (or Cal.com) URL before deploy -->
+          <p>
+            <a class="btn btn-primary btn-arrow" id="bookingCta" href="BOOKING_LINK_PLACEHOLDER">
+              Choose a time
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-outline" href="mailto:bryce@this.live?subject=Automation%20Triage%20request">Or email bryce@this.live</a>
+          </p>
+          <p class="wwm-draft-banner" id="bookingDraftNote">
+            Draft only: booking URL not set yet. Create a Google Appointment schedule (preferred) or Cal.com event, then replace <code>BOOKING_LINK_PLACEHOLDER</code>. Hide this banner before deploy.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+          <p class="footer-tag">Decentralized, sovereign, fully-local agentic AI.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-h">Site</p>
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="https://bryce.this.live">Founder</a>
+          <a href="/work-with-me/">Work with me</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-h">Contact</p>
+          <a href="mailto:bryce@this.live">bryce@this.live</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 this.live LLC · Bryce Murad</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          links.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    var reveals = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    // Show draft banner only while placeholder remains
+    var cta = document.getElementById('bookingCta');
+    var note = document.getElementById('bookingDraftNote');
+    if (cta && note && cta.getAttribute('href') === 'BOOKING_LINK_PLACEHOLDER') {
+      note.style.display = 'block';
+    }
+  })();
+  </script>
+</body>
+</html>
