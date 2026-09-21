@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://this.live/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Work with me · this.live AI consulting">
-  <meta name="twitter:description" content="Free 30-minute Automation Triage for SMB operators. Book a Google Meet.">
+  <meta name="twitter:description" content="Free 30-minute Automation Triage for SMB operators. Book a video call.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
@@ -47,15 +47,6 @@
       background: rgba(99,190,255,.06);
     }
     .wwm-book .btn { margin: .75rem .5rem 0 0; }
-    .wwm-draft-banner {
-      display: none; /* Bryce: remove this whole banner before deploy */
-      margin: 1rem 0 0;
-      padding: .75rem 1rem;
-      border-radius: 10px;
-      border: 1px dashed rgba(255,180,80,.5);
-      background: rgba(255,180,80,.08);
-      font-size: .85rem;
-    }
   </style>
 </head>
 <body>
@@ -95,7 +86,7 @@
           I help small and mid-size businesses find the few AI moves that actually save hours — websites, stores, local AI, ops workflows — then build them so they survive contact with reality.
         </p>
         <p class="hero-sub reveal" data-delay="3">
-          Start with a <strong>free 30-minute Automation Triage</strong> on Google Meet. You leave with a one-page opportunity list. A scoped build only if it’s obviously worth it. Capped at a few slots per week so the call stays sharp.
+          Start with a <strong>free 30-minute Automation Triage</strong> on video call. You leave with a one-page opportunity list. A scoped build only if it’s obviously worth it. Capped at a few slots per week so the call stays sharp.
         </p>
         <div class="hero-actions reveal" data-delay="4">
           <a href="#book" class="btn btn-primary btn-arrow">
@@ -151,18 +142,15 @@
       <div class="container container--narrow">
         <h2>Book your triage</h2>
         <div class="wwm-book">
-          <p><strong>Automation Triage · 30 minutes · Google Meet</strong></p>
+          <p><strong>Automation Triage · 30 minutes · Cal.com</strong></p>
           <p>Limited slots so the call stays useful. Bring the workflow that burns the most hours.</p>
-          <!-- Replace BOOKING_LINK_PLACEHOLDER with the public Google Appointment schedule (or Cal.com) URL before deploy -->
+          <!-- Public booking: Cal.com Automation Triage -->
           <p>
-            <a class="btn btn-primary btn-arrow" id="bookingCta" href="BOOKING_LINK_PLACEHOLDER">
+            <a class="btn btn-primary btn-arrow" id="bookingCta" href="https://cal.com/bryce-murad/automation-triage">
               Choose a time
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn btn-outline" href="mailto:bryce@this.live?subject=Automation%20Triage%20request">Or email bryce@this.live</a>
-          </p>
-          <p class="wwm-draft-banner" id="bookingDraftNote">
-            Draft only: booking URL not set yet. Create a Google Appointment schedule (preferred) or Cal.com event, then replace <code>BOOKING_LINK_PLACEHOLDER</code>. Hide this banner before deploy.
           </p>
         </div>
       </div>
@@ -227,13 +215,6 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(function (el) { io.observe(el); });
-    }
-
-    // Show draft banner only while placeholder remains
-    var cta = document.getElementById('bookingCta');
-    var note = document.getElementById('bookingDraftNote');
-    if (cta && note && cta.getAttribute('href') === 'BOOKING_LINK_PLACEHOLDER') {
-      note.style.display = 'block';
     }
   })();
   </script>

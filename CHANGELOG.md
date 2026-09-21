@@ -9,6 +9,14 @@ the entries below — add a new fragment instead (see README.md, "How to add a
 changelog entry"), then re-run the assembler. Running it twice with no fragment
 changes produces byte-identical output.
 
+## 2026-09-21 — Landing: ship /work-with-me with Cal.com Automation Triage booking
+
+- Problem: consulting conversion page was staged locally with a booking placeholder; Google Workspace Appointment schedule still blocked.
+- Change: `work-with-me/index.html` wires public Cal.com link `https://cal.com/bryce-murad/automation-triage` (30-min Automation Triage); removes draft banner. `index.html` nav adds Work with me + Book a triage CTA.
+- Reason: Bryce chose Cal.com interim to ship the consulting arm while Workspace recovery finishes.
+- Verified: booking URL opens Cal.com event; page ready for deploy via this branch.
+- Rollback: revert this commit; remove nav links; restore placeholder if needed.
+
 ## 2026-09-19 — Landing: draft /work-with-me consulting conversion page (staged, not deployed)
 
 - Problem: this.live had no conversion surface for AI consulting — no offer page, no packaging, no booking CTA. GTM plan since 2026-07-21 called for `/work-with-me/`; Bryce approved free capped Automation Triage → paid ladder on 2026-09-19.
