@@ -1,109 +1,27 @@
 #!/usr/bin/env python3
-"""Content checks for the canonical This.Live founder/resume page."""
+"""Resume page keeps the core verifiable facts and drops stale items (2026-10-01)."""
 
 from pathlib import Path
 
-index = Path('index.html').read_text(encoding='utf-8')
-resume = Path('resume.html').read_text(encoding='utf-8')
-
-required_resume = [
-    'Bryce Murad — Founder & AI Operator',
-    'swim coach',
-    'nationally ranked swimmer',
-    'network solution architect',
-    'Network Solutions Architect',
-    'Professional experience',
-    'Designed HLD network architecture for 60+ Fortune 1000 clients and State/Local governments',
-    'Closed more than 50% of complex enterprise deals',
-    '10+ government agencies',
-    'enterprise cost modeling',
-    'RFP/RFQ responses',
-    'Partnered with Microsoft',
-    'mainframe-as-a-service product in public cloud',
-    'custom CPQ platform',
-    'Pre-Sales Intern / Network Intern',
-    'Scripted 350 device banners and 150 interface descriptions across 2 data centers',
-    'Blockchain CMDB solution',
-    'CCNA',
-    'Azure Fundamentals',
-    'Southern Connecticut State University',
-    'B.S. Sports Management / Division II Swim Team',
-    '3.33 GPA',
-    'NexGenT',
-    'Full Stack Network Engineer',
-    '24-week military-grade program',
-    'NE-10 Conference Champion',
-    'NE-10 All-Conference',
-    'Connecticut state record holder',
-    'national first-place honors in 50 Fly, 50 Free, and 200 IM',
-    'National Diversity Select Camp',
-    'Olympic Training Center in Colorado Springs',
-    '6 years living in Singapore',
-    'summer work in Norway',
-    '30+ countries across Europe, Asia, Oceania, and the Americas',
-    'Singapore and the United States',
-    'lived between Singapore and the United States',
-    'Hard work works',
-    'Treat people right',
-    'Trust people',
-    'Optimize for experiences',
-    'How you do anything is how you do everything',
-    'Speak the truth',
-    'Knowledge is power',
-    'Problem solving and critical thinking are paramount',
-    'Be kind to people',
-    'Be generous',
-    'Teach those around you',
-    'The simpler your needs, the more content you will be',
-    'Have fun',
-    'Do what you love',
-    'Provide and protect those around you',
-    'Stay composed, but be a killer',
-    'Compete',
-    'perfect practice',
-    'Confidence is king',
-    'MiniMax Code /team-backed workspaces',
-    'Cortex Suite',
-    'Forge',
-    'Surfaces',
-    'Pocket Agent',
-    'Personal Life OS',
-    'Fleet Terminal',
-    'Even Realities interface',
-    'Beacon',
-    'Maestro',
-    'Signal & Noise',
-    'Digital Products Lab',
-    'Fieldhouse Games',
-    'FTAG Studio',
-    'Ages and Arrows',
-    'Brokernomex / IQlume',
-    'SAQ / Storrs Aquatics',
-    'Cursor',
-    'Hermes',
-    'OpenClaw',
-    'Claude Code',
-    'Kimi Code',
-    'MiniMax Code',
-    'Codex',
-    'Hugging Face',
-    'vLLM',
-    'SGLang',
-    'LoRA',
-    'adapter training',
-    'Railway',
-    'Cloudflare',
-    'Docker',
-    'Tailscale',
-    'Terminus',
+HTML = Path("resume.html").read_text(encoding="utf-8")
+required = [
+    "Bryce Murad: resume",
+    "Network Solutions Architect",
+    "Ensono",
+    "60+ Fortune 1000",
+    "Partnered with Microsoft",
+    "Southern Connecticut State University",
+    "CCNA",
+    "Azure Fundamentals",
+    "MEDDPICC",
+    "NE-10 Conference Champion",
+    "30+ countries",
+    "bryce@this.live",
 ]
-missing = [x for x in required_resume if x not in resume]
+missing = [x for x in required if x not in HTML]
 if missing:
-    raise SystemExit('Missing resume content: ' + ', '.join(missing))
-
-if '/resume.html' not in index:
-    raise SystemExit('Landing page does not link to /resume.html')
-if 'https://bryce.this.live' in index:
-    raise SystemExit('Landing page still links to stale bryce.this.live artifact instead of canonical resume.html')
-
-print(f'Resume surface check passed: {len(required_resume)} required phrases, landing links canonical resume')
+    raise SystemExit("Missing resume content: " + ", ".join(missing))
+for forbidden in ["This.Live", "hello@mail.this.live", "public beta"]:
+    if forbidden in HTML:
+        raise SystemExit("Stale resume content remains: " + forbidden)
+print("Resume check passed: core facts present, stale items removed")

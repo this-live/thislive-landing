@@ -3,431 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Surfaces · Scattered AI, synced into one</title>
-  <meta name="description" content="A dozen AI tools, a dozen logins, a dozen bills — none of them yours. Surfaces collapses them into one desktop app that drives a fleet of agents over a backend you host. Decentralized by design: your hardware, your providers, or none.">
+  <title>Surfaces · The ways I talk to my AI setup · this.live</title>
+  <meta name="description" content="Surfaces is how I talk to my AI setup: a voice assistant, a daily planner, a terminal and a desktop app. Much of it now lives in Ostium, my newer tool.">
+  <link rel="canonical" href="https://this.live/surfaces/">
   <meta name="theme-color" content="#080B14">
-  <meta property="og:title" content="Surfaces · Scattered AI, synced into one">
-  <meta property="og:description" content="One installable desktop app that drives a fleet of agents over a backend you host. Decentralized by design: your hardware, your providers, or none. No rented seat.">
+  <meta property="og:site_name" content="this.live">
+  <meta property="og:title" content="Surfaces · The ways I talk to my AI setup · this.live">
+  <meta property="og:description" content="Surfaces is how I talk to my AI setup: a voice assistant, a daily planner, a terminal and a desktop app. Much of it now lives in Ostium, my newer tool.">
   <meta property="og:url" content="https://this.live/surfaces/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="this.live: Automate the right work. Keep your edge.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Surfaces · This.Live">
-  <meta name="twitter:description" content="The product surface for decentralized agentic AI. Scattered AI tools, synced into one app you own and host yourself.">
+  <meta name="twitter:title" content="Surfaces · The ways I talk to my AI setup · this.live">
+  <meta name="twitter:description" content="Surfaces is how I talk to my AI setup: a voice assistant, a daily planner, a terminal and a desktop app. Much of it now lives in Ostium, my newer tool.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-700.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
   <link rel="stylesheet" href="/design-system.css">
-  <link rel="stylesheet" href="/pillar.css">
+  <link rel="stylesheet" href="/site.css">
 </head>
-<body class="pillar-page h-blue">
-
-  <!-- ── NAV ── -->
-  <nav class="nav" id="nav">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="nav" id="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <a href="/" class="logo" aria-label="this.live home">this<span class="logo-dot">.</span>live</a>
       <div class="nav-links" id="navLinks">
-        <a href="/cortex/">Cortex</a>
-        <a href="/maestro/">Maestro</a>
-        <a href="/mnemos/">Mnemos</a>
-        <a href="/fabric/">Fabric</a>
-        <a href="/forge/">Forge</a>
-        <a href="/#cortex" class="nav-back">&larr; Cortex</a>
-        <a href="#how" class="btn btn-primary btn-sm nav-cta">See the surfaces</a>
+        <a href="/#services">Services</a>
+        <a href="/#how">How I work</a>
+        <a href="/bryce.html">About</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Book a free call</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
-
   <main id="main">
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <p class="eyebrow">Surfaces</p>
+        <h1 class="page-title">Surfaces: the ways I talk to my AI setup</h1>
+        <p class="page-lede">Surfaces is how I talk to the system: a voice assistant, a daily planner, a terminal and a desktop app, all on one backend I run.</p>
+        <p class="note-callout">Much of what Surfaces set out to do now lives in Ostium, my newer tool for running and reviewing work across AI coding assistants.</p>
+      </div>
+    </header>
 
-  <!-- ── HERO ── -->
-  <header class="phero">
-    <div class="phero-bg" aria-hidden="true">
-      <div class="phero-grid"></div>
-      <div class="phero-orb phero-orb--1"></div>
-      <div class="phero-orb phero-orb--2"></div>
-      <canvas id="heroCanvas" class="phero-particles"></canvas>
-    </div>
-    <div class="container">
-      <div class="phero-inner">
-        <p class="phero-eyebrow reveal"><span class="dot"></span> Surfaces · the product you own</p>
-        <h1 class="reveal" data-delay="1">The ways I talk <span class="grad">to the system.</span></h1>
-        <p class="phero-lede reveal" data-delay="2">
-          Surfaces is a voice assistant, a daily planner, a terminal, and a desktop app. Much of what Surfaces set out to do now lives in Ostium, my newer tool for running and reviewing work across AI coding assistants.
-        </p>
-        <div class="phero-actions reveal" data-delay="3">
-          <a href="#how" class="btn btn-primary btn-arrow">
-            See the surfaces
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#whats-real" class="btn btn-outline">What's real today</a>
-        </div>
-        <div class="phero-meta reveal" data-delay="4">
-          <span>One backend you own</span>
-          <span>Any provider, or none</span>
-          <span>Local-first, no rented seat</span>
+    <section class="section section--hairline" aria-labelledby="does-h">
+      <div class="container">
+        <div class="section-head"><h2 id="does-h">What it does</h2></div>
+        <div class="grid2">
+          <article class="card2"><h3>Pocket Agent</h3><p>Voice in, work out. I say what I need and it turns into tasks.</p></article>
+          <article class="card2"><h3>Personal Life OS</h3><p>A daily planner that organizes the day and hands work to the system.</p></article>
+          <article class="card2"><h3>Fleet Terminal</h3><p>One terminal to drive every machine I run.</p></article>
+          <article class="card2"><h3>Desktop app</h3><p>All of the above in one window.</p></article>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- ── THE PROBLEM IT ENDS ── -->
-  <section class="section section--hairline" id="problem">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">The problem it ends</p>
-        <h2 class="title">AI you rent, scattered across a dozen tenants</h2>
-        <p class="lede">A chat app here, a voice assistant there, a terminal somewhere else — each a tenant on someone else's cloud, each with its own login, its own memory, its own bill. None of them know what the others did, and none of them are really yours.</p>
-      </div>
-      <div class="kills">
-        <div class="kill reveal">
-          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+    <section class="section section--hairline" aria-labelledby="status-h">
+      <div class="container container--narrow">
+        <h2 id="status-h">Where it stands</h2>
+        <p class="prose-p">Part of my own setup. I'm not selling it as a product today.</p>
+        <h2 class="mt">What it means for you</h2>
+        <p class="prose-p">The point for clients: your team should talk to its AI in the tools it already uses, not learn six new apps.</p>
+        <div class="cta-band">
           <div>
-            <h3>A surface for every task, owned by someone else</h3>
-            <p>Each app is a tenant on someone's cloud, your context held hostage in their silo. You're the integration layer, copy-pasting between tools that should share state — paying a separate rent to every one of them.</p>
+            <h2 class="cta-title">Book a free 30-minute call</h2>
+            <p>Tell me what's eating your week. I'll tell you straight whether I can help and what I'd do first. Or email me: <a href="mailto:bryce@this.live">bryce@this.live</a></p>
           </div>
-        </div>
-        <div class="kill reveal" data-delay="1">
-          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-          <div>
-            <h3>Centralized by default</h3>
-            <p>The model, the memory, and the kill-switch all live on a server you don't control. When the provider changes the price, the policy, or the plug, your tools go with it — because you never owned them.</p>
-          </div>
+          <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" class="btn btn-primary" target="_blank" rel="noopener">Book a free call</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── HOW IT WORKS (honest) ── -->
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2 class="title">Four front doors onto your own fleet</h2>
-        <p class="lede">Each surface is a different way into the same thing — a fleet of agents running on a backend you host. Not features in someone's app; doorways into a stack that's yours.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step-n">01</span>
-          <h3>Pocket Agent</h3>
-          <p>Speak, and the system acts. A voice assistant turns spoken intent into work, with no cloud assistant in the loop.</p>
-        </div>
-        <div class="step reveal" data-delay="1">
-          <span class="step-n">02</span>
-          <h3>Personal Life OS</h3>
-          <p>A life-first front door onto the fleet, not a blank chatbox. PLO organizes the day around what you're doing and dispatches from it — and ships to Android via Capacitor, same backend.</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <span class="step-n">03</span>
-          <h3>Fleet Terminal</h3>
-          <p>The raw door to the fleet: speech-to-text plus a local dispatch multiplexer, so you drive every node from one terminal — local, on hardware you own.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <span class="step-n">04</span>
-          <h3>One desktop app</h3>
-          <p>Every door in one window. An installable shell with a left activity rail, real files and terminal, and a live Voice console — the whole fleet, in one app you install and own.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── REAL CAPABILITIES ── -->
-  <section class="section section--hairline">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Real capabilities</p>
-        <h2 class="title">What Surfaces actually does</h2>
-        <p class="lede">Verified against the real backend you host and the desktop build — not a mock. Each capability below maps to a receipt in the truth ledger further down.</p>
-      </div>
-      <div class="caps">
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="13" y1="4" x2="11" y2="20"/></svg></span>
-          <h3>Agent / IDE surface</h3>
-          <p>A real coding surface drives a cross-provider grid — stream a turn, watch the diff, approve a gated tool — over the fleet you host. Switch providers per task; none is hard-wired in.</p>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></span>
-          <h3>Live voice console</h3>
-          <p>A voice daemon turns spoken intent into dispatched work with pluggable backends — running live on the backend you host, surfaced in the desktop Voice console.</p>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-          <h3>Life-OS, not a chatbox</h3>
-          <p>Personal Life OS organizes your day around what you're doing and dispatches from it — a life-first front door onto the fleet, not a blank prompt that answers then forgets.</p>
-        </div>
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
-          <h3>Fleet from one terminal</h3>
-          <p>Fleet Terminal multiplexes local dispatch with speech-to-text, so you drive every node of your own fleet from a single command surface — local, on hardware you control.</p>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M4 7h16M4 7v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7"/><circle cx="12" cy="13" r="3"/></svg></span>
-          <h3>One backend you own</h3>
-          <p>Every surface talks to one backend on hardware I own. Ostium now covers much of the "one place to run and review coding work" job Surfaces was built for.</p>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-          <h3>Local-first &amp; private</h3>
-          <p>The whole stack runs on your own hardware, no rented seat. A degrade-not-fail gate keeps surfaces useful with a local heuristic when an upstream provider is absent — or chosen to be none.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DECENTRALIZED BY DESIGN ── -->
-  <section class="section" id="decentralized">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Decentralized by design</p>
-        <h2 class="title">Your hardware. Your providers. Or none.</h2>
-        <p class="lede">Surfaces isn't a SaaS you rent a seat on — it's a stack that lives on your hardware and points at whichever providers you choose. The sovereignty is the product, not a setting.</p>
-      </div>
-      <div class="caps">
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="6" rx="2"/><path d="M6 8h.01M6 17h.01"/></svg></span>
-          <h3>You host the backend</h3>
-          <p>The backend runs on hardware I own. Nothing here depends on publishing a port number or a restart note.</p>
-          <span class="cap-ev">backend on hardware I own</span>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
-          <h3>You pick the providers</h3>
-          <p>A cross-provider grid drives cursor, claude, codex, and HTTP providers side by side — or run fully local with none at all. Switch lanes per task; nothing is hard-wired to one vendor.</p>
-          <span class="cap-ev">cross-provider grid · cursor/claude/codex · or fully local</span>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
-          <h3>No rented seat</h3>
-          <p>No per-seat SaaS, no stacked subscriptions, no plan that expires. The app is yours to install and keep — one window over a fleet you own, billed by nobody.</p>
-          <span class="cap-ev">install &amp; own · no per-seat SaaS · no rented seat</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ARCHITECTURE VISUAL ── -->
-  <section class="section arch">
-    <div class="container">
-      <div class="arch-layout">
-        <div class="arch-copy reveal">
-          <p class="eyebrow">The surface stack</p>
-          <h2>Four front doors. One backend you host. One app you own.</h2>
-          <p>Pocket Agent, Personal Life OS, Fleet Terminal, and the Agent/IDE surface each open onto one backend on hardware I own. The desktop shell puts them in one window, and the same backend powers the Android sideload.</p>
-          <ul class="arch-list">
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>One backend on hardware I own.</b> Ostium now covers much of the review-and-run job across AI coding tools.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>One app you own.</b> A redesigned shell — left rail, real files + terminal, live Voice — installed, not rented.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Any provider, or none.</b> A cross-provider grid you steer; degrade-not-fail keeps it useful fully local.</span></li>
-          </ul>
-        </div>
-        <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
-          <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img">
-            <!-- three surfaces -->
-            <rect class="dg-chip" x="14" y="24" width="128" height="44" rx="10"/>
-            <text class="dg-label" x="78" y="44" text-anchor="middle" font-size="12">Pocket Agent</text>
-            <text class="dg-sub" x="78" y="59" text-anchor="middle" font-size="8.5">live voice</text>
-
-            <rect class="dg-chip" x="14" y="80" width="128" height="44" rx="10"/>
-            <text class="dg-label" x="78" y="100" text-anchor="middle" font-size="12">Personal Life OS</text>
-            <text class="dg-sub" x="78" y="115" text-anchor="middle" font-size="8.5">life-first tasks</text>
-
-            <rect class="dg-chip" x="14" y="136" width="128" height="44" rx="10"/>
-            <text class="dg-label" x="78" y="156" text-anchor="middle" font-size="12">Fleet Terminal</text>
-            <text class="dg-sub" x="78" y="171" text-anchor="middle" font-size="8.5">STT · dispatch</text>
-
-            <!-- backend you host -->
-            <rect class="dg-node-accent" x="186" y="56" width="92" height="92" rx="16"/>
-            <text class="dg-label" x="232" y="92" text-anchor="middle" font-size="13">backend</text>
-            <text class="dg-sub" x="232" y="107" text-anchor="middle" font-size="8.5">backend you host</text>
-            <text class="dg-sub accent-text" x="232" y="120" text-anchor="middle" font-size="8.5">on hardware I own</text>
-
-            <!-- surfaces -> backend -->
-            <path class="dg-flow" d="M142 46 C 168 60, 168 92, 186 98"/>
-            <path class="dg-flow" d="M142 102h44"/>
-            <path class="dg-flow" d="M142 158 C 168 144, 168 112, 186 106"/>
-            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="2.8s" repeatCount="indefinite" path="M142 102h44"/></circle>
-
-            <!-- desktop app shell -->
-            <rect class="dg-node-accent" x="318" y="40" width="128" height="124" rx="14"/>
-            <rect class="dg-node" x="330" y="52" width="104" height="16" rx="4"/>
-            <text class="dg-sub" x="382" y="64" text-anchor="middle" font-size="7.5">6-tab desktop app</text>
-            <rect class="dg-chip" x="330" y="76" width="48" height="18" rx="4"/>
-            <rect class="dg-chip" x="386" y="76" width="48" height="18" rx="4"/>
-            <rect class="dg-chip" x="330" y="100" width="48" height="18" rx="4"/>
-            <rect class="dg-chip" x="386" y="100" width="48" height="18" rx="4"/>
-            <rect class="dg-node-accent" x="330" y="124" width="48" height="18" rx="4"/>
-            <text class="dg-sub" x="354" y="137" text-anchor="middle" font-size="7">Voice</text>
-            <rect class="dg-chip" x="386" y="124" width="48" height="18" rx="4"/>
-            <text class="dg-sub" x="382" y="158" text-anchor="middle" font-size="7.5">Electron · installable</text>
-
-            <!-- backend -> app -->
-            <path class="dg-flow" d="M278 102h40"/>
-            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="2.8s" repeatCount="indefinite" path="M278 102h40"/></circle>
-            <polygon points="318,102 311,98 311,106" fill="currentColor" class="accent-text"/>
-
-            <!-- android sideload -->
-            <rect class="dg-node" x="186" y="250" width="92" height="56" rx="12"/>
-            <text class="dg-label" x="232" y="276" text-anchor="middle" font-size="12">Android</text>
-            <text class="dg-sub" x="232" y="292" text-anchor="middle" font-size="8.5">Capacitor · sideload</text>
-            <path class="dg-flow-soft" d="M232 148v100" stroke-dasharray="3 5"/>
-
-            <!-- local-first label -->
-            <rect class="dg-chip" x="100" y="326" width="264" height="32" rx="9"/>
-            <text class="dg-sub" x="232" y="346" text-anchor="middle" font-size="10">local-first · runs on your own hardware</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHAT'S REAL TODAY ── -->
-  <section class="section section--hairline" id="whats-real">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Truth discipline</p>
-        <h2 class="title">What's real today — and what's staged</h2>
-        <p class="lede">We sell what's built and label what isn't. Every claim maps to a receipt; staged work reads as future, never as shipped.</p>
-      </div>
-      <div class="ledger">
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--build">Staged</span></div>
-          <div class="ledger-body">
-            <h3>One backend, on hardware I own</h3>
-            <p>Every surface talks to one backend on hardware I own. I don't publish a port or a restart note on this page.</p>
-            <span class="ledger-ev">one backend · hardware I own</span>
-          </div>
-        </div>
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--live">Live</span></div>
-          <div class="ledger-body">
-            <h3>The desktop app is built and daily-driveable</h3>
-            <p>An installable shell — left activity rail, real files + terminal, live Voice, cross-provider Agent grid — verified at <strong>192/192 desktop unit tests and 22/22 Playwright smoke.</strong> One window over a fleet you own.</p>
-            <span class="ledger-ev">surfaces CHANGELOG (desktop 192/192 · 22/22 smoke)</span>
-          </div>
-        </div>
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--live">Live</span></div>
-          <div class="ledger-body">
-            <h3>Voice daemon &amp; Fleet Terminal, live and local</h3>
-            <p>The Pocket Agent voice assistant and Fleet Terminal run on hardware I own. Personal Life OS ships to Android from the same backend.</p>
-            <span class="ledger-ev">surfaces/README.md Status · surfaces CHANGELOG (voice tab, /voice WS 101)</span>
-          </div>
-        </div>
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--plan">Planned</span></div>
-          <div class="ledger-body">
-            <h3>App-store distribution</h3>
-            <p>The desktop app is built and runs locally; Android is a Capacitor sideload today. <strong>There are no app-store listings yet</strong> — store distribution waits on signed artifacts and an Apple developer certificate that doesn't exist yet. We say "install / sideload today," not "download from the store."</p>
-            <span class="ledger-ev">plans/08-sites.md SITE-WS5 (artifacts pending, no store listings)</span>
-          </div>
-        </div>
-      </div>
-      <p class="honesty reveal"><strong>Why we say this plainly.</strong> The surfaces and the desktop app are real and tested; what isn't real is a store listing. Calling a sideload an App Store release would be exactly the phantom maturity this suite exists to avoid — so we draw the line at "installable today."</p>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <section class="cta">
-    <div class="container">
-      <div class="cta-card reveal">
-        <p class="eyebrow" style="justify-content:center;">Sync the surfaces</p>
-        <h2>One front door for all your AI. That you own.</h2>
-        <p>Voice, life, fleet, and a real coding surface over one backend you host, in one desktop app you install and keep. Decentralized by design — your hardware, your providers, or none. No rented seat.</p>
-        <div class="cta-actions">
-          <a href="/cortex/" class="btn btn-primary btn-arrow">
-            See the full suite
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="/fabric/" class="btn btn-outline">What runs underneath</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+    </section>
   </main>
 
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
-          <p class="footer-tag">A sovereign, fully-local agentic AI platform you own. Democratizing agentic AI — no providers necessary.</p>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">The Suite</p>
-          <a href="/cortex/">Cortex</a>
-          <a href="/maestro/">Maestro</a>
-          <a href="/mnemos/">Mnemos</a>
-          <a href="/fabric/">Agent Fabric</a>
-          <a href="/surfaces/">Surfaces</a>
-          <a href="/forge/">Forge</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">Surfaces</p>
-          <a href="#how">How it works</a>
-          <a href="#whats-real">What's real</a>
-          <a href="/fabric/">Execution spine</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">Company</p>
-          <a href="mailto:bryce@this.live">bryce@this.live</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/privacy.html">Privacy</a>
-        </div>
+  <footer class="footer2">
+    <div class="container footer2-inner">
+      <div>
+        <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+        <p>Bryce Murad · Custom AI systems and automations · Connecticut, USA</p>
+        <p>&copy; 2026 this.live LLC</p>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 this.live LLC</span>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/thislive" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://x.com/ThisLiveActual" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="https://www.instagram.com/thisliveactual" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-        </div>
-      </div>
-      <p class="footer-note">Surface and desktop-app claims map to surfaces/README.md and the surfaces CHANGELOG (2026-06-11). The desktop app is built; Android is a sideload and there are no store listings yet — the page says so.</p>
+      <nav class="footer2-links" aria-label="Footer">
+        <a href="mailto:bryce@this.live">bryce@this.live</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" target="_blank" rel="noopener">Book a free call</a>
+        <a href="/bryce.html">About</a>
+        <a href="/cortex/">Cortex</a>
+        <a href="/philosophy.html">Philosophy</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- ── JS (vanilla, CSP-safe inline) ── -->
   <script>
-  (function () {
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var nav = document.getElementById('nav');
-    var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
-    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        var open = links.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      links.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') { links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
-      });
-    }
-    var reveals = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      reveals.forEach(function (el) { el.classList.add('in'); });
-    } else {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(function (el) { io.observe(el); });
-    }
-    // The signature SPRAWL → SYNC hero animation is driven by the self-contained
-    // /surfaces/surfaces-hero.js engine (loaded below), which owns #heroCanvas
-    // with the full lifecycle: DPR cap, debounced resize, paused off-screen /
-    // tab-hidden, prefers-reduced-motion static frame, token-only colors.
-  })();
+    (function () {
+      var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      function set(open) { l.classList.toggle('is-open', open); t.setAttribute('aria-expanded', open ? 'true' : 'false'); t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+      t.addEventListener('click', function () { set(!l.classList.contains('is-open')); });
+      l.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
   </script>
-  <script src="/surfaces/surfaces-hero.js" defer></script>
-
 </body>
 </html>

@@ -11,10 +11,10 @@ required = [
     "You approve anything before it goes out.",
     'id="path"',
     'id="services"',
-    "Automation consulting",
+    "Data boundary plan",
     "Reception agent",
     "Lead finder and outreach",
-    "AI tool review",
+    "Automation plan",
     "Local AI workstation",
     "Hybrid setup",
     "Custom builds",
@@ -31,7 +31,6 @@ if missing:
     raise SystemExit("Missing home content: " + ", ".join(missing))
 
 for forbidden in [
-    "Beacon",
     "Signal &amp; Noise",
     "Signal & Noise",
     "Digital Products Lab",
@@ -52,10 +51,10 @@ for forbidden in [
     if forbidden in HTML:
         raise SystemExit("Forbidden home-page copy remains: " + forbidden)
 
-CSS = Path("home.css").read_text(encoding="utf-8")
+CSS = Path("site.css").read_text(encoding="utf-8")
 if "transition: all" in CSS:
-    raise SystemExit("home.css uses transition: all")
+    raise SystemExit("site.css uses transition: all")
 if "prefers-reduced-motion" not in CSS:
-    raise SystemExit("home.css must honor prefers-reduced-motion")
+    raise SystemExit("site.css must honor prefers-reduced-motion")
 
 print("Home check passed: ownership-first copy, no prices, no portfolio clutter, motion rules")
