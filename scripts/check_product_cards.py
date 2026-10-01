@@ -45,16 +45,20 @@ for forbidden in [
     "github.com/brycemurad0/maestro",
     "/work-with-me/",
     "$",
-    "/mo",
+    "/mo ",
+    "/mo<",
     "transition: all",
 ]:
     if forbidden in HTML:
         raise SystemExit("Forbidden home-page copy remains: " + forbidden)
 
-CSS = Path("site.css").read_text(encoding="utf-8")
-if "transition: all" in CSS:
-    raise SystemExit("site.css uses transition: all")
-if "prefers-reduced-motion" not in CSS:
-    raise SystemExit("site.css must honor prefers-reduced-motion")
+for css in ["site.css", "motion.css"]:
+    if "transition: all" in Path(css).read_text(encoding="utf-8"):
+        raise SystemExit(css + " uses transition: all")
+MOTION = Path("motion.css").read_text(encoding="utf-8")
+if "prefers-reduced-motion" not in MOTION:
+    raise SystemExit("motion.css must honor prefers-reduced-motion")
+if "motion.js" not in HTML or "motion.css" not in HTML:
+    raise SystemExit("home page must load motion.css and motion.js")
 
 print("Home check passed: ownership-first copy, no prices, no portfolio clutter, motion rules")

@@ -1,0 +1,92 @@
+/* this.live motion primitives (see MOTION.md).
+   Source rules: org-kt/ui-ux-lib (thislive-ui-motion-standards, emil-design-eng, apple-design).
+   - Tokens only: --dur-1 (180ms ambient), --dur-2 (280ms panels), --dur-3 (500ms reveals), --dur-4 (800ms hero)
+     and --ease (expo-out, entering) / --ease-soft (ambient). Never transition-all.
+   - Transform/opacity only for movement (plus height for the FAQ panel), so no layout shift.
+   - Reveals use the individual `translate` property so they never fight hover/press `transform`.
+   - prefers-reduced-motion: no entrance, no reveal, no lift; colour feedback stays. */
+
+:root { --m-shift: 12px; --m-lift: -4px; --m-press: 0.97; }
+
+/* 1 · Hero entrance: staggered, once, on first paint. CSS-only so there is no flash. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero2 .container > :not(.m-text), .page-hero .container > *, .founder-head > div > * {
+    animation: m-enter var(--dur-4) var(--ease) both;
+  }
+  .hero2 .container > :nth-child(2), .page-hero .container > :nth-child(2), .founder-head > div > :nth-child(2) { animation-delay: 70ms; }
+  .hero2 .container > :nth-child(3), .page-hero .container > :nth-child(3), .founder-head > div > :nth-child(3) { animation-delay: 140ms; }
+  .hero2 .container > :nth-child(4), .page-hero .container > :nth-child(4) { animation-delay: 210ms; }
+  .hero2 .container > :nth-child(n+5), .page-hero .container > :nth-child(n+5) { animation-delay: 280ms; }
+}
+/* 1b · Text effect (word-by-word), adapted from Motion Primitives' TextEffect "fade-in / slide" preset.
+   Words are pre-split in the HTML (no JS, no flash); each rises 0.25em and fades in, 60ms apart. */
+.m-text .m-word { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  .m-text .m-word { animation: m-word var(--dur-4) var(--ease) both; animation-delay: calc(var(--w, 0) * 60ms); }
+}
+@keyframes m-word { from { opacity: 0; transform: translateY(0.25em); } to { opacity: 1; transform: none; } }
+
+@keyframes m-enter { from { opacity: 0; transform: translateY(var(--m-shift)); } to { opacity: 1; transform: none; } }
+
+/* 2 · Scroll reveal. Hidden only when JS is running (html.m-js) and motion is allowed.
+   motion.js adds .is-in once, via IntersectionObserver, with a small per-batch stagger (--m-delay). */
+:is(.section .section-head, .section .svc-label, .section .card2, .section .step, .cta-band, .about2, .faq details, .note-callout, .prose > *) {
+  transition: opacity var(--dur-3) var(--ease) var(--m-delay, 0ms), translate var(--dur-3) var(--ease) var(--m-delay, 0ms);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .m-js :is(.section .section-head, .section .svc-label, .section .card2, .section .step, .cta-band, .about2, .faq details, .note-callout, .prose > *):not(.is-in) {
+    opacity: 0; translate: 0 var(--m-shift);
+  }
+}
+
+/* 3 · Cards: subtle lift on hover (4px max), press feedback on linked cards. */
+.card2 {
+  transition:
+    opacity var(--dur-3) var(--ease) var(--m-delay, 0ms),
+    translate var(--dur-3) var(--ease) var(--m-delay, 0ms),
+    transform var(--dur-1) var(--ease),
+    border-color var(--dur-1) var(--ease-soft),
+    background-color var(--dur-1) var(--ease-soft);
+}
+@media (hover: hover) {
+  .card2:hover { transform: translateY(var(--m-lift)); border-color: var(--border-hover); background-color: var(--surface-2); }
+}
+.card2--link:active { transform: scale(var(--m-press)); }
+
+/* 3b · Card spotlight, adapted from Motion Primitives' Spotlight: a soft radial glow that follows the pointer.
+   motion.js writes --mx/--my on pointermove (fine pointers only); only the glow's opacity transitions. */
+.card2 { position: relative; isolation: isolate; }
+.card2::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--accent-soft), transparent 65%);
+  opacity: 0; transition: opacity var(--dur-2) var(--ease-soft);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card2:hover::before { opacity: 1; }
+}
+
+/* 4 · Buttons and links: press feedback on pointer-down, colour on hover. */
+.btn:active { transform: scale(var(--m-press)); }
+.text-link { transition: color var(--dur-1) var(--ease-soft), transform var(--dur-1) var(--ease); }
+.text-link:active { transform: scale(var(--m-press)); }
+.nav-links a:not(.btn), .footer2-links a { transition: color var(--dur-1) var(--ease-soft), opacity var(--dur-1) var(--ease-soft); }
+.nav-links a:not(.btn):active, .footer2-links a:active { opacity: 0.7; }
+
+/* 5 · FAQ accordion. motion.js animates the <details> height (interruptible) and sets data-open
+   at the start of each toggle so the icon turns immediately. Without JS, native open/close. */
+.faq summary::after { transition: transform var(--dur-2) var(--ease); }
+.faq details[open]:not([data-open="false"]) summary::after,
+.faq details[data-open="true"] summary::after { transform: rotate(45deg); }
+.faq summary:active { opacity: 0.8; }
+
+/* 6 · Sticky nav: deepens, shadows and tightens the logo once you scroll (no size change, no shift). */
+.nav { transition: border-color var(--dur-2) var(--ease-soft), background-color var(--dur-2) var(--ease-soft), box-shadow var(--dur-2) var(--ease-soft); }
+.nav.is-scrolled { background-color: rgba(8, 11, 20, 0.88); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28); }
+.nav .logo { transform-origin: left center; transition: transform var(--dur-2) var(--ease); }
+.nav.is-scrolled .logo { transform: scale(0.94); }
+
+/* Reduced motion: keep feedback as colour/opacity only. */
+@media (prefers-reduced-motion: reduce) {
+  .card2::before { display: none; }
+  .card2:hover, .card2--link:active, .btn:active, .btn:hover, .text-link:active, .nav.is-scrolled .logo { transform: none; }
+}
