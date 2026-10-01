@@ -748,9 +748,10 @@ a.card { text-decoration: none; color: inherit; }
   flex-shrink: 0;
   width: 112px;
   height: 112px;
-  border-radius: 20px;
+  border-radius: 50%;
   border: 1px solid var(--border);
   object-fit: cover;
+  object-position: center 30%;
 }
 
 .founder-head-text {
