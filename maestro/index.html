@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maestro · The routing brain that runs on your hardware</title>
-  <meta name="description" content="Maestro is the decentralized routing brain of Cortex. One prompt arrives, it picks the best model on the right node across your fleet — local first, frontier only when it earns it — and hands back a decision_id you can audit. When a provider caps, it advances to the next seat automatically. A cap is a non-event.">
+  <meta name="description" content="Maestro chooses which AI model handles each task, trying local models first. If one service hits its limit, it switches to the next. It's in the works; I'll open source it once it works as intended.">
   <meta name="theme-color" content="#080B14">
   <meta property="og:title" content="Maestro · The right model. On the right node. Every prompt.">
   <meta property="og:description" content="A routing brain you run across your fleet. Routed per prompt, failover is automatic, a receipt for every decision. BYOK or fully local. A cap is a non-event.">
@@ -34,8 +34,8 @@
         <a href="/fabric/">Fabric</a>
         <a href="/surfaces/">Surfaces</a>
         <a href="/forge/">Forge</a>
-        <a href="/#suite" class="nav-back">&larr; The Suite</a>
-        <a href="#quickstart" class="btn btn-primary btn-sm nav-cta">Run it locally</a>
+        <a href="/#cortex" class="nav-back">&larr; Cortex</a>
+        <a href="#quickstart" class="btn btn-primary btn-sm nav-cta">Open source</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -56,9 +56,9 @@
     <div class="container">
       <div class="phero-inner">
         <p class="phero-eyebrow reveal"><span class="dot"></span> Maestro · model intelligence</p>
-        <h1 class="reveal" data-delay="1">The right model. <span class="grad">On the right node.</span> Every prompt.</h1>
+        <h1 class="reveal" data-delay="1">The right model <span class="grad">for the job.</span></h1>
         <p class="phero-lede reveal" data-delay="2">
-          Maestro is the routing brain that runs on your hardware. One prompt arrives, it picks the best model on the right node across your fleet — <strong>local first, frontier only when it earns it</strong> — and hands back a <code>decision_id</code> you can audit. When a provider caps, it advances to the next seat automatically. <strong>A cap is a non-event.</strong>
+          Maestro chooses which AI model handles each task, trying local models first. If one service hits its limit, it switches to the next. It's in the works; I'll open source it once it works as intended.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#quickstart" class="btn btn-primary btn-arrow">
@@ -115,7 +115,7 @@
         <div class="step reveal">
           <span class="step-n">01</span>
           <h3>Route, with a seat chain ready</h3>
-          <p>Vega — a router with benchmark priors — scores each prompt across <strong>7 tiers</strong> and picks the best model on the right node. The failover engine keeps a seat chain ready, so an exhausted seat advances automatically.</p>
+          <p>Maestro scores each prompt and picks a model, trying local models first. If one service hits its limit, it switches to the next.</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
@@ -173,7 +173,7 @@
         <div class="cap reveal" data-delay="2">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.5"/><path d="M12 7v5l3 2"/></svg></span>
           <h3>A learning flywheel</h3>
-          <p>A frozen corpus of ~63k historical routing labels grounds Vega's priors. The auto-labeling pipeline is wired onto live calls — its training signal is still maturing (see the ledger).</p>
+          <p>Past routing decisions can teach the picker which model fits a job. That learning loop is still maturing. I don't publish a label count until it means something stable.</p>
         </div>
       </div>
     </div>
@@ -234,7 +234,7 @@
             <!-- vega router -->
             <rect class="dg-node-accent" x="172" y="142" width="116" height="76" rx="14"/>
             <text class="dg-label" x="230" y="176" text-anchor="middle" font-size="14">Vega router</text>
-            <text class="dg-sub" x="230" y="194" text-anchor="middle" font-size="9.5">7 tiers · priors</text>
+            <text class="dg-sub" x="230" y="194" text-anchor="middle" font-size="9.5">local first</text>
 
             <!-- flow prompt -> vega -->
             <path class="dg-flow" d="M134 180h32"/>
@@ -298,7 +298,7 @@
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
             <h3>Vega router + Quorum consensus</h3>
-            <p>A router with benchmark priors across 7 tiers, plus a multi-model scoring-and-synthesis engine — both running as live services. Durable receipt at <code>/v1/receipt/{id}</code>.</p>
+            <p>A router that tries local models first, plus a way to compare more than one model's answer. Each choice leaves a record you can look up later.</p>
             <span class="ledger-ev">maestro/README.md tier table · receipts/phase3/maestro-quorum-hygiene.md</span>
           </div>
         </div>
@@ -314,15 +314,15 @@
           <div><span class="badge badge--build">In Progress</span></div>
           <div class="ledger-body">
             <h3>Model registry + task-class routing</h3>
-            <p>Every provider, subscription seat, local server and Forge department specialist in one registry — each labeled with cited cost, capabilities and a liveness that names its own source (a probe, a node's report, or honestly <em>unknown</em>). <code>POST /v1/route</code> classifies a task and picks a model <em>class</em>: frontier for planning, local for extraction, and local for coding only once outcomes prove it. No model name is hardcoded anywhere in the routing path. <strong>Built and proven end-to-end on the dev node</strong> (31 seats from descriptors, discovery and registrations; real probes; real $0 local inference); <strong>not yet promoted to the GPU node</strong>, whose live endpoint still serves the previous build.</p>
+            <p>Maestro keeps a list of the models it can use, local and hosted, and picks a class of model for the job: a stronger one for planning, a local one for simple extraction. Local models are tried first. The picker is proven on a dev machine and is not yet the version running on the GPU machine.</p>
             <span class="ledger-ev">maestro/docs/decisions/ADR-0033 · docs/intel/ (tutorial · how-to · reference · explanation) · tests/test_intel_*.py + test_box_profile.py</span>
           </div>
         </div>
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>~63k historical routing labels</h3>
-            <p>A frozen Feb–Mar 2026 corpus of ~63,258 historical routing decisions grounds Vega's priors. We keep it caveated as a historical learning corpus — <strong>not a live or growing stat.</strong></p>
+            <h3>Past decisions, still maturing</h3>
+            <p>Older routing decisions are kept as a learning set. I don't publish a count. The set is historical, not a live scoreboard.</p>
             <span class="ledger-ev">receipts/phase3/maestro-labeling.md §1 (provenance kept)</span>
           </div>
         </div>
@@ -347,33 +347,12 @@
     </div>
   </section>
 
-  <!-- ── QUICKSTART ── -->
   <section class="section" id="quickstart">
     <div class="container">
-      <div class="qs-grid">
-        <div class="qs-copy reveal">
-          <p class="eyebrow">Quickstart</p>
-          <h2>Run Maestro locally</h2>
-          <p>Free, local-first, bring your own keys. Clone the public repo and bring it up with Docker — Vega routing and Quorum on your own machine.</p>
-          <p class="honesty" style="margin-top:0"><strong>100% private when local.</strong> Run it fully local and your data never leaves your hardware. BYOK reaches frontier models — the secret-scan redaction runs first.</p>
-        </div>
-        <div class="terminal reveal" data-delay="1">
-          <div class="terminal-bar">
-            <span class="terminal-dots"><i></i><i></i><i></i></span>
-            <span class="terminal-title">maestro — local</span>
-          </div>
-          <div class="terminal-body">
-<span class="cmt"># clone the inspectable OSS onramp</span>
-<span class="pr">$</span> git clone https://github.com/brycemurad0/maestro
-<span class="pr">$</span> cd maestro
-<span class="pr">$</span> docker compose up -d   <span class="cmt"># Vega + Quorum, on your machine</span>
-<span class="out">→ maestro listening on :8003 (OpenAI-compatible)</span>
-
-<span class="cmt"># route a call — get an answer AND a decision_id</span>
-<span class="pr">$</span> curl localhost:8003/v1/chat/completions -d '{...}'
-<span class="ok">{ "choices": [...], "x_decision_id": "rt_9f2a…" }</span>
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <p class="eyebrow">Open source</p>
+        <h2 class="title">In the works.</h2>
+        <p class="lede">Maestro is in the works; I'll open source it once it works as intended. There is no public repo to clone today.</p>
       </div>
     </div>
   </section>
@@ -386,8 +365,8 @@
         <h2>Stop renting your routing logic.</h2>
         <p>Own the brain that routes every prompt across your fleet. BYOK or fully local, local-first by default — and a cap is a non-event.</p>
         <div class="cta-actions">
-          <a href="https://github.com/brycemurad0/maestro" class="btn btn-primary btn-arrow" target="_blank" rel="noopener">
-            Get Maestro
+          <a href="/#how" class="btn btn-primary btn-arrow">
+            Work with me
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="/cortex/" class="btn btn-outline">See the full suite</a>
@@ -421,11 +400,11 @@
           <a href="#decentralized">Decentralized by design</a>
           <a href="#whats-real">What's real</a>
           <a href="#quickstart">Quickstart</a>
-          <a href="https://github.com/brycemurad0/maestro" target="_blank" rel="noopener">GitHub</a>
+          <a href="/#how">Work with me</a>
         </div>
         <div class="footer-col">
           <p class="footer-h">Company</p>
-          <a href="mailto:hello@mail.this.live">Contact</a>
+          <a href="mailto:bryce@this.live">bryce@this.live</a>
           <a href="/terms.html">Terms</a>
           <a href="/privacy.html">Privacy</a>
         </div>

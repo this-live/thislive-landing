@@ -34,7 +34,7 @@
         <a href="/mnemos/">Mnemos</a>
         <a href="/surfaces/">Surfaces</a>
         <a href="/forge/">Forge</a>
-        <a href="/#suite" class="nav-back">&larr; The Suite</a>
+        <a href="/#cortex" class="nav-back">&larr; Cortex</a>
         <a href="#how" class="btn btn-primary btn-sm nav-cta">How dispatch works</a>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -58,7 +58,7 @@
         <p class="phero-eyebrow reveal"><span class="dot"></span> Agent Fabric · execution</p>
         <h1 class="reveal" data-delay="1">One request. <span class="grad">A fleet of agents.</span> In parallel.</h1>
         <p class="phero-lede reveal" data-delay="2">
-          Agent Fabric fans one task out across many nodes and many agents at once — each isolated in its own worktree, each routed to the best model, each leaving a receipt. <strong>A decentralized execution spine</strong> that runs on your hardware and finishes work a single chat would grind through one lane at a time.
+          Agent Fabric splits a big job into pieces and runs several AI workers on it at the same time, each in its own copy of the work, with a record of what each one did.
         </p>
         <div class="phero-actions reveal" data-delay="3">
           <a href="#how" class="btn btn-primary btn-arrow">
@@ -115,7 +115,7 @@
         <div class="step reveal">
           <span class="step-n">01</span>
           <h3>You run the spine</h3>
-          <p>A <code>:3333</code> service on hardware you own handles dispatch, a v1 receipt bus, an SSE event stream, and fleet health. The deploy-parity stamp is built and ready, and the spine is being made restartable-from-HEAD — both land on the next gated restart (staged).</p>
+          <p>A service on hardware I own takes a job, splits it, and keeps a record of each piece. I don't publish a port number for it.</p>
         </div>
         <div class="step reveal" data-delay="1">
           <span class="step-n">02</span>
@@ -186,7 +186,7 @@
         <div class="arch-copy reveal">
           <p class="eyebrow">The dispatch path</p>
           <h2>One request in. A fleet of agents out — with a receipt for each.</h2>
-          <p>A request enters the <code>:3333</code> service on your hardware and fans across nodes, each lane running in its own git worktree. Progress streams over SSE; every lane returns an ExecutionReceipt v1, and the router threads a <code>decision_id</code> + cost into each one.</p>
+          <p>A request comes in and fans out, each lane in its own copy of the work. You can watch progress, and each lane leaves a record of what it did.</p>
           <ul class="arch-list">
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Parallel by default.</b> Lanes run at once in isolated worktrees across the fleet — no clobbering, no serial queue.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Receipt for everything.</b> Each lane returns an ExecutionReceipt v1; the durable bus collects them locally.</span></li>
@@ -202,9 +202,9 @@
 
             <!-- dispatch service -->
             <rect class="dg-node-accent" x="150" y="138" width="120" height="84" rx="14"/>
-            <text class="dg-label" x="210" y="167" text-anchor="middle" font-size="13.5">Fabric :3333</text>
+            <text class="dg-label" x="210" y="167" text-anchor="middle" font-size="13.5">Fabric</text>
             <text class="dg-sub" x="210" y="183" text-anchor="middle" font-size="9">dispatch · SSE</text>
-            <text class="dg-sub" x="210" y="197" text-anchor="middle" font-size="9">deploy-parity · staged</text>
+            <text class="dg-sub" x="210" y="197" text-anchor="middle" font-size="9">on hardware I own</text>
 
             <!-- task -> dispatch -->
             <path class="dg-flow" d="M118 180h28"/>
@@ -264,11 +264,11 @@
           </div>
           <div class="terminal-body">
 <span class="cmt"># dispatch a 3-lane parallel job to the execution service</span>
-<span class="pr">$</span> curl localhost:3333/dispatch -d '{ "graph": "parallel", "lanes": 3 }'
+<span class="pr">$</span> dispatch --graph parallel --lanes 3
 <span class="out">→ task t_8b41 accepted · 3 lanes · isolated worktrees</span>
 
 <span class="cmt"># progress streams live over SSE</span>
-<span class="pr">$</span> curl -N localhost:3333/events/t_8b41
+<span class="pr">$</span> watch t_8b41
 <span class="out">lane A running · lane B running · lane C running</span>
 <span class="ok">lane A done · lane B done · lane C done</span>
 
@@ -292,8 +292,8 @@
         <div class="cap reveal">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></span>
           <h3>You run the spine</h3>
-          <p>The <code>:3333</code> service runs on your hardware — no orchestration silo and no provider lock-in. The deploy-parity stamp is ready and the spine is being made restartable-from-HEAD, both landing on the next gated restart (staged). The spine is yours.</p>
-          <span class="cap-ev">45,470 requests · 0 errors · p50 0.66ms</span>
+          <p>The service runs on hardware I own. It isn't a rented orchestrator, and it isn't tied to one model provider.</p>
+          <span class="cap-ev">runs on hardware I own</span>
         </div>
         <div class="cap reveal" data-delay="1">
           <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M6 9v6"/><path d="M9 6h6l3 6-3 6H9"/></svg></span>
@@ -323,7 +323,7 @@
         <div class="ledger-row reveal">
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
-            <h3>The :3333 execution service</h3>
+            <h3>The execution service</h3>
             <p>Dispatch, a v1 receipt bus, an SSE event stream, human-in-the-loop relay, and fleet health — up and verified. The in-process dynamic-workflow engine is the spine (n8n retired, ADR-0023); intake is one durable, idempotent identity per intent with cancel and steer.</p>
             <span class="ledger-ev">agent-fabric/README.md · receipts/phase2/verify-suite.md (/health 200)</span>
           </div>
@@ -332,7 +332,7 @@
           <div><span class="badge badge--live">Live</span></div>
           <div class="ledger-body">
             <h3>Dynamic-workflow engine, proven end-to-end</h3>
-            <p>Agent, parallel, pipeline, tournament, and loop primitives — with per-node isolation in real <code>git worktrees</code> and checkpoint/resume — proven end-to-end at <strong>29/29</strong>.</p>
+            <p>Agent, parallel, pipeline, tournament, and loop — each piece in its own copy of the work, with a way to pause and resume. I don't publish a test score on this page.</p>
             <span class="ledger-ev">receipts/phase2/00-PHASE2-ROLLUP.md §5 (e2e 29/29, real worktree isolation)</span>
           </div>
         </div>
@@ -418,7 +418,7 @@
         </div>
         <div class="footer-col">
           <p class="footer-h">Company</p>
-          <a href="mailto:hello@mail.this.live">Contact</a>
+          <a href="mailto:bryce@this.live">bryce@this.live</a>
           <a href="/terms.html">Terms</a>
           <a href="/privacy.html">Privacy</a>
         </div>

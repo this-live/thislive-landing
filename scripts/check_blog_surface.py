@@ -1,67 +1,35 @@
 #!/usr/bin/env python3
-"""Content checks for canonical This.Live blog deployment surface."""
+"""The public blog is gone. Old /blog URLs are a permanent nginx redirect home."""
 
 from pathlib import Path
 import re
 
 root = Path('.')
+
+if (root / 'blog').exists():
+    raise SystemExit('blog/ directory should be deleted')
+if (root / 'blog-cleanup-manifest.json').exists():
+    raise SystemExit('blog-cleanup-manifest.json should be deleted with the blog')
+
+html_files = [p for p in root.rglob('*.html') if '.git' not in p.parts]
+linked = []
+for path in html_files:
+    text = path.read_text(encoding='utf-8')
+    # /blog and /blog/… are gone. /blog.css is the resume stylesheet and stays.
+    if re.search(r'''href=["'][^"']*/blog(?:/|["'])''', text):
+        linked.append(str(path))
+if linked:
+    raise SystemExit('Pages still link to the blog: ' + ', '.join(linked))
+
+nginx = (root / 'nginx.conf').read_text(encoding='utf-8')
+if 'location = /blog' not in nginx or 'return 301 /;' not in nginx:
+    raise SystemExit('nginx.conf must permanently redirect /blog to /')
+if 'location ^~ /blog/' not in nginx:
+    raise SystemExit('nginx.conf must permanently redirect /blog/ posts to /')
+
 index = (root / 'index.html').read_text(encoding='utf-8')
-blog_index = (root / 'blog' / 'index.html').read_text(encoding='utf-8')
-
-required_landing = [
-    'id="blog"',
-    'What I am building, in public.',
-    '/blog/2026-06-08-digital-products-lab-content-loop.html',
-    '/blog/2026-06-01-thislive-operating-model.html',
-    '/blog/2026-05-25-tool-calling-and-receipts.html',
-    '/blog/2026-03-16-forge-source-grounded-engineering-agents.html',
-    'Read the Blog',
-]
-missing = [x for x in required_landing if x not in index]
-if missing:
-    raise SystemExit('Missing landing blog content: ' + ', '.join(missing))
-
-for stale in [
-    '/blog/2026-06-15-forge.html',
-    '/blog/2026-06-08-building-with-ai.html',
-    '/blog/2026-06-01-supermemory.html',
-    '/blog/from-openclaw-to-hermes.html',
-]:
+for stale in ['id="blog"', 'Read the Blog', '/blog/']:
     if stale in index:
-        raise SystemExit('Landing page still links stale/unsafe blog preview: ' + stale)
+        raise SystemExit('Home page still has blog content: ' + stale)
 
-required_files = [
-    'blog/index.html',
-    'blog/2026-06-08-digital-products-lab-content-loop.html',
-    'blog/2026-06-01-thislive-operating-model.html',
-    'blog/2026-05-25-tool-calling-and-receipts.html',
-    'blog/2026-03-16-forge-source-grounded-engineering-agents.html',
-    'blog.css',
-]
-missing_files = [x for x in required_files if not (root / x).exists()]
-if missing_files:
-    raise SystemExit('Missing blog files: ' + ', '.join(missing_files))
-
-if '[DRAFT - LLM generation failed]' in blog_index:
-    raise SystemExit('Broken draft marker remains in blog index')
-if (root / 'blog' / '2026-04-22-project-scoping.html').exists():
-    raise SystemExit('Broken generated draft post should not ship')
-
-bad_links = []
-# Post-content links must be under /blog/. Nav links can go anywhere.
-for href in re.findall(r'href="(/[^"]+\.html)"', blog_index):
-    if not href.startswith('/blog/'):
-        # Allow root-level links in the nav (first nav block) only
-        nav_idx = blog_index.find('<nav class="nav">')
-        href_idx = blog_index.find(f'href="{href}"')
-        if nav_idx != -1 and href_idx != -1 and href_idx < blog_index.find('</nav>', nav_idx):
-            continue
-        bad_links.append(href)
-if bad_links:
-    raise SystemExit('Blog index has root-relative post links outside /blog: ' + ', '.join(bad_links[:8]))
-
-post_count = len(list((root / 'blog').glob('*.html')))
-if post_count < 30:
-    raise SystemExit(f'Expected at least 30 blog HTML files, found {post_count}')
-
-print(f'Blog surface check passed: {post_count} HTML files, landing section present, links normalized')
+print('Blog removal check passed: no blog pages, no blog links, nginx 301 /blog -> /')
