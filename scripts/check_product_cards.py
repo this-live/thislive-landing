@@ -24,7 +24,7 @@ missing = [x for x in required if x not in HTML]
 if missing:
     raise SystemExit("Missing home offer content: " + ", ".join(missing))
 
-offer = HTML.split('<section id="blog"')[0]
+offer = HTML
 for forbidden in [
     "Beacon",
     "Signal &amp; Noise",

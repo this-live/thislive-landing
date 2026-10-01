@@ -5,7 +5,7 @@ from pathlib import Path
 
 HTML = Path("index.html").read_text(encoding="utf-8")
 start = HTML.index('<section id="about"')
-end = HTML.index('<section id="blog"')
+end = HTML.index('<section class="cta" id="book">')
 about = HTML[start:end]
 
 required = [
