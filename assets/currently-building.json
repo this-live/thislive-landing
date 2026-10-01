@@ -1,86 +1,58 @@
 {
   "$schema": "./currently-building.schema",
-  "_comment": "Auto-updating 'currently building' strip for the living resume (#about). Each entry is FOUNDING WORK under the this.live LLC. Manually-authored seed; scripts/update-founder-living-resume.mjs refreshes `status`, `last_active`, and ordering from real repo/fleet activity. Keep `name`/`note` curated; the script will not overwrite prose.",
-  "updated": "2026-06-12",
-  "source": "fleet repo scan (scripts/update-founder-living-resume.mjs)",
+  "_comment": "Public 'currently building' notes. No portfolio products, no memory counts, no prices. Home no longer renders this strip.",
+  "updated": "2026-10-01",
+  "source": "site copy refresh",
   "llc": "this.live LLC",
   "building": [
     {
-      "name": "Cortex Suite",
-      "note": "Sovereign, fully-local agentic operating stack — the engine the whole portfolio runs on.",
-      "status": "live",
-      "last_active": "2026-06-12",
-      "href": "/cortex/"
+      "name": "Ostium",
+      "note": "Working name. A meta harness: one place to run and check work from several AI coding assistants. In the works; I'll open source it once it works as intended.",
+      "status": "build",
+      "last_active": "2026-10-01",
+      "href": null
     },
     {
       "name": "Maestro",
-      "note": "Provider-agnostic model routing — proven live against a real fleet.",
-      "status": "live",
-      "last_active": "2026-06-12",
+      "note": "Chooses which AI model handles each task, trying local models first. In the works; I'll open source it once it works as intended.",
+      "status": "build",
+      "last_active": "2026-10-01",
       "href": "/maestro/"
     },
     {
       "name": "Mnemos",
-      "note": "Project-scoped local memory plane — 75k+ memories in production.",
-      "status": "live",
-      "last_active": "2026-06-12",
+      "note": "Shared memory on hardware I own, filed by project. In the works; I'll open source it once it works as intended.",
+      "status": "build",
+      "last_active": "2026-10-01",
       "href": "/mnemos/"
     },
     {
-      "name": "Agent Fabric",
-      "note": "Deterministic multi-agent execution spine with durable receipts.",
+      "name": "Cortex",
+      "note": "The hub: shared rules and a status screen that says so plainly when something isn't checked.",
       "status": "live",
-      "last_active": "2026-06-12",
+      "last_active": "2026-10-01",
+      "href": "/cortex/"
+    },
+    {
+      "name": "Agent Fabric",
+      "note": "Splits a big job into pieces and runs several AI workers at the same time, each in its own copy of the work.",
+      "status": "live",
+      "last_active": "2026-10-01",
       "href": "/fabric/"
     },
     {
-      "name": "Signal & Noise",
-      "note": "AI podcast pipeline with persistent memory and voice cloning — production pipeline.",
-      "status": "live",
-      "last_active": "2026-06-05",
-      "href": null
-    },
-    {
-      "name": "Beacon",
-      "note": "Local-service lead generation — public surface live.",
-      "status": "beta",
-      "last_active": "2026-04-10",
-      "href": "https://beacon.this.live"
-    },
-    {
-      "name": "Surfaces",
-      "note": "Pocket Agent, Personal Life OS, and Fleet Terminal converging into one desktop shell.",
-      "status": "build",
-      "last_active": "2026-06-12",
-      "href": "/surfaces/"
-    },
-    {
       "name": "Forge",
-      "note": "Adapter factory built end-to-end and gated — first measured local adapter is the milestone.",
+      "note": "Specialist helpers for each part of a business. A change is only kept if testing shows it's better. No adapters are trained yet.",
       "status": "build",
-      "last_active": "2026-06-11",
+      "last_active": "2026-10-01",
       "href": "/forge/"
     },
     {
-      "name": "FTAG · Age of Arrows",
-      "note": "Future Throwback Arcade Games — flagship Unity title in 6-agent parallel build.",
+      "name": "Surfaces",
+      "note": "Voice, planner, terminal, and a desktop app. Ostium now covers much of this.",
       "status": "build",
-      "last_active": "2026-06-07",
-      "href": null
-    },
-    {
-      "name": "Digital Products Lab",
-      "note": "Turning live fleet work into blog, social, lead magnets, and operator products.",
-      "status": "build",
-      "last_active": "2026-06-03",
-      "href": null
-    },
-    {
-      "name": "Fieldhouse Games",
-      "note": "MiniMax team-backed studio for underserved mobile arcade sports.",
-      "status": "build",
-      "last_active": "2026-05-06",
-      "href": null
+      "last_active": "2026-10-01",
+      "href": "/surfaces/"
     }
   ]
 }

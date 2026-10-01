@@ -180,6 +180,8 @@
 
 .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4); }
+.card--wide { grid-column: 1 / -1; }
+.section-note { margin-top: var(--sp-5); font-size: var(--fs-sm); color: var(--text-muted); line-height: var(--lh-body); max-width: 68ch; }
 
 /* shared card chrome for the two new grids (extends design-system .card) */
 .card--component, .card--portfolio { display: flex; flex-direction: column; }
