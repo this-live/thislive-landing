@@ -30,9 +30,9 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-600.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-600.woff2">
-  <link rel="stylesheet" href="/site.css?v=7e7052de49">
+  <link rel="stylesheet" href="/site.css?v=b04d24d144">
   <script>document.documentElement.classList.add('js')</script>
-  <script defer src="/site.js?v=7e7052de49"></script>
+  <script defer src="/site.js?v=b04d24d144"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -295,10 +295,14 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
+      <div class="glow glow--cyan" aria-hidden="true"></div>
+      <div class="glow glow--blue" aria-hidden="true"></div>
+      <div class="hero-galaxy" aria-hidden="true"><canvas data-galaxy></canvas></div>
+      <div class="hero-scrim" aria-hidden="true"></div>
       <div class="wrap hero-grid">
         <div>
-          <p class="eyebrow">Custom software and AI &middot; Storrs, Connecticut</p>
-          <h1 id="hero-title">Custom software built around <em>how you actually work.</em></h1>
+          <p class="hero-pill"><b><i></i>Taking new builds</b><span class="hide-sm">Custom software and AI &middot; Storrs, CT</span></p>
+          <h1 id="hero-title">Custom software built around <span class="grad-text">how you actually work.</span></h1>
           <p class="lede">I'm Bryce Murad. I design and build the internal tools, automations and AI assistants small businesses are missing, then show them working in your business before I call them done.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="https://cal.com/bryce-murad/automation-triage">Book a free triage call <svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -310,14 +314,22 @@
             <span><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Connecticut and remote</span>
           </p>
         </div>
-        <div class="hero-visual" data-flow-hero="lead,paperwork,report">
-          <div class="fx-picker" role="group" aria-label="Example workflows">
-            <button type="button" data-flow-pick aria-pressed="true">Lead follow-up</button>
-            <button type="button" data-flow-pick aria-pressed="false">Invoices</button>
-            <button type="button" data-flow-pick aria-pressed="false">Weekly report</button>
-          </div>
-          <div data-flow-card role="img" aria-label="Example workflow on sample data: a website form or email triggers an AI agent that drafts a reply, you approve it, and the contact is added to your CRM with a follow-up scheduled."></div>
-          <p class="hero-note">Example workflows on sample data. Each one is a build I can do for you.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-label="Background in numbers">
+      <div class="wrap">
+        <div class="stats reveal" data-stagger>
+          <div class="stat"><strong data-count="60" data-suf="+">60+</strong><span>Fortune 1000 clients whose networks I designed at Ensono</span></div>
+          <div class="stat"><strong data-count="4" data-suf=" yrs">4 yrs</strong><span>as an enterprise network solutions architect</span></div>
+          <div class="stat"><strong data-count="6" data-suf=" nodes">6 nodes</strong><span>in the AI agent fleet I designed to run this.live</span></div>
+          <div class="stat"><strong data-count="0" data-pre="$">$0</strong><span>for the 30-minute triage call</span></div>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Quoting tools</span><span>Lead follow-up</span><span>Invoice intake</span><span>Client portals</span><span>Scheduling and dispatch</span><span>Weekly reporting</span><span>Spreadsheet to app</span><span>Private AI</span><span>Inbox triage</span><span>Job tracking</span><span>Dashboards</span><span>Network design</span>
+          <span>Quoting tools</span><span>Lead follow-up</span><span>Invoice intake</span><span>Client portals</span><span>Scheduling and dispatch</span><span>Weekly reporting</span><span>Spreadsheet to app</span><span>Private AI</span><span>Inbox triage</span><span>Job tracking</span><span>Dashboards</span><span>Network design</span>
         </div>
       </div>
     </section>
@@ -377,7 +389,7 @@
         <div class="section-head section-head--split reveal">
           <div>
             <p class="eyebrow">See it work</p>
-            <h2 id="demo-title">Watch a build handle the job</h2>
+            <h2 id="demo-title">Watch a build <span class="grad-text">handle the job</span></h2>
           </div>
           <p>Five workflows I build. Four run on sample data so you can see the moving parts. The fifth is a real tool in use today.</p>
         </div>
@@ -563,7 +575,7 @@
         <div class="calc reveal" data-calc>
           <div>
             <p class="eyebrow">Do the math</p>
-            <h2 id="calc-title">What is the busywork costing you?</h2>
+            <h2 id="calc-title">What is the busywork <span class="grad-text">costing you?</span></h2>
             <p style="margin:var(--sp-4) 0 var(--sp-6)">Pick one repetitive task. Be honest about the hours.</p>
             <div class="calc-fields">
               <div class="field">
@@ -706,7 +718,7 @@
       <div class="wrap">
         <div class="cta-inner reveal">
           <p class="eyebrow">Free triage call</p>
-          <h2 id="cta-title">Bring the task that eats your week.</h2>
+          <h2 id="cta-title">Bring the task that <span class="grad-text">eats your week.</span></h2>
           <p class="lede">30 minutes on video. You leave with a prioritized plan, whether or not we work together.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="https://cal.com/bryce-murad/automation-triage">Book a free triage call <svg class="icon icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
@@ -757,6 +769,7 @@
         </div>
       </div>
       <p class="footer-bottom"><span>&copy; 2026 this.live LLC. All rights reserved.</span><span>Built and run on our own agent fleet.</span></p>
+      <p class="wordmark" aria-hidden="true">this<b>.</b>live</p>
     </div>
   </footer>
 </body>

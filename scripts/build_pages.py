@@ -290,6 +290,7 @@ def footer():
         </div>
       </div>
       <p class="footer-bottom"><span>&copy; {date.today().year} this.live LLC. All rights reserved.</span><span>Built and run on our own agent fleet.</span></p>
+      <p class="wordmark" aria-hidden="true">this<b>.</b>live</p>
     </div>
   </footer>'''
 

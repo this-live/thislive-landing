@@ -761,6 +761,262 @@
     Motion.onVisible(root, function (v) { p.setVisible(v); });
   }
 
+  /* ============================================================ Space
+     Seeded randomness so the composition is identical on every visit. */
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function fitCanvas(c) {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), r = c.getBoundingClientRect();
+    c.width = Math.max(1, Math.round(r.width * dpr)); c.height = Math.max(1, Math.round(r.height * dpr));
+    var ctx = c.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx: ctx, w: r.width, h: r.height };
+  }
+  function loopWhile(isOn, frame) {
+    var raf = 0;
+    function tick(t) { raf = 0; if (!isOn()) { return; } frame(t); raf = requestAnimationFrame(tick); }
+    return function kick() { if (!raf && isOn()) { raf = requestAnimationFrame(tick); } };
+  }
+
+  /* Starfield: one fixed canvas behind the whole site. Three depth layers,
+     slow twinkle, a few px of scroll parallax. ~24 fps, paused when hidden. */
+  function initStarfield() {
+    var c = document.createElement('canvas');
+    c.className = 'starfield'; c.setAttribute('aria-hidden', 'true');
+    document.body.insertBefore(c, document.body.firstChild);
+    var R = rng(11), stars = [], g, last = 0;
+    function build() {
+      g = fitCanvas(c);
+      var n = Math.round(Math.min(260, g.w * g.h / 6200));
+      stars = [];
+      for (var i = 0; i < n; i++) {
+        var d = 0.25 + R() * 0.75;
+        stars.push({ x: R() * g.w, y: R() * g.h, d: d, r: 0.35 + d * d * 1.05, a: 0.18 + d * 0.5, p: R() * 6.28, s: 0.4 + R() * 0.9,
+          c: R() < 0.16 ? '138,244,255' : R() < 0.3 ? '147,197,253' : '255,255,255' });
+      }
+    }
+    function draw(t) {
+      var ctx = g.ctx, sy = window.scrollY || 0;
+      ctx.clearRect(0, 0, g.w, g.h);
+      for (var i = 0; i < stars.length; i++) {
+        var st = stars[i], y = ((st.y - sy * 0.04 * st.d) % g.h + g.h) % g.h;
+        var a = Motion.reduced ? st.a : st.a * (0.72 + 0.28 * Math.sin(t / 1000 * st.s + st.p));
+        ctx.fillStyle = 'rgba(' + st.c + ',' + a.toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(st.x, y, st.r, 0, 6.2832); ctx.fill();
+      }
+    }
+    build(); draw(0);
+    window.addEventListener('resize', function () { build(); draw(performance.now()); });
+    if (Motion.reduced) { return; }
+    var kick = loopWhile(function () { return !document.hidden; }, function (t) { if (t - last > 41) { last = t; draw(t); } });
+    kick();
+    document.addEventListener('visibilitychange', kick);
+  }
+
+  /* Hero galaxy: a star map of what this.live builds. A particle core, six
+     capability hubs on a ring, a constellation tree fanning out of each.
+     Trees grow in once; afterwards a slow brightening wave runs through one
+     tree at a time. Nothing rotates, nothing flies. Hover a label: that tree
+     lights and the rest dim; click: that service. */
+  var CAPS = [
+    ['CUSTOM SOFTWARE', '/services/#software', '45,226,255'],
+    ['AUTOMATION', '/services/#automation', '96,165,250'],
+    ['AI AGENTS', '/services/#assistants', '138,244,255'],
+    ['WEBSITES', '/services/#websites', '59,130,246'],
+    ['PRIVATE AI', '/services/#private-ai', '125,211,252'],
+    ['NETWORKS', '/services/#networks', '99,102,241']
+  ];
+  function initGalaxy(c) {
+    var host = c.parentElement, g, R, core = [], hubs = [], labels = [];
+    var t0 = 0, hover = -1, active = 0, actT = 0, px = 0, py = 0, tx = 0, ty = 0, visible = false;
+    var FS = 11;
+    function build() {
+      g = fitCanvas(c);
+      R = rng(7);
+      var small = g.w < 700, ring = 86;
+      /* 1. Build in unit space around (0,0). */
+      core = [];
+      for (var i = 0; i < 170; i++) {
+        var rr = Math.abs((R() + R() + R() - 1.5) / 1.5) * 30;
+        core.push({ a: R() * 6.2832, r: rr, w: (R() - 0.5) * 0.12, z: 0.4 + R() * 1.1, c: R() < 0.5 ? '255,255,255' : R() < 0.7 ? '138,244,255' : '147,197,253' });
+      }
+      hubs = []; labels = [];
+      var ctx = g.ctx;
+      ctx.font = '600 ' + FS + 'px "Space Grotesk", sans-serif';
+      if ('letterSpacing' in ctx) { ctx.letterSpacing = '0.22em'; }
+      CAPS.forEach(function (cap, k) {
+        var ang = -Math.PI / 2 + k * Math.PI / 3;
+        var hx = Math.cos(ang) * ring, hy = Math.sin(ang) * ring;
+        var nodes = [{ x: hx, y: hy, p: -1, d: 0 }], reach = 0;
+        /* Compact fan: every step leans back toward the hub's own angle and is
+           clamped to its sector, so trees never wander into a neighbour. */
+        var clampA = function (a) { return Math.max(ang - 0.55, Math.min(ang + 0.55, a)); };
+        var grow = function (from, a, steps, depth) {
+          var cur = from;
+          for (var j = 0; j < steps; j++) {
+            a = clampA(a + (R() - 0.5) * 0.6 + (ang - a) * 0.25);
+            var len = 13 + R() * 9, last = nodes[cur];
+            var nx = last.x + Math.cos(a) * len, ny = last.y + Math.sin(a) * len;
+            nodes.push({ x: nx, y: ny, p: cur, d: depth + j + 1, r: 1 + R() * 1.4 });
+            cur = nodes.length - 1;
+            reach = Math.max(reach, Math.hypot(nx - hx, ny - hy));
+            if (j >= 1 && j < steps - 1 && R() < 0.62) { grow(cur, clampA(a + (R() < 0.5 ? -0.7 : 0.7)), 1 + Math.floor(R() * 2), depth + j + 1); }
+          }
+        };
+        [-0.46, -0.23, 0, 0.23, 0.46].forEach(function (off) { grow(0, ang + off + (R() - 0.5) * 0.12, 3 + Math.floor(R() * 3), 0); });
+        var cos = Math.cos(ang);
+        hubs.push({ x: hx, y: hy, ang: ang, nodes: nodes, rgb: cap[2], label: cap[0], href: cap[1], lr: ring + reach + 22,
+          align: cos > 0.35 ? 'left' : cos < -0.35 ? 'right' : 'center', tw: ctx.measureText(cap[0]).width + 12 });
+      });
+      if ('letterSpacing' in ctx) { ctx.letterSpacing = '0px'; }
+      /* 2. Fit: largest scale whose nodes AND fixed-size labels fit the box. */
+      var m = small ? 14 : 28, k = 1.6, box, safeX = 0;
+      var copy = !small && c.closest('.hero') && c.closest('.hero').querySelector('.hero-grid > div');
+      if (copy) { safeX = Math.max(0, copy.getBoundingClientRect().right - c.getBoundingClientRect().left + 8); }
+      var measure = function (kk) {
+        var b = { x0: 1e9, y0: 1e9, x1: -1e9, y1: -1e9 }, add = function (x, y) { b.x0 = Math.min(b.x0, x); b.x1 = Math.max(b.x1, x); b.y0 = Math.min(b.y0, y); b.y1 = Math.max(b.y1, y); };
+        hubs.forEach(function (h) {
+          h.nodes.forEach(function (n) { add(n.x * kk, n.y * kk); });
+          var lx = Math.cos(h.ang) * h.lr * kk, ly = Math.sin(h.ang) * h.lr * kk;
+          var x0 = h.align === 'left' ? lx - 14 : h.align === 'right' ? lx - h.tw : lx - h.tw / 2 - 14;
+          add(x0, ly - FS); add(x0 + h.tw + 14, ly + FS);
+        });
+        return b;
+      };
+      while (k > 0.35) { box = measure(k); if (box.x1 - box.x0 <= g.w - safeX - 2 * m && box.y1 - box.y0 <= g.h - 2 * m) { break; } k -= 0.02; }
+      var ox = small ? (g.w - (box.x0 + box.x1)) / 2 : g.w - m - box.x1, oy = (g.h - (box.y0 + box.y1)) / 2;
+      /* 3. Commit to screen space. */
+      hubs.forEach(function (h) {
+        h.nodes.forEach(function (n) { n.x = n.x * k + ox; n.y = n.y * k + oy; });
+        h.x = h.nodes[0].x; h.y = h.nodes[0].y;
+        h.lx = Math.cos(h.ang) * h.lr * k + ox; h.ly = Math.sin(h.ang) * h.lr * k + oy;
+      });
+      core.forEach(function (p) { p.r *= k; });
+      hubs.cx = ox; hubs.cy = oy; hubs.s = k;
+    }
+    var ease = function (x) { return x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 3); };
+    function draw(t) {
+      var ctx = g.ctx, el = Motion.reduced ? 1e9 : t - t0, s = hubs.s, cx = hubs.cx, cy = hubs.cy;
+      px += (tx - px) * 0.05; py += (ty - py) * 0.05;
+      ctx.clearRect(0, 0, g.w, g.h);
+      ctx.save(); ctx.translate(px, py);
+      /* core glow + particles */
+      var coreIn = ease(el / 900);
+      var grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 70 * s);
+      grd.addColorStop(0, 'rgba(138,244,255,' + (0.22 * coreIn) + ')'); grd.addColorStop(1, 'rgba(45,226,255,0)');
+      ctx.fillStyle = grd; ctx.beginPath(); ctx.arc(cx, cy, 70 * s, 0, 6.2832); ctx.fill();
+      for (var i = 0; i < core.length; i++) {
+        var p = core[i], a = p.a + (Motion.reduced ? 0 : t / 1000 * p.w);
+        ctx.fillStyle = 'rgba(' + p.c + ',' + (0.75 * coreIn).toFixed(3) + ')';
+        ctx.beginPath(); ctx.arc(cx + Math.cos(a) * p.r, cy + Math.sin(a) * p.r, p.z * 0.75, 0, 6.2832); ctx.fill();
+      }
+      /* orbit ring through the hubs */
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.06 * coreIn) + ')'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(cx, cy, 86 * s, 0, 6.2832); ctx.stroke();
+      /* activation wave: slow, one tree at a time */
+      if (!Motion.reduced && el > 3200 && t - actT > 5200) { active = (active + 1) % hubs.length; actT = t; }
+      var front = (t - actT) / 260;
+      hubs.forEach(function (h, k) {
+        var dim = hover >= 0 && hover !== k ? 0.35 : 1, lit = hover === k;
+        var bornHub = 300 + k * 140;
+        var spoke = ease((el - bornHub) / 600);
+        ctx.strokeStyle = 'rgba(' + h.rgb + ',' + (0.16 * spoke * dim) + ')'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + (h.x - cx) * spoke, cy + (h.y - cy) * spoke); ctx.stroke();
+        h.nodes.forEach(function (n, j) {
+          if (j === 0) { return; }
+          var born = bornHub + 500 + n.d * 150, q = ease((el - born) / 420);
+          if (q <= 0) { return; }
+          var par = h.nodes[n.p];
+          var wave = k === active && !Motion.reduced ? Math.max(0, 1 - Math.abs(n.d - front) / 1.6) : 0;
+          var b = Math.min(1, (lit ? 0.85 : 0.34) + wave * 0.6);
+          ctx.strokeStyle = (lit || wave > 0.05 ? 'rgba(' + h.rgb + ',' : 'rgba(255,255,255,') + (b * 0.55 * dim * q).toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(par.x, par.y); ctx.lineTo(par.x + (n.x - par.x) * q, par.y + (n.y - par.y) * q); ctx.stroke();
+          ctx.fillStyle = 'rgba(' + (wave > 0.3 || lit ? h.rgb : '235,242,255') + ',' + (Math.min(1, 0.55 + b * 0.5) * dim * q).toFixed(3) + ')';
+          ctx.beginPath(); ctx.arc(n.x, n.y, n.r * (0.6 + 0.4 * q) + wave * 0.6, 0, 6.2832); ctx.fill();
+        });
+        /* hub disc */
+        var hq = ease((el - bornHub - 300) / 500);
+        var hw = k === active && !Motion.reduced ? Math.max(0, 1 - Math.abs(front - 0) / 2) : 0;
+        ctx.strokeStyle = 'rgba(' + h.rgb + ',' + ((0.7 + hw * 0.3) * hq * dim) + ')'; ctx.lineWidth = 1;
+        ctx.fillStyle = 'rgba(3,4,5,' + hq + ')';
+        ctx.beginPath(); ctx.arc(h.x, h.y, 5.5 * Math.max(0.8, s), 0, 6.2832); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = 'rgba(' + h.rgb + ',' + (hq * dim) + ')';
+        ctx.beginPath(); ctx.arc(h.x, h.y, 2.2, 0, 6.2832); ctx.fill();
+        /* label */
+        var lq = ease((el - bornHub - 900) / 700);
+        var fs = FS;
+        ctx.font = '600 ' + fs + 'px "Space Grotesk", sans-serif';
+        if ('letterSpacing' in ctx) { ctx.letterSpacing = '0.22em'; }
+        ctx.textAlign = h.align;
+        ctx.textBaseline = 'middle';
+        var la = (lit ? 1 : k === active ? 0.86 : 0.58) * lq * (hover >= 0 && !lit ? 0.5 : 1);
+        ctx.fillStyle = 'rgba(245,247,250,' + la.toFixed(3) + ')';
+        ctx.fillText(h.label, h.lx, h.ly);
+        var tw = ctx.measureText(h.label).width;
+        var x0 = ctx.textAlign === 'left' ? h.lx : ctx.textAlign === 'right' ? h.lx - tw : h.lx - tw / 2;
+        labels[k] = { x: x0 + px - 8, y: h.ly + py - fs, w: tw + 16, h: fs * 2 };
+        ctx.fillStyle = 'rgba(' + h.rgb + ',' + (lq * dim) + ')';
+        ctx.beginPath(); ctx.arc(ctx.textAlign === 'right' ? x0 + tw + 10 : x0 - 10, h.ly, 2, 0, 6.2832); ctx.fill();
+        if ('letterSpacing' in ctx) { ctx.letterSpacing = '0px'; }
+      });
+      ctx.restore();
+    }
+    var kick = loopWhile(function () { return visible && !document.hidden && !Motion.reduced; }, draw);
+    function start() { build(); t0 = performance.now(); actT = t0 + 3200; draw(t0); kick(); }
+    var hit = function (e) {
+      var r = c.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      for (var k = 0; k < labels.length; k++) { var b = labels[k]; if (b && x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) { return k; } }
+      return -1;
+    };
+    var heroEl = c.closest('.hero') || host;
+    heroEl.addEventListener('pointermove', function (e) {
+      var r = heroEl.getBoundingClientRect();
+      tx = ((e.clientX - r.left) / r.width - 0.5) * -14; ty = ((e.clientY - r.top) / r.height - 0.5) * -10;
+      var h = hit(e);
+      if (h !== hover) { hover = h; c.style.cursor = h >= 0 ? 'pointer' : ''; if (Motion.reduced) { draw(performance.now()); } }
+    });
+    heroEl.addEventListener('pointerleave', function () { tx = ty = 0; hover = -1; c.style.cursor = ''; if (Motion.reduced) { draw(performance.now()); } });
+    c.addEventListener('click', function (e) { var h = hit(e); if (h >= 0) { window.location.href = hubs[h].href; } });
+    var lastW = 0;
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(function () { var w = host.clientWidth; if (Math.abs(w - lastW) > 2) { lastW = w; build(); draw(performance.now()); } }).observe(host);
+    }
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(function () { draw(performance.now()); }); }
+    start();
+    Motion.onVisible(host, function (v) { visible = v; kick(); }, 0.05);
+    document.addEventListener('visibilitychange', kick);
+  }
+
+  /* Cursor spotlight on glass surfaces. */
+  function initSpotlight() {
+    if (Motion.reduced || !window.matchMedia('(hover: hover)').matches) { return; }
+    Array.prototype.forEach.call(document.querySelectorAll('.tile, .card, .proof-card'), function (el) {
+      el.classList.add('spot');
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  /* Count-up for the authority strip, once, when it enters view. */
+  function initCounts() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-count]'), function (el) {
+      var to = parseFloat(el.getAttribute('data-count')), pre = el.getAttribute('data-pre') || '', suf = el.getAttribute('data-suf') || '';
+      var fmt = function (v) { return pre + Math.round(v).toLocaleString('en-US') + suf; };
+      if (Motion.reduced) { el.textContent = fmt(to); return; }
+      el.textContent = fmt(0);
+      var done = false;
+      Motion.onVisible(el, function (v) { if (v && !done) { done = true; Motion.count(el, to, fmt); } }, 0.6);
+    });
+  }
+
   /* ========================================================== Calculator */
   function initCalc(root) {
     var f = { hours: root.querySelector('[name="hours"]'), people: root.querySelector('[name="people"]'), rate: root.querySelector('[name="rate"]') };
@@ -821,6 +1077,10 @@
 
   function boot() {
     initChrome();
+    initStarfield();
+    Array.prototype.forEach.call(document.querySelectorAll('[data-galaxy]'), initGalaxy);
+    initSpotlight();
+    initCounts();
     Array.prototype.forEach.call(document.querySelectorAll('[data-flow-hero]'), initHero);
     Array.prototype.forEach.call(document.querySelectorAll('[data-demo]'), initDemo);
     Array.prototype.forEach.call(document.querySelectorAll('[data-flow-auto]'), initAuto);
