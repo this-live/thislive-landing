@@ -4,8 +4,23 @@ Static landing page for this.live LLC.
 
 ## Files
 
-- `index.html` — page markup
-- `style.css` — styles
+The consulting pages (`/`, `/services/`, `/use-cases/`, `/how-it-works/`,
+`/about/`, `/book/`, `/contact/`, `/playbooks/`, `/archive/`, `404.html`) are
+GENERATED. Edit the sources, then rebuild:
+
+- `site-src/pages/*.html` — page bodies; `site-src/includes/*.html` — shared blocks
+  (demo player, timeline, closing call to action)
+- `scripts/build_pages.py` — page table (titles, descriptions), header, footer,
+  JSON-LD, icons; also writes `sitemap.xml` and `rss.xml`
+- `site.css` / `site.js` — shared styles and the diagram engine (scenes live in `site.js`)
+
+```bash
+python3 scripts/build_pages.py
+```
+
+The output is committed, so deploys still have no build step. Blog posts,
+`bryce.html`, `resume.html`, `privacy.html`, `terms.html` and everything under
+`archive/<pillar>/` are hand-written legacy pages.
 
 ## How to add a changelog entry
 
