@@ -30,9 +30,9 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-600.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-600.woff2">
-  <link rel="stylesheet" href="/site.css?v=3b9ad6c6a9">
+  <link rel="stylesheet" href="/site.css?v=7e7052de49">
   <script>document.documentElement.classList.add('js')</script>
-  <script defer src="/site.js?v=3b9ad6c6a9"></script>
+  <script defer src="/site.js?v=7e7052de49"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -261,17 +261,8 @@
           <button class="demo-tab" id="tab-practice" role="tab" type="button" aria-selected="false" aria-controls="demo-practice" tabindex="-1"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>Real build: practice planner</button>
         </div>
 
-        <div class="demo-panel" id="demo-lead" role="tabpanel" aria-labelledby="tab-lead" data-panel-scene="lead">
-          <div class="demo-stage">
-            <div class="diagram">
-              <div class="diagram-label"><span class="tag tag--sample">Sample data</span></div>
-              <svg data-scene="lead" role="img" aria-label="Diagram: a website form and an email inbox feed an AI assistant. It drafts a reply for you to approve, then updates the CRM and schedules a follow-up."></svg>
-            </div>
-            <div class="log" aria-hidden="true">
-              <div class="log-head"><span>ACTIVITY</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-              <ol data-log></ol>
-            </div>
-          </div>
+        <div class="demo-panel" id="demo-lead" role="tabpanel" aria-labelledby="tab-lead" data-flow="lead">
+          <div class="demo-stage"><div data-flow-card></div></div>
           <div class="demo-side">
             <h3>New inquiries answered the same evening</h3>
             <p>Leads go cold while they wait. The assistant drafts a reply in minutes and you approve it from your phone.</p>
@@ -291,17 +282,8 @@
           </div>
         </div>
 
-        <div class="demo-panel" id="demo-paperwork" role="tabpanel" aria-labelledby="tab-paperwork" data-panel-scene="paperwork" hidden>
-          <div class="demo-stage">
-            <div class="diagram">
-              <div class="diagram-label"><span class="tag tag--sample">Sample data</span></div>
-              <svg data-scene="paperwork" role="img" aria-label="Diagram: invoices and forms go to AI extraction, then a rules check. Clean records go into your books and anything unusual is flagged for review."></svg>
-            </div>
-            <div class="log" aria-hidden="true">
-              <div class="log-head"><span>ACTIVITY</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-              <ol data-log></ol>
-            </div>
-          </div>
+        <div class="demo-panel" id="demo-paperwork" role="tabpanel" aria-labelledby="tab-paperwork" data-flow="paperwork" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
           <div class="demo-side">
             <h3>Invoices and forms, typed in for you</h3>
             <p>Every PDF someone retypes is time and a chance for a typo. The build reads them, checks them and files them.</p>
@@ -321,17 +303,8 @@
           </div>
         </div>
 
-        <div class="demo-panel" id="demo-report" role="tabpanel" aria-labelledby="tab-report" data-panel-scene="report" hidden>
-          <div class="demo-stage">
-            <div class="diagram">
-              <div class="diagram-label"><span class="tag tag--sample">Sample data</span></div>
-              <svg data-scene="report" role="img" aria-label="Diagram: sales, jobs and accounting data flow into a report builder, which sends a finished weekly report to your inbox."></svg>
-            </div>
-            <div class="log" aria-hidden="true">
-              <div class="log-head"><span>ACTIVITY</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-              <ol data-log></ol>
-            </div>
-          </div>
+        <div class="demo-panel" id="demo-report" role="tabpanel" aria-labelledby="tab-report" data-flow="report" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
           <div class="demo-side">
             <h3>The Monday report that builds itself</h3>
             <p>Someone spends Monday morning rebuilding the same spreadsheet. The build does it before anyone is awake.</p>
@@ -351,17 +324,8 @@
           </div>
         </div>
 
-        <div class="demo-panel" id="demo-sheet" role="tabpanel" aria-labelledby="tab-sheet" data-panel-scene="sheet" hidden>
-          <div class="demo-stage">
-            <div class="diagram">
-              <div class="diagram-label"><span class="tag tag--sample">Sample data</span></div>
-              <svg data-scene="sheet" role="img" aria-label="Diagram: a master spreadsheet becomes a structured database that powers a team app and a live dashboard."></svg>
-            </div>
-            <div class="log" aria-hidden="true">
-              <div class="log-head"><span>BUILD LOG</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-              <ol data-log></ol>
-            </div>
-          </div>
+        <div class="demo-panel" id="demo-sheet" role="tabpanel" aria-labelledby="tab-sheet" data-flow="sheet" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
           <div class="demo-side">
             <h3>The spreadsheet one person understands, turned into a tool</h3>
             <p>When the business runs on one file and one person, every vacation is a risk. The build keeps what works and makes it safe to share.</p>
@@ -381,17 +345,8 @@
           </div>
         </div>
 
-        <div class="demo-panel" id="demo-practice" role="tabpanel" aria-labelledby="tab-practice" data-panel-scene="practice" hidden>
-          <div class="demo-stage">
-            <div class="diagram">
-              <div class="diagram-label"><span class="tag tag--real">Real build</span></div>
-              <svg data-scene="practice" role="img" aria-label="Diagram: season dates and training groups feed a practice engine. A rule checker verifies each practice before practice sheets are produced."></svg>
-            </div>
-            <div class="log" aria-hidden="true">
-              <div class="log-head"><span>RUN</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-              <ol data-log></ol>
-            </div>
-          </div>
+        <div class="demo-panel" id="demo-practice" role="tabpanel" aria-labelledby="tab-practice" data-flow="practice" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
           <div class="demo-side">
             <h3>A season of swim practices, planned in minutes</h3>
             <p>A real tool I built for the coaches at Storrs Aquatics. Writing practices by hand took hours every week.</p>

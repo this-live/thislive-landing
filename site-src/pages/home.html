@@ -14,16 +14,14 @@
             <span>{{icon:map-pin}}Connecticut and remote</span>
           </p>
         </div>
-        <div class="hero-visual" data-hero>
-          <div class="diagram">
-            <div class="diagram-label"><span class="tag tag--sample">Example workflow</span></div>
-            <svg data-scene="hero" role="group" aria-label="Interactive diagram: your website, inbox, CRM, accounting, spreadsheets and calendar all connected to one system that moves information between them."></svg>
+        <div class="hero-visual" data-flow-hero="lead,paperwork,report">
+          <div class="fx-picker" role="group" aria-label="Example workflows">
+            <button type="button" data-flow-pick aria-pressed="true">Lead follow-up</button>
+            <button type="button" data-flow-pick aria-pressed="false">Invoices</button>
+            <button type="button" data-flow-pick aria-pressed="false">Weekly report</button>
           </div>
-          <p class="small muted" data-caption aria-live="polite">Hover or tab through the map to see what each connection handles.</p>
-          <div class="log" aria-hidden="true">
-            <div class="log-head"><span>ACTIVITY</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-            <ol data-log></ol>
-          </div>
+          <div data-flow-card role="img" aria-label="Example workflow on sample data: a website form or email triggers an AI agent that drafts a reply, you approve it, and the contact is added to your CRM with a follow-up scheduled."></div>
+          <p class="hero-note">Example workflows on sample data. Each one is a build I can do for you.</p>
         </div>
       </div>
     </section>
@@ -114,16 +112,7 @@
             <li>{{icon:check-circle}}<span>Plain-language progress updates every week.</span></li>
           </ul>
         </div>
-        <div class="demo-stage reveal" data-auto-scene="agents">
-          <div class="diagram">
-            <div class="diagram-label"><span class="tag tag--real">How this.live works</span></div>
-            <svg data-scene="agents" role="img" aria-label="Diagram: you brief Bryce, the architect, who directs build, test and review agents. Only verified work ships."></svg>
-          </div>
-          <div class="log" aria-hidden="true">
-            <div class="log-head"><span>PIPELINE</span><span class="log-live"><i class="log-dot mi-pulse"></i>Running</span></div>
-            <ol data-log></ol>
-          </div>
-        </div>
+        <div class="demo-stage reveal" data-flow-auto="agents"><div data-flow-card role="img" aria-label="Example change: your brief goes to Bryce, the architect, who writes the plan and acceptance checks. Build, test and review agents work in parallel, and only verified work ships."></div></div>
       </div>
     </section>
 

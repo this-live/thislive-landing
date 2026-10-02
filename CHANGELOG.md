@@ -9,6 +9,13 @@ the entries below — add a new fragment instead (see README.md, "How to add a
 changelog entry"), then re-run the assembler. Running it twice with no fragment
 changes produces byte-identical output.
 
+## 2026-10-02 — Landing: replace node-graph diagrams with n8n-style flow cards + motion primitives
+
+- Problem: Bryce called the hero/demo diagrams "terrible": hub-and-spoke labels with fast glowing dots, breathing rings, nothing real inside. They broke his own motion/HUD rules (cortex-ops COMPANY-MAP-MOTION-BRIEF, JARVIS visual language).
+- Change: one FlowCard component everywhere (hero, 5 demo walkthroughs, how-a-change-ships): HUD frame with corner brackets and a `SYSTEM //` header (live status + elapsed), n8n-style canvas (flat nodes with ports, trigger shape, AI agent node with Model/Memory/Rules capability sub-nodes, bezier connectors with arrowheads and "1 item" counts), and an OUTPUT panel with the real data each step produces (typed AI text, number tickers, status pills). One state channel per meaning: cyan running, amber waiting, rose blocked, a check for done; only the connector into the running step moves. Hero cycles Lead follow-up / Invoices / Weekly report with a picker. Phone layout is a vertical pipeline with labels beside nodes. New motion primitives in site.js: critically damped spring easing (CSS linear()), interruptible Run tokens, reveal, draw-in-direction-of-flow, calm typewriter, ticker. Card groups share one height so nothing shifts while cycling. Old SVG diagram engine, pulses and activity logs removed.
+- Verified: 29/29 Playwright checks (hero autoplay + picker + stable height, tabs + arrow keys, step jump settles earlier steps, play/pause, shared demo height, calculator, phone vertical layout + resize back to canvas, reduced-motion finished frame, no JS errors); axe 0 violations on 9 pages at 1440 and 375; no horizontal overflow at 375; true-speed clip reviewed for motion comfort (no rotation, no camera motion, no fast elements). Clip: this.live/_evidence/site-flowcards-20261002/. Not deployed.
+- Rollback: revert this commit.
+
 ## 2026-10-01 — Landing: consulting site redesign (custom software + AI), diagrams, demos, SEO plumbing
 
 - Problem: the live site still pitched the Cortex product suite; the only consulting surface was /work-with-me/. The Grok bot's Sep 30 pivot draft had the right honest copy but was text-only, had placeholder packages, broken og:image paths, a dead rss.xml link, no sitemap, and an nginx catch-all that served the homepage for every unknown URL (soft 404s; /sitemap.xml returned HTML).
