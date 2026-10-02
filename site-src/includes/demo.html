@@ -1,0 +1,114 @@
+      <div class="demo" data-demo>
+        <div class="demo-tabs" role="tablist" aria-label="Example builds">
+          <button class="demo-tab" id="tab-lead" role="tab" type="button" aria-selected="true" aria-controls="demo-lead">{{icon:mail}}Lead follow-up</button>
+          <button class="demo-tab" id="tab-paperwork" role="tab" type="button" aria-selected="false" aria-controls="demo-paperwork" tabindex="-1">{{icon:file-text}}Paperwork to data</button>
+          <button class="demo-tab" id="tab-report" role="tab" type="button" aria-selected="false" aria-controls="demo-report" tabindex="-1">{{icon:bar-chart}}Weekly report</button>
+          <button class="demo-tab" id="tab-sheet" role="tab" type="button" aria-selected="false" aria-controls="demo-sheet" tabindex="-1">{{icon:table}}Spreadsheet to app</button>
+          <button class="demo-tab" id="tab-practice" role="tab" type="button" aria-selected="false" aria-controls="demo-practice" tabindex="-1">{{icon:waves}}Real build: practice planner</button>
+        </div>
+
+        <div class="demo-panel" id="demo-lead" role="tabpanel" aria-labelledby="tab-lead" data-flow="lead">
+          <div class="demo-stage"><div data-flow-card></div></div>
+          <div class="demo-side">
+            <h3>New inquiries answered the same evening</h3>
+            <p>Leads go cold while they wait. The assistant drafts a reply in minutes and you approve it from your phone.</p>
+            <ol class="demo-steps">
+              <li><button class="demo-step" type="button"><span class="demo-step-num">1</span><span><strong>An inquiry comes in</strong><span class="d">A request lands from your website form or inbox, at 9:14 on a Sunday night.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">2</span><span><strong>The assistant drafts a reply</strong><span class="d">It reads the request, checks your services and calendar, and writes a reply in your voice.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">3</span><span><strong>You approve it</strong><span class="d">Approve, edit or reject in one tap. Nothing goes out without you.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">4</span><span><strong>Logged and scheduled</strong><span class="d">The contact goes into your CRM with notes, and a follow-up is set if they do not reply.</span></span></button></li>
+            </ol>
+            <div class="demo-controls">
+              <button class="ctrl" type="button" data-ctrl="prev" aria-label="Previous step">{{icon:chevron-left}}</button>
+              <button class="ctrl" type="button" data-ctrl="play" aria-pressed="true" aria-label="Pause walkthrough">{{icon:pause:icon icon-pause}}{{icon:play:icon icon-play}}</button>
+              <button class="ctrl" type="button" data-ctrl="next" aria-label="Next step">{{icon:chevron-right}}</button>
+              <div class="demo-progress" aria-hidden="true"><i></i></div>
+            </div>
+            <p class="demo-note"><a class="text-link" href="/use-cases/#lead">How this build works {{icon:arrow-right}}</a></p>
+          </div>
+        </div>
+
+        <div class="demo-panel" id="demo-paperwork" role="tabpanel" aria-labelledby="tab-paperwork" data-flow="paperwork" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
+          <div class="demo-side">
+            <h3>Invoices and forms, typed in for you</h3>
+            <p>Every PDF someone retypes is time and a chance for a typo. The build reads them, checks them and files them.</p>
+            <ol class="demo-steps">
+              <li><button class="demo-step" type="button"><span class="demo-step-num">1</span><span><strong>Documents arrive</strong><span class="d">PDF invoices, intake forms or receipts arrive by email or in a shared folder.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">2</span><span><strong>The details are read off</strong><span class="d">Vendor, amounts, dates and line items are pulled from each document.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">3</span><span><strong>Checked against your rules</strong><span class="d">Totals are re-added, vendors matched and duplicates caught.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">4</span><span><strong>Entered, or flagged</strong><span class="d">Clean records go straight into your books. Anything odd waits for a person.</span></span></button></li>
+            </ol>
+            <div class="demo-controls">
+              <button class="ctrl" type="button" data-ctrl="prev" aria-label="Previous step">{{icon:chevron-left}}</button>
+              <button class="ctrl" type="button" data-ctrl="play" aria-pressed="true" aria-label="Pause walkthrough">{{icon:pause:icon icon-pause}}{{icon:play:icon icon-play}}</button>
+              <button class="ctrl" type="button" data-ctrl="next" aria-label="Next step">{{icon:chevron-right}}</button>
+              <div class="demo-progress" aria-hidden="true"><i></i></div>
+            </div>
+            <p class="demo-note"><a class="text-link" href="/use-cases/#paperwork">How this build works {{icon:arrow-right}}</a></p>
+          </div>
+        </div>
+
+        <div class="demo-panel" id="demo-report" role="tabpanel" aria-labelledby="tab-report" data-flow="report" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
+          <div class="demo-side">
+            <h3>The Monday report that builds itself</h3>
+            <p>Someone spends Monday morning rebuilding the same spreadsheet. The build does it before anyone is awake.</p>
+            <ol class="demo-steps">
+              <li><button class="demo-step" type="button"><span class="demo-step-num">1</span><span><strong>Pulls from your systems</strong><span class="d">Every Monday at 6 it collects last week's numbers from the tools you already use.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">2</span><span><strong>Assembles the report</strong><span class="d">Totals and trends, in the format your team already reads.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">3</span><span><strong>Explains what moved</strong><span class="d">Short notes on what went up, what went down and what needs attention.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">4</span><span><strong>In your inbox by 7</strong><span class="d">Nobody rebuilds it by hand anymore.</span></span></button></li>
+            </ol>
+            <div class="demo-controls">
+              <button class="ctrl" type="button" data-ctrl="prev" aria-label="Previous step">{{icon:chevron-left}}</button>
+              <button class="ctrl" type="button" data-ctrl="play" aria-pressed="true" aria-label="Pause walkthrough">{{icon:pause:icon icon-pause}}{{icon:play:icon icon-play}}</button>
+              <button class="ctrl" type="button" data-ctrl="next" aria-label="Next step">{{icon:chevron-right}}</button>
+              <div class="demo-progress" aria-hidden="true"><i></i></div>
+            </div>
+            <p class="demo-note"><a class="text-link" href="/use-cases/#report">How this build works {{icon:arrow-right}}</a></p>
+          </div>
+        </div>
+
+        <div class="demo-panel" id="demo-sheet" role="tabpanel" aria-labelledby="tab-sheet" data-flow="sheet" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
+          <div class="demo-side">
+            <h3>The spreadsheet one person understands, turned into a tool</h3>
+            <p>When the business runs on one file and one person, every vacation is a risk. The build keeps what works and makes it safe to share.</p>
+            <ol class="demo-steps">
+              <li><button class="demo-step" type="button"><span class="demo-step-num">1</span><span><strong>Start from what works</strong><span class="d">We map the spreadsheet as it is used today, including the rules nobody wrote down.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">2</span><span><strong>Give it structure</strong><span class="d">The data moves into a real database with validation, history and permissions.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">3</span><span><strong>A simple app for the team</strong><span class="d">Everyone enters and finds what they need through screens built for their job, on any device.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">4</span><span><strong>Answers at a glance</strong><span class="d">A live dashboard replaces the weekly copy and paste.</span></span></button></li>
+            </ol>
+            <div class="demo-controls">
+              <button class="ctrl" type="button" data-ctrl="prev" aria-label="Previous step">{{icon:chevron-left}}</button>
+              <button class="ctrl" type="button" data-ctrl="play" aria-pressed="true" aria-label="Pause walkthrough">{{icon:pause:icon icon-pause}}{{icon:play:icon icon-play}}</button>
+              <button class="ctrl" type="button" data-ctrl="next" aria-label="Next step">{{icon:chevron-right}}</button>
+              <div class="demo-progress" aria-hidden="true"><i></i></div>
+            </div>
+            <p class="demo-note"><a class="text-link" href="/use-cases/#sheet">How this build works {{icon:arrow-right}}</a></p>
+          </div>
+        </div>
+
+        <div class="demo-panel" id="demo-practice" role="tabpanel" aria-labelledby="tab-practice" data-flow="practice" hidden>
+          <div class="demo-stage"><div data-flow-card></div></div>
+          <div class="demo-side">
+            <h3>A season of swim practices, planned in minutes</h3>
+            <p>A real tool I built for the coaches at Storrs Aquatics. Writing practices by hand took hours every week.</p>
+            <ol class="demo-steps">
+              <li><button class="demo-step" type="button"><span class="demo-step-num">1</span><span><strong>The coach sets the season</strong><span class="d">Training groups, meet dates and the club's rules for each group.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">2</span><span><strong>The engine writes the plan</strong><span class="d">Practices for each group, built to the right distance and focus for that point in the season.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">3</span><span><strong>Checked before it ships</strong><span class="d">A rule checker rejects any practice that breaks the coaches' standards.</span></span></button></li>
+              <li><button class="demo-step" type="button"><span class="demo-step-num">4</span><span><strong>Ready for the pool deck</strong><span class="d">Formatted practice sheets for coaches, plus a card for each group.</span></span></button></li>
+            </ol>
+            <div class="demo-controls">
+              <button class="ctrl" type="button" data-ctrl="prev" aria-label="Previous step">{{icon:chevron-left}}</button>
+              <button class="ctrl" type="button" data-ctrl="play" aria-pressed="true" aria-label="Pause walkthrough">{{icon:pause:icon icon-pause}}{{icon:play:icon icon-play}}</button>
+              <button class="ctrl" type="button" data-ctrl="next" aria-label="Next step">{{icon:chevron-right}}</button>
+              <div class="demo-progress" aria-hidden="true"><i></i></div>
+            </div>
+            <p class="demo-note"><a class="text-link" href="/use-cases/#practice">How this build works {{icon:arrow-right}}</a></p>
+          </div>
+        </div>
+      </div>
