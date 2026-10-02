@@ -1,5 +1,5 @@
 /* Final QA capture for ship-qa.
-   Screenshots umbrella + 6 pillars + blog + resume at 390/768/1280/1920 full page.
+   Screenshots umbrella + 6 pillars + resume at 390/768/1280/1920 full page.
    Captures console errors + CLS per (page,viewport).
    Run: node scripts/qa_shoot.js
    A static server must serve BASE. */
@@ -19,7 +19,6 @@ const PAGES = [
   ['fabric/', 'fabric'],
   ['surfaces/', 'surfaces'],
   ['forge/', 'forge'],
-  ['blog/', 'blog'],
   ['resume.html', 'resume'],
 ];
 const VIEWPORTS = [[390, 844, '390'], [768, 1024, '768'], [1280, 832, '1280'], [1920, 1080, '1920']];

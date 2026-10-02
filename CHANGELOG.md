@@ -9,6 +9,46 @@ the entries below — add a new fragment instead (see README.md, "How to add a
 changelog entry"), then re-run the assembler. Running it twice with no fragment
 changes produces byte-identical output.
 
+## 2026-10-01 — Landing: founder headshot
+
+- Problem: the site still used an older indoor photo of Bryce, and `/work-with-me/` and the resume had no photo.
+- Change: added `img/bryce-headshot.webp` (600px) and `img/bryce-headshot@2x.webp` (1200px), and replaced `img/bryce-headshot.jpg` with a 600px JPEG of the same photo. The home "I'm Bryce Murad." block, the founder-page portrait, a matching row on `/work-with-me/`, and the resume use it, with alt text "Bryce Murad". The site already has `og-image.png` for social cards, so `og:image` and `twitter:image` are unchanged.
+- Reason: Bryce wants this photo used as his headshot.
+- Verified: home, founder, and blog checks; the WebP files serve locally; screenshots of the home about block, `/work-with-me/`, the founder page, and the resume on desktop and mobile.
+- Rollback: revert this commit.
+
+## 2026-10-01 — Site: motion layer, resume trim, philosophy page removed
+
+- Problem: motion was scattered across site.css and design-system.css with no scroll reveals, no accordion motion and no nav state; the resume still listed old projects; Bryce wants the philosophy essay off the site.
+- Change: new `motion.css` + `motion.js` (vanilla, documented in `MOTION.md`, patterns adapted from Motion Primitives, MIT, credited) on every page: staggered hero entrance with a word-by-word text effect, a pointer spotlight on cards, IntersectionObserver scroll reveals (once), press feedback and card lift, interruptible FAQ accordion, sticky nav that deepens on scroll. Tokens only, transform/opacity only (plus FAQ height), reduced motion honored, no transition-all. Resume project list trimmed to current work (this.live, Maestro, Mnemos, Ostium, Beacon) and the operating-model paragraph moved to first person. `philosophy.html` deleted, removed from footer, About page and sitemap; nginx 301s `/philosophy.html` and `/philosophy` to `/`.
+- Reason: Bryce's PR #19 feedback.
+- Verified: repo checks; local nginx (redirects, 404, all pages 200); link check; Playwright screenshots, hero/scroll frame sequences and video; no console errors; reduced motion on/off; layout-shift measurement.
+- Rollback: revert this commit.
+
+## 2026-10-01 — Landing: ownership-first home page rebuild
+
+- Problem: the home page still pitched "decentralized, sovereign, fully-local agentic AI" with a portfolio, stale stats, Cal.com booking and an old price ladder on `/work-with-me/`.
+- Change: new home page built from `site-rebuild/landing-v1.md`. Hero "Automate the right work. Keep your edge." Sections: problem, the path (start, choose, run it yourself, own it), services mapped to the path, proof, why local now, how it works, about (headshot), FAQ, footer. No prices. Booking goes to the Google appointment page; contact is bryce@this.live. `/work-with-me/` folded into the home page and 301s to `/#how`; links on other pages updated. New `home.css` uses the design-system motion tokens (no `transition: all`, `:active` press feedback, reduced motion and reduced transparency honored, no canvas or JS animation). Home checks rewritten for the new page.
+- Reason: Bryce's ownership-first positioning; supersedes PR #18.
+- Verified: blog, home, Cortex and founder checks; local nginx with repo config (301s for `/blog*` and `/work-with-me*`, `/blog.css` 200); internal link check; Playwright screenshots at 1440, 768 and 390 wide with no horizontal overflow and no console errors.
+- Rollback: revert this commit.
+
+## 2026-10-01 — Landing: public blog removed
+
+- Problem: the home page, nav, and footer still advertised a blog, and `/blog/` plus every post still shipped as pages.
+- Change: the blog section, the Blog link in the nav and footer, the blog index, and every post page are deleted. nginx permanently redirects `/blog` and `/blog/…` to `/`. `/blog.css` stays because the resume page uses it. There is no sitemap or RSS feed in this repo to update.
+- Reason: Bryce wants the public blog gone.
+- Verified: blog surface and archive checks; home offer, Cortex block, and founder checks; nginx 301 from `/blog`, `/blog/`, and a former post path to `/`, with `/blog.css` still served; full-page home screenshots.
+- Rollback: revert this commit.
+
+## 2026-10-01 — Site: uniform voice, SEO basics, Beacon V2 mention
+
+- Problem: only the home page had the new positioning; the founder, Cortex/pillar, resume, philosophy and legal pages used older styles, older copy and different nav/footers. No sitemap, robots.txt, real 404 or current og-image.
+- Change: every page now shares one nav, footer, stylesheet (`site.css`, renamed from `home.css`) and first-person voice. Home hero paragraph rewritten as a formal two-sentence explainer; "AI tool review" folded into the free call and plan; proof card anonymized with no numbers; "open-weight models from labs in China and the US"; "What I'm building" lists Maestro, Mnemos, Ostium and Beacon (V2, coming). Pillar pages rewritten short and plain with honest status. Founder page rewritten. Philosophy body kept as written; resume intro rewritten, Beacon marked V2, rest kept. Privacy and terms keep their content (including Beacon) inside the shared layout. Unique title, description, canonical, Open Graph and H1 on every page; JSON-LD on home; new 1200×630 og-image; `sitemap.xml`, `robots.txt`, `404.html` with nginx `error_page` (unknown paths now return 404 instead of home). Removed unused hero canvases and old stylesheets.
+- Reason: Bryce wants the site finished, uniform and in his voice ahead of SEO and a LinkedIn campaign.
+- Verified: repo checks (blog, home, Cortex, founder, resume); local nginx with repo config for redirects, 404 and all pages; internal link and alt-text check; Playwright at 1440/768/390 for home, Cortex and About with no console errors or horizontal overflow; reduced motion.
+- Rollback: revert this commit.
+
 ## 2026-09-21 — Landing: ship /work-with-me with Cal.com Automation Triage booking
 
 - Problem: consulting conversion page was staged locally with a booking placeholder; Google Workspace Appointment schedule still blocked.

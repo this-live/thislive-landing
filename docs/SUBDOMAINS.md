@@ -69,7 +69,9 @@ server {
     location = / {                       # ONLY the bare "/" request
         try_files $pillar_home /index.html =404;
     }
-    location / {                         # assets, /blog/, /maestro/, deep pages
+    location = /blog { return 301 /; }   # former blog index
+    location ^~ /blog/ { return 301 /; } # former blog posts
+    location / {                         # assets, /maestro/, deep pages
         try_files $uri $uri/ /index.html;
     }
 }
@@ -79,9 +81,9 @@ Behavior:
 
 - `https://cortex.this.live/` → serves `/cortex/index.html` at a clean URL.
 - `https://this.live/` and `https://www.this.live/` → the umbrella, unchanged.
-- Assets and deep paths (`/design-system.css`, `/blog/`, `/resume.html`, and
+- Assets and deep paths (`/design-system.css`, `/resume.html`, and
   cross-pillar nav like `/maestro/`) fall through the catch-all `location /` and
-  serve normally from any Host.
+  serve normally from any Host. `/blog` and `/blog/…` permanently redirect to `/`.
 
 Also shipped in this change: `Dockerfile` now runs `chmod -R a+rX
 /usr/share/nginx/html`. The source `index.html` is mode `0600` on disk; the
@@ -98,8 +100,8 @@ Built the image and curled with spoofed `Host` headers:
 - `this.live/` and `www.this.live/` → **200**, the umbrella (the 403 is fixed).
 - Assets on a pillar host (`/design-system.css`, `/pillar.css`, `/favicon.png`,
   `/fonts/inter-400.woff2`) → **200**.
-- Cross-pillar nav (`/maestro/` on the cortex host), deep pages (`/blog/`,
-  `/resume.html`), and the SPA fallback → **200**.
+- Cross-pillar nav (`/maestro/` on the cortex host), deep pages (`/resume.html`),
+  and the SPA fallback → **200**. `/blog/` now returns **301** to `/`.
 
 ---
 

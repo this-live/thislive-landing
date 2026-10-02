@@ -3,45 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bryce Murad — founder of This.Live, AI operator, network solution architect, builder, and swim coach.">
-  <meta property="og:title" content="Bryce Murad — Founder & AI Operator">
-  <meta property="og:description" content="Living resume: This.Live projects, AI tools, infrastructure, founder background, coaching, and operating principles.">
-  <meta property="og:url" content="https://www.this.live/resume.html">
-  <meta property="og:type" content="profile">
-  <meta property="og:image" content="https://www.this.live/og-image.png">
-  <title>Bryce Murad — Founder & AI Operator</title>
+  <title>Resume · Bryce Murad · this.live</title>
+  <meta name="description" content="Resume of Bryce Murad: founder of this.live, former network solutions architect at Ensono, CCNA and Azure certified, Division II swimmer and swim coach.">
+  <link rel="canonical" href="https://this.live/resume.html">
+  <meta name="theme-color" content="#080B14">
+  <meta property="og:site_name" content="this.live">
+  <meta property="og:title" content="Resume · Bryce Murad · this.live">
+  <meta property="og:description" content="Resume of Bryce Murad: founder of this.live, former network solutions architect at Ensono, CCNA and Azure certified, Division II swimmer and swim coach.">
+  <meta property="og:url" content="https://this.live/resume.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://this.live/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="this.live: Automate the right work. Keep your edge.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resume · Bryce Murad · this.live">
+  <meta name="twitter:description" content="Resume of Bryce Murad: founder of this.live, former network solutions architect at Ensono, CCNA and Azure certified, Division II swimmer and swim coach.">
+  <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog.css">
+  <link rel="apple-touch-icon" href="/icon-180.png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-700.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
+  <link rel="stylesheet" href="/design-system.css">
+  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/motion.css">
+  <script>document.documentElement.classList.add('m-js');setTimeout(function(){if(!window.__motionReady)document.documentElement.classList.remove('m-js')},3000)</script>
+  <script src="/motion.js" defer></script>
 </head>
 <body>
-  <nav class="nav">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="nav" id="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="/resume.html">Founder</a>
+      <a href="/" class="logo" aria-label="this.live home">this<span class="logo-dot">.</span>live</a>
+      <div class="nav-links" id="navLinks">
+        <a href="/#services">Services</a>
+        <a href="/#how">How I work</a>
+        <a href="/bryce.html">About</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Book a free call</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </nav>
-
-  <article class="post-container">
-    <p class="post-meta">Founder profile / living resume</p>
-    <h1>Bryce Murad — Founder & AI Operator</h1>
-    <div class="post-body">
-      <p>Bryce Murad is the founder of This.Live, a local-first AI software publishing house building products, infrastructure, and operating systems around agentic AI. His work sits at the intersection of software, networks, model systems, product strategy, and practical human judgment.</p>
-
-      <p>He is also a swim coach in his free time. The coaching lens matters: the same discipline that turns practice into performance shows up in how he builds products, teaches agents, runs teams, evaluates models, and treats people. He was a nationally ranked swimmer, became a network solution architect, lived between Singapore and the United States, and has traveled widely enough to care about how systems work across cultures, incentives, infrastructure, and human defaults.</p>
-
-      <h2>Current focus</h2>
-      <p>Getting Cortex to fully work end-to-end — and into the public's hands. Cortex is his decentralized, sovereign, fully-local agentic AI suite: six pillars that run across his own machines and link into one system you own rather than rent — memory (Mnemos), routing (Maestro), orchestration (Agent Fabric), self-improving local models (Forge), the human surfaces and desktop app (Surfaces), and the control plane (Cortex). The work right now is hardening each pillar into a mature, reliable product, linking the decentralized fleet into one system that brings itself up and gets out of the way, and releasing Cortex so anyone can put real, owned AI to work on hardware they control — no rented seat, nothing leaving your machines.</p>
-
-      <h2>Founder background</h2>
+  <main id="main">
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <p class="eyebrow">Resume</p>
+        <h1 class="page-title">Bryce Murad: resume</h1>
+        
+      </div>
+    </header>
+    <section class="section section--hairline">
+      <div class="container container--narrow prose">
+<p>I'm the founder of this.live. I build custom AI systems and automations for businesses, choose the tools deliberately, and deploy privately or locally where it matters. Before this I was a network solutions architect for 60+ Fortune 1000 clients and government agencies. I also coach swimming.</p>
+<h2>Current focus</h2>
+<p>Client work: custom automations and consulting, with local and hybrid AI deployments as my specialty. Alongside it I build my own tools, including Maestro, Mnemos and Ostium, which I'll open source once they work the way I intend.</p>
+<h2>Founder background</h2>
       <ul>
-        <li><strong>Founder/operator:</strong> building This.Live as a portfolio of AI-native products and local-first infrastructure rather than a single SaaS app.</li>
+        <li><strong>Founder/operator:</strong> building this.live as a consulting and automation practice, with my own local-first tools alongside it.</li>
         <li><strong>Network solutions architect:</strong> brings systems thinking from enterprise network architecture, infrastructure, uptime, routing, security, troubleshooting, cost modeling, and real-world operational constraints.</li>
         <li><strong>Swimmer and coach:</strong> nationally ranked swimming background, Division II college swimming, practical coaching experience, and a belief that perfect practice, composure, and accountability compound.</li>
         <li><strong>International perspective:</strong> 6 years living in Singapore, summer work in Norway, and 30+ countries across Europe, Asia, Oceania, and the Americas.</li>
@@ -81,19 +102,13 @@
         <li>Global perspective shaped by 6 years living in Singapore, summer work in Norway, and 30+ countries across Europe, Asia, Oceania, and the Americas.</li>
       </ul>
 
-      <h2>Active project portfolio</h2>
+      <h2>Current work</h2>
       <ul>
-        <li><strong>Cortex Suite:</strong> local-first AI operating stack spanning Hermes runtime, Mnemos memory, Agent Fabric orchestration, Maestro routing, Forge adapter work, and personal/operator surfaces.</li>
-        <li><strong>Forge:</strong> source-grounded engineering-agent and adapter-factory layer for curated corpora, eval-gated code review lanes, label harvesting, LoRA / adapter training readiness, and local specialist serving paths.</li>
-        <li><strong>Surfaces:</strong> Pocket Agent for live voice sessions that turn rough asks into punched-up intent and parallelization through Agent Fabric; Personal Life OS for dynamic calendar and todo; Fleet Terminal for the Even Realities interface.</li>
-        <li><strong>Beacon:</strong> public beta surface for local-service lead generation and demo-site opportunity workflows.</li>
-        <li><strong>Maestro:</strong> model routing, consensus, quality labeling, and local/frontier model selection.</li>
-        <li><strong>Signal & Noise:</strong> AI podcast pipeline with persistent memory, voice cloning, scripted research, and distribution automation.</li>
-        <li><strong>Digital Products Lab:</strong> blog, short-video, Buffer/social, lead magnet, and operator-product engine for This.Live.</li>
-        <li><strong>Fieldhouse Games:</strong> sports-game studio for underserved mobile-first arcade sports titles.</li>
-        <li><strong>FTAG Studio:</strong> Future Throwback Arcade Games, a non-sports game studio for original spiritual successors to Flash-era loops; first lane is Ages and Arrows.</li>
-        <li><strong>Brokernomex / IQlume:</strong> staged revival of evidence-loop financial agents with paper, shadow, and bounded live-pilot gates.</li>
-        <li><strong>SAQ / Storrs Aquatics:</strong> community/coaching support surface, website stability, swim-team tooling, and zero-disruption handoffs.</li>
+        <li><strong>this.live:</strong> custom AI systems and automations for businesses, with local and hybrid deployments as my specialty.</li>
+        <li><strong>Maestro:</strong> picks the right AI model for each task, local first. In the works; open source once it's ready.</li>
+        <li><strong>Mnemos:</strong> shared AI memory kept on my own hardware and filed by project. In the works; open source once it's ready.</li>
+        <li><strong>Ostium:</strong> one place to run and review work across several AI coding assistants. In the works.</li>
+        <li><strong>Beacon:</strong> helps consultants build a client pipeline that finds real leads and brings in people who want to work with them. V2 in the works.</li>
       </ul>
 
       <h2>AI tools and coding harnesses</h2>
@@ -123,17 +138,39 @@
       </ul>
 
       <h2>Operating model</h2>
-      <p>This.Live is built by pairing human product judgment with agent execution. Bryce defines the product direction, evidence gates, and quality bar; agents handle code, tests, docs, research, QA, migrations, and recurring operational loops. The goal is not generic automation. The goal is a working AI-native software company where projects accumulate memory, improve through receipts, and ship through real verification.</p>
-    </div>
-    <div class="post-nav">
-      <a href="/">&larr; Back to This.Live</a>
-    </div>
-  </article>
+      <p>I run this.live by pairing my own judgment with AI agents. I set the direction, the standards and the quality bar. Agents handle code, tests, docs, research, QA and recurring operational work. I review what ships. It\'s the same way of working I set up for clients, and the reason I can deliver like a small team.</p>
+      </div>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 this.live LLC. All rights reserved.</p>
+  <footer class="footer2">
+    <div class="container footer2-inner">
+      <div>
+        <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+        <p>Bryce Murad · Custom AI systems and automations · Connecticut, USA</p>
+        <p>&copy; 2026 this.live LLC</p>
+      </div>
+      <nav class="footer2-links" aria-label="Footer">
+        <a href="mailto:bryce@this.live">bryce@this.live</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" target="_blank" rel="noopener">Book a free call</a>
+        <a href="/bryce.html">About</a>
+        <a href="/cortex/">Cortex</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      function set(open) { l.classList.toggle('is-open', open); t.setAttribute('aria-expanded', open ? 'true' : 'false'); t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+      t.addEventListener('click', function () { set(!l.classList.contains('is-open')); });
+      l.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
+  </script>
 </body>
 </html>

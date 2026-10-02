@@ -3,727 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forge · Department specialists, proven by evals</title>
-  <meta name="description" content="Forge turns a company's departments into locally specialized agents: seven departments, 86 chartered agents, one catalog any orchestrator can dispatch to — and a per-agent improvement loop that only keeps a change when a real held-out eval says it got better.">
+  <title>Forge · Specialist AI helpers that must test better · this.live</title>
+  <meta name="description" content="Forge builds specialist AI helpers for each part of a business. A change is only kept if testing shows it&#x27;s better. Local model training is still in build.">
+  <link rel="canonical" href="https://this.live/forge/">
   <meta name="theme-color" content="#080B14">
-  <meta property="og:title" content="Forge · Department specialists, proven by evals">
-  <meta property="og:description" content="Seven departments, 86 chartered agents, one catalog. Agents that get better on their own slice of work — and only when the eval says so.">
+  <meta property="og:site_name" content="this.live">
+  <meta property="og:title" content="Forge · Specialist AI helpers that must test better · this.live">
+  <meta property="og:description" content="Forge builds specialist AI helpers for each part of a business. A change is only kept if testing shows it&#x27;s better. Local model training is still in build.">
   <meta property="og:url" content="https://this.live/forge/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://this.live/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="this.live: Automate the right work. Keep your edge.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Forge · This.Live">
-  <meta name="twitter:description" content="The specialist factory for a company's departments. Real held-out evals, a ratchet that cannot lie, human-readable department memory.">
+  <meta name="twitter:title" content="Forge · Specialist AI helpers that must test better · this.live">
+  <meta name="twitter:description" content="Forge builds specialist AI helpers for each part of a business. A change is only kept if testing shows it&#x27;s better. Local model training is still in build.">
   <meta name="twitter:image" content="https://this.live/og-image.png">
   <link rel="icon" type="image/png" href="/favicon.png?v=2">
   <link rel="apple-touch-icon" href="/icon-180.png">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/space-grotesk-700.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-400.woff2">
   <link rel="stylesheet" href="/design-system.css">
-  <link rel="stylesheet" href="/pillar.css">
+  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/motion.css">
+  <script>document.documentElement.classList.add('m-js');setTimeout(function(){if(!window.__motionReady)document.documentElement.classList.remove('m-js')},3000)</script>
+  <script src="/motion.js" defer></script>
 </head>
-<body class="pillar-page h-amber">
-
-  <!-- ── NAV ── -->
-  <nav class="nav" id="nav">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="nav" id="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+      <a href="/" class="logo" aria-label="this.live home">this<span class="logo-dot">.</span>live</a>
       <div class="nav-links" id="navLinks">
-        <a href="/cortex/">Cortex</a>
-        <a href="/maestro/">Maestro</a>
-        <a href="/mnemos/">Mnemos</a>
-        <a href="/fabric/">Fabric</a>
-        <a href="/surfaces/">Surfaces</a>
-        <a href="/#suite" class="nav-back">&larr; The Suite</a>
-        <a href="#how" class="btn btn-primary btn-sm nav-cta">How the factory works</a>
+        <a href="/#services">Services</a>
+        <a href="/#how">How I work</a>
+        <a href="/bryce.html">About</a>
+        <a href="/#faq">FAQ</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Book a free call</a>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </nav>
-
   <main id="main">
+    <header class="page-hero">
+      <div class="container container--narrow">
+        <p class="eyebrow">Forge</p>
+        <h1 class="page-title">Forge: specialist helpers that have to prove they're better</h1>
+        <p class="page-lede">Forge builds specialist AI helpers for each part of a business: engineering, marketing, sales, finance, operations and more. A change is only kept if testing shows it's better.</p>
+      </div>
+    </header>
 
-  <!-- ── HERO ── -->
-  <header class="phero">
-    <div class="phero-bg" aria-hidden="true">
-      <div class="phero-grid"></div>
-      <div class="phero-orb phero-orb--1"></div>
-      <div class="phero-orb phero-orb--2"></div>
-      <canvas id="heroCanvas" class="phero-particles"></canvas>
-    </div>
-    <div class="container">
-      <div class="phero-inner">
-        <p class="phero-eyebrow reveal"><span class="dot"></span> Forge · the specialist factory</p>
-        <h1 class="reveal" data-delay="1">Your departments, <span class="grad">run by specialists that get better.</span></h1>
-        <p class="phero-lede reveal" data-delay="2">
-          Forge verticalizes agents into your company\'s departments — engineering, intelligence, marketing, sales, customer, finance, operations — charters them, and publishes one catalog any orchestrator can dispatch to. Each agent works its own narrow slice and improves on it: every run leaves a receipt, every change is measured on a real held-out eval, and <strong>nothing is kept unless the score says it got better.</strong> Learnings land in the department\'s own vault, in plain Markdown, mirrored to memory.
-        </p>
-        <div class="phero-actions reveal" data-delay="3">
-          <a href="#how" class="btn btn-primary btn-arrow">
-            How the loop works
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#whats-real" class="btn btn-outline">What's real today</a>
-        </div>
-        <div class="phero-meta reveal" data-delay="4">
-          <span>7 departments · 86 chartered agents</span>
-          <span>Real held-out evals, a ratchet that cannot lie</span>
-          <span>Runs on your own GPU</span>
+    <section class="section section--hairline" aria-labelledby="does-h">
+      <div class="container">
+        <div class="section-head"><h2 id="does-h">What it does</h2></div>
+        <div class="grid2">
+          <article class="card2"><h3>A helper per department</h3><p>Each helper has a written job and works on its own slice of the business.</p></article>
+          <article class="card2"><h3>Tested before it's kept</h3><p>A change has to beat the current version on a held-out test. If it doesn't, it's thrown out.</p></article>
+          <article class="card2"><h3>Local base model</h3><p>A base model already runs on my own GPU.</p></article>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- ── THE PROBLEM IT ENDS ── -->
-  <section class="section section--hairline" id="problem">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">The problem it ends</p>
-        <h2 class="title">Model dependency — and agents that ship slop</h2>
-        <p class="lede">Rent your intelligence and the model, the reprices, the deprecations, and the kill-switch all live on a server you don't control. And a model you can't specialize keeps making the same mistakes on your domain, confidently.</p>
-      </div>
-      <div class="kills">
-        <div class="kill reveal">
-          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+    <section class="section section--hairline" aria-labelledby="status-h">
+      <div class="container container--narrow">
+        <h2 id="status-h">Where it stands</h2>
+        <p class="prose-p">Still in build. I'll say so plainly until it's done. No custom-trained models yet. Training my own specialists locally is the next step, and I won't claim it until it works.</p>
+        <h2 class="mt">What it means for you</h2>
+        <p class="prose-p">The same rule applies to client work: if a change can't show it's better, it doesn't ship.</p>
+        <div class="cta-band">
           <div>
-            <h3>You can't improve a model you don't own</h3>
-            <p>Rent your intelligence and the model, the reprices, the deprecations, and the kill-switch all live on a server you don't control. Your stack can never get better at your work — every quirk of your domain is re-learned in-context, every call, forever, and you pay for it each time.</p>
+            <h2 class="cta-title">Book a free 30-minute call</h2>
+            <p>Tell me what's eating your week. I'll tell you straight whether I can help and what I'd do first. Or email me: <a href="mailto:bryce@this.live">bryce@this.live</a></p>
           </div>
-        </div>
-        <div class="kill reveal" data-delay="1">
-          <span class="kill-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-          <div>
-            <h3>Agents that confidently ship slop</h3>
-            <p>An unspecialized model has no bar to clear and no memory of getting it wrong. Forge is built with no-bypass eval and safety gates, so a candidate can't be promoted unless it measurably beats the bar. The gate is what keeps it honest.</p>
-          </div>
+          <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" class="btn btn-primary" target="_blank" rel="noopener">Book a free call</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── HOW IT WORKS (honest) ── -->
-  <section class="section" id="how">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2 class="title">A loop you own: curate, train, eval-gate, serve</h2>
-        <p class="lede">Eight lanes and a cloud harness wired into one closed loop, gated so nothing ships unproven. The base model serves today; the adapter steps light up as the first specialists clear their evals — and the routed work feeds the next pass.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step-n">01</span>
-          <h3>Curate from your work</h3>
-          <p>Your fleet's own routed work becomes training fuel. Curate, depth, and safety gates filter what's allowed in — the first stage of a loop you own, built across eight lanes.</p>
-        </div>
-        <div class="step reveal" data-delay="1">
-          <span class="step-n">02</span>
-          <h3>Train in the cloud</h3>
-          <p>A Modal cloud training harness runs the pipeline — proven on a CPU end-to-end run at <strong>$0</strong>. The pipeline runs; no adapter has started training yet (blocked on a Modal payment method).</p>
-        </div>
-        <div class="step reveal" data-delay="2">
-          <span class="step-n">03</span>
-          <h3>Eval gate</h3>
-          <p>Promotion is eval-gated: a candidate must <strong>measurably beat the base</strong> before it can be served. Registry adapters stay <code>planned</code> until they pass — the gate is what keeps the loop honest.</p>
-        </div>
-        <div class="step reveal" data-delay="3">
-          <span class="step-n">04</span>
-          <h3>Serve locally, route to first</h3>
-          <p>The base serves on your own GPU today. A gate-passing adapter is served locally and routed to first — and the routed work becomes the next adapter's training data. <strong>The loop closes.</strong></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── OWNED, GATED, RECURSIVE ── -->
-  <section class="section" id="owned">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Owned, gated, recursive</p>
-        <h2 class="title">A factory you own that compounds</h2>
-        <p class="lede">Decentralized by design: the weights live on your hardware, the gates make sure a claim can never drift ahead of the evidence, and the loop feeds itself — the more you use it, the cheaper and better it gets.</p>
-      </div>
-      <div class="caps">
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
-          <h3>You own the weights</h3>
-          <p>The base serves on your own GPU via SGLang at 262k context. Adapters are local files you hold — not API access you rent. No provider's server, no kill-switch, no reprice between you and your own model.</p>
-          <span class="ledger-ev">/models/qwen36 · 262k ctx · base_rag 0.4727</span>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
-          <h3>Gated so it cannot lie</h3>
-          <p>No-bypass curate → depth → safety → eval. A candidate is promoted only if it measurably beats the base on a held-out eval. Until then, every registry lane stays <code>planned</code> — the page says exactly what's true.</p>
-          <span class="ledger-ev">263 tests · all lanes status:planned</span>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></span>
-          <h3>It feeds itself</h3>
-          <p>Maestro auto-labels your routed work → harvest → gate → train → serve → register to <code>cortex_models</code> → route local-first → more labels. A recursive loop, owned end-to-end: the more you use it, the cheaper and better it gets.</p>
-          <span class="ledger-ev">harvest cron 15 6 · curate rejects ungrounded fuel</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── REAL CAPABILITIES ── -->
-  <section class="section section--hairline">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Real capabilities</p>
-        <h2 class="title">What Forge actually does</h2>
-        <p class="lede">Verified against the real factory — not a mock. Each capability below maps to a receipt in the truth ledger further down, including the line we will not cross.</p>
-      </div>
-      <div class="caps">
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-          <h3>Factory built end-to-end</h3>
-          <p>Eight lanes, the Modal harness, curate gates, depth and safety gates, and an alignment gate — all built. The pipeline exists and runs.</p>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg></span>
-          <h3>No-bypass eval gates</h3>
-          <p>A candidate adapter cannot be promoted unless it measurably beats the base on an eval. The gate is structural — there's no path around it.</p>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2M8 21v-4M16 21v-4"/></svg></span>
-          <h3>Base served on your GPU</h3>
-          <p>Qwen3.6 serves on a local GPU node via SGLang at 262k context, base-only. The base code-review eval baseline is measured live at <strong>0.4727</strong>.</p>
-        </div>
-        <div class="cap reveal">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.5"/><path d="M12 7v5l3 2"/></svg></span>
-          <h3>The cost-down flywheel</h3>
-          <p>Maestro labels feed harvest, curate, train, eval-gate, serve, and route — documented with live vs pending marked per link. The more you use it, the cheaper it's designed to get.</p>
-        </div>
-        <div class="cap reveal" data-delay="1">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></span>
-          <h3>Autonomous harvest loop</h3>
-          <p>A harvest loop is deployed and fired autonomously from a Sparky cron (a non-Hermes scheduler) — the intake side of the flywheel runs on its own.</p>
-        </div>
-        <div class="cap reveal" data-delay="2">
-          <span class="cap-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></span>
-          <h3>Verticalized specialists</h3>
-          <p>The factory is built to produce local adapters specialized to your domains — so the next generation of your stack is owned and tuned to your work, not rented.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ARCHITECTURE VISUAL ── -->
-  <section class="section arch">
-    <div class="container">
-      <div class="arch-layout">
-        <div class="arch-copy reveal">
-          <p class="eyebrow">The factory flywheel</p>
-          <h2>Labels in. A specialized model out — only if it clears the gate.</h2>
-          <p>Maestro's routing labels are harvested and curated into training data, trained on a Modal harness, then put through a no-bypass eval gate. Only a candidate that measurably beats the base gets served and routed. Today the base serves; no adapter has started training yet (blocked on a Modal payment method).</p>
-          <ul class="arch-list">
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gated, not aspirational.</b> The eval gate is structural — nothing unproven gets promoted.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Base serves now.</b> Qwen3.6 on your GPU via SGLang, 262k context, base-only.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5"/></svg><span><b>Training not started.</b> The train→serve→route steps light up once the first specialist starts training and clears its eval.</span></li>
-          </ul>
-        </div>
-        <div class="arch-visual reveal" data-delay="1" aria-hidden="true">
-          <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" role="img">
-            <!-- harvest -->
-            <rect class="dg-chip" x="14" y="40" width="116" height="48" rx="11"/>
-            <text class="dg-label" x="72" y="61" text-anchor="middle" font-size="12">Harvest</text>
-            <text class="dg-sub" x="72" y="76" text-anchor="middle" font-size="8.5">Maestro labels</text>
-
-            <!-- curate -->
-            <rect class="dg-node-accent" x="14" y="108" width="116" height="48" rx="11"/>
-            <text class="dg-label" x="72" y="129" text-anchor="middle" font-size="12">Curate</text>
-            <text class="dg-sub" x="72" y="144" text-anchor="middle" font-size="8.5">depth · safety gate</text>
-
-            <!-- train -->
-            <rect class="dg-node-accent" x="172" y="108" width="116" height="48" rx="11"/>
-            <text class="dg-label" x="230" y="129" text-anchor="middle" font-size="12">Train · Modal</text>
-            <text class="dg-sub" x="230" y="144" text-anchor="middle" font-size="8.5">not started</text>
-
-            <!-- flows harvest -> curate -> train -->
-            <path class="dg-flow" d="M72 88v16"/>
-            <path class="dg-flow" d="M130 132h38"/>
-            <circle r="3" fill="currentColor" class="accent-text"><animateMotion dur="3s" repeatCount="indefinite" path="M130 132h38"/></circle>
-            <polygon points="168,132 161,128 161,136" fill="currentColor" class="accent-text"/>
-
-            <!-- EVAL GATE (the load-bearing element) -->
-            <rect class="dg-node-accent" x="172" y="190" width="116" height="56" rx="12"
-                  stroke-dasharray="0" style="stroke-width:1.8"/>
-            <path class="dg-ico" d="M214 218l5 5 11-11"/>
-            <text class="dg-label" x="230" y="210" text-anchor="middle" font-size="12">Eval gate</text>
-            <text class="dg-sub" x="230" y="240" text-anchor="middle" font-size="8">must beat base</text>
-            <path class="dg-flow" d="M230 156v34"/>
-
-            <!-- serve (base today) -->
-            <rect class="dg-node" x="330" y="108" width="116" height="48" rx="11"/>
-            <text class="dg-label" x="388" y="129" text-anchor="middle" font-size="12">Serve · SGLang</text>
-            <text class="dg-sub" x="388" y="144" text-anchor="middle" font-size="8.5">base on your GPU</text>
-
-            <!-- route (staged) -->
-            <rect class="dg-node" x="330" y="190" width="116" height="56" rx="12"/>
-            <text class="dg-label" x="388" y="214" text-anchor="middle" font-size="12">Route local-first</text>
-            <text class="dg-sub" x="388" y="232" text-anchor="middle" font-size="8.5">cortex_models · staged</text>
-
-            <!-- gate -> serve/route (gated, dashed = not yet) -->
-            <path class="dg-flow-soft" d="M288 210h42" stroke-dasharray="4 5"/>
-            <path class="dg-flow-soft" d="M288 200 C 308 180, 308 138, 330 132" stroke-dasharray="4 5"/>
-
-            <!-- base serves now (solid) -->
-            <text class="dg-sub" x="388" y="96" text-anchor="middle" font-size="8" class="accent-text">live today</text>
-
-            <!-- flywheel return: route -> harvest -->
-            <path class="dg-flow-soft" d="M388 246 C 388 300, 72 300, 72 156" stroke-dasharray="3 6"/>
-            <text class="dg-sub" x="230" y="312" text-anchor="middle" font-size="9">cost-down flywheel — the more you use it, the cheaper it gets</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHAT'S REAL TODAY ── -->
-  <section class="section section--hairline" id="whats-real">
-    <div class="container">
-      <div class="section-head reveal">
-        <p class="eyebrow">Truth discipline</p>
-        <h2 class="title">What's real today — and what's staged</h2>
-        <p class="lede">We sell what's built and label what isn't. Every row below points at a receipt in the repo.</p>
-      </div>
-      <div class="ledger">
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--live">Live</span></div>
-          <div class="ledger-body">
-            <h3>The department catalog is served</h3>
-            <p>Seven departments and 86 chartered agents, compiled from the company canon into one versioned, digest-pinned catalog (<code>forge.agent-catalog.v1</code>) and served read-only: <code>/v1/departments</code>, <code>/v1/agents/&lt;dept&gt;/&lt;agent&gt;</code>. Agent Fabric already routes every intent to an owning department from the same canon.</p>
-            <span class="ledger-ev">forge/src/cortex_forge/canon.py · forge-verticals/_build/artifacts-manifest.json · agent-fabric enqueue.mjs department resolver</span>
-          </div>
-        </div>
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--live">Live</span></div>
-          <div class="ledger-body">
-            <h3>A department agent ran a real task on our own GPU</h3>
-            <p>The engineering code reviewer, briefed with its charter, reviewed a real diff (the reverse of a real fix commit) on a local Qwen3.6 server and returned a cited request-changes verdict in 17 seconds, with a contract-valid <code>ExecutionReceipt v1</code>. Its first measured baselines on a real suite built from real fix commits: <code>0.96</code> on the dev split, <code>0.9667</code> on the six held-out items, zero hallucinations — and the loop's first proposed skill was <strong>rejected</strong> by the ratchet (held-out 0.9667 → 0.9667, no gain), which is the gate doing its job.</p>
-            <span class="ledger-ev">forge/RECEIPTS/agent-runs/ · forge/evals/agents/engineering/code-reviewer/ · FORGE-ADR-0001</span>
-          </div>
-        </div>
-        <div class="ledger-row reveal">
-          <div><span class="badge badge--build">In Progress</span></div>
-          <div class="ledger-body">
-            <h3>The ratchet, over time</h3>
-            <p>The improvement loop is built and runs (propose a skill from dev failures → re-measure held-out → keep only on a real gain). What it has <strong>not</strong> yet shown is improvement over weeks across many agents; that record accrues in each agent's ledger and is reported as measured, never projected. Trained adapters remain staged: the training pipeline is built and load-validated at $0, and <strong>no adapter is trained or served today.</strong></p>
-            <span class="ledger-ev">forge/evals/agents/&lt;dept&gt;/&lt;agent&gt;/ledger.json · forge/LIMITATIONS.md</span>
-          </div>
-        </div>
-      </div>
-      <p class="honesty reveal"><strong>Why we say this plainly.</strong> A specialist that claimed competence it never measured would be exactly the phantom maturity this whole suite is built to avoid. The ratchet exists so the claim can't drift ahead of the evidence.</p>
-    </div>
-  </section>
-
-  <!-- ── CTA ── -->
-  <section class="cta">
-    <div class="container">
-      <div class="cta-card reveal">
-        <p class="eyebrow" style="justify-content:center;">Own your models</p>
-        <h2>Stop renting your intelligence.</h2>
-        <p>The factory is built end-to-end and gated so it cannot lie. The base serves on your own GPU; the first specialists have not started training yet (blocked on a Modal payment method). Watch it reach the first measured adapter.</p>
-        <div class="cta-actions">
-          <a href="/cortex/" class="btn btn-primary btn-arrow">
-            See the full suite
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="/maestro/" class="btn btn-outline">Where adapters get routed</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
+    </section>
   </main>
 
-  <!-- ── FOOTER ── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
-          <p class="footer-tag">A sovereign, fully-local agentic AI platform you own. Democratizing agentic AI — no providers necessary.</p>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">The Suite</p>
-          <a href="/cortex/">Cortex</a>
-          <a href="/maestro/">Maestro</a>
-          <a href="/mnemos/">Mnemos</a>
-          <a href="/fabric/">Agent Fabric</a>
-          <a href="/surfaces/">Surfaces</a>
-          <a href="/forge/">Forge</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">Forge</p>
-          <a href="#how">How it works</a>
-          <a href="#whats-real">What's real</a>
-          <a href="/maestro/">Where it routes</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-h">Company</p>
-          <a href="mailto:hello@mail.this.live">Contact</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/privacy.html">Privacy</a>
-        </div>
+  <footer class="footer2">
+    <div class="container footer2-inner">
+      <div>
+        <a href="/" class="logo">this<span class="logo-dot">.</span>live</a>
+        <p>Bryce Murad · Custom AI systems and automations · Connecticut, USA</p>
+        <p>&copy; 2026 this.live LLC</p>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 this.live LLC</span>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/thislive" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://x.com/ThisLiveActual" target="_blank" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="https://www.instagram.com/thisliveactual" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-        </div>
-      </div>
-      <p class="footer-note">Factory and base-serving claims map to receipts/phase4. No trained or served adapters exist; the page says so. The first measured local adapter is the milestone.</p>
+      <nav class="footer2-links" aria-label="Footer">
+        <a href="mailto:bryce@this.live">bryce@this.live</a>
+        <a href="https://calendar.app.google/91CNRw4SK5Jf2KZM9" target="_blank" rel="noopener">Book a free call</a>
+        <a href="/bryce.html">About</a>
+        <a href="/cortex/">Cortex</a>
+        <a href="/resume.html">Resume</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- ── JS (vanilla, CSP-safe inline) ── -->
   <script>
-  (function () {
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var nav = document.getElementById('nav');
-    var onScroll = function () { nav.classList.toggle('is-scrolled', window.scrollY > 8); };
-    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
-    var toggle = document.getElementById('navToggle');
-    var links = document.getElementById('navLinks');
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        var open = links.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      links.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') { links.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
-      });
-    }
-    var reveals = document.querySelectorAll('.reveal');
-    if (reduce || !('IntersectionObserver' in window)) {
-      reveals.forEach(function (el) { el.classList.add('in'); });
-    } else {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      reveals.forEach(function (el) { io.observe(el); });
-    }
-    /* ====================================================================
-       SIGNATURE HERO ANIMATION — "LEARN → FORGE → A BETTER MODEL → RECURSE"
-       Maestro's auto-labels stream in as cyan data dots; ungrounded fuel dims
-       at the gate (honest rejection); the rest feed a FACTORY node that brightens
-       notch-by-notch as it learns; it forges ONE better adapter (amber + a cyan
-       done-tick) that drifts out, then a faint loopback curve feeds the next pass.
-       The product thesis — a factory that feeds itself — shown, not told.
-       Same house engine as hero.js: DPR cap 2, debounced resize, visibility +
-       IntersectionObserver pause, rAF loop, ALL colors via tok() (no hex),
-       --ease easing, low-contrast (cyan ≤40% · fills ≤8% · amber hairline ≤22% ·
-       lines ≤6%). The hero TEXT always wins. prefers-reduced-motion → ONE static
-       composed frame. Two roles, no third hue: cyan = the moving data/request,
-       amber --hue = the factory/model identity (output only, never chrome).
-       ==================================================================== */
-    var canvas = document.getElementById('heroCanvas');
-    if (canvas) {
-      var ctx = canvas.getContext('2d', { alpha: true });
-      if (ctx) (function () {
-        /* -- token resolution (stay coherent with the umbrella) ------------- */
-        var css = getComputedStyle(document.documentElement);
-        function tok(name, fb) { var v = css.getPropertyValue(name); return (v && v.trim()) || fb; }
-        function hexToRgb(hex) {
-          var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec((hex || '').trim());
-          return m ? { r: parseInt(m[1], 16), g: parseInt(m[2], 16), b: parseInt(m[3], 16) } : null;
-        }
-        var ACCENT = hexToRgb(tok('--accent', '#2DE2FF')) || { r: 45, g: 226, b: 255 };
-        var HUE = hexToRgb(tok('--amber', '#FBBF77')) || { r: 251, g: 191, b: 119 };  // forge identity
-        var INK = hexToRgb(tok('--bg', '#080B14')) || { r: 8, g: 11, b: 20 };
-        var PAPER = { r: 243, g: 246, b: 251 };           // --text white, for faint fills
-        var FONT_MONO = tok('--font-mono', "'JetBrains Mono', monospace");
-        function rgba(c, a) { return 'rgba(' + c.r + ',' + c.g + ',' + c.b + ',' + a + ')'; }
-        /* house ease (cubic-bezier(.22,1,.36,1) ≈ expo-out) */
-        function ease(t) { t = t < 0 ? 0 : t > 1 ? 1 : t; return 1 - Math.pow(1 - t, 3); }
-        function clamp01(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }
-        function seg(t, a, b) { return clamp01((t - a) / (b - a)); }   // 0..1 within [a,b]
-
-        var host = canvas.parentElement;
-        var w = 0, h = 0, dpr = 1, mobile = false, raf = 0;
-        var gate = { x: 0, y: 0 }, factory = { x: 0, y: 0 }, intake = { x: 0, y: 0 };
-        var stream = [], dust = [];
-        var LOOP = 19000;                                  // ~19s ambient loop
-        var t0 = 0;
-
-        function measure() {
-          dpr = Math.min(window.devicePixelRatio || 1, 2);
-          w = host.offsetWidth; h = host.offsetHeight;
-          mobile = w < 720;
-          canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-          canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-
-        /* layout: intake at the left edge; a gate waypoint mid-left; the factory
-           node in the right negative space (where the orb sits); the emitted
-           adapter settles right of the factory. */
-        function build() {
-          var fy = h * 0.44;
-          intake.x = w * (mobile ? 0.10 : 0.12); intake.y = fy;
-          gate.x = w * (mobile ? 0.40 : 0.46); gate.y = fy;
-          factory.x = mobile ? w * 0.74 : w * 0.72; factory.y = fy;
-          // N label-dots, staggered phase offsets so they trickle, not firehose.
-          // each {phase, lane (vertical jitter), passed} — ~1 in 5 dims at the gate.
-          var N = mobile ? 4 : (w < 1100 ? 5 : (w < 1400 ? 6 : 7));
-          stream = [];
-          for (var i = 0; i < N; i++) {
-            stream.push({
-              off: i / N,                                   // staggered entry within STREAM window
-              lane: (i % 2 === 0 ? -1 : 1) * (mobile ? 10 : 18) * (0.4 + Math.random() * 0.6),
-              // honest gate rejection: roughly 1 in 5 dims and falls (never on mobile, where detail drops)
-              reject: (!mobile && i === Math.floor(N * 0.6))
-            });
-          }
-          // faint connective dust (the node motif as background tissue ~0.06)
-          dust = [];
-          var dn = mobile ? 12 : Math.min(30, Math.floor((w * h) / 46000));
-          for (var d = 0; d < dn; d++) {
-            dust.push({
-              x: Math.random() * w, y: Math.random() * h,
-              r: Math.random() * 1.0 + 0.3,
-              dx: (Math.random() - 0.5) * 0.09, dy: (Math.random() - 0.5) * 0.09,
-              o: Math.random() * 0.045 + 0.02
-            });
-          }
-        }
-
-        function roundRect(x, y, ww, hh, r) {
-          ctx.beginPath();
-          ctx.moveTo(x + r, y);
-          ctx.arcTo(x + ww, y, x + ww, y + hh, r);
-          ctx.arcTo(x + ww, y + hh, x, y + hh, r);
-          ctx.arcTo(x, y + hh, x, y, r);
-          ctx.arcTo(x, y, x + ww, y, r);
-          ctx.closePath();
-        }
-
-        /* the factory node: a faint surface square with an amber title-hairline that
-           brightens notch-by-notch as fuel arrives (learn = the slowest element). */
-        function factoryGlyph(fill, hairline, ring) {
-          var s = mobile ? 22 : 28;
-          var x = factory.x - s / 2, y = factory.y - s / 2;
-          // promote pulse-ring (amber) expands once on emit, then fades
-          if (ring > 0.001) {
-            var rr = (s * 0.5) + ring * (mobile ? 26 : 40);
-            ctx.strokeStyle = rgba(HUE, 0.20 * (1 - ring));
-            ctx.lineWidth = 1.2; ctx.beginPath();
-            ctx.arc(factory.x, factory.y, rr, 0, 6.2832); ctx.stroke();
-          }
-          // body: faint surface fill (≤8% white) + 1px border
-          ctx.fillStyle = rgba(PAPER, 0.035 + 0.045 * fill);
-          ctx.strokeStyle = rgba(PAPER, 0.07 + 0.05 * fill);
-          ctx.lineWidth = 1; roundRect(x, y, s, s, 5); ctx.fill(); ctx.stroke();
-          // internal "learning" fill rising from the bottom (≤8% white)
-          if (fill > 0.01) {
-            var fh = (s - 4) * clamp01(fill);
-            ctx.fillStyle = rgba(HUE, 0.06 * fill);
-            roundRect(x + 2, y + s - 2 - fh, s - 4, fh, 3); ctx.fill();
-          }
-          // amber title-hairline across the top — brightens one notch per arrival,
-          // momentarily caps at the --accent-line-equivalent (~0.22) then settles.
-          ctx.strokeStyle = rgba(HUE, 0.10 + clamp01(hairline) * 0.12);
-          ctx.lineWidth = 1.4; ctx.beginPath();
-          ctx.moveTo(x + 3.5, y + 3.5); ctx.lineTo(x + s - 3.5, y + 3.5); ctx.stroke();
-        }
-
-        /* the served-adapter glyph: a small amber square + a single cyan done-tick. */
-        function adapterGlyph(ax, ay, alpha, tick) {
-          if (alpha < 0.01) return;
-          var s = mobile ? 11 : 14, x = ax - s / 2, y = ay - s / 2;
-          ctx.fillStyle = rgba(HUE, 0.06 * alpha);
-          ctx.strokeStyle = rgba(HUE, 0.22 * alpha);
-          ctx.lineWidth = 1; roundRect(x, y, s, s, 3); ctx.fill(); ctx.stroke();
-          if (tick > 0.02) {
-            ctx.strokeStyle = rgba(ACCENT, 0.5 * alpha * tick);
-            ctx.lineWidth = 1.4; ctx.lineCap = 'round'; ctx.beginPath();
-            ctx.moveTo(ax - 3, ay + 0.5); ctx.lineTo(ax - 0.5, ay + 3); ctx.lineTo(ax + 3.5, ay - 2.5);
-            ctx.stroke();
-          }
-        }
-
-        /* draw one composed frame at loop-fraction p ∈ [0,1).
-           Phases: STREAM 0–.28 · LEARN .28–.58 · FORGE/EMIT .58–.78 ·
-                   RECURSE .78–.92 · BREATHE .92–1 */
-        function compose(p, animate) {
-          ctx.clearRect(0, 0, w, h);
-          ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-
-          // 0) faint dust (connective tissue ~0.06, amber-tinted)
-          for (var di = 0; di < dust.length; di++) {
-            var g = dust[di];
-            if (animate) {
-              g.x += g.dx; g.y += g.dy;
-              if (g.x < 0) g.x = w; else if (g.x > w) g.x = 0;
-              if (g.y < 0) g.y = h; else if (g.y > h) g.y = 0;
-            }
-            ctx.fillStyle = rgba(HUE, g.o);
-            ctx.beginPath(); ctx.arc(g.x, g.y, g.r, 0, 6.2832); ctx.fill();
-          }
-
-          var streamP = seg(p, 0.00, 0.58);                // dots keep flowing through LEARN
-          var learn = seg(p, 0.28, 0.58);
-          var emit = seg(p, 0.58, 0.78);
-          var recurse = seg(p, 0.78, 0.92);
-          var breathe = seg(p, 0.92, 1.00);
-          // a slightly brighter intake for the post-recurse "better next pass"
-          var rearm = recurse > 0.5 ? ease(seg(p, 0.86, 1.00)) : 0;
-
-          // 1) intake marker (faint cyan) at the left edge — re-arms brighter post-recurse
-          ctx.fillStyle = rgba(ACCENT, 0.22 + rearm * 0.18);
-          ctx.beginPath(); ctx.arc(intake.x, intake.y, mobile ? 2.2 : 2.6, 0, 6.2832); ctx.fill();
-
-          // 2) the gate waypoint — a small 1px mono-styled rounded rect the dots pass through
-          var gs = mobile ? 10 : 13, gx = gate.x - gs / 2, gy = gate.y - gs / 2;
-          ctx.strokeStyle = rgba(PAPER, 0.10);
-          ctx.fillStyle = rgba(INK, 0.30);
-          ctx.lineWidth = 1; roundRect(gx, gy, gs, gs, 3); ctx.fill(); ctx.stroke();
-
-          // 3) STREAM + LEARN — N cyan label-dots enter from the left, drift through the
-          //    gate toward the factory; ~1 in 5 dims and falls at the gate (honest).
-          //    Each absorbed dot brightens the factory hairline one notch.
-          var arrived = 0;                                  // how many have reached the factory (drives learn)
-          for (var i = 0; i < stream.length; i++) {
-            var d = stream[i];
-            // each dot's own progress within the STREAM window, staggered by its offset
-            var dp = clamp01((streamP - d.off * 0.5) / (1 - d.off * 0.5 + 0.0001));
-            if (dp <= 0.001 || breathe > 0.5) continue;
-            var dpe = ease(dp);
-            // path: intake → gate → factory (two legs)
-            var legGate = clamp01(dpe / 0.5);                // first half: intake → gate
-            var legFac = clamp01((dpe - 0.5) / 0.5);         // second half: gate → factory
-            var x, y, alpha;
-            if (legFac <= 0) {
-              x = intake.x + (gate.x - intake.x) * legGate;
-              y = intake.y + d.lane * legGate;
-              alpha = 0.40 * clamp01(dp * 4);                // fade in on entry
-            } else {
-              // rejected dots dim + sink just past the gate (the curate gate rejecting)
-              if (d.reject) {
-                var fall = clamp01(legFac * 2.2);
-                x = gate.x + 14 * legFac;
-                y = gate.y + d.lane * (1 - legFac) + fall * (mobile ? 16 : 26);
-                alpha = 0.40 * (1 - fall);
-              } else {
-                x = gate.x + (factory.x - gate.x) * legFac;
-                y = (gate.y + d.lane * (1 - legFac)) + (factory.y - gate.y) * 0; // ride toward factory y
-                y = gate.y + (factory.y - gate.y) * legFac + d.lane * (1 - legFac);
-                alpha = 0.40 * (1 - clamp01((legFac - 0.85) / 0.15)); // absorb (fade) at the factory
-                if (legFac >= 0.999) arrived++;
-              }
-            }
-            // faint 1px tail so motion reads as flow, not scatter (dropped on mobile)
-            if (!mobile && alpha > 0.02) {
-              ctx.strokeStyle = rgba(ACCENT, 0.06 * (alpha / 0.40));
-              ctx.lineWidth = 1; ctx.beginPath();
-              ctx.moveTo(x - 9, y); ctx.lineTo(x, y); ctx.stroke();
-            }
-            if (alpha > 0.01) {
-              ctx.fillStyle = rgba(ACCENT, alpha);
-              ctx.beginPath(); ctx.arc(x, y, mobile ? 2.4 : 3, 0, 6.2832); ctx.fill();
-            }
-          }
-
-          // 4) the factory node — fill + hairline brighten with LEARN (the slowest beat);
-          //    a single amber promote pulse-ring expands once at the start of EMIT.
-          var fill = ease(learn);                            // 0..1 internal learning fill
-          var hairline = ease(learn);                        // notch-by-notch brightening
-          var ring = emit > 0 && emit < 0.55 ? ease(seg(p, 0.58, 0.70)) : 0;
-          // dim back after emit
-          if (emit > 0.5) { fill *= (1 - seg(p, 0.70, 0.92)); hairline *= (1 - seg(p, 0.70, 0.92) * 0.5); }
-          factoryGlyph(fill, hairline, ring);
-
-          // 5) FORGE/EMIT — the factory emits ONE adapter glyph that eases out to the right.
-          var emitE = ease(emit);
-          var ax = factory.x + (mobile ? 30 : 52) * emitE;
-          var ay = factory.y - (mobile ? 6 : 10) * emitE;
-          var adapterA = clamp01(emit * 3) * (breathe > 0 ? (1 - breathe * 0.4) : 1);
-          // breathing glow on the settled adapter
-          var bpulse = breathe > 0 ? (0.5 + 0.5 * Math.sin(breathe * Math.PI * 2)) : 0;
-          if (adapterA > 0.02) {
-            var gr = ctx.createRadialGradient(ax, ay, 0, ax, ay, mobile ? 12 : 16);
-            gr.addColorStop(0, rgba(HUE, (0.14 + bpulse * 0.06) * adapterA));
-            gr.addColorStop(1, rgba(HUE, 0));
-            ctx.fillStyle = gr;
-            ctx.beginPath(); ctx.arc(ax, ay, mobile ? 12 : 16, 0, 6.2832); ctx.fill();
-          }
-          adapterGlyph(ax, ay, adapterA, clamp01(seg(p, 0.66, 0.78)));
-
-          // 6) RECURSE — a faint curved loopback line from the emitted adapter back to the
-          //    intake, with one cyan dot travelling along it: the new adapter feeds the next.
-          if (recurse > 0.001 && adapterA > 0.02) {
-            var rE = ease(recurse);
-            var c1x = ax, c1y = ay - (mobile ? 70 : 110);
-            var c2x = intake.x, c2y = intake.y - (mobile ? 70 : 110);
-            // draw the curve (grows with recurse), amber-faint ≤6%
-            ctx.strokeStyle = rgba(HUE, 0.06 * adapterA);
-            ctx.lineWidth = 1; ctx.beginPath();
-            ctx.moveTo(ax, ay);
-            // sample the bezier up to rE so the line "draws"
-            var steps = 26;
-            for (var s2 = 1; s2 <= steps; s2++) {
-              var tt = (s2 / steps) * rE;
-              var u = 1 - tt;
-              var bx = u * u * u * ax + 3 * u * u * tt * c1x + 3 * u * tt * tt * c2x + tt * tt * tt * intake.x;
-              var by = u * u * u * ay + 3 * u * u * tt * c1y + 3 * u * tt * tt * c2y + tt * tt * tt * intake.y;
-              ctx.lineTo(bx, by);
-            }
-            ctx.stroke();
-            // the travelling cyan dot along the curve
-            var tt2 = rE, u2 = 1 - tt2;
-            var lx = u2 * u2 * u2 * ax + 3 * u2 * u2 * tt2 * c1x + 3 * u2 * tt2 * tt2 * c2x + tt2 * tt2 * tt2 * intake.x;
-            var ly = u2 * u2 * u2 * ay + 3 * u2 * u2 * tt2 * c1y + 3 * u2 * tt2 * tt2 * c2y + tt2 * tt2 * tt2 * intake.y;
-            ctx.fillStyle = rgba(ACCENT, 0.40 * adapterA);
-            ctx.beginPath(); ctx.arc(lx, ly, mobile ? 2.2 : 2.6, 0, 6.2832); ctx.fill();
-          }
-        }
-
-        /* -- lifecycle ----------------------------------------------------- */
-        var running = false, visible = !document.hidden, onScreen = true;
-        function tick(now) {
-          if (!running) return;
-          if (!t0) t0 = now;
-          var p = ((now - t0) % LOOP) / LOOP;
-          compose(p, true);
-          raf = requestAnimationFrame(tick);
-        }
-        function start() { if (running || reduce) return; running = true; raf = requestAnimationFrame(tick); }
-        function stop() { running = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
-        function evaluate() { if (reduce) return; if (visible && onScreen) start(); else stop(); }
-
-        /* reduced-motion → ONE static composed frame: the stream frozen mid-flow into
-           the factory (hairline at full brightness), one emitted adapter glyph + its
-           done-tick to the right, and the faint loopback curve drawn back to intake.
-           The metaphor (learn → forge → better model → recurse) reads with zero motion. */
-        function staticFrame() { measure(); build(); compose(0.86, false); }
-
-        measure(); build();
-        if (reduce) { staticFrame(); return; }
-
-        document.addEventListener('visibilitychange', function () { visible = !document.hidden; evaluate(); });
-        if ('IntersectionObserver' in window) {
-          var io2 = new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; evaluate(); }, { threshold: 0.02 });
-          io2.observe(host);
-        }
-        var rt; window.addEventListener('resize', function () {
-          clearTimeout(rt); rt = setTimeout(function () {
-            measure(); build();
-            if (reduce) { staticFrame(); }
-          }, 160);
-        }, { passive: true });
-
-        evaluate();
-      })();
-    }
-  })();
+    (function () {
+      var t = document.getElementById('navToggle'), l = document.getElementById('navLinks');
+      if (!t || !l) return;
+      function set(open) { l.classList.toggle('is-open', open); t.setAttribute('aria-expanded', open ? 'true' : 'false'); t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+      t.addEventListener('click', function () { set(!l.classList.contains('is-open')); });
+      l.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
   </script>
-
 </body>
 </html>
